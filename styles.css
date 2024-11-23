@@ -1,10 +1,13 @@
 :root {
-    --primary-color: #2c3e50;
-    --secondary-color: #34495e;
-    --accent-color: #3498db;
+    --primary-color: #3a5f56;
+    --secondary-color: #767C7FF9;
+    --accent-color: #7ED6B9FF;
     --text-color: #2c3e50;
-    --light-gray: #ecf0f1;
+    --background-color: #ffffff;
+    --light-gray: #f8f9fa;
     --white: #ffffff;
+    --hover-color: #57899E7A;
+    --focus-color: #477D94CE;
     --nav-height: 70px;
     --transition-speed: 0.3s;
 }
@@ -20,7 +23,7 @@ body {
     line-height: 1.6;
     color: var(--text-color);
     overflow-x: hidden;
-    background-color: var(--white);
+    background-color: var(--background-color);
     position: relative;
 }
 
@@ -45,7 +48,7 @@ body {
     left: 10%;
     width: 300px;
     height: 300px;
-    background: #ffd700;
+    background: var(--accent-color);
 }
 
 .shape-2 {
@@ -53,7 +56,7 @@ body {
     right: 15%;
     width: 400px;
     height: 400px;
-    background: #ff6b6b;
+    background: var(--primary-color);
 }
 
 .shape-3 {
@@ -61,7 +64,7 @@ body {
     left: 50%;
     width: 350px;
     height: 350px;
-    background: #4834d4;
+    background: var(--secondary-color);
 }
 
 /* Navigation */
@@ -100,7 +103,7 @@ body {
 
 .nav-links a {
     text-decoration: none;
-    color: var(--primary-color);
+    color: var(--text-color);
     font-weight: 500;
     transition: color var(--transition-speed);
     position: relative;
@@ -113,7 +116,7 @@ body {
     left: 0;
     width: 0;
     height: 2px;
-    background: var(--accent-color);
+    background: var(--primary-color);
     transition: width var(--transition-speed);
 }
 
@@ -172,15 +175,16 @@ body {
 .cta-button {
     display: inline-block;
     padding: 1rem 2rem;
-    background: var(--accent-color);
+    background: var(--primary-color);
     color: var(--white);
     text-decoration: none;
     border-radius: 30px;
-    transition: transform var(--transition-speed);
+    transition: all var(--transition-speed);
 }
 
 .cta-button:hover {
     transform: translateY(-3px);
+    background: var(--accent-color);
 }
 
 /* Section Headers */
@@ -194,7 +198,7 @@ body {
     font-size: 0.9rem;
     text-transform: uppercase;
     letter-spacing: 2px;
-    color: var(--accent-color);
+    color: var(--primary-color);
     margin-bottom: 1rem;
 }
 
@@ -263,14 +267,14 @@ section {
 
 .service-icon {
     font-size: 2rem;
-    color: var(--accent-color);
+    color: var(--primary-color);
     margin-bottom: 1rem;
 }
 
 .learn-more {
     display: inline-block;
     margin-top: 1rem;
-    color: var(--accent-color);
+    color: var(--primary-color);
     text-decoration: none;
     font-weight: 500;
 }
@@ -312,7 +316,7 @@ section {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(58, 95, 86, 0.7);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -335,10 +339,11 @@ section {
 
 /* Footer */
 footer {
-    background: var(--primary-color);
-    color: var(--white);
+    background: var(--light-gray);
+    color: var(--text-color);
     padding: 4rem 2rem 2rem;
     margin-top: 4rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .footer-content {
@@ -357,6 +362,7 @@ footer {
     margin-bottom: 1.5rem;
     font-size: 1.2rem;
     position: relative;
+    color: var(--primary-color);
 }
 
 .footer-section h4::after {
@@ -366,7 +372,7 @@ footer {
     left: 0;
     width: 40px;
     height: 2px;
-    background: var(--accent-color);
+    background: var(--primary-color);
 }
 
 .footer-section.brand p {
@@ -380,14 +386,14 @@ footer {
 }
 
 .social-links a {
-    color: var(--white);
+    color: var(--text-color);
     text-decoration: none;
     font-size: 1.5rem;
     transition: color var(--transition-speed);
 }
 
 .social-links a:hover {
-    color: var(--accent-color);
+    color: var(--primary-color);
 }
 
 .footer-section ul {
@@ -399,13 +405,13 @@ footer {
 }
 
 .footer-section ul li a {
-    color: var(--white);
+    color: var(--text-color);
     text-decoration: none;
     transition: color var(--transition-speed);
 }
 
 .footer-section ul li a:hover {
-    color: var(--accent-color);
+    color: var(--primary-color);
 }
 
 .footer-section.contact ul li {
@@ -415,14 +421,14 @@ footer {
 }
 
 .footer-section.contact i {
-    color: var(--accent-color);
+    color: var(--primary-color);
 }
 
 .footer-bottom {
     max-width: 1200px;
     margin: 2rem auto 0;
     padding-top: 2rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
     text-align: center;
     font-size: 0.9rem;
 }
