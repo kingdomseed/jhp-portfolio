@@ -4,9 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jason Holt Photography</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div class="background-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+    </div>
+
     <nav class="floating-nav">
         <div class="nav-content">
             <div class="logo">Jason Holt Photography</div>
@@ -20,64 +27,133 @@
 
     <header class="banner">
         <div class="banner-image fade"></div>
+        <div class="banner-content">
+            <h1>Capturing Life's Beautiful Moments</h1>
+            <p>Every frame tells a story, every moment becomes timeless.</p>
+            <a href="bookings.html" class="cta-button">Book a Session</a>
+        </div>
     </header>
 
     <main>
         <section class="intro">
-            <h1>Capturing Life's Beautiful Moments</h1>
-            <p>Welcome to Jason Holt Photography, where every frame tells a story and every moment becomes timeless.</p>
+            <div class="section-header">
+                <span class="subtitle">Welcome</span>
+                <h2>Your Story Through My Lens</h2>
+                <p>Specializing in capturing authentic moments with an artistic touch.</p>
+            </div>
         </section>
 
         <section class="services">
-            <h2>Services</h2>
+            <div class="section-header">
+                <span class="subtitle">Services</span>
+                <h2>What I Offer</h2>
+            </div>
             <div class="card-container">
                 <div class="card">
-                    <img src="images/portfolio1.jpg" alt="Wedding Photography">
-                    <h3>Weddings</h3>
-                    <p>Preserving your special day with artistic elegance and attention to detail.</p>
+                    <div class="card-image">
+                        <img src="images/portfolio1.jpg" alt="Wedding Photography">
+                    </div>
+                    <div class="card-content">
+                        <i class="fas fa-heart service-icon"></i>
+                        <h3>Weddings</h3>
+                        <p>Preserving your special day with artistic elegance and attention to detail.</p>
+                        <a href="gallery.html" class="learn-more">View Gallery <i class="fas fa-arrow-right"></i></a>
+                    </div>
                 </div>
                 <div class="card">
-                    <img src="images/portfolio2.jpg" alt="Portrait Photography">
-                    <h3>Portraits</h3>
-                    <p>Professional portraits that capture your authentic self.</p>
+                    <div class="card-image">
+                        <img src="images/portfolio2.jpg" alt="Portrait Photography">
+                    </div>
+                    <div class="card-content">
+                        <i class="fas fa-camera service-icon"></i>
+                        <h3>Portraits</h3>
+                        <p>Professional portraits that capture your authentic self.</p>
+                        <a href="gallery.html" class="learn-more">View Gallery <i class="fas fa-arrow-right"></i></a>
+                    </div>
                 </div>
                 <div class="card">
-                    <img src="images/portfolio3.jpg" alt="Event Photography">
-                    <h3>Events</h3>
-                    <p>Documenting your special occasions with a journalistic approach.</p>
+                    <div class="card-image">
+                        <img src="images/portfolio3.jpg" alt="Event Photography">
+                    </div>
+                    <div class="card-content">
+                        <i class="fas fa-star service-icon"></i>
+                        <h3>Events</h3>
+                        <p>Documenting your special occasions with a journalistic approach.</p>
+                        <a href="gallery.html" class="learn-more">View Gallery <i class="fas fa-arrow-right"></i></a>
+                    </div>
                 </div>
             </div>
         </section>
 
         <section class="mini-gallery">
-            <h2>Recent Work</h2>
+            <div class="section-header">
+                <span class="subtitle">Portfolio</span>
+                <h2>Recent Work</h2>
+            </div>
             <div class="gallery-grid">
-                <img src="images/portfolio4.jpg" alt="Portfolio Image 4">
-                <img src="images/portfolio5.jpg" alt="Portfolio Image 5">
-                <img src="images/portfolio6.jpg" alt="Portfolio Image 6">
-                <img src="images/portfolio7.jpg" alt="Portfolio Image 7">
+                <div class="gallery-item">
+                    <img src="images/portfolio4.jpg" alt="Portfolio Image 4">
+                    <div class="overlay">
+                        <i class="fas fa-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/portfolio5.jpg" alt="Portfolio Image 5">
+                    <div class="overlay">
+                        <i class="fas fa-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/portfolio6.jpg" alt="Portfolio Image 6">
+                    <div class="overlay">
+                        <i class="fas fa-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/portfolio7.jpg" alt="Portfolio Image 7">
+                    <div class="overlay">
+                        <i class="fas fa-plus"></i>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
 
     <footer>
         <div class="footer-content">
-            <div class="footer-section">
+            <div class="footer-section brand">
                 <h4>Jason Holt Photography</h4>
-                <p>Capturing moments, creating memories</p>
-            </div>
-            <div class="footer-section">
-                <h4>Connect</h4>
+                <p>Capturing moments, creating memories that last a lifetime.</p>
                 <div class="social-links">
-                    <a href="#" target="_blank">Instagram</a>
-                    <a href="#" target="_blank">Facebook</a>
-                    <a href="#" target="_blank">LinkedIn</a>
+                    <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
                 </div>
             </div>
-            <div class="footer-section">
+            <div class="footer-section quick-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="bookings.html">Bookings</a></li>
+                </ul>
+            </div>
+            <div class="footer-section services-links">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="gallery.html#weddings">Wedding Photography</a></li>
+                    <li><a href="gallery.html#portraits">Portrait Sessions</a></li>
+                    <li><a href="gallery.html#events">Event Coverage</a></li>
+                </ul>
+            </div>
+            <div class="footer-section contact">
                 <h4>Contact</h4>
-                <p>Email: info@jasonholtphotography.com</p>
-                <p>Based in San Francisco Bay Area</p>
+                <ul>
+                    <li><i class="fas fa-envelope"></i> info@jasonholtphotography.com</li>
+                    <li><i class="fas fa-map-marker-alt"></i> San Francisco Bay Area</li>
+                    <li><i class="fas fa-phone"></i> Available by appointment</li>
+                </ul>
             </div>
         </div>
         <div class="footer-bottom">
