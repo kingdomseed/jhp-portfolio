@@ -19,64 +19,111 @@
             margin-bottom: 4rem;
         }
 
-        .gallery-categories {
+        .services-overview {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
-            margin-top: 3rem;
+            margin-bottom: 4rem;
         }
 
-        .category {
+        .service-card {
             background: var(--white);
-            padding: 2rem;
+            padding: 2.5rem 2rem;
             border-radius: 15px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             text-align: center;
             transition: transform var(--transition-speed);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
         }
 
-        .category:hover {
+        .service-card:hover {
             transform: translateY(-5px);
         }
 
-        .category h3 {
-            margin: 1.5rem 0;
+        .service-card-content {
+            margin-bottom: 2rem;
+        }
+
+        .service-card i {
+            font-size: 2.5rem;
             color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
             font-size: 1.5rem;
         }
 
-        .preview-image {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-            border-radius: 10px;
-            margin-bottom: 1rem;
+        .service-card p {
+            color: var(--text-color);
+            line-height: 1.6;
         }
 
-        .cloudspots-placeholder {
-            background: var(--light-gray);
+        .service-card .cta-button {
+            display: inline-block;
+            padding: 0.8rem 1.8rem;
+            background: var(--primary-color);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 30px;
+            transition: all var(--transition-speed);
+            font-weight: 500;
+        }
+
+        .service-card .cta-button:hover {
+            transform: translateY(-2px);
+            background: var(--accent-color);
+        }
+
+        .gallery-content {
+            background: var(--white);
             padding: 2rem;
-            border-radius: 10px;
-            text-align: center;
-            margin: 1rem 0;
-            position: relative;
-            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 4rem;
         }
 
-        .cloudspots-placeholder::before {
-            content: '\f382';
-            font-family: 'Font Awesome 6 Free';
-            font-weight: 900;
-            font-size: 2rem;
-            color: var(--accent-color);
-            margin-bottom: 1rem;
-            display: block;
+        #cloudspotIframe {
+            width: 1px;
+            min-width: 100%;
+            min-height: 425px;
         }
 
-        .category-icon {
-            font-size: 2rem;
-            color: var(--accent-color);
-            margin-bottom: 1rem;
+        /* Custom shape positions for gallery page */
+        .shape-1 {
+            top: 30%;
+            left: 5%;
+            background: var(--accent-color);
+            opacity: 0.05;
+        }
+
+        .shape-2 {
+            top: 70%;
+            right: 10%;
+            background: var(--primary-color);
+            opacity: 0.05;
+        }
+
+        .shape-3 {
+            top: 20%;
+            right: 20%;
+            background: var(--secondary-color);
+            opacity: 0.05;
+        }
+
+        @media (max-width: 768px) {
+            .gallery-container {
+                padding: 100px 1rem 2rem;
+            }
+
+            .service-card {
+                padding: 2rem 1.5rem;
+            }
         }
     </style>
 </head>
@@ -105,36 +152,40 @@
             <p>Explore my portfolio of captured moments and artistic vision.</p>
         </div>
 
-        <div class="gallery-categories">
-            <div class="category" id="weddings">
-                <i class="fas fa-heart category-icon"></i>
-                <h3>Weddings</h3>
-                <img src="images/portfolio8.jpg" alt="Wedding Photography" class="preview-image">
-                <div class="cloudspots-placeholder">
-                    <p>Wedding Gallery Coming Soon</p>
-                    <p><small>Powered by Cloudspots</small></p>
+        <div class="services-overview">
+            <div class="service-card">
+                <div class="service-card-content">
+                    <i class="fas fa-heart"></i>
+                    <h3>Wedding Photography</h3>
+                    <p>Capturing your special day with artistic elegance and attention to detail. Every moment preserved forever.</p>
                 </div>
+                <a href="bookings.html" class="cta-button">Book Now</a>
             </div>
 
-            <div class="category" id="portraits">
-                <i class="fas fa-camera category-icon"></i>
-                <h3>Portraits</h3>
-                <img src="images/portfolio9.jpg" alt="Portrait Photography" class="preview-image">
-                <div class="cloudspots-placeholder">
-                    <p>Portrait Gallery Coming Soon</p>
-                    <p><small>Powered by Cloudspots</small></p>
+            <div class="service-card">
+                <div class="service-card-content">
+                    <i class="fas fa-camera"></i>
+                    <h3>Portrait Sessions</h3>
+                    <p>Professional portraits that capture your authentic self. Perfect for individuals, families, and professionals.</p>
                 </div>
+                <a href="bookings.html" class="cta-button">Book Now</a>
             </div>
 
-            <div class="category" id="events">
-                <i class="fas fa-star category-icon"></i>
-                <h3>Events</h3>
-                <img src="images/portfolio10.jpg" alt="Event Photography" class="preview-image">
-                <div class="cloudspots-placeholder">
-                    <p>Events Gallery Coming Soon</p>
-                    <p><small>Powered by Cloudspots</small></p>
+            <div class="service-card">
+                <div class="service-card-content">
+                    <i class="fas fa-star"></i>
+                    <h3>Event Coverage</h3>
+                    <p>Comprehensive event photography services. From corporate events to special celebrations.</p>
                 </div>
+                <a href="bookings.html" class="cta-button">Book Now</a>
             </div>
+        </div>
+
+        <div class="gallery-content">
+            <style>#cloudspotIframe{width: 1px;min-width: 100%;min-height: 425px;}</style>
+            <iframe id="cloudspotIframe" src="https://shutterbruhs-photography.client-gallery.com/?nav=false" frameborder="0"></iframe>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/3.6.4/iframeResizer.min.js" charset="utf-8"></script>
+            <script>iFrameResize({}, '#cloudspotIframe')</script>
         </div>
     </div>
 
@@ -161,9 +212,9 @@
             <div class="footer-section services-links">
                 <h4>Services</h4>
                 <ul>
-                    <li><a href="#weddings">Wedding Photography</a></li>
-                    <li><a href="#portraits">Portrait Sessions</a></li>
-                    <li><a href="#events">Event Coverage</a></li>
+                    <li><a href="bookings.html">Wedding Photography</a></li>
+                    <li><a href="bookings.html">Portrait Sessions</a></li>
+                    <li><a href="bookings.html">Event Coverage</a></li>
                 </ul>
             </div>
             <div class="footer-section contact">

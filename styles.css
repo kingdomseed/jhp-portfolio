@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap');
+
 :root {
     --primary-color: #3a5f56;
     --secondary-color: #767C7FF9;
@@ -10,6 +12,8 @@
     --focus-color: #477D94CE;
     --nav-height: 70px;
     --transition-speed: 0.3s;
+    --heading-font: 'Cormorant Garamond', serif;
+    --body-font: 'Inter', sans-serif;
 }
 
 * {
@@ -19,12 +23,47 @@
 }
 
 body {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-family: var(--body-font);
     line-height: 1.6;
     color: var(--text-color);
     overflow-x: hidden;
     background-color: var(--background-color);
     position: relative;
+}
+
+h1, h2, h3, h4, .logo {
+    font-family: var(--heading-font);
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+h3 {
+    font-size: 1.8rem;
+    margin-bottom: 0.8rem;
+}
+
+h4 {
+    font-size: 1.5rem;
+    margin-bottom: 0.8rem;
+}
+
+.subtitle {
+    font-family: var(--body-font);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
 }
 
 /* Background Shapes */
@@ -91,8 +130,7 @@ body {
 }
 
 .logo {
-    font-size: 1.5rem;
-    font-weight: bold;
+    font-size: 1.8rem;
     color: var(--primary-color);
 }
 
@@ -107,6 +145,7 @@ body {
     font-weight: 500;
     transition: color var(--transition-speed);
     position: relative;
+    font-family: var(--body-font);
 }
 
 .nav-links a::after {
@@ -180,6 +219,8 @@ body {
     text-decoration: none;
     border-radius: 30px;
     transition: all var(--transition-speed);
+    font-family: var(--body-font);
+    font-weight: 500;
 }
 
 .cta-button:hover {
@@ -398,6 +439,7 @@ footer {
 
 .footer-section ul {
     list-style: none;
+    margin-top: 1.5rem;
 }
 
 .footer-section ul li {
@@ -450,15 +492,15 @@ footer {
     }
 
     h1 {
-        font-size: 2rem;
+        font-size: 2.5rem;
     }
 
     h2 {
-        font-size: 1.8rem;
+        font-size: 2rem;
     }
 
-    .card-container {
-        grid-template-columns: 1fr;
+    h3 {
+        font-size: 1.5rem;
     }
 
     .footer-content {
