@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookings - Jason Holt Photography</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .bookings-container {
+            padding: 120px 2rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .bookings-intro {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .booking-sections {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+        }
+
+        .tidycal-section {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .tidycal-placeholder {
+            background: var(--light-gray);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            margin: 2rem 0;
+            min-height: 400px;
+        }
+
+        .contact-info {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-card {
+            padding: 1.5rem;
+            background: var(--light-gray);
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .contact-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .contact-card p {
+            color: var(--secondary-color);
+        }
+
+        .booking-info {
+            margin-top: 3rem;
+            padding: 2rem;
+            background: var(--light-gray);
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .booking-info h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .booking-info ul {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0;
+        }
+
+        .booking-info li {
+            margin: 0.5rem 0;
+            color: var(--secondary-color);
+        }
+
+        @media (max-width: 768px) {
+            .booking-sections {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="floating-nav">
+        <div class="nav-content">
+            <div class="logo">Jason Holt Photography</div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="bookings.html" class="active">Bookings</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="bookings-container">
+        <div class="bookings-intro">
+            <h1>Book a Session</h1>
+            <p>Schedule your photography session or inquire about my services.</p>
+        </div>
+
+        <div class="booking-sections">
+            <div class="tidycal-section">
+                <h2>Schedule Your Session</h2>
+                <div class="tidycal-placeholder">
+                    [TidyCal Booking Calendar Embed]
+                </div>
+            </div>
+
+            <div class="contact-info">
+                <h2>Get in Touch</h2>
+                <div class="contact-grid">
+                    <div class="contact-card">
+                        <h3>Email</h3>
+                        <p>info@jasonholtphotography.com</p>
+                    </div>
+                    <div class="contact-card">
+                        <h3>Location</h3>
+                        <p>San Francisco Bay Area</p>
+                    </div>
+                    <div class="contact-card">
+                        <h3>Response Time</h3>
+                        <p>Within 24-48 hours</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="booking-info">
+                <h3>Booking Information</h3>
+                <ul>
+                    <li>Sessions are typically scheduled 2-3 weeks in advance</li>
+                    <li>A 50% deposit is required to secure your booking</li>
+                    <li>Rescheduling is available up to 48 hours before your session</li>
+                    <li>Custom packages available upon request</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Jason Holt Photography</h4>
+                <p>Capturing moments, creating memories</p>
+            </div>
+            <div class="footer-section">
+                <h4>Connect</h4>
+                <div class="social-links">
+                    <a href="#" target="_blank">Instagram</a>
+                    <a href="#" target="_blank">Facebook</a>
+                    <a href="#" target="_blank">LinkedIn</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p>Email: info@jasonholtphotography.com</p>
+                <p>Based in San Francisco Bay Area</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Jason Holt Photography. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

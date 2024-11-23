@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Jason Holt Photography</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .gallery-container {
+            padding: 120px 2rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .gallery-intro {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .gallery-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .category {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .category h3 {
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .preview-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+
+        .cloudspots-placeholder {
+            background: var(--light-gray);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            margin: 1rem 0;
+        }
+    </style>
+</head>
+<body>
+    <nav class="floating-nav">
+        <div class="nav-content">
+            <div class="logo">Jason Holt Photography</div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="gallery.html" class="active">Gallery</a>
+                <a href="bookings.html">Bookings</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="gallery-container">
+        <div class="gallery-intro">
+            <h1>Photo Gallery</h1>
+            <p>Explore my portfolio of captured moments and artistic vision.</p>
+        </div>
+
+        <div class="gallery-categories">
+            <div class="category">
+                <h3>Weddings</h3>
+                <img src="images/portfolio8.jpg" alt="Wedding Photography" class="preview-image">
+                <div class="cloudspots-placeholder">
+                    [Cloudspots Wedding Gallery Embed]
+                </div>
+            </div>
+
+            <div class="category">
+                <h3>Portraits</h3>
+                <img src="images/portfolio9.jpg" alt="Portrait Photography" class="preview-image">
+                <div class="cloudspots-placeholder">
+                    [Cloudspots Portrait Gallery Embed]
+                </div>
+            </div>
+
+            <div class="category">
+                <h3>Events</h3>
+                <img src="images/portfolio10.jpg" alt="Event Photography" class="preview-image">
+                <div class="cloudspots-placeholder">
+                    [Cloudspots Events Gallery Embed]
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Jason Holt Photography</h4>
+                <p>Capturing moments, creating memories</p>
+            </div>
+            <div class="footer-section">
+                <h4>Connect</h4>
+                <div class="social-links">
+                    <a href="#" target="_blank">Instagram</a>
+                    <a href="#" target="_blank">Facebook</a>
+                    <a href="#" target="_blank">LinkedIn</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p>Email: info@jasonholtphotography.com</p>
+                <p>Based in San Francisco Bay Area</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Jason Holt Photography. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
