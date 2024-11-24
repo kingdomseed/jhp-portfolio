@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photography Portfolio | Portrait & Event Photographer Frankfurt - Jason Holt</title>
+    <meta name="description" content="View my photography portfolio in Frankfurt am Main. Professional portraits, wedding photography, and event coverage by an English-speaking photographer in Germany.">
+    <meta name="keywords" content="photography portfolio Frankfurt, English photographer Germany, expat photographer portfolio, professional photography Frankfurt, international photographer Hessen">
+    <meta name="author" content="Jason Holt">
+    <meta name="robots" content="index, follow">
+    <meta name="geo.region" content="DE-HE">
+    <meta name="geo.placename" content="Frankfurt am Main">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Photography Portfolio | English-Speaking Photographer Frankfurt">
+    <meta property="og:description" content="Professional photography portfolio in Frankfurt. Wedding, portrait, and event photography by an English-speaking photographer.">
+    <meta property="og:image" content="https://jasonholtphotography.com/images/portfolio2.jpg">
+    <meta property="og:url" content="https://jasonholtphotography.com/galleries">
+    <meta property="og:site_name" content="Jason Holt Photography">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Photography Portfolio Frankfurt | Jason Holt Photography">
+    <meta name="twitter:description" content="View my professional photography portfolio in Frankfurt. English-speaking photographer for weddings, portraits & events.">
+    <meta name="twitter:image" content="https://jasonholtphotography.com/images/portfolio2.jpg">
+    
+    <!-- Alternative Language Tags -->
+    <meta name="keywords:de" content="Englischsprachiger Fotograf Portfolio Frankfurt, Internationale Fotografie Hessen, Professionelle Fotos Frankfurt English speaking">
+    
+    <link rel="canonical" href="https://jasonholtphotography.com/galleries">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .gallery-container {
+            padding: 120px 2rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .gallery-intro {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .services-overview {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 2.5rem 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform var(--transition-speed);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-card-content {
+            margin-bottom: 2rem;
+        }
+
+        .service-card i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .service-card p {
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .service-card .cta-button {
+            display: inline-block;
+            padding: 0.8rem 1.8rem;
+            background: var(--primary-color);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 30px;
+            transition: all var(--transition-speed);
+            font-weight: 500;
+        }
+
+        .service-card .cta-button:hover {
+            transform: translateY(-2px);
+            background: var(--accent-color);
+        }
+
+        .gallery-content {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 4rem;
+        }
+
+        #cloudspotIframe {
+            width: 1px;
+            min-width: 100%;
+            min-height: 425px;
+        }
+
+        /* Custom shape positions for gallery page */
+        .shape-1 {
+            top: 30%;
+            left: 5%;
+            background: var(--accent-color);
+            opacity: 0.05;
+        }
+
+        .shape-2 {
+            top: 70%;
+            right: 10%;
+            background: var(--primary-color);
+            opacity: 0.05;
+        }
+
+        .shape-3 {
+            top: 20%;
+            right: 20%;
+            background: var(--secondary-color);
+            opacity: 0.05;
+        }
+
+        @media (max-width: 768px) {
+            .gallery-container {
+                padding: 100px 1rem 2rem;
+            }
+
+            .service-card {
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="background-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+    </div>
+
+    <nav class="floating-nav">
+        <div class="nav-content">
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="galleries.html" class="active">Galleries</a>
+            </div>
+            <div class="nav-logo">
+                <img src="images/jhpt.svg" alt="Jason Holt Photography">
+            </div>
+            <div class="nav-links">
+                <a href="bookings.html">Bookings</a>
+                <a href="about.html">About</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="gallery-container">
+        <div class="gallery-intro">
+            <span class="subtitle">Portfolio</span>
+            <h1>Photo Gallery</h1>
+            <p>Explore my portfolio of captured moments and artistic vision.</p>
+        </div>
+
+        <div class="services-overview">
+            <div class="service-card">
+                <div class="service-card-content">
+                    <i class="fas fa-heart"></i>
+                    <h3>Wedding Photography</h3>
+                    <p>Capturing your special day with artistic elegance and attention to detail. Every moment preserved forever.</p>
+                </div>
+                <a href="bookings.html" class="cta-button">Book Now</a>
+            </div>
+
+            <div class="service-card">
+                <div class="service-card-content">
+                    <i class="fas fa-camera"></i>
+                    <h3>Portrait Sessions</h3>
+                    <p>Professional portraits that capture your authentic self. Perfect for individuals, families, and professionals.</p>
+                </div>
+                <a href="bookings.html" class="cta-button">Book Now</a>
+            </div>
+
+            <div class="service-card">
+                <div class="service-card-content">
+                    <i class="fas fa-star"></i>
+                    <h3>Event Coverage</h3>
+                    <p>Comprehensive event photography services. From corporate events to special celebrations.</p>
+                </div>
+                <a href="bookings.html" class="cta-button">Book Now</a>
+            </div>
+        </div>
+
+        <div class="gallery-content">
+            <style>#cloudspotIframe{width: 1px;min-width: 100%;min-height: 425px;}</style>
+            <iframe id="cloudspotIframe" src="https://shutterbruhs-photography.client-gallery.com/?nav=false" frameborder="0"></iframe>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/3.6.4/iframeResizer.min.js" charset="utf-8"></script>
+            <script>iFrameResize({}, '#cloudspotIframe')</script>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section brand">
+                <h4>Jason Holt Photography</h4>
+                <p>Capturing moments, creating memories that last a lifetime.</p>
+                <div class="social-links">
+                    <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-section quick-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="galleries.html">Galleries</a></li>
+                    <li><a href="bookings.html">Bookings</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </div>
+            <div class="footer-section services-links">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="galleries.html#weddings">Wedding Photography</a></li>
+                    <li><a href="galleries.html#portraits">Portrait Sessions</a></li>
+                    <li><a href="galleries.html#events">Event Coverage</a></li>
+                </ul>
+            </div>
+            <div class="footer-section contact">
+                <h4>Contact</h4>
+                <ul>
+                    <li><i class="fas fa-envelope"></i> info@jasonholtphotography.com</li>
+                    <li><i class="fas fa-map-marker-alt"></i>Frankfurt am Main</li>
+                    <li><i class="fas fa-phone"></i> Available by appointment</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Jason Holt Photography. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

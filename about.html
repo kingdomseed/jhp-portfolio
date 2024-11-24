@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | English-Speaking Photographer in Frankfurt - Jason Holt</title>
+    <meta name="description" content="Learn more about Jason Holt, an English-speaking photographer based in Frankfurt am Main. Specializing in portrait, wedding, and event photography with a creative approach.">
+    <meta name="keywords" content="photographer bio Frankfurt, English speaking photographer Germany, about Jason Holt, professional photographer Frankfurt, international photographer bio">
+    <meta name="author" content="Jason Holt">
+    <meta name="robots" content="index, follow">
+    <meta name="geo.region" content="DE-HE">
+    <meta name="geo.placename" content="Frankfurt am Main">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="About Jason Holt | English-Speaking Photographer in Frankfurt">
+    <meta property="og:description" content="Professional photographer based in Frankfurt. Learn about my approach to capturing your special moments.">
+    <meta property="og:image" content="https://jasonholtphotography.com/images/about-portrait.jpg">
+    <meta property="og:url" content="https://jasonholtphotography.com/about">
+    <meta property="og:site_name" content="Jason Holt Photography">
+    
+    <link rel="canonical" href="https://jasonholtphotography.com/about">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .about-container {
+            padding: 120px 2rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .about-intro {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 4rem;
+        }
+
+        .about-image {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+            aspect-ratio: 3/4;
+        }
+
+        .about-image img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .about-image img.active {
+            opacity: 1;
+        }
+
+        .about-text {
+            padding: 2rem;
+            background: var(--white);
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-text h2 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .philosophy-section {
+            background: var(--white);
+            padding: 3rem 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 4rem;
+            text-align: center;
+        }
+
+        .philosophy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .philosophy-item {
+            padding: 2rem;
+            background: var(--light-gray);
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .philosophy-item i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .philosophy-item h3 {
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        @media (max-width: 768px) {
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .about-image {
+                max-height: 500px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="background-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+    </div>
+
+    <nav class="floating-nav">
+        <div class="nav-content">
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="galleries.html">Galleries</a>
+            </div>
+            <div class="nav-logo">
+                <img src="images/jhpt.svg" alt="Jason Holt Photography">
+            </div>
+            <div class="nav-links">
+                <a href="bookings.html">Bookings</a>
+                <a href="about.html" class="active">About</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="about-container">
+        <div class="about-intro">
+            <span class="subtitle">About Me</span>
+            <h1>The Story Behind the Lens</h1>
+            <p>Capturing authentic moments and creating timeless memories in Frankfurt and beyond.</p>
+        </div>
+
+        <div class="about-content">
+            <div class="about-image">
+                <img src="images/jholt1.jpeg" alt="Jason Holt - Professional Photographer" class="active">
+                <img src="images/jholt2.jpeg" alt="Jason Holt - Professional Photographer">
+            </div>
+            <div class="about-text">
+                <h2>Hello, I'm Jason</h2>
+                <p>As an English-speaking photographer based in Frankfurt am Main, I bring a unique perspective to every shoot. My journey in photography began with a passion for capturing genuine moments and has evolved into a professional career focused on creating authentic, emotional images.</p>
+                <p>With years of experience in portrait, wedding, and event photography, I understand that every moment is unique and deserves to be captured with creativity and care. My approach combines technical expertise with an artistic eye, ensuring that each photo tells its own story.</p>
+                <p>Based in Frankfurt, I serve clients throughout Hessen and beyond, bringing a professional yet personal touch to every photography session. Whether it's a wedding, portrait session, or special event, my goal is to create images that you'll treasure for years to come.</p>
+            </div>
+        </div>
+
+        <div class="philosophy-section">
+            <div class="section-header">
+                <h2>My Approach</h2>
+                <p>The principles that guide my photography</p>
+            </div>
+            <div class="philosophy-grid">
+                <div class="philosophy-item">
+                    <i class="fas fa-heart"></i>
+                    <h3>Authenticity</h3>
+                    <p>Capturing genuine moments and real emotions in every frame.</p>
+                </div>
+                <div class="philosophy-item">
+                    <i class="fas fa-lightbulb"></i>
+                    <h3>Creativity</h3>
+                    <p>Bringing an artistic perspective to tell your unique story.</p>
+                </div>
+                <div class="philosophy-item">
+                    <i class="fas fa-star"></i>
+                    <h3>Excellence</h3>
+                    <p>Delivering professional quality and attention to detail.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section brand">
+                <h4>Jason Holt Photography</h4>
+                <p>Capturing moments, creating memories that last a lifetime.</p>
+                <div class="social-links">
+                    <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-section quick-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="galleries.html">Galleries</a></li>
+                    <li><a href="bookings.html">Bookings</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </div>
+            <div class="footer-section services-links">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="galleries.html#weddings">Wedding Photography</a></li>
+                    <li><a href="galleries.html#portraits">Portrait Sessions</a></li>
+                    <li><a href="galleries.html#events">Event Coverage</a></li>
+                </ul>
+            </div>
+            <div class="footer-section contact">
+                <h4>Contact</h4>
+                <ul>
+                    <li><i class="fas fa-envelope"></i> info@jasonholtphotography.com</li>
+                    <li><i class="fas fa-map-marker-alt"></i>Frankfurt am Main, Germany</li>
+                    <li><i class="fas fa-phone"></i> Available by appointment</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Jason Holt Photography. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Image rotation
+        const images = document.querySelectorAll('.about-image img');
+        let currentIndex = 0;
+
+        function rotateImages() {
+            images[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex + 1) % images.length;
+            images[currentIndex].classList.add('active');
+        }
+
+        // Rotate every 5 seconds
+        setInterval(rotateImages, 5000);
+    </script>
+</body>
+</html>
