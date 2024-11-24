@@ -228,16 +228,16 @@ h4 {
 }
 
 .banner-content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  color: var(--white);
-  z-index: 1;
-  width: 90%;
-  max-width: 800px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: var(--white);
+    z-index: 2;  /* Increased z-index to appear above gradient */
+    width: 90%;
+    max-width: 800px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .banner-content h1 {
