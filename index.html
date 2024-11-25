@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jason Holt Photography | English-Speaking Photographer in Frankfurt am Main</title>
-    <meta name="description" content="Professional English-speaking photographer in Frankfurt am Main, Germany. Specializing in portraits, weddings, and event photography with an artistic approach.">
-    <meta name="keywords" content="English speaking photographer Frankfurt, expat photographer Germany, portrait photography Frankfurt, wedding photographer Frankfurt, event photographer Hessen, international photographer Frankfurt">
+    <meta name="description" content="Professional English-speaking photographer in Frankfurt am Main, Germany. Specializing in portraits, headshots, family photos, events, and engagement photography.">
+    <meta name="keywords" content="English speaking photographer Frankfurt, expat photographer Germany, portrait photography Frankfurt, event photographer Hessen, international photographer Frankfurt">
     <meta name="author" content="Jason Holt">
     <meta name="robots" content="index, follow">
     <meta name="geo.region" content="DE-HE">
@@ -14,7 +14,7 @@
     <!-- Open Graph / Social Media -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Jason Holt Photography | English-Speaking Photographer in Frankfurt">
-    <meta property="og:description" content="Professional English-speaking photographer in Frankfurt. Portraits, weddings, and events captured with artistic vision.">
+    <meta property="og:description" content="Professional English-speaking photographer in Frankfurt. Portraits, events, and engagements captured with artistic vision.">
     <meta property="og:image" content="https://jasonholtphotography.com/images/portfolio1.jpg">
     <meta property="og:url" content="https://jasonholtphotography.com">
     <meta property="og:site_name" content="Jason Holt Photography">
@@ -22,7 +22,7 @@
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Jason Holt Photography | Frankfurt Photographer">
-    <meta name="twitter:description" content="English-speaking photographer in Frankfurt. Professional portraits, weddings, and event photography.">
+    <meta name="twitter:description" content="English-speaking photographer in Frankfurt. Professional portraits, events, and engagement photography.">
     <meta name="twitter:image" content="https://jasonholtphotography.com/images/portfolio1.jpg">
     
     <!-- Alternative Language Tags -->
@@ -31,6 +31,28 @@
     <link rel="canonical" href="https://jasonholtphotography.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
+    <style>
+        .card-image {
+            position: relative;
+            overflow: hidden;
+            aspect-ratio: 3/4;
+        }
+
+        .card-image img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .card-image img.active {
+            opacity: 1;
+        }
+    </style>
 </head>
 <body>
     <div class="background-shapes">
@@ -80,69 +102,57 @@
             </div>
             <div class="card-container">
                 <div class="card">
-                    <div class="card-image">
-                        <img src="images/portfolio1.jpg" alt="Wedding Photography">
-                    </div>
-                    <div class="card-content">
-                        <i class="fas fa-heart service-icon"></i>
-                        <h3>Engagements</h3>
-                        <p>Preserving your special day with artistic elegance and attention to detail.</p>
-                        <a href="galleries.html" class="learn-more">View Gallery <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-image">
-                        <img src="images/portfolio2.jpg" alt="Portrait Photography">
+                    <div class="card-image portraits">
+                        <img src="images/images-por-9.jpg" alt="Portrait Photography" class="active">
+                        <img src="images/images-por-10.jpg" alt="Portrait Photography">
+                        <img src="images/images-por-12.jpg" alt="Portrait Photography">
+                        <img src="images/images-por-13.jpg" alt="Portrait Photography">
                     </div>
                     <div class="card-content">
                         <i class="fas fa-camera service-icon"></i>
-                        <h3>Portraits</h3>
+                        <h3>Portraits & Headshots</h3>
                         <p>Professional portraits that capture your authentic self.</p>
-                        <a href="galleries.html" class="learn-more">View Gallery <i class="fas fa-arrow-right"></i></a>
+                        <a href="galleries.html#portraits" class="learn-more">View Gallery <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-image">
-                        <img src="images/portfolio3.jpg" alt="Event Photography">
+                    <div class="card-image family">
+                        <img src="images/images-fam-5.jpg" alt="Family Photography" class="active">
+                        <img src="images/portfolio8.jpg" alt="Family Photography">
+                    </div>
+                    <div class="card-content">
+                        <i class="fas fa-users service-icon"></i>
+                        <h3>Family Photos</h3>
+                        <p>Preserving precious family moments with natural beauty.</p>
+                        <a href="galleries.html#family" class="learn-more">View Gallery <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-image events">
+                        <img src="images/images-evn-1.jpg" alt="Event Photography" class="active">
+                        <img src="images/images-evn-6.jpg" alt="Event Photography">
+                        <img src="images/images-evn-7.jpg" alt="Event Photography">
+                        <img src="images/images-evn-8.jpg" alt="Event Photography">
                     </div>
                     <div class="card-content">
                         <i class="fas fa-star service-icon"></i>
                         <h3>Events</h3>
                         <p>Documenting your special occasions with a journalistic approach.</p>
-                        <a href="galleries.html" class="learn-more">View Gallery <i class="fas fa-arrow-right"></i></a>
+                        <a href="galleries.html#events" class="learn-more">View Gallery <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <section class="mini-gallery">
-            <div class="section-header">
-                <span class="subtitle">Portfolio</span>
-                <h2>Recent Work</h2>
-            </div>
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="images/portfolio4.jpg" alt="Portfolio Image 4">
-                    <div class="overlay">
-                        <i class="fas fa-plus"></i>
+                <div class="card">
+                    <div class="card-image engagements">
+                        <img src="images/images-eng-2.jpg" alt="Engagement Photography" class="active">
+                        <img src="images/images-eng-3.jpg" alt="Engagement Photography">
+                        <img src="images/images-eng-4.jpg" alt="Engagement Photography">
+                        <img src="images/images-eng-18.jpg" alt="Engagement Photography">
                     </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="images/portfolio5.jpg" alt="Portfolio Image 5">
-                    <div class="overlay">
-                        <i class="fas fa-plus"></i>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="images/portfolio6.jpg" alt="Portfolio Image 6">
-                    <div class="overlay">
-                        <i class="fas fa-plus"></i>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="images/portfolio7.jpg" alt="Portfolio Image 7">
-                    <div class="overlay">
-                        <i class="fas fa-plus"></i>
+                    <div class="card-content">
+                        <i class="fas fa-heart service-icon"></i>
+                        <h3>Engagements</h3>
+                        <p>Capturing the joy and romance of your special moment.</p>
+                        <a href="galleries.html#engagements" class="learn-more">View Gallery <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -173,9 +183,10 @@
             <div class="footer-section services-links">
                 <h4>Services</h4>
                 <ul>
-                    <li><a href="galleries.html#weddings">Wedding Photography</a></li>
-                    <li><a href="galleries.html#portraits">Portrait Sessions</a></li>
+                    <li><a href="galleries.html#portraits">Portraits & Headshots</a></li>
+                    <li><a href="galleries.html#family">Family Photos</a></li>
                     <li><a href="galleries.html#events">Event Coverage</a></li>
+                    <li><a href="galleries.html#engagements">Engagement Photos</a></li>
                 </ul>
             </div>
             <div class="footer-section contact">
@@ -193,5 +204,27 @@
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        // Image rotation for service cards
+        function setupImageRotation(containerClass) {
+            const images = document.querySelectorAll(`.${containerClass} img`);
+            let currentIndex = 0;
+
+            function rotateImages() {
+                images[currentIndex].classList.remove('active');
+                currentIndex = (currentIndex + 1) % images.length;
+                images[currentIndex].classList.add('active');
+            }
+
+            // Rotate every 5 seconds
+            setInterval(rotateImages, 5000);
+        }
+
+        // Setup rotation for each service category
+        setupImageRotation('portraits');
+        setupImageRotation('family');
+        setupImageRotation('events');
+        setupImageRotation('engagements');
+    </script>
 </body>
 </html>
