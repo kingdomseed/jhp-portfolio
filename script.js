@@ -2,16 +2,16 @@
 const bannerElement = document.querySelector('.banner-image');
 if (bannerElement) {
     const bannerImages = [
-        'images/portfolio1.jpg',
-        'images/portfolio2.jpg',
-        'images/portfolio3.jpg',
-        'images/portfolio4.jpg',
-        'images/portfolio5.jpg',
-        'images/portfolio6.jpg',
-        'images/portfolio7.jpg',
-        'images/portfolio8.jpg',
-        'images/portfolio9.jpg',
-        'images/portfolio10.jpg'
+        'images/family3.jpeg',
+        'images/senior17.jpeg',
+        'images/senior22.jpeg',
+        'images/senior11.jpeg',
+        'images/family1.jpeg',
+        'images/portrait1.jpeg',
+        'images/engagement1.jpeg',
+        'images/senior23.jpeg',
+        'images/headshot2.jpeg',
+        'images/event2.jpeg'
     ];
 
     let currentImageIndex = 0;
