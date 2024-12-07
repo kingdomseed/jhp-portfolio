@@ -52,6 +52,69 @@
         .card-image img.active {
             opacity: 1;
         }
+
+        /* Image Grid Styles */
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1rem;
+            padding: 2rem;
+        }
+
+        .image-grid-item {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .image-grid-item:hover {
+            transform: scale(1.02);
+        }
+
+        .image-grid-item::before {
+            content: '';
+            display: block;
+            padding-top: 75%;
+        }
+
+        .image-grid-item img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .image-grid-item img.vertical-image {
+            object-position: top;
+        }
+
+        .image-grid-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .intro-content {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+            text-align: center;
+            line-height: 1.8;
+            color: #333;
+        }
+
+        .intro-content p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .intro-content p:last-child {
+            margin-bottom: 0;
+        }
     </style>
 </head>
 <body>
@@ -92,6 +155,52 @@
                 <span class="subtitle">Welcome</span>
                 <h2>Your Story Through My Lens</h2>
                 <p>Specializing in capturing authentic moments with an artistic touch.</p>
+                <div class="intro-content">
+                    <p>Every photograph is more than just an image – it's a treasured memory, a fleeting moment frozen in time, a story waiting to be retold. As your photographer, I'm not just behind the lens; I'm there to understand your journey, celebrate your milestones, and preserve those precious moments that make life extraordinary.</p>
+                    <p>Whether it's the genuine laughter during family portraits, the tender moments between couples, or the confident smile of a graduating senior, my passion lies in creating images that reflect the real you. These aren't just photos – they're tomorrow's cherished memories, captured today with creativity, care, and attention to detail.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="gallery">
+            <div class="section-header">
+                <span class="subtitle">Portfolio</span>
+                <h2>Featured Work</h2>
+            </div>
+            <div class="image-grid">
+                <div class="image-grid-item"><img src="images/family2.jpeg" alt="Family Photography" loading="lazy"></div>
+                <div class="image-grid-item"><img src="images/senior8.jpeg" alt="Senior Photography" loading="lazy"></div>
+                <div class="image-grid-item"><img src="images/couple6.jpeg" alt="Couple Photography" loading="lazy"></div>
+                <div class="image-grid-item"><img src="images/event6.jpeg" alt="Event Photography" loading="lazy"></div>
+                <div class="image-grid-item"><img src="images/family3.jpeg" alt="Family Photography" loading="lazy"></div>
+                <div class="image-grid-item"><img src="images/senior4.jpeg" alt="Senior Photography" loading="lazy"></div>
+                <div class="image-grid-item"><img src="images/senior26.jpeg" alt="Senior Photography" loading="lazy"></div>
+                <div class="image-grid-item"><img src="images/senior5.jpeg" alt="Senior Photography" loading="lazy"></div>
+                <div class="image-grid-item"><img src="images/event-08.jpg" alt="Event Photography" loading="lazy"></div>
+                <div class="image-grid-item"><img src="images/creative2.jpeg" alt="Creative Photography" loading="lazy"></div>
+                <div class="image-grid-item"><img src="images/couple7.jpeg" alt="Couple Photography" loading="lazy"></div>
+                <div class="image-grid-item"><img src="images/headshot7.jpeg" alt="Headshot Photography" loading="lazy"></div>
+                <div class="image-grid-item"><img src="images/senior10.jpeg" alt="Senior Photography" loading="lazy"></div>
+                <div class="image-grid-item"><img src="images/engagement1.jpeg" alt="Engagement Photography" loading="lazy"></div>
+                <div class="image-grid-item"><img src="images/event1.jpeg" alt="Event Photography" loading="lazy"></div>
+                <div class="image-grid-item"><img src="images/couple1.jpeg" alt="Couple Photography" loading="lazy"></div>
+                <div class="image-grid-item"><img src="images/senior3.jpeg" alt="Senior Photography" loading="lazy"></div>
+                <div class="image-grid-item"><img src="images/headshot10.jpeg" alt="Headshot Photography" loading="lazy"></div>
+                <div class="image-grid-item"><img src="images/senior22.jpeg" alt="Senior Photography" loading="lazy"></div>
+                <div class="image-grid-item"><img src="images/portrait1.jpeg" alt="Portrait Photography" loading="lazy"></div>
+                <div class="image-grid-item"><img src="images/engagement2.jpeg" alt="Engagement Photography" loading="lazy"></div>
+                <div class="image-grid-item"><img src="images/couple2.jpeg" alt="Couple Photography" loading="lazy"></div>
+                <div class="image-grid-item"><img src="images/event2.jpeg" alt="Event Photography" loading="lazy"></div>
+                <div class="image-grid-item"><img src="images/headshot3.jpeg" alt="Headshot Photography" class="vertical-image" loading="lazy"></div>
+                <div class="image-grid-item"><img src="images/headshot2.jpeg" alt="Headshot Photography" loading="lazy"></div>
+                <div class="image-grid-item"><img src="images/family1.jpeg" alt="Family Photography" loading="lazy"></div>
+                <div class="image-grid-item"><img src="images/couple3.jpeg" alt="Couple Photography" loading="lazy"></div>
+                <div class="image-grid-item"><img src="images/event3.jpeg" alt="Event Photography" loading="lazy"></div>
+                <div class="image-grid-item"><img src="images/senior15.jpeg" alt="Senior Photography" loading="lazy"></div>
+                <div class="image-grid-item"><img src="images/senior1.jpeg" alt="Senior Photography" loading="lazy"></div>
+                <div class="image-grid-item"><img src="images/senior23.jpeg" alt="Senior Photography" loading="lazy"></div>
+                <div class="image-grid-item"><img src="images/headshot11.jpeg" alt="Headshot Photography" loading="lazy"></div>
+                <div class="image-grid-item"><img src="images/senior19.jpeg" alt="Senior Photography" loading="lazy"></div>
             </div>
         </section>
 
@@ -164,6 +273,8 @@
                 </div>
             </div>
         </section>
+
+        
     </main>
 
     <footer>
