@@ -1,24 +1,158 @@
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
 
-@theme {
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+ 
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    /* Base colors */
+    --background: 0 0% 100%;
+    --foreground: 220 10% 21%;
+    
+    /* Card colors */
+    --card: 0 0% 100%;
+    --card-foreground: 220 10% 21%;
+    
+    /* Popover colors */
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 10% 21%;
+    
+    /* Primary colors - Teal */
+    --primary: 158 24% 30%;
+    --primary-light: 158 50% 67%;
+    --primary-foreground: 0 0% 100%;
+    
+    /* Secondary colors */
+    --secondary: 210 3% 48%;
+    --secondary-foreground: 0 0% 100%;
+    
+    /* Muted colors */
+    --muted: 210 20% 98%;
+    --muted-foreground: 215 5% 65%;
+    
+    /* Accent colors - Blue */
+    --accent: 200 100% 39%;
+    --accent-foreground: 0 0% 100%;
+    
+    /* Destructive colors */
+    --destructive: 0 72% 65%;
+    --destructive-foreground: 0 0% 100%;
+    
+    /* UI colors */
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 200 100% 39%;
+    
+    /* Border radius */
+    --radius: 0.5rem;
+  }
+ 
+  .dark {
+    /* Base colors */
+    --background: 220 20% 10%;
+    --foreground: 0 0% 95%;
+    
+    /* Card colors */
+    --card: 220 20% 12%;
+    --card-foreground: 0 0% 95%;
+    
+    /* Popover colors */
+    --popover: 220 20% 12%;
+    --popover-foreground: 0 0% 95%;
+    
+    /* Primary colors - Teal */
+    --primary: 158 24% 40%;
+    --primary-light: 158 50% 67%;
+    --primary-foreground: 0 0% 100%;
+    
+    /* Secondary colors */
+    --secondary: 210 3% 30%;
+    --secondary-foreground: 0 0% 95%;
+    
+    /* Muted colors */
+    --muted: 220 20% 18%;
+    --muted-foreground: 215 5% 65%;
+    
+    /* Accent colors - Blue */
+    --accent: 200 100% 39%;
+    --accent-foreground: 0 0% 100%;
+    
+    /* Destructive colors */
+    --destructive: 0 72% 45%;
+    --destructive-foreground: 0 0% 98%;
+    
+    /* UI colors */
+    --border: 220 20% 20%;
+    --input: 220 20% 20%;
+    --ring: 200 100% 39%;
+  }
+}
+ 
+@layer base {
+  * {
+    @apply border-[hsl(var(--border))];
+  }
+  
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+  }
+  
+  p, span, a, li, button, input, textarea {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+/* Background blob animation */
+.blob {
+  position: absolute;
+  pointer-events: none;
+  opacity: 0.5;
+  filter: blur(64px);
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+.blob-1 {
+  background-color: hsla(158, 50%, 67%, 0.3);
+  width: 300px;
+  height: 300px;
+  border-radius: 9999px;
+  animation: float 15s infinite alternate;
+}
+
+.blob-2 {
+  background-color: hsla(200, 100%, 39%, 0.2);
+  width: 250px;
+  height: 250px;
+  border-radius: 9999px;
+  animation: float 12s infinite alternate-reverse;
+}
+
+.blob-3 {
+  background-color: hsla(158, 24%, 30%, 0.2);
+  width: 200px;
+  height: 200px;
+  border-radius: 9999px;
+  animation: float 10s infinite alternate;
+}
+
+@keyframes float {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(30px, -30px) scale(1.05);
+  }
+  100% {
+    transform: translate(-30px, 30px) scale(0.95);
+  }
 }
