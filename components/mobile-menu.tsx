@@ -33,7 +33,7 @@ export function MobileMenu() {
   return (
     <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger asChild>
-        <Button variant="ghost" size="icon" className="md:hidden">
+        <Button variant="ghost" size="icon">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"

@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import { ResponsiveLogo } from "@/components/responsive-logo"
 import { ModeToggle } from "@/components/mode-toggle"
 import { Button } from "@/components/ui/button"
 import { MobileMenu } from "@/components/mobile-menu"
@@ -28,23 +29,11 @@ export function SiteHeader() {
       <div className="container flex h-20 items-center justify-between">
         {/* Logo */}
         <div className="flex items-center">
-          <Link href="/" className="flex items-center space-x-3">
-            {/* You can add a logo image here */}
-            {/* <Image 
-              src="/images/logo.svg" 
-              alt="Jason Holt Photography" 
-              width={40} 
-              height={40} 
-              className="h-10 w-auto" 
-            /> */}
-            <span className="font-cormorant text-2xl font-bold tracking-tight">
-              {siteConfig.name}
-            </span>
-          </Link>
+          <ResponsiveLogo />
         </div>
         
         {/* Navigation - Desktop */}
-        <nav className="hidden md:flex md:items-center md:space-x-8">
+        <nav className="hidden nav:flex nav:items-center nav:space-x-10">
           {siteConfig.mainNav.map((item, index) => (
             item.href ? (
               <Link
@@ -98,7 +87,7 @@ export function SiteHeader() {
         
         {/* Social & Theme Toggle */}
         <div className="flex items-center space-x-4">
-          <div className="hidden md:flex md:items-center md:space-x-2">
+          <div className="hidden nav:flex nav:items-center nav:space-x-2">
             <Button asChild variant="ghost" size="icon" className="rounded-full">
               <Link href={siteConfig.links.instagram} target="_blank" rel="noopener noreferrer">
                 <svg
@@ -142,8 +131,10 @@ export function SiteHeader() {
           
           <ModeToggle />
           
-          {/* Mobile Menu */}
-          <MobileMenu />
+          {/* Mobile Menu - Only visible below nav breakpoint */}
+          <div className="nav:hidden">
+            <MobileMenu />
+          </div>
         </div>
       </div>
     </header>
