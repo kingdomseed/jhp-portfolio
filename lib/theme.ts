@@ -9,34 +9,53 @@ export const siteConfig = {
       href: "/",
     },
     {
+      title: "Discover",
+      items: [
+        {
+          title: "Galleries",
+          href: "/galleries",
+        },
+        {
+          title: "Testimonials",
+          href: "/testimonials",
+        },
+        {
+          title: "Services",
+          href: "/services",
+        },
+      ],
+    },
+    {
+      title: "Sessions",
+      items: [
+        {
+          title: "Bookings",
+          href: "/bookings",
+        },
+        {
+          title: "Contact",
+          href: "/contact",
+        },
+      ],
+    },
+    {
       title: "About",
-      href: "/about",
-    },
-    {
-      title: "Services",
-      href: "/services",
-    },
-    {
-      title: "Galleries",
-      href: "/galleries",
-    },
-    {
-      title: "Testimonials",
-      href: "/testimonials",
-    },
-    {
-      title: "Bookings",
-      href: "/bookings",
-    },
-    {
-      title: "Contact",
-      href: "/contact",
+      items: [
+        {
+          title: "Jason",
+          href: "/about",
+        },
+        {
+          title: "Blog",
+          href: "/blog",
+        },
+      ],
     },
   ],
   links: {
     instagram: "https://instagram.com/jasonholtphotography",
     facebook: "https://facebook.com/jasonholtphotography",
-    pinterest: "https://pinterest.com/jasonholtphoto",
+    threads: "https://threads.net/@jasonholtphotography", // Replaced Pinterest with Threads
   },
   services: [
     {

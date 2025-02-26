@@ -99,8 +99,8 @@ const config = {
           "50%": { transform: "translateY(-10px)" },
         },
         "pulse-subtle": {
-          "0%, 100%": { opacity: 0.7 },
-          "50%": { opacity: 0.9 },
+          "0%, 100%": { opacity: "0.7" },
+          "50%": { opacity: "0.9" },
         },
       },
       animation: {

@@ -7,6 +7,12 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { siteConfig } from "@/lib/theme"
 import { cn } from "@/lib/utils"
 import { usePathname } from "next/navigation"
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion"
 
 export function MobileMenu() {
   const [open, setOpen] = useState(false)
@@ -42,20 +48,54 @@ export function MobileMenu() {
       <SheetContent side="right" className="w-[300px] sm:w-[400px]">
         <div className="flex flex-col gap-6 py-6">
           <div className="flex flex-col space-y-3">
-            {siteConfig.mainNav.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={cn(
-                  "text-lg font-medium transition-colors hover:text-accent",
-                  isActive(item.href) 
-                    ? "text-accent" 
-                    : "text-foreground/80"
-                )}
-                onClick={() => setOpen(false)}
-              >
-                {item.title}
-              </Link>
+            {siteConfig.mainNav.map((item, index) => (
+              item.href ? (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={cn(
+                    "text-lg font-medium transition-colors hover:text-accent",
+                    isActive(item.href) 
+                      ? "text-accent" 
+                      : "text-foreground/80"
+                  )}
+                  onClick={() => setOpen(false)}
+                >
+                  {item.title}
+                </Link>
+              ) : (
+                <Accordion
+                  key={`accordion-${index}`}
+                  type="single"
+                  collapsible
+                  className="w-full"
+                >
+                  <AccordionItem value={`item-${index}`} className="border-none">
+                    <AccordionTrigger className="text-lg font-medium py-0 hover:text-accent">
+                      {item.title}
+                    </AccordionTrigger>
+                    <AccordionContent className="pt-2 pb-0">
+                      <div className="flex flex-col space-y-3 pl-4">
+                        {item.items?.map((subItem) => (
+                          <Link
+                            key={subItem.href}
+                            href={subItem.href}
+                            className={cn(
+                              "text-base font-medium transition-colors hover:text-accent",
+                              isActive(subItem.href) 
+                                ? "text-accent" 
+                                : "text-foreground/80"
+                            )}
+                            onClick={() => setOpen(false)}
+                          >
+                            {subItem.title}
+                          </Link>
+                        ))}
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+                </Accordion>
+              )
             ))}
           </div>
           
@@ -88,16 +128,16 @@ export function MobileMenu() {
                 </Link>
               </Button>
               <Button asChild variant="ghost" size="icon" className="rounded-full">
-                <Link href={siteConfig.links.pinterest} target="_blank" rel="noopener noreferrer">
+                <Link href={siteConfig.links.threads} target="_blank" rel="noopener noreferrer">
                   <svg
                     role="img"
                     viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-5 w-5 fill-current"
                   >
-                    <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.39 18.592.026 11.985.026L12.017 0z"/>
+                    <path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.587 1.5 12.086c0-3.131.574-5.335 1.706-6.555C4.322 4.345 5.935 3.825 7.97 3.637c.286-.028 1.904-.155 4.4-.155 1.082 0 2.037.024 2.623.048 3.811.167 5.92 1.973 5.996 5.132.023.958-.008 1.707-.094 2.293-.205 1.447-.734 2.508-1.579 3.158-.878.678-2.039.929-3.475.752l-.158-.022c-1.235-.175-1.9-.599-2.248-1.433-.287-.685-.373-1.47-.258-2.344.05-.383-.255-.718-.639-.718-.385 0-.718.335-.718.718 0 .03 0 .06.003.09.106 2.716-1.121 4.062-3.883 4.24-2.755.177-4.469-1.21-4.833-3.916-.189-1.41-.395-4.723 1.978-6.331 1.525-1.03 3.83-1.206 7.376-.558.55.101 1.075-.28 1.167-.834.092-.554-.281-1.075-.835-1.167-4.291-.786-7.177-.463-9.213.985-3.168 2.253-2.895 6.567-2.655 8.34.489 3.654 3.103 5.918 6.953 5.672 3.371-.216 5.406-1.997 5.648-4.942.651 1.12 1.776 1.824 3.364 2.053l.158.023c1.985.25 3.668-.11 4.981-1.073 1.344-1.035 2.158-2.667 2.428-4.861.097-.667.133-1.49.107-2.538-.1-4.204-3.064-7.051-8.11-7.276-.599-.026-1.564-.05-2.655-.05-2.495 0-4.153.127-4.536.165-2.454.227-4.6.899-6.012 1.896C1.493 5.917.738 8.622.738 12.086c0 3.901.969 7.157 2.806 9.455 2.18 2.718 5.387 4.115 9.528 4.141h.008c4.553 0 7.873-1.306 10.044-3.956 1.896-2.319 2.637-5.377 2.208-9.099-.098-.841-.84-1.44-1.682-1.342-.841.099-1.44.842-1.342 1.683.335 2.878-.169 5.198-1.501 6.903-1.692 2.067-4.437 3.092-8.337 3.13z"/>
                   </svg>
-                  <span className="sr-only">Pinterest</span>
+                  <span className="sr-only">Threads</span>
                 </Link>
               </Button>
             </div>
