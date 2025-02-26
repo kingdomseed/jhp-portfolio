@@ -11,8 +11,16 @@ import { usePathname } from "next/navigation"
 export function SiteHeader() {
   const pathname = usePathname()
   
-  const isActive = (path: string) => {
-    return pathname === path
+  const isActive = (path: string, items?: { href: string }[]) => {
+    // Check if the current path exactly matches the link's href
+    if (pathname === path) return true;
+    
+    // If this is a dropdown menu item, check if any sub-item matches the current path
+    if (items) {
+      return items.some(item => pathname === item.href);
+    }
+    
+    return false;
   }
 
   return (
@@ -54,10 +62,17 @@ export function SiteHeader() {
             ) : (
               <div key={`menu-${index}`} className="relative group">
                 <button
-                  className="text-base font-medium transition-colors hover:text-accent text-foreground/80"
+                  className={cn(
+                    "text-base font-medium transition-colors hover:text-accent",
+                    isActive("", item.items) 
+                      ? "text-accent" 
+                      : "text-foreground/80"
+                  )}
                 >
                   {item.title}
                 </button>
+                {/* This is a transparent bridge to maintain hover state */}
+                <div className="absolute left-0 h-2 w-full"></div>
                 <div className="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-background border border-border hidden group-hover:block z-50">
                   <div className="py-1">
                     {item.items?.map((subItem) => (

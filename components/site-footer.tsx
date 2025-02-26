@@ -28,24 +28,38 @@ export function SiteFooter() {
           <div className="md:col-span-1">
             <h3 className="text-lg font-medium">Quick Links</h3>
             <ul className="mt-4 space-y-2">
-              {siteConfig.mainNav.map((item, index) => (
-                item.href ? (
-                  <li key={item.href}>
-                    <Link 
-                      href={item.href}
-                      className="text-sm text-muted-foreground transition-colors hover:text-accent"
-                    >
-                      {item.title}
-                    </Link>
-                  </li>
-                ) : (
-                  <li key={`nav-${index}`}>
-                    <span className="text-sm text-muted-foreground">
-                      {item.title}
-                    </span>
-                  </li>
-                )
-              ))}
+              <li>
+                <Link 
+                  href="/"
+                  className="text-sm text-muted-foreground transition-colors hover:text-accent"
+                >
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  href="/bookings"
+                  className="text-sm text-muted-foreground transition-colors hover:text-accent"
+                >
+                  Bookings
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  href="/testimonials"
+                  className="text-sm text-muted-foreground transition-colors hover:text-accent"
+                >
+                  Testimonials
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  href="/contact"
+                  className="text-sm text-muted-foreground transition-colors hover:text-accent"
+                >
+                  Contact
+                </Link>
+              </li>
             </ul>
           </div>
           

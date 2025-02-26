@@ -18,8 +18,16 @@ export function MobileMenu() {
   const [open, setOpen] = useState(false)
   const pathname = usePathname()
   
-  const isActive = (path: string) => {
-    return pathname === path
+  const isActive = (path: string, items?: { href: string }[]) => {
+    // Check if the current path exactly matches the link's href
+    if (pathname === path) return true;
+    
+    // If this is a dropdown menu item, check if any sub-item matches the current path
+    if (items) {
+      return items.some(item => pathname === item.href);
+    }
+    
+    return false;
   }
 
   return (
@@ -71,7 +79,14 @@ export function MobileMenu() {
                   className="w-full"
                 >
                   <AccordionItem value={`item-${index}`} className="border-none">
-                    <AccordionTrigger className="text-lg font-medium py-0 hover:text-accent">
+                    <AccordionTrigger 
+                      className={cn(
+                        "text-lg font-medium py-0 hover:text-accent",
+                        isActive("", item.items) 
+                          ? "text-accent" 
+                          : "text-foreground/80"
+                      )}
+                    >
                       {item.title}
                     </AccordionTrigger>
                     <AccordionContent className="pt-2 pb-0">
