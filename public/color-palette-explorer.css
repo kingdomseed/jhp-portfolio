@@ -13,14 +13,14 @@
   --card-foreground: 220 10% 21%;
   --popover: 0 0% 100%;
   --popover-foreground: 220 10% 21%;
-  --primary: 158 24% 30%;     /* #3a5f56 - Current darker green */
+  --primary: 158 24% 30%; /* #3a5f56 - Current darker green */
   --primary-light: 158 15% 45%; /* #5e7a72 - Muted version of green */
   --primary-foreground: 0 0% 100%;
   --secondary: 210 3% 48%;
   --secondary-foreground: 0 0% 100%;
   --muted: 210 20% 98%;
   --muted-foreground: 215 5% 65%;
-  --accent: 200 70% 45%;      /* #2b8fc5 - Softened blue accent */
+  --accent: 200 70% 45%; /* #2b8fc5 - Softened blue accent */
   --accent-foreground: 0 0% 100%;
   --destructive: 0 72% 65%;
   --destructive-foreground: 0 0% 100%;
@@ -37,14 +37,14 @@
   --card-foreground: 0 0% 95%;
   --popover: 220 10% 12%;
   --popover-foreground: 0 0% 95%;
-  --primary: 158 20% 25%;     /* #324d45 - Deeper green */
+  --primary: 158 20% 25%; /* #324d45 - Deeper green */
   --primary-light: 158 15% 40%; /* #536e67 - Muted green for dark mode */
   --primary-foreground: 0 0% 100%;
   --secondary: 210 3% 30%;
   --secondary-foreground: 0 0% 100%;
   --muted: 220 10% 15%;
   --muted-foreground: 215 5% 65%;
-  --accent: 200 50% 40%;      /* #3377a3 - Deeper blue with reduced saturation */
+  --accent: 200 50% 40%; /* #3377a3 - Deeper blue with reduced saturation */
   --accent-foreground: 0 0% 100%;
   --destructive: 0 62% 55%;
   --destructive-foreground: 0 0% 100%;
@@ -62,14 +62,14 @@
   --card-foreground: 0 0% 15%;
   --popover: 0 0% 100%;
   --popover-foreground: 0 0% 15%;
-  --primary: 0 0% 25%;        /* #404040 - Dark gray */
-  --primary-light: 0 0% 45%;  /* #737373 - Medium gray */
+  --primary: 0 0% 25%; /* #404040 - Dark gray */
+  --primary-light: 0 0% 45%; /* #737373 - Medium gray */
   --primary-foreground: 0 0% 100%;
   --secondary: 0 0% 90%;
   --secondary-foreground: 0 0% 25%;
   --muted: 0 0% 96%;
   --muted-foreground: 0 0% 45%;
-  --accent: 220 40% 50%;      /* #5773b3 - Softened royal blue */
+  --accent: 220 40% 50%; /* #5773b3 - Softened royal blue */
   --accent-foreground: 0 0% 100%;
   --destructive: 0 72% 65%;
   --destructive-foreground: 0 0% 100%;
@@ -86,14 +86,14 @@
   --card-foreground: 0 0% 95%;
   --popover: 0 0% 12%;
   --popover-foreground: 0 0% 95%;
-  --primary: 0 0% 20%;        /* #333333 - Deeper gray */
-  --primary-light: 0 0% 40%;  /* #666666 - Medium gray for dark mode */
+  --primary: 0 0% 20%; /* #333333 - Deeper gray */
+  --primary-light: 0 0% 40%; /* #666666 - Medium gray for dark mode */
   --primary-foreground: 0 0% 100%;
   --secondary: 0 0% 25%;
   --secondary-foreground: 0 0% 95%;
   --muted: 0 0% 15%;
   --muted-foreground: 0 0% 65%;
-  --accent: 220 30% 45%;      /* #5269a1 - Deeper, less saturated blue */
+  --accent: 220 30% 45%; /* #5269a1 - Deeper, less saturated blue */
   --accent-foreground: 0 0% 100%;
   --destructive: 0 62% 55%;
   --destructive-foreground: 0 0% 100%;
@@ -111,14 +111,14 @@
   --card-foreground: 20 10% 15%;
   --popover: 30 20% 98%;
   --popover-foreground: 20 10% 15%;
-  --primary: 25 40% 35%;      /* #8c5e3c - Rich warm brown */
+  --primary: 25 40% 35%; /* #8c5e3c - Rich warm brown */
   --primary-light: 25 30% 60%; /* #b38f75 - Light warm brown */
   --primary-foreground: 0 0% 100%;
   --secondary: 35 30% 85%;
   --secondary-foreground: 20 10% 15%;
   --muted: 30 20% 95%;
   --muted-foreground: 20 10% 40%;
-  --accent: 200 30% 45%;      /* #5989a6 - Muted blue */
+  --accent: 200 30% 45%; /* #5989a6 - Muted blue */
   --accent-foreground: 0 0% 100%;
   --destructive: 0 72% 65%;
   --destructive-foreground: 0 0% 100%;
@@ -135,14 +135,14 @@
   --card-foreground: 30 10% 95%;
   --popover: 25 15% 12%;
   --popover-foreground: 30 10% 95%;
-  --primary: 25 35% 30%;      /* #775235 - Deeper brown */
+  --primary: 25 35% 30%; /* #775235 - Deeper brown */
   --primary-light: 25 25% 50%; /* #967a63 - Muted brown for dark mode */
   --primary-foreground: 0 0% 100%;
   --secondary: 35 20% 25%;
   --secondary-foreground: 30 10% 95%;
   --muted: 25 15% 15%;
   --muted-foreground: 30 10% 65%;
-  --accent: 200 25% 40%;      /* #517b94 - Deeper muted blue */
+  --accent: 200 25% 40%; /* #517b94 - Deeper muted blue */
   --accent-foreground: 0 0% 100%;
   --destructive: 0 62% 55%;
   --destructive-foreground: 0 0% 100%;
@@ -160,14 +160,14 @@
   --card-foreground: 60 10% 15%;
   --popover: 60 20% 98%;
   --popover-foreground: 60 10% 15%;
-  --primary: 120 15% 40%;     /* #566b59 - Rich sage */
+  --primary: 120 15% 40%; /* #566b59 - Rich sage */
   --primary-light: 120 12% 65%; /* #9aa99c - Light sage */
   --primary-foreground: 0 0% 100%;
   --secondary: 45 40% 85%;
   --secondary-foreground: 60 10% 15%;
   --muted: 60 20% 94%;
   --muted-foreground: 60 10% 40%;
-  --accent: 45 60% 45%;       /* #b39232 - Muted gold */
+  --accent: 45 60% 45%; /* #b39232 - Muted gold */
   --accent-foreground: 0 0% 100%;
   --destructive: 0 72% 65%;
   --destructive-foreground: 0 0% 100%;
@@ -184,14 +184,14 @@
   --card-foreground: 60 10% 95%;
   --popover: 120 10% 12%;
   --popover-foreground: 60 10% 95%;
-  --primary: 120 15% 30%;     /* #415144 - Deep sage */
+  --primary: 120 15% 30%; /* #415144 - Deep sage */
   --primary-light: 120 10% 55%; /* #828e84 - Muted sage for dark mode */
   --primary-foreground: 0 0% 100%;
   --secondary: 45 20% 25%;
   --secondary-foreground: 60 10% 95%;
   --muted: 120 10% 15%;
   --muted-foreground: 60 10% 65%;
-  --accent: 45 50% 40%;       /* #9f8230 - Deeper gold */
+  --accent: 45 50% 40%; /* #9f8230 - Deeper gold */
   --accent-foreground: 0 0% 100%;
   --destructive: 0 62% 55%;
   --destructive-foreground: 0 0% 100%;
@@ -209,14 +209,14 @@
   --card-foreground: 30 10% 15%;
   --popover: 30 10% 98%;
   --popover-foreground: 30 10% 15%;
-  --primary: 30 15% 35%;      /* #5c5347 - Warm stone gray */
+  --primary: 30 15% 35%; /* #5c5347 - Warm stone gray */
   --primary-light: 30 15% 65%; /* #ac9f8f - Light stone */
   --primary-foreground: 0 0% 100%;
   --secondary: 30 10% 85%;
   --secondary-foreground: 30 10% 15%;
   --muted: 30 10% 94%;
   --muted-foreground: 30 10% 40%;
-  --accent: 15 60% 45%;       /* #b35c33 - Terracotta */
+  --accent: 15 60% 45%; /* #b35c33 - Terracotta */
   --accent-foreground: 0 0% 100%;
   --destructive: 0 72% 65%;
   --destructive-foreground: 0 0% 100%;
@@ -233,14 +233,14 @@
   --card-foreground: 30 5% 95%;
   --popover: 30 10% 12%;
   --popover-foreground: 30 5% 95%;
-  --primary: 30 15% 25%;      /* #423c33 - Deep stone */
+  --primary: 30 15% 25%; /* #423c33 - Deep stone */
   --primary-light: 30 12% 55%; /* #8f8578 - Muted stone for dark mode */
   --primary-foreground: 0 0% 100%;
   --secondary: 30 10% 25%;
   --secondary-foreground: 30 5% 95%;
   --muted: 30 10% 15%;
   --muted-foreground: 30 5% 65%;
-  --accent: 15 50% 40%;       /* #9f5230 - Deeper terracotta */
+  --accent: 15 50% 40%; /* #9f5230 - Deeper terracotta */
   --accent-foreground: 0 0% 100%;
   --destructive: 0 62% 55%;
   --destructive-foreground: 0 0% 100%;
@@ -258,14 +258,14 @@
   --card-foreground: 210 10% 15%;
   --popover: 210 5% 98%;
   --popover-foreground: 210 10% 15%;
-  --primary: 210 10% 30%;     /* #454c54 - Charcoal with slight blue undertone */
+  --primary: 210 10% 30%; /* #454c54 - Charcoal with slight blue undertone */
   --primary-light: 210 10% 60%; /* #8c949e - Light charcoal blue */
   --primary-foreground: 0 0% 100%;
   --secondary: 210 5% 85%;
   --secondary-foreground: 210 10% 15%;
   --muted: 210 5% 94%;
   --muted-foreground: 210 10% 40%;
-  --accent: 35 70% 45%;       /* #b38728 - Rich amber */
+  --accent: 35 70% 45%; /* #b38728 - Rich amber */
   --accent-foreground: 0 0% 100%;
   --destructive: 0 72% 65%;
   --destructive-foreground: 0 0% 100%;
@@ -282,14 +282,14 @@
   --card-foreground: 210 5% 95%;
   --popover: 210 10% 12%;
   --popover-foreground: 210 5% 95%;
-  --primary: 210 10% 20%;     /* #2e3338 - Deep charcoal */
+  --primary: 210 10% 20%; /* #2e3338 - Deep charcoal */
   --primary-light: 210 8% 50%; /* #757c85 - Muted charcoal for dark mode */
   --primary-foreground: 0 0% 100%;
   --secondary: 210 5% 25%;
   --secondary-foreground: 210 5% 95%;
   --muted: 210 10% 15%;
   --muted-foreground: 210 5% 65%;
-  --accent: 35 60% 40%;       /* #9f7826 - Deeper amber */
+  --accent: 35 60% 40%; /* #9f7826 - Deeper amber */
   --accent-foreground: 0 0% 100%;
   --destructive: 0 62% 55%;
   --destructive-foreground: 0 0% 100%;
@@ -307,14 +307,14 @@
   --card-foreground: 220 10% 21%;
   --popover: 0 0% 100%;
   --popover-foreground: 220 10% 21%;
-  --primary: 200 70% 39%;     /* #0089c7 - Blue primary */
+  --primary: 200 70% 39%; /* #0089c7 - Blue primary */
   --primary-light: 200 70% 65%; /* #4db8f5 - Light blue */
   --primary-foreground: 0 0% 100%;
   --secondary: 210 3% 48%;
   --secondary-foreground: 0 0% 100%;
   --muted: 210 20% 98%;
   --muted-foreground: 215 5% 65%;
-  --accent: 158 40% 60%;      /* #6ac2a9 - Softened teal accent */
+  --accent: 158 40% 60%; /* #6ac2a9 - Softened teal accent */
   --accent-foreground: 0 0% 100%;
   --destructive: 0 72% 65%;
   --destructive-foreground: 0 0% 100%;
@@ -331,14 +331,14 @@
   --card-foreground: 0 0% 95%;
   --popover: 220 10% 12%;
   --popover-foreground: 0 0% 95%;
-  --primary: 200 60% 35%;     /* #0e77ab - Deeper blue */
+  --primary: 200 60% 35%; /* #0e77ab - Deeper blue */
   --primary-light: 200 50% 55%; /* #4a9cc7 - Muted blue for dark mode */
   --primary-foreground: 0 0% 100%;
   --secondary: 210 3% 30%;
   --secondary-foreground: 0 0% 100%;
   --muted: 220 10% 15%;
   --muted-foreground: 215 5% 65%;
-  --accent: 158 35% 50%;      /* #5aa48d - Deeper teal */
+  --accent: 158 35% 50%; /* #5aa48d - Deeper teal */
   --accent-foreground: 0 0% 100%;
   --destructive: 0 62% 55%;
   --destructive-foreground: 0 0% 100%;
@@ -356,14 +356,14 @@
   --card-foreground: 220 10% 21%;
   --popover: 0 0% 100%;
   --popover-foreground: 220 10% 21%;
-  --primary: 180 40% 35%;     /* #2d6b73 - Refined teal */
+  --primary: 180 40% 35%; /* #2d6b73 - Refined teal */
   --primary-light: 180 40% 65%; /* #7bc2ca - Light teal */
   --primary-foreground: 0 0% 100%;
   --secondary: 210 3% 48%;
   --secondary-foreground: 0 0% 100%;
   --muted: 180 20% 98%;
   --muted-foreground: 215 5% 65%;
-  --accent: 200 60% 45%;      /* #2b8fc5 - Softened blue accent */
+  --accent: 200 60% 45%; /* #2b8fc5 - Softened blue accent */
   --accent-foreground: 0 0% 100%;
   --destructive: 0 72% 65%;
   --destructive-foreground: 0 0% 100%;
@@ -380,14 +380,14 @@
   --card-foreground: 0 0% 95%;
   --popover: 180 10% 12%;
   --popover-foreground: 0 0% 95%;
-  --primary: 180 35% 30%;     /* #275a61 - Deeper teal */
+  --primary: 180 35% 30%; /* #275a61 - Deeper teal */
   --primary-light: 180 30% 55%; /* #6aa5ac - Muted teal for dark mode */
   --primary-foreground: 0 0% 100%;
   --secondary: 180 3% 30%;
   --secondary-foreground: 0 0% 100%;
   --muted: 180 10% 15%;
   --muted-foreground: 215 5% 65%;
-  --accent: 200 50% 40%;      /* #3377a3 - Deeper blue */
+  --accent: 200 50% 40%; /* #3377a3 - Deeper blue */
   --accent-foreground: 0 0% 100%;
   --destructive: 0 62% 55%;
   --destructive-foreground: 0 0% 100%;
@@ -405,14 +405,14 @@
   --card-foreground: 220 10% 21%;
   --popover: 0 0% 100%;
   --popover-foreground: 220 10% 21%;
-  --primary: 210 100% 35%;    /* #0055b3 - Deep blue */
+  --primary: 210 100% 35%; /* #0055b3 - Deep blue */
   --primary-light: 210 80% 55%; /* #3b7dd1 - Medium blue */
   --primary-foreground: 0 0% 100%;
   --secondary: 210 30% 85%;
   --secondary-foreground: 220 10% 21%;
   --muted: 210 20% 98%;
   --muted-foreground: 215 5% 65%;
-  --accent: 210 50% 55%;      /* #4dbfbf - Teal accent */
+  --accent: 210 50% 55%; /* #4dbfbf - Teal accent */
   --accent-foreground: 0 0% 100%;
   --destructive: 0 72% 65%;
   --destructive-foreground: 0 0% 100%;
@@ -429,14 +429,14 @@
   --card-foreground: 0 0% 95%;
   --popover: 210 15% 12%;
   --popover-foreground: 0 0% 95%;
-  --primary: 210 90% 30%;     /* #0049a3 - Deeper blue */
+  --primary: 210 90% 30%; /* #0049a3 - Deeper blue */
   --primary-light: 210 70% 50%; /* #3373c4 - Muted blue for dark mode */
   --primary-foreground: 0 0% 100%;
   --secondary: 210 20% 30%;
   --secondary-foreground: 0 0% 95%;
   --muted: 210 15% 15%;
   --muted-foreground: 215 5% 65%;
-  --accent: 210 45% 45%;      /* #3d9e9e - Deeper teal */
+  --accent: 210 45% 45%; /* #3d9e9e - Deeper teal */
   --accent-foreground: 0 0% 100%;
   --destructive: 0 62% 55%;
   --destructive-foreground: 0 0% 100%;
@@ -454,14 +454,14 @@
   --card-foreground: 220 20% 15%;
   --popover: 220 20% 98%;
   --popover-foreground: 220 20% 15%;
-  --primary: 230 40% 30%;     /* #2a3b73 - Deep navy */
+  --primary: 230 40% 30%; /* #2a3b73 - Deep navy */
   --primary-light: 230 35% 55%; /* #6378c4 - Medium navy */
   --primary-foreground: 0 0% 100%;
   --secondary: 230 20% 85%;
   --secondary-foreground: 220 20% 15%;
   --muted: 220 20% 94%;
   --muted-foreground: 220 20% 40%;
-  --accent: 350 50% 50%;      /* #c13f5e - Softened rose */
+  --accent: 350 50% 50%; /* #c13f5e - Softened rose */
   --accent-foreground: 0 0% 100%;
   --destructive: 0 72% 65%;
   --destructive-foreground: 0 0% 100%;
@@ -478,14 +478,14 @@
   --card-foreground: 220 10% 95%;
   --popover: 230 20% 12%;
   --popover-foreground: 220 10% 95%;
-  --primary: 230 35% 25%;     /* #242f5c - Deeper navy */
+  --primary: 230 35% 25%; /* #242f5c - Deeper navy */
   --primary-light: 230 30% 45%; /* #4f5fa3 - Muted navy for dark mode */
   --primary-foreground: 0 0% 100%;
   --secondary: 230 15% 30%;
   --secondary-foreground: 220 10% 95%;
   --muted: 230 20% 15%;
   --muted-foreground: 220 10% 65%;
-  --accent: 350 45% 45%;      /* #ad3853 - Deeper rose */
+  --accent: 350 45% 45%; /* #ad3853 - Deeper rose */
   --accent-foreground: 0 0% 100%;
   --destructive: 0 62% 55%;
   --destructive-foreground: 0 0% 100%;
@@ -503,14 +503,14 @@
   --card-foreground: 200 30% 15%;
   --popover: 200 30% 98%;
   --popover-foreground: 200 30% 15%;
-  --primary: 200 60% 35%;     /* #2372a6 - Ocean blue */
+  --primary: 200 60% 35%; /* #2372a6 - Ocean blue */
   --primary-light: 200 50% 65%; /* #7cbce6 - Sky blue */
   --primary-foreground: 0 0% 100%;
   --secondary: 180 30% 85%;
   --secondary-foreground: 200 30% 15%;
   --muted: 200 30% 94%;
   --muted-foreground: 200 30% 40%;
-  --accent: 25 70% 50%;       /* #d67e22 - Softened sunset orange */
+  --accent: 25 70% 50%; /* #d67e22 - Softened sunset orange */
   --accent-foreground: 0 0% 100%;
   --destructive: 0 72% 65%;
   --destructive-foreground: 0 0% 100%;
@@ -527,14 +527,14 @@
   --card-foreground: 200 10% 95%;
   --popover: 200 25% 12%;
   --popover-foreground: 200 10% 95%;
-  --primary: 200 55% 30%;     /* #1e6490 - Deeper ocean blue */
+  --primary: 200 55% 30%; /* #1e6490 - Deeper ocean blue */
   --primary-light: 200 45% 55%; /* #5fa3d1 - Muted sky blue for dark mode */
   --primary-foreground: 0 0% 100%;
   --secondary: 180 25% 30%;
   --secondary-foreground: 200 10% 95%;
   --muted: 200 25% 15%;
   --muted-foreground: 200 10% 65%;
-  --accent: 25 65% 45%;       /* #c17220 - Deeper sunset orange */
+  --accent: 25 65% 45%; /* #c17220 - Deeper sunset orange */
   --accent-foreground: 0 0% 100%;
   --destructive: 0 62% 55%;
   --destructive-foreground: 0 0% 100%;
@@ -552,14 +552,14 @@
   --card-foreground: 300 10% 15%;
   --popover: 300 10% 98%;
   --popover-foreground: 300 10% 15%;
-  --primary: 300 30% 35%;     /* #733d66 - Rich plum */
+  --primary: 300 30% 35%; /* #733d66 - Rich plum */
   --primary-light: 300 25% 65%; /* #bf8ab3 - Light plum */
   --primary-foreground: 0 0% 100%;
   --secondary: 300 10% 85%;
   --secondary-foreground: 300 10% 15%;
   --muted: 300 10% 94%;
   --muted-foreground: 300 10% 40%;
-  --accent: 180 50% 45%;      /* #39a6a6 - Teal accent */
+  --accent: 180 50% 45%; /* #39a6a6 - Teal accent */
   --accent-foreground: 0 0% 100%;
   --destructive: 0 72% 65%;
   --destructive-foreground: 0 0% 100%;
@@ -576,14 +576,14 @@
   --card-foreground: 300 5% 95%;
   --popover: 300 15% 12%;
   --popover-foreground: 300 5% 95%;
-  --primary: 300 25% 30%;     /* #5f3354 - Deep plum */
+  --primary: 300 25% 30%; /* #5f3354 - Deep plum */
   --primary-light: 300 20% 55%; /* #9d6e91 - Muted plum for dark mode */
   --primary-foreground: 0 0% 100%;
   --secondary: 300 10% 25%;
   --secondary-foreground: 300 5% 95%;
   --muted: 300 15% 15%;
   --muted-foreground: 300 5% 65%;
-  --accent: 180 45% 40%;      /* #338787 - Deeper teal */
+  --accent: 180 45% 40%; /* #338787 - Deeper teal */
   --accent-foreground: 0 0% 100%;
   --destructive: 0 62% 55%;
   --destructive-foreground: 0 0% 100%;
@@ -601,14 +601,14 @@
   --card-foreground: 350 10% 15%;
   --popover: 350 10% 98%;
   --popover-foreground: 350 10% 15%;
-  --primary: 350 50% 30%;     /* #8c2a3e - Rich burgundy */
+  --primary: 350 50% 30%; /* #8c2a3e - Rich burgundy */
   --primary-light: 350 40% 60%; /* #c66a7e - Light burgundy */
   --primary-foreground: 0 0% 100%;
   --secondary: 350 10% 85%;
   --secondary-foreground: 350 10% 15%;
   --muted: 350 10% 94%;
   --muted-foreground: 350 10% 40%;
-  --accent: 200 60% 45%;      /* #2b8fc5 - Blue accent */
+  --accent: 200 60% 45%; /* #2b8fc5 - Blue accent */
   --accent-foreground: 0 0% 100%;
   --destructive: 0 72% 65%;
   --destructive-foreground: 0 0% 100%;
@@ -625,14 +625,14 @@
   --card-foreground: 350 5% 95%;
   --popover: 350 15% 12%;
   --popover-foreground: 350 5% 95%;
-  --primary: 350 45% 25%;     /* #732333 - Deep burgundy */
+  --primary: 350 45% 25%; /* #732333 - Deep burgundy */
   --primary-light: 350 35% 50%; /* #a3546a - Muted burgundy for dark mode */
   --primary-foreground: 0 0% 100%;
   --secondary: 350 10% 25%;
   --secondary-foreground: 350 5% 95%;
   --muted: 350 15% 15%;
   --muted-foreground: 350 5% 65%;
-  --accent: 200 50% 40%;      /* #3377a3 - Deeper blue */
+  --accent: 200 50% 40%; /* #3377a3 - Deeper blue */
   --accent-foreground: 0 0% 100%;
   --destructive: 0 62% 55%;
   --destructive-foreground: 0 0% 100%;
@@ -650,14 +650,14 @@
   --card-foreground: 140 10% 15%;
   --popover: 140 10% 98%;
   --popover-foreground: 140 10% 15%;
-  --primary: 140 40% 30%;     /* #2d734a - Forest green */
+  --primary: 140 40% 30%; /* #2d734a - Forest green */
   --primary-light: 140 30% 60%; /* #6eb992 - Light forest green */
   --primary-foreground: 0 0% 100%;
   --secondary: 140 10% 85%;
   --secondary-foreground: 140 10% 15%;
   --muted: 140 10% 94%;
   --muted-foreground: 140 10% 40%;
-  --accent: 25 70% 50%;       /* #d67e22 - Warm orange accent */
+  --accent: 25 70% 50%; /* #d67e22 - Warm orange accent */
   --accent-foreground: 0 0% 100%;
   --destructive: 0 72% 65%;
   --destructive-foreground: 0 0% 100%;
@@ -674,14 +674,14 @@
   --card-foreground: 140 5% 95%;
   --popover: 140 15% 12%;
   --popover-foreground: 140 5% 95%;
-  --primary: 140 35% 25%;     /* #265f3d - Deep forest green */
+  --primary: 140 35% 25%; /* #265f3d - Deep forest green */
   --primary-light: 140 25% 50%; /* #5c9c7a - Muted forest green for dark mode */
   --primary-foreground: 0 0% 100%;
   --secondary: 140 10% 25%;
   --secondary-foreground: 140 5% 95%;
   --muted: 140 15% 15%;
   --muted-foreground: 140 5% 65%;
-  --accent: 25 65% 45%;       /* #c17220 - Deeper orange */
+  --accent: 25 65% 45%; /* #c17220 - Deeper orange */
   --accent-foreground: 0 0% 100%;
   --destructive: 0 62% 55%;
   --destructive-foreground: 0 0% 100%;
@@ -699,14 +699,14 @@
   --card-foreground: 240 10% 15%;
   --popover: 240 10% 98%;
   --popover-foreground: 240 10% 15%;
-  --primary: 240 40% 40%;     /* #4747a6 - Slate blue */
+  --primary: 240 40% 40%; /* #4747a6 - Slate blue */
   --primary-light: 240 30% 65%; /* #8a8ac9 - Light slate blue */
   --primary-foreground: 0 0% 100%;
   --secondary: 240 10% 85%;
   --secondary-foreground: 240 10% 15%;
   --muted: 240 10% 94%;
   --muted-foreground: 240 10% 40%;
-  --accent: 35 80% 50%;       /* #e6b31a - Gold accent */
+  --accent: 35 80% 50%; /* #e6b31a - Gold accent */
   --accent-foreground: 0 0% 100%;
   --destructive: 0 72% 65%;
   --destructive-foreground: 0 0% 100%;
@@ -723,14 +723,14 @@
   --card-foreground: 240 5% 95%;
   --popover: 240 15% 12%;
   --popover-foreground: 240 5% 95%;
-  --primary: 240 35% 35%;     /* #3d3d8c - Deep slate blue */
+  --primary: 240 35% 35%; /* #3d3d8c - Deep slate blue */
   --primary-light: 240 25% 55%; /* #7575b3 - Muted slate blue for dark mode */
   --primary-foreground: 0 0% 100%;
   --secondary: 240 10% 25%;
   --secondary-foreground: 240 5% 95%;
   --muted: 240 15% 15%;
   --muted-foreground: 240 5% 65%;
-  --accent: 35 70% 45%;       /* #cc9f17 - Deeper gold */
+  --accent: 35 70% 45%; /* #cc9f17 - Deeper gold */
   --accent-foreground: 0 0% 100%;
   --destructive: 0 62% 55%;
   --destructive-foreground: 0 0% 100%;
@@ -747,15 +747,20 @@
 }
 
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   background-color: hsl(var(--background));
   color: hsl(var(--foreground));
   line-height: 1.6;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Cormorant Garamond', serif;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Cormorant Garamond", serif;
   font-weight: 600;
   line-height: 1.2;
 }
@@ -784,7 +789,7 @@ header {
 }
 
 .logo {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: "Cormorant Garamond", serif;
   font-size: 1.5rem;
   font-weight: 600;
 }
@@ -1062,12 +1067,18 @@ input:checked + .toggle-slider:before {
 }
 
 .badge-primary {
-  background-color: hsla(var(--primary), 0.1);
-  color: hsl(var(--primary));
+  background-color: hsla(var(--primary), 0.2);
+  color: hsl(var(--primary)); /* Changed from primary-light to primary for light mode */
+}
+
+/* Add dark mode override */
+.dark .badge-primary {
+  background-color: hsla(var(--primary), 0.2);
+  color: hsl(var(--primary-light)); /* Use primary-light in dark mode */
 }
 
 .badge-accent {
-  background-color: hsla(var(--accent), 0.1);
+  background-color: hsla(var(--accent), 0.2);
   color: hsl(var(--accent));
 }
 
@@ -1174,7 +1185,11 @@ input:checked + .toggle-slider:before {
   left: 0;
   right: 0;
   padding: 1.5rem;
-  background: linear-gradient(to top, hsla(var(--background), 0.9), transparent);
+  background: linear-gradient(
+    to top,
+    hsla(var(--background), 0.9),
+    transparent
+  );
   color: hsl(var(--foreground));
 }
 
@@ -1216,20 +1231,71 @@ footer {
   font-size: 0.875rem;
 }
 
+/* Contrast checker styles */
+.contrast-row {
+  display: flex;
+  margin-bottom: 1rem;
+  align-items: center;
+}
+
+.contrast-label {
+  flex: 1;
+  font-weight: 500;
+}
+
+.contrast-value {
+  font-family: monospace;
+  font-size: 0.875rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--radius);
+}
+
+.contrast-pass {
+  background-color: hsla(120, 70%, 40%, 0.15);
+  color: hsl(120, 70%, 40%);
+}
+
+.contrast-warn {
+  background-color: hsla(40, 100%, 50%, 0.15);
+  color: hsl(40, 100%, 50%);
+}
+
+.contrast-fail {
+  background-color: hsla(0, 70%, 50%, 0.15);
+  color: hsl(0, 70%, 50%);
+}
+
+.contrast-sample {
+  display: inline-block;
+  margin-right: 0.5rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: var(--radius);
+  vertical-align: middle;
+}
+
+.contrast-text-sample {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--radius);
+  margin-right: 0.5rem;
+  font-weight: 500;
+}
+
 @media (max-width: 768px) {
   .header-content {
     height: 4rem;
   }
-  
+
   .component-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .footer-content {
     flex-direction: column;
     gap: 1.5rem;
   }
-  
+
   .footer-links {
     flex-wrap: wrap;
     justify-content: center;
