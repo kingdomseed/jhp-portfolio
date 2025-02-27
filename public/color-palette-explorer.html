@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jason Holt Photography - Color Palette Explorer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="color-palette-explorer.css" />
+  <script src="color-pallette-explorer.js"></script>
+</head>
+<body class="palette-current">
+  <header>
+    <div class="container">
+      <div class="header-content">
+        <div class="logo">Jason Holt Photography</div>
+        <nav>
+          <a href="#" class="active">Home</a>
+          <a href="#">Galleries</a>
+          <a href="#">Services</a>
+          <a href="#">About</a>
+          <a href="#">Contact</a>
+        </nav>
+        <div class="mode-toggle">
+          <label class="toggle-switch">
+            <input type="checkbox" id="dark-mode-toggle">
+            <span class="toggle-slider"></span>
+          </label>
+          <span class="toggle-label">Dark Mode</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="palette-selector">
+    <div class="container">
+      <h2>Select a Color Palette</h2>
+      <div class="palette-controls">
+        <p>Each palette has been refined to ensure accent colors complement rather than compete with the primary colors.</p>
+      </div>
+      <div class="palette-options">
+        <div class="palette-option active" data-palette="palette-current">
+          <div class="color-preview">
+            <div class="color-dot" style="background-color: hsl(158, 24%, 30%)"></div>
+            <div class="color-dot" style="background-color: hsl(158, 15%, 45%)"></div>
+            <div class="color-dot" style="background-color: hsl(200, 70%, 45%)"></div>
+          </div>
+          <span>Current (Enhanced)</span>
+        </div>
+        <div class="palette-option" data-palette="palette-blue-primary">
+          <div class="color-preview">
+            <div class="color-dot" style="background-color: hsl(200, 70%, 39%)"></div>
+            <div class="color-dot" style="background-color: hsl(200, 70%, 65%)"></div>
+            <div class="color-dot" style="background-color: hsl(158, 40%, 60%)"></div>
+          </div>
+          <span>Blue Primary</span>
+        </div>
+        <div class="palette-option" data-palette="palette-refined-teal">
+          <div class="color-preview">
+            <div class="color-dot" style="background-color: hsl(180, 40%, 35%)"></div>
+            <div class="color-dot" style="background-color: hsl(180, 40%, 65%)"></div>
+            <div class="color-dot" style="background-color: hsl(200, 60%, 45%)"></div>
+          </div>
+          <span>Refined Teal</span>
+        </div>
+        <div class="palette-option" data-palette="palette-mono-blue">
+          <div class="color-preview">
+            <div class="color-dot" style="background-color: hsl(210, 100%, 35%)"></div>
+            <div class="color-dot" style="background-color: hsl(210, 80%, 55%)"></div>
+            <div class="color-dot" style="background-color: hsl(210, 50%, 55%)"></div>
+          </div>
+          <span>Mono Blue</span>
+        </div>
+        <div class="palette-option" data-palette="palette-warm-earthy">
+          <div class="color-preview">
+            <div class="color-dot" style="background-color: hsl(25, 40%, 35%)"></div>
+            <div class="color-dot" style="background-color: hsl(25, 30%, 60%)"></div>
+            <div class="color-dot" style="background-color: hsl(200, 30%, 45%)"></div>
+          </div>
+          <span>Warm Earthy</span>
+        </div>
+        <div class="palette-option" data-palette="palette-sophisticated-neutral">
+          <div class="color-preview">
+            <div class="color-dot" style="background-color: hsl(0, 0%, 25%)"></div>
+            <div class="color-dot" style="background-color: hsl(0, 0%, 45%)"></div>
+            <div class="color-dot" style="background-color: hsl(220, 40%, 50%)"></div>
+          </div>
+          <span>Sophisticated Neutral</span>
+        </div>
+        <div class="palette-option" data-palette="palette-deep-moody">
+          <div class="color-preview">
+            <div class="color-dot" style="background-color: hsl(230, 40%, 30%)"></div>
+            <div class="color-dot" style="background-color: hsl(230, 35%, 55%)"></div>
+            <div class="color-dot" style="background-color: hsl(350, 50%, 50%)"></div>
+          </div>
+          <span>Deep Moody</span>
+        </div>
+        <div class="palette-option" data-palette="palette-sage-gold">
+          <div class="color-preview">
+            <div class="color-dot" style="background-color: hsl(120, 15%, 40%)"></div>
+            <div class="color-dot" style="background-color: hsl(120, 12%, 65%)"></div>
+            <div class="color-dot" style="background-color: hsl(45, 60%, 45%)"></div>
+          </div>
+          <span>Sage & Gold</span>
+        </div>
+        <div class="palette-option" data-palette="palette-coastal">
+          <div class="color-preview">
+            <div class="color-dot" style="background-color: hsl(200, 60%, 35%)"></div>
+            <div class="color-dot" style="background-color: hsl(200, 50%, 65%)"></div>
+            <div class="color-dot" style="background-color: hsl(25, 70%, 50%)"></div>
+          </div>
+          <span>Coastal</span>
+        </div>
+        <div class="palette-option" data-palette="palette-warm-stone">
+          <div class="color-preview">
+            <div class="color-dot" style="background-color: hsl(30, 15%, 35%)"></div>
+            <div class="color-dot" style="background-color: hsl(30, 15%, 65%)"></div>
+            <div class="color-dot" style="background-color: hsl(15, 60%, 45%)"></div>
+          </div>
+          <span>Warm Stone</span>
+        </div>
+        <div class="palette-option" data-palette="palette-charcoal-amber">
+          <div class="color-preview">
+            <div class="color-dot" style="background-color: hsl(210, 10%, 30%)"></div>
+            <div class="color-dot" style="background-color: hsl(210, 10%, 60%)"></div>
+            <div class="color-dot" style="background-color: hsl(35, 70%, 45%)"></div>
+          </div>
+          <span>Charcoal Amber</span>
+        </div>
+        <div class="palette-option" data-palette="palette-elegant-plum">
+          <div class="color-preview">
+            <div class="color-dot" style="background-color: hsl(300, 30%, 35%)"></div>
+            <div class="color-dot" style="background-color: hsl(300, 25%, 65%)"></div>
+            <div class="color-dot" style="background-color: hsl(180, 50%, 45%)"></div>
+          </div>
+          <span>Elegant Plum</span>
+        </div>
+        <div class="palette-option" data-palette="palette-rich-burgundy">
+          <div class="color-preview">
+            <div class="color-dot" style="background-color: hsl(350, 50%, 30%)"></div>
+            <div class="color-dot" style="background-color: hsl(350, 40%, 60%)"></div>
+            <div class="color-dot" style="background-color: hsl(200, 60%, 45%)"></div>
+          </div>
+          <span>Rich Burgundy</span>
+        </div>
+        <div class="palette-option" data-palette="palette-forest-green">
+          <div class="color-preview">
+            <div class="color-dot" style="background-color: hsl(140, 40%, 30%)"></div>
+            <div class="color-dot" style="background-color: hsl(140, 30%, 60%)"></div>
+            <div class="color-dot" style="background-color: hsl(25, 70%, 50%)"></div>
+          </div>
+          <span>Forest Green</span>
+        </div>
+        <div class="palette-option" data-palette="palette-slate-blue">
+          <div class="color-preview">
+            <div class="color-dot" style="background-color: hsl(240, 40%, 40%)"></div>
+            <div class="color-dot" style="background-color: hsl(240, 30%, 65%)"></div>
+            <div class="color-dot" style="background-color: hsl(35, 80%, 50%)"></div>
+          </div>
+          <span>Slate Blue</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main class="main-content">
+    <div class="container">
+      <section class="section">
+        <h2 class="section-title">UI Components</h2>
+        <div class="component-grid">
+          <!-- Buttons Component -->
+          <div class="component-card">
+            <h3 class="component-title">Buttons</h3>
+            <div class="button-group">
+              <button class="button button-primary">Primary Button</button>
+              <button class="button button-secondary">Secondary</button>
+            </div>
+            <div class="button-group">
+              <button class="button button-outline">Outline</button>
+              <button class="button button-accent">Accent</button>
+            </div>
+          </div>
+          
+          <!-- Navigation Component -->
+          <div class="component-card">
+            <h3 class="component-title">Navigation</h3>
+            <div class="navigation-example">
+              <a href="#" class="active">Home</a>
+              <a href="#">Galleries</a>
+              <a href="#">Services</a>
+              <a href="#">About</a>
+            </div>
+          </div>
+          
+          <!-- Form Elements -->
+          <div class="component-card">
+            <h3 class="component-title">Form Elements</h3>
+            <input type="text" class="input" placeholder="Text input">
+            <div class="button-group">
+              <button class="button button-primary">Submit</button>
+              <button class="button button-outline">Cancel</button>
+            </div>
+          </div>
+          
+          <!-- Cards -->
+          <div class="component-card">
+            <h3 class="component-title">Cards</h3>
+            <div class="card">
+              <div class="card-image">Image Placeholder</div>
+              <div class="card-content">
+                <h4 class="card-title">Card Title</h4>
+                <p class="card-description">This is a sample card description that shows how text appears in cards.</p>
+                <button class="button button-primary">View Details</button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Badges -->
+          <div class="component-card">
+            <h3 class="component-title">Badges</h3>
+            <div>
+              <span class="badge badge-primary">Primary Badge</span>
+              <span class="badge badge-accent">Accent Badge</span>
+            </div>
+          </div>
+          
+          <!-- CTA Section -->
+          <div class="component-card">
+            <h3 class="component-title">Call to Action</h3>
+            <div class="cta-section">
+              <h4 class="cta-title">Ready to Book a Session?</h4>
+              <p class="cta-description">Contact me today to discuss your photography needs.</p>
+              <button class="button button-primary">Book Now</button>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <section class="section">
+        <h2 class="section-title">Current Palette Colors</h2>
+        <div class="color-info">
+          <div class="color-row">
+            <div class="color-swatch" style="background-color: hsl(var(--primary))"></div>
+            <div class="color-details">
+              <div class="color-name">Primary</div>
+              <div class="color-value">hsl(var(--primary))</div>
+              <div class="color-hex" id="primary-hex"></div>
+            </div>
+          </div>
+          <div class="color-row">
+            <div class="color-swatch" style="background-color: hsl(var(--primary-light))"></div>
+            <div class="color-details">
+              <div class="color-name">Primary Light</div>
+              <div class="color-value">hsl(var(--primary-light))</div>
+              <div class="color-hex" id="primary-light-hex"></div>
+            </div>
+          </div>
+          <div class="color-row">
+            <div class="color-swatch" style="background-color: hsl(var(--accent))"></div>
+            <div class="color-details">
+              <div class="color-name">Accent</div>
+              <div class="color-value">hsl(var(--accent))</div>
+              <div class="color-hex" id="accent-hex"></div>
+            </div>
+          </div>
+          <div class="color-row">
+            <div class="color-swatch" style="background-color: hsl(var(--secondary))"></div>
+            <div class="color-details">
+              <div class="color-name">Secondary</div>
+              <div class="color-value">hsl(var(--secondary))</div>
+              <div class="color-hex" id="secondary-hex"></div>
+            </div>
+          </div>
+          <div class="color-row">
+            <div class="color-swatch" style="background-color: hsl(var(--muted))"></div>
+            <div class="color-details">
+              <div class="color-name">Muted</div>
+              <div class="color-value">hsl(var(--muted))</div>
+              <div class="color-hex" id="muted-hex"></div>
+            </div>
+          </div>
+          <div class="color-row">
+            <div class="color-swatch" style="background-color: hsl(var(--muted-foreground))"></div>
+            <div class="color-details">
+              <div class="color-name">Muted Foreground</div>
+              <div class="color-value">hsl(var(--muted-foreground))</div>
+              <div class="color-hex" id="muted-foreground-hex"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">Photography Context</h2>
+        <p>See how each palette complements photography content rather than competing with it.</p>
+        <div class="photo-grid">
+          <div class="photo-card">
+            <div class="photo-placeholder">Portrait Photography</div>
+            <div class="photo-overlay">
+              <h4 class="photo-title">Portrait Session</h4>
+              <p>Professional headshots and portraits</p>
+            </div>
+          </div>
+          <div class="photo-card">
+            <div class="photo-placeholder">Wedding Photography</div>
+            <div class="photo-overlay">
+              <h4 class="photo-title">Wedding Collection</h4>
+              <p>Capturing your special moments</p>
+            </div>
+          </div>
+          <div class="photo-card">
+            <div class="photo-placeholder">Landscape Photography</div>
+            <div class="photo-overlay">
+              <h4 class="photo-title">Nature & Landscapes</h4>
+              <p>Beautiful outdoor scenery</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+  
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-links">
+          <a href="#">Home</a>
+          <a href="#">Galleries</a>
+          <a href="#">Services</a>
+          <a href="#">About</a>
+          <a href="#">Contact</a>
+        </div>
+        <div class="copyright">
+          &copy; 2025 Jason Holt Photography. All rights reserved.
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
