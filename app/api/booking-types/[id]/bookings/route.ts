@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createServerSideApiClient } from '@/lib/tidycal-api';
+import axios from 'axios';
 
 export async function POST(
   request: NextRequest,
@@ -7,18 +8,46 @@ export async function POST(
 ) {
   try {
     const bookingData = await request.json();
+    const { serviceName, packageDetails } = bookingData;
+    
+    // Remove custom fields that aren't part of the TidyCal API
+    const tidyCalBookingData = {
+      starts_at: bookingData.starts_at,
+      timezone: bookingData.timezone,
+      contact: bookingData.contact,
+      questions: bookingData.questions || {}
+    };
     
     console.log(`Creating booking for booking type ID: ${params.id}`);
-    console.log('Booking data:', bookingData);
     
     const tidyCalApi = createServerSideApiClient();
     const response = await tidyCalApi.post(
       `/booking-types/${params.id}/bookings`,
-      bookingData
+      tidyCalBookingData
     );
     
-    const booking = response.data.data;
+    // Handle different response formats from TidyCal API
+    const booking = response.data.data || response.data;
+    
+    if (!booking || !booking.id) {
+      console.error('Invalid booking response:', response.data);
+      throw new Error('Invalid booking response from TidyCal API');
+    }
+    
     console.log(`Booking created with ID: ${booking.id}`);
+    
+    // Send email notification
+    try {
+      await axios.post('/api/send-booking-email', {
+        booking,
+        packageDetails,
+        serviceName
+      });
+      console.log('Booking notification email sent');
+    } catch (emailError) {
+      // Log the error but don't fail the booking process
+      console.error('Failed to send booking notification email:', emailError);
+    }
     
     return NextResponse.json({ booking });
   } catch (error) {

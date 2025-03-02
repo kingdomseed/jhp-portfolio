@@ -13,7 +13,7 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Checkbox } from "@/components/ui/checkbox"
 import { BookingCalendar } from "@/components/ui/booking-calendar"
-import { Timeslot } from "@/lib/tidycal-api"
+import { Timeslot, getBookingTypeIdFromPackageId } from "@/lib/tidycal-api"
 import { format, parseISO } from "date-fns"
 
 // Define the steps in the booking process
@@ -476,11 +476,77 @@ export function MultiStepBooking() {
     }
   }
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [bookingError, setBookingError] = useState<string | null>(null);
+
   // Handle form submission
-  const handleSubmit = () => {
-    // In a real implementation, this would submit the form data
-    // For now, we'll just show the confirmation step
-    nextStep()
+  const handleSubmit = async () => {
+    if (!selectedService || !selectedPackage || !selectedTimeslot) {
+      return;
+    }
+    
+    setIsSubmitting(true);
+    setBookingError(null);
+    
+    try {
+      // Get the booking type ID from the package ID
+      const bookingTypeId = await getBookingTypeIdFromPackageId(selectedPackage);
+      
+      if (!bookingTypeId) {
+        throw new Error('Unable to find the appropriate booking type. Please try again or contact us directly.');
+      }
+      
+      // Get the selected package details
+      const packageDetails = getSelectedPackageDetails();
+      
+      if (!packageDetails) {
+        throw new Error('Package details not found. Please select a different package or try again later.');
+      }
+      
+      // Prepare the booking data
+      const bookingData = {
+        starts_at: selectedTimeslot.starts_at,
+        timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+        contact: {
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone
+        },
+        questions: {
+          message: formData.message
+        },
+        // Additional fields for our API (not sent to TidyCal)
+        serviceName: selectedService,
+        packageDetails
+      };
+      
+      console.log('Submitting booking with data:', JSON.stringify(bookingData, null, 2));
+      
+      // Create the booking
+      const response = await fetch(`/api/booking-types/${bookingTypeId}/bookings`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(bookingData)
+      });
+      
+      const responseData = await response.json();
+      
+      if (!response.ok) {
+        throw new Error(responseData.error || 'Failed to create booking. Please try again later.');
+      }
+      
+      console.log('Booking created successfully:', responseData);
+      
+      // Show the confirmation step
+      nextStep();
+    } catch (error) {
+      console.error('Error creating booking:', error);
+      setBookingError(error instanceof Error ? error.message : 'There was an error creating your booking. Please try again or contact us directly.');
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   // Get the selected package details
@@ -717,12 +783,28 @@ export function MultiStepBooking() {
               Back
             </Button>
             
+            {bookingError && currentStep === 3 && (
+              <div className="text-destructive text-sm">
+                {bookingError}
+              </div>
+            )}
+            
             <Button
               onClick={currentStep === 3 ? handleSubmit : nextStep}
-              disabled={!canProceed()}
+              disabled={!canProceed() || isSubmitting}
               className="rounded-full"
             >
-              {currentStep === 3 ? "Complete Booking" : "Continue"}
+              {isSubmitting ? (
+                <span className="flex items-center">
+                  <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                  </svg>
+                  Processing...
+                </span>
+              ) : (
+                currentStep === 3 ? "Complete Booking" : "Continue"
+              )}
             </Button>
           </CardFooter>
         )}
