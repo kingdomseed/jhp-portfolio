@@ -1,0 +1,732 @@
+"use client"
+
+import { useState } from "react"
+import Image from "next/image"
+import Link from "next/link"
+import { useRouter } from "next/navigation"
+import { siteConfig } from "@/lib/theme"
+import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
+import { Label } from "@/components/ui/label"
+import { Input } from "@/components/ui/input"
+import { Textarea } from "@/components/ui/textarea"
+import { Checkbox } from "@/components/ui/checkbox"
+import { BookingCalendar } from "@/components/ui/booking-calendar"
+import { Timeslot } from "@/lib/tidycal-api"
+import { format, parseISO } from "date-fns"
+
+// Define the steps in the booking process
+const STEPS = [
+  { id: "service", title: "Choose Service" },
+  { id: "package", title: "Select Package" },
+  { id: "calendar", title: "Schedule Date" },
+  { id: "details", title: "Your Details" },
+  { id: "confirm", title: "Confirmation" }
+]
+
+// Service type definition
+type Service = {
+  title: string
+  description: string
+  image: string
+  href: string
+}
+
+// Package type definition
+type Package = {
+  id: string
+  title: string
+  price: string
+  description: string
+  features: string[]
+  popular?: boolean
+}
+
+// Define available packages
+const PACKAGES: Record<string, Package[]> = {
+  "Portraits": [
+    {
+      id: "portrait-essential",
+      title: "Essential",
+      price: "€250",
+      description: "Perfect for individuals and professionals needing high-quality portraits.",
+      features: [
+        "60-minute session",
+        "1-2 outfit changes",
+        "10 professionally edited digital images",
+        "Online gallery for easy sharing",
+        "Print release for personal use"
+      ]
+    },
+    {
+      id: "portrait-premium",
+      title: "Premium",
+      price: "€450",
+      description: "Ideal for extended portrait sessions with more variety.",
+      features: [
+        "90-minute session",
+        "2-3 outfit changes",
+        "20 professionally edited digital images",
+        "Online gallery for easy sharing",
+        "Print release for personal use",
+        "Complimentary location consultation"
+      ],
+      popular: true
+    },
+    {
+      id: "portrait-luxury",
+      title: "Luxury",
+      price: "€650",
+      description: "Comprehensive coverage for professional needs.",
+      features: [
+        "2-hour session",
+        "Multiple outfit changes",
+        "30 professionally edited digital images",
+        "Online gallery for easy sharing",
+        "Print release for personal use",
+        "Complimentary location consultation",
+        "Professional hair and makeup consultation"
+      ]
+    }
+  ],
+  "Weddings": [
+    {
+      id: "wedding-essential",
+      title: "Essential",
+      price: "€1,200",
+      description: "Coverage for intimate weddings and elopements.",
+      features: [
+        "4 hours of coverage",
+        "One photographer",
+        "100+ professionally edited digital images",
+        "Online gallery for easy sharing",
+        "Print release for personal use"
+      ]
+    },
+    {
+      id: "wedding-premium",
+      title: "Premium",
+      price: "€2,200",
+      description: "Comprehensive coverage for your special day.",
+      features: [
+        "8 hours of coverage",
+        "One photographer",
+        "300+ professionally edited digital images",
+        "Online gallery for easy sharing",
+        "Print release for personal use",
+        "Engagement session included"
+      ],
+      popular: true
+    },
+    {
+      id: "wedding-luxury",
+      title: "Luxury",
+      price: "€3,500",
+      description: "Complete wedding day documentation with premium services.",
+      features: [
+        "10 hours of coverage",
+        "Two photographers",
+        "500+ professionally edited digital images",
+        "Online gallery for easy sharing",
+        "Print release for personal use",
+        "Engagement session included",
+        "Wedding album (10x10, 20 pages)"
+      ]
+    }
+  ],
+  "Engagements": [
+    {
+      id: "engagement-essential",
+      title: "Essential",
+      price: "€250",
+      description: "Perfect for couples wanting quality engagement photos.",
+      features: [
+        "60-minute session",
+        "1 location",
+        "10 professionally edited digital images",
+        "Online gallery for easy sharing",
+        "Print release for personal use"
+      ]
+    },
+    {
+      id: "engagement-premium",
+      title: "Premium",
+      price: "€400",
+      description: "Extended session with more variety and locations.",
+      features: [
+        "90-minute session",
+        "2 locations",
+        "20 professionally edited digital images",
+        "Online gallery for easy sharing",
+        "Print release for personal use",
+        "Complimentary location consultation"
+      ],
+      popular: true
+    },
+    {
+      id: "engagement-luxury",
+      title: "Luxury",
+      price: "€600",
+      description: "Comprehensive engagement photography experience.",
+      features: [
+        "2-hour session",
+        "Multiple locations",
+        "30 professionally edited digital images",
+        "Online gallery for easy sharing",
+        "Print release for personal use",
+        "Complimentary location consultation",
+        "Save-the-date card design"
+      ]
+    }
+  ],
+  "Events": [
+    {
+      id: "event-essential",
+      title: "Essential",
+      price: "€500",
+      description: "Coverage for small events and gatherings.",
+      features: [
+        "2 hours of coverage",
+        "One location",
+        "50+ professionally edited digital images",
+        "Online gallery for easy sharing",
+        "Print release for personal use"
+      ]
+    },
+    {
+      id: "event-premium",
+      title: "Premium",
+      price: "€900",
+      description: "Extended coverage for medium-sized events.",
+      features: [
+        "4 hours of coverage",
+        "One location",
+        "100+ professionally edited digital images",
+        "Online gallery for easy sharing",
+        "Print release for personal use",
+        "Same-day preview images (5-10)"
+      ],
+      popular: true
+    },
+    {
+      id: "event-luxury",
+      title: "Luxury",
+      price: "€1,500",
+      description: "Comprehensive coverage for large events.",
+      features: [
+        "8 hours of coverage",
+        "Multiple locations if needed",
+        "200+ professionally edited digital images",
+        "Online gallery for easy sharing",
+        "Print release for personal use",
+        "Same-day preview images (10-15)",
+        "Second photographer"
+      ]
+    }
+  ],
+  "Family": [
+    {
+      id: "family-essential",
+      title: "Essential",
+      price: "€300",
+      description: "Perfect for families wanting quality portraits.",
+      features: [
+        "60-minute session",
+        "1 location",
+        "15 professionally edited digital images",
+        "Online gallery for easy sharing",
+        "Print release for personal use"
+      ]
+    },
+    {
+      id: "family-premium",
+      title: "Premium",
+      price: "€500",
+      description: "Extended session with more variety for families.",
+      features: [
+        "90-minute session",
+        "1-2 locations",
+        "25 professionally edited digital images",
+        "Online gallery for easy sharing",
+        "Print release for personal use",
+        "Complimentary location consultation"
+      ],
+      popular: true
+    },
+    {
+      id: "family-luxury",
+      title: "Luxury",
+      price: "€700",
+      description: "Comprehensive family photography experience.",
+      features: [
+        "2-hour session",
+        "Multiple locations if desired",
+        "35 professionally edited digital images",
+        "Online gallery for easy sharing",
+        "Print release for personal use",
+        "Complimentary location consultation",
+        "Family photo album (8x8, 20 pages)"
+      ]
+    }
+  ]
+}
+
+
+// Package card component
+function PackageCard({ 
+  pkg, 
+  selected, 
+  onSelect 
+}: { 
+  pkg: Package; 
+  selected: boolean; 
+  onSelect: () => void;
+}) {
+  return (
+    <Card 
+      className={`relative cursor-pointer transition-all ${selected ? 'ring-2 ring-primary' : 'hover:shadow-md'}`}
+      onClick={onSelect}
+    >
+      {pkg.popular && (
+        <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-primary text-white text-xs px-3 py-1 rounded-full">
+          Most Popular
+        </div>
+      )}
+      <CardHeader>
+        <CardTitle>{pkg.title}</CardTitle>
+        <CardDescription>{pkg.description}</CardDescription>
+      </CardHeader>
+      <CardContent>
+        <div className="text-2xl font-cormorant font-semibold mb-4">{pkg.price}</div>
+        <div className="space-y-2">
+          <h4 className="font-medium">Includes:</h4>
+          <ul className="list-disc pl-5 text-muted-foreground">
+            {pkg.features.map((feature, index) => (
+              <li key={index}>{feature}</li>
+            ))}
+          </ul>
+        </div>
+      </CardContent>
+      <CardFooter>
+        <RadioGroup className="w-full">
+          <div className="flex items-center space-x-2">
+            <RadioGroupItem 
+              value={pkg.id} 
+              id={pkg.id} 
+              checked={selected}
+              className="data-[state=checked]:border-primary data-[state=checked]:bg-primary"
+            />
+            <Label htmlFor={pkg.id} className="w-full cursor-pointer">
+              {selected ? "Selected" : "Select Package"}
+            </Label>
+          </div>
+        </RadioGroup>
+      </CardFooter>
+    </Card>
+  )
+}
+
+// Service card component
+function ServiceCard({ 
+  service, 
+  selected, 
+  onSelect 
+}: { 
+  service: Service; 
+  selected: boolean; 
+  onSelect: () => void;
+}) {
+  return (
+    <Card 
+      className={`relative cursor-pointer transition-all ${selected ? 'ring-2 ring-primary' : 'hover:shadow-md'}`}
+      onClick={onSelect}
+    >
+      <div className="relative h-48 w-full overflow-hidden rounded-t-lg">
+        <Image 
+          src={service.image} 
+          alt={service.title} 
+          fill
+          className="object-cover"
+        />
+      </div>
+      <CardHeader>
+        <CardTitle>{service.title}</CardTitle>
+        <CardDescription>{service.description}</CardDescription>
+      </CardHeader>
+      <CardFooter>
+        <RadioGroup className="w-full">
+          <div className="flex items-center space-x-2">
+            <RadioGroupItem 
+              value={service.title} 
+              id={service.title} 
+              checked={selected}
+              className="data-[state=checked]:border-primary data-[state=checked]:bg-primary"
+            />
+            <Label htmlFor={service.title} className="w-full cursor-pointer">
+              {selected ? "Selected" : "Select Service"}
+            </Label>
+          </div>
+        </RadioGroup>
+      </CardFooter>
+    </Card>
+  )
+}
+
+// Progress indicator component
+function ProgressIndicator({ currentStep }: { currentStep: number }) {
+  return (
+    <div className="w-full mb-8">
+      <div className="flex justify-between">
+        {STEPS.map((step, index) => (
+          <div 
+            key={step.id} 
+            className="flex flex-col items-center"
+          >
+            <div 
+              className={`w-8 h-8 rounded-full flex items-center justify-center mb-2 
+                ${index < currentStep ? 'bg-primary text-white' : 
+                  index === currentStep ? 'bg-primary/20 text-primary border-2 border-primary' : 
+                  'bg-muted text-muted-foreground'}`}
+            >
+              {index < currentStep ? (
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              ) : (
+                index + 1
+              )}
+            </div>
+            <span className={`text-xs ${index === currentStep ? 'text-primary font-medium' : 'text-muted-foreground'}`}>
+              {step.title}
+            </span>
+          </div>
+        ))}
+      </div>
+      <div className="relative mt-2">
+        <div className="absolute top-0 h-1 bg-muted w-full rounded"></div>
+        <div 
+          className="absolute top-0 h-1 bg-primary rounded transition-all duration-300" 
+          style={{ width: `${(currentStep / (STEPS.length - 1)) * 100}%` }}
+        ></div>
+      </div>
+    </div>
+  )
+}
+
+export function MultiStepBooking() {
+  const router = useRouter()
+  const [currentStep, setCurrentStep] = useState(0)
+  const [selectedService, setSelectedService] = useState<string | null>(null)
+  const [selectedPackage, setSelectedPackage] = useState<string | null>(null)
+  const [selectedTimeslot, setSelectedTimeslot] = useState<Timeslot | null>(null)
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
+    agreeToTerms: false
+  })
+
+  // Handle form input changes
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target
+    setFormData(prev => ({ ...prev, [name]: value }))
+  }
+
+  // Handle checkbox changes
+  const handleCheckboxChange = (checked: boolean) => {
+    setFormData(prev => ({ ...prev, agreeToTerms: checked }))
+  }
+
+  // Go to next step
+  const nextStep = () => {
+    if (currentStep < STEPS.length - 1) {
+      setCurrentStep(currentStep + 1)
+      window.scrollTo(0, 0)
+    }
+  }
+
+  // Go to previous step
+  const prevStep = () => {
+    if (currentStep > 0) {
+      setCurrentStep(currentStep - 1)
+      window.scrollTo(0, 0)
+    }
+  }
+
+  // Check if current step can proceed
+  const canProceed = () => {
+    switch (currentStep) {
+      case 0: // Service selection
+        return selectedService !== null
+      case 1: // Package selection
+        return selectedPackage !== null
+      case 2: // Calendar
+        return selectedTimeslot !== null
+      case 3: // Details
+        return (
+          formData.name.trim() !== "" && 
+          formData.email.trim() !== "" && 
+          formData.phone.trim() !== "" && 
+          formData.agreeToTerms
+        )
+      default:
+        return true
+    }
+  }
+
+  // Handle form submission
+  const handleSubmit = () => {
+    // In a real implementation, this would submit the form data
+    // For now, we'll just show the confirmation step
+    nextStep()
+  }
+
+  // Get the selected package details
+  const getSelectedPackageDetails = () => {
+    if (!selectedService || !selectedPackage) return null
+    
+    const packages = PACKAGES[selectedService]
+    if (!packages) return null
+    
+    return packages.find(pkg => pkg.id === selectedPackage) || null
+  }
+
+  // Render step content based on current step
+  const renderStepContent = () => {
+    switch (currentStep) {
+      case 0: // Service selection
+        return (
+          <div>
+            <h2 className="text-2xl font-cormorant font-semibold mb-6">Choose a Service</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {siteConfig.services.map((service) => (
+                <ServiceCard
+                  key={service.title}
+                  service={service}
+                  selected={selectedService === service.title}
+                  onSelect={() => setSelectedService(service.title)}
+                />
+              ))}
+            </div>
+          </div>
+        )
+      
+      case 1: // Package selection
+        return (
+          <div>
+            <h2 className="text-2xl font-cormorant font-semibold mb-6">
+              Select a Package for {selectedService}
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {selectedService && PACKAGES[selectedService]?.map((pkg) => (
+                <PackageCard
+                  key={pkg.id}
+                  pkg={pkg}
+                  selected={selectedPackage === pkg.id}
+                  onSelect={() => setSelectedPackage(pkg.id)}
+                />
+              ))}
+            </div>
+          </div>
+        )
+      
+      case 2: // Calendar
+        return (
+          <div>
+            <h2 className="text-2xl font-cormorant font-semibold mb-6">Schedule Your Session</h2>
+            <p className="mb-6 text-muted-foreground">
+              Please select a date and time that works for you. I&apos;ll confirm your booking within 24 hours.
+            </p>
+            <BookingCalendar 
+              packageId={selectedPackage}
+              onSelectTimeslot={(timeslot) => setSelectedTimeslot(timeslot)}
+            />
+          </div>
+        )
+      
+      case 3: // Details
+        return (
+          <div>
+            <h2 className="text-2xl font-cormorant font-semibold mb-6">Your Details</h2>
+            <p className="mb-6 text-muted-foreground">
+              Please provide your contact information so I can get in touch with you about your session.
+            </p>
+            <div className="space-y-4">
+              <div>
+                <Label htmlFor="name">Full Name</Label>
+                <Input
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleInputChange}
+                  placeholder="Your full name"
+                  required
+                />
+              </div>
+              <div>
+                <Label htmlFor="email">Email Address</Label>
+                <Input
+                  id="email"
+                  name="email"
+                  type="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  placeholder="Your email address"
+                  required
+                />
+              </div>
+              <div>
+                <Label htmlFor="phone">Phone Number</Label>
+                <Input
+                  id="phone"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleInputChange}
+                  placeholder="Your phone number"
+                  required
+                />
+              </div>
+              <div>
+                <Label htmlFor="message">Additional Information</Label>
+                <Textarea
+                  id="message"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleInputChange}
+                  placeholder="Any specific requests or information about your session"
+                  rows={4}
+                />
+              </div>
+              <div className="flex items-center space-x-2">
+                <Checkbox
+                  id="terms"
+                  checked={formData.agreeToTerms}
+                  onCheckedChange={handleCheckboxChange}
+                />
+                <Label htmlFor="terms" className="text-sm">
+                  I agree to the{" "}
+                  <Link href="/terms-of-service" className="text-primary hover:underline">
+                    terms of service
+                  </Link>{" "}
+                  and{" "}
+                  <Link href="/privacy-policy" className="text-primary hover:underline">
+                    privacy policy
+                  </Link>
+                </Label>
+              </div>
+            </div>
+          </div>
+        )
+      
+      case 4: // Confirmation
+        const packageDetails = getSelectedPackageDetails()
+        return (
+          <div className="text-center">
+            <div className="mb-6 text-primary">
+              <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mx-auto">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+            </div>
+            <h2 className="text-2xl font-cormorant font-semibold mb-4">Booking Confirmed!</h2>
+              <p className="text-muted-foreground mb-8">
+                Thank you for booking a session with Jason Holt Photography. I&apos;ll be in touch within 24 hours to confirm your appointment.
+              </p>
+            
+            <Card className="mb-8 text-left">
+              <CardHeader>
+                <CardTitle>Booking Summary</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div>
+                  <h3 className="font-medium">Service</h3>
+                  <p>{selectedService}</p>
+                </div>
+                {packageDetails && (
+                  <div>
+                    <h3 className="font-medium">Package</h3>
+                    <p>{packageDetails.title} - {packageDetails.price}</p>
+                  </div>
+                )}
+                {selectedTimeslot && (
+                  <div>
+                    <h3 className="font-medium">Date & Time</h3>
+                    <p>
+                      {format(parseISO(selectedTimeslot.starts_at), 'EEEE, MMMM d, yyyy')} at{' '}
+                      {format(parseISO(selectedTimeslot.starts_at), 'h:mm a')} - {format(parseISO(selectedTimeslot.ends_at), 'h:mm a')}
+                    </p>
+                  </div>
+                )}
+                <div>
+                  <h3 className="font-medium">Contact Information</h3>
+                  <p>{formData.name}</p>
+                  <p>{formData.email}</p>
+                  <p>{formData.phone}</p>
+                </div>
+                {formData.message && (
+                  <div>
+                    <h3 className="font-medium">Additional Information</h3>
+                    <p>{formData.message}</p>
+                  </div>
+                )}
+              </CardContent>
+            </Card>
+            
+            <div className="space-y-4">
+              <h3 className="font-medium">What&apos;s Next?</h3>
+              <ol className="list-decimal list-inside text-left space-y-2 text-muted-foreground">
+                <li>You&apos;ll receive a confirmation email with your booking details.</li>
+                <li>I&apos;ll reach out to discuss any specific requirements for your session.</li>
+                <li>A reminder will be sent 48 hours before your scheduled session.</li>
+                <li>Come prepared and ready to create beautiful memories!</li>
+              </ol>
+            </div>
+            
+            <div className="mt-8">
+              <Button onClick={() => router.push("/")} className="rounded-full">
+                Return to Homepage
+              </Button>
+            </div>
+          </div>
+        )
+      
+      default:
+        return null
+    }
+  }
+
+  return (
+    <div className="w-full max-w-4xl mx-auto">
+      <ProgressIndicator currentStep={currentStep} />
+      
+      <Card className="p-6">
+        <CardContent className="pt-6">
+          {renderStepContent()}
+        </CardContent>
+        
+        {currentStep < STEPS.length - 1 && (
+          <CardFooter className="flex justify-between pt-6">
+            <Button
+              variant="outline"
+              onClick={prevStep}
+              disabled={currentStep === 0}
+              className="rounded-full"
+            >
+              Back
+            </Button>
+            
+            <Button
+              onClick={currentStep === 3 ? handleSubmit : nextStep}
+              disabled={!canProceed()}
+              className="rounded-full"
+            >
+              {currentStep === 3 ? "Complete Booking" : "Continue"}
+            </Button>
+          </CardFooter>
+        )}
+      </Card>
+    </div>
+  )
+}

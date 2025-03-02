@@ -72,5 +72,11 @@ export const siteConfig = {
       image: "/images/event1.jpeg",
       href: "/galleries#events",
     },
+    {
+      title: "Family",
+      description: "Capture precious moments with your loved ones",
+      image: "/images/family1.jpeg",
+      href: "/galleries#family",
+    },
   ],
 }
