@@ -3,7 +3,6 @@
 import { useState, useEffect, useMemo } from "react"
 import Link from "next/link"
 import { BackgroundBlobs } from "@/components/ui/background-blobs"
-import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { MasonryGrid } from "@/components/ui/masonry-grid"
 import { EnhancedLightbox } from "@/components/ui/enhanced-lightbox"
@@ -56,29 +55,7 @@ const galleryImages = {
   ],
 };
 
-// Service cards data
-const serviceCards = [
-  {
-    icon: "camera",
-    title: "Portraits & Headshots",
-    description: "Professional portraits that capture your authentic self. Perfect for individuals and professionals.",
-  },
-  {
-    icon: "users",
-    title: "Family Photos",
-    description: "Preserving precious family moments with natural beauty. Creating timeless memories together.",
-  },
-  {
-    icon: "star",
-    title: "Event Coverage",
-    description: "Documenting your special occasions with a journalistic approach. From corporate events to celebrations.",
-  },
-  {
-    icon: "heart",
-    title: "Engagement Photos",
-    description: "Capturing the joy and romance of your special moment. Beautiful engagement photography.",
-  },
-];
+// No service cards needed anymore
 
 // Define the GalleryImage type
 interface GalleryImage {
@@ -182,25 +159,17 @@ export default function GalleriesPage() {
           <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
             Explore my portfolio of captured moments and artistic vision.
           </p>
-        </section>
-
-        {/* Services Overview */}
-        <section className="mb-16">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            {serviceCards.map((service) => (
-              <Card key={service.title} className="p-6 flex flex-col h-full">
-                <div className="flex-1 mb-4">
-                  <div className="text-primary text-4xl mb-4">
-                    <i className={`fas fa-${service.icon}`}></i>
-                  </div>
-                  <h3 className="font-cormorant text-xl font-semibold text-primary mb-2">{service.title}</h3>
-                  <p className="text-muted-foreground">{service.description}</p>
-                </div>
-                <Button asChild className="w-full rounded-full">
-                  <Link href="/bookings">Book Now</Link>
-                </Button>
-              </Card>
-            ))}
+          <div className="mt-6">
+            <Button asChild variant="outline" className="rounded-full">
+              <Link href="https://shutterbruhs-photography.client-gallery.com" target="_blank" rel="noopener noreferrer">
+                <span className="flex items-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                  Access Client Galleries
+                </span>
+              </Link>
+            </Button>
           </div>
         </section>
 
@@ -224,42 +193,6 @@ export default function GalleriesPage() {
             columns={3}
             gap={16}
           />
-        </section>
-
-        {/* Client Gallery Integration */}
-        <section className="mb-16">
-          <div className="mb-8 text-center">
-            <h2 className="font-cormorant text-3xl font-semibold mb-4">Client Galleries</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Access your private gallery with the link provided after your session.
-            </p>
-          </div>
-          
-          <Card className="p-6 overflow-hidden">
-            <div className="relative w-full rounded-lg overflow-hidden border border-border" style={{ minHeight: "425px" }}>
-              {/* Custom loading state */}
-              <div className="absolute inset-0 flex items-center justify-center bg-background z-10 opacity-100 transition-opacity duration-500" id="gallery-loading">
-                <div className="flex flex-col items-center">
-                  <div className="h-12 w-12 rounded-full border-4 border-primary border-t-transparent animate-spin mb-4"></div>
-                  <p className="text-muted-foreground">Loading client gallery...</p>
-                </div>
-              </div>
-              
-              <iframe 
-                id="cloudspotIframe"
-                src="https://shutterbruhs-photography.client-gallery.com/?nav=false" 
-                className="w-full h-full absolute inset-0 border-0"
-                style={{ minHeight: "425px" }}
-                onLoad={() => {
-                  const loadingEl = document.getElementById('gallery-loading');
-                  if (loadingEl) loadingEl.style.opacity = '0';
-                  setTimeout(() => {
-                    if (loadingEl) loadingEl.style.display = 'none';
-                  }, 500);
-                }}
-              />
-            </div>
-          </Card>
         </section>
       </div>
 
