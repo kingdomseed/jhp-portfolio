@@ -40,9 +40,9 @@ export function SiteHeader() {
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  "text-base font-medium transition-colors hover:text-accent",
+                  "text-base font-medium transition-colors hover:text-accent relative",
                   isActive(item.href) 
-                    ? "text-accent" 
+                    ? "text-accent font-semibold after:absolute after:bottom-[-4px] after:left-0 after:w-full after:h-[2px] after:bg-accent" 
                     : "text-foreground/80"
                 )}
               >
@@ -52,9 +52,9 @@ export function SiteHeader() {
               <div key={`menu-${index}`} className="relative group">
                 <button
                   className={cn(
-                    "text-base font-medium transition-colors hover:text-accent",
+                    "text-base font-medium transition-colors hover:text-accent relative",
                     isActive("", item.items) 
-                      ? "text-accent" 
+                      ? "text-accent font-semibold after:absolute after:bottom-[-4px] after:left-0 after:w-full after:h-[2px] after:bg-accent" 
                       : "text-foreground/80"
                   )}
                 >
@@ -69,9 +69,9 @@ export function SiteHeader() {
                         key={subItem.href}
                         href={subItem.href}
                         className={cn(
-                          "block px-4 py-2 text-sm transition-colors hover:text-accent hover:bg-accent/10",
+                          "block px-4 py-2 text-sm transition-colors hover:text-accent hover:bg-accent/10 relative",
                           isActive(subItem.href) 
-                            ? "text-accent" 
+                            ? "text-accent font-semibold bg-accent/5 border-l-2 border-accent pl-[calc(1rem-2px)]" 
                             : "text-foreground/80"
                         )}
                       >

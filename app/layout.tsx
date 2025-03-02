@@ -3,6 +3,7 @@ import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
+import { Breadcrumbs } from "@/components/breadcrumbs"
 import { BackgroundBlobs } from "@/components/ui/background-blobs"
 
 export const metadata: Metadata = {
@@ -27,6 +28,7 @@ export default function RootLayout({
         >
           <BackgroundBlobs variant="subtle" />
           <SiteHeader />
+          <Breadcrumbs />
           <main className="min-h-screen">
             {children}
           </main>

@@ -7,6 +7,7 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { siteConfig } from "@/lib/theme"
 import { cn } from "@/lib/utils"
 import { usePathname } from "next/navigation"
+import { ChevronDown, ChevronRight, Menu } from "lucide-react"
 import {
   Accordion,
   AccordionContent,
@@ -33,27 +34,19 @@ export function MobileMenu() {
   return (
     <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger asChild>
-        <Button variant="ghost" size="icon">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="h-6 w-6"
-          >
-            <line x1="4" x2="20" y1="12" y2="12" />
-            <line x1="4" x2="20" y1="6" y2="6" />
-            <line x1="4" x2="20" y1="18" y2="18" />
-          </svg>
+        <Button 
+          variant="ghost" 
+          size="icon"
+          className="relative overflow-hidden group"
+        >
+          <Menu className="h-6 w-6 transition-transform duration-200 ease-in-out group-hover:scale-110" />
           <span className="sr-only">Menu</span>
         </Button>
       </SheetTrigger>
-      <SheetContent side="right" className="w-[300px] sm:w-[400px]">
+      <SheetContent 
+        side="right" 
+        className="w-[300px] sm:w-[400px] border-l-accent/20 border-l-4"
+      >
         <div className="flex flex-col gap-6 py-6">
           <div className="flex flex-col space-y-3">
             {siteConfig.mainNav.map((item, index) => (
@@ -62,14 +55,15 @@ export function MobileMenu() {
                   key={item.href}
                   href={item.href}
                   className={cn(
-                    "text-lg font-medium transition-colors hover:text-accent",
+                    "text-lg font-medium transition-all duration-200 hover:text-accent hover:pl-6 relative pl-4 flex items-center",
                     isActive(item.href) 
-                      ? "text-accent" 
+                      ? "text-accent font-semibold border-l-2 border-accent bg-accent/5 rounded-r-md" 
                       : "text-foreground/80"
                   )}
                   onClick={() => setOpen(false)}
                 >
                   {item.title}
+                  <ChevronRight className="ml-auto h-5 w-5 opacity-70" />
                 </Link>
               ) : (
                 <Accordion
@@ -81,29 +75,36 @@ export function MobileMenu() {
                   <AccordionItem value={`item-${index}`} className="border-none">
                     <AccordionTrigger 
                       className={cn(
-                        "text-lg font-medium py-0 hover:text-accent",
+                        "text-lg font-medium py-2 hover:text-accent pl-4 relative transition-all duration-200 hover:pl-6 group",
                         isActive("", item.items) 
-                          ? "text-accent" 
+                          ? "text-accent font-semibold border-l-2 border-accent bg-accent/5 rounded-r-md" 
                           : "text-foreground/80"
                       )}
                     >
-                      {item.title}
+                      <span className="flex items-center">
+                        {item.title}
+                        <span className="ml-2 inline-flex items-center justify-center rounded-full bg-accent/10 w-5 h-5 text-xs text-accent">
+                          {item.items?.length}
+                        </span>
+                      </span>
+                      <ChevronDown className="h-5 w-5 transition-transform duration-300 group-data-[state=open]:rotate-180" />
                     </AccordionTrigger>
-                    <AccordionContent className="pt-2 pb-0">
-                      <div className="flex flex-col space-y-3 pl-4">
+                    <AccordionContent className="pt-2 pb-0 animate-accordion-down overflow-hidden transition-all duration-300">
+                      <div className="flex flex-col space-y-3 pl-4 border-l border-accent/20 ml-4 mt-2">
                         {item.items?.map((subItem) => (
                           <Link
                             key={subItem.href}
                             href={subItem.href}
                             className={cn(
-                              "text-base font-medium transition-colors hover:text-accent",
+                              "text-base font-medium transition-all duration-200 hover:text-accent hover:pl-6 pl-4 relative flex items-center",
                               isActive(subItem.href) 
-                                ? "text-accent" 
+                                ? "text-accent font-semibold border-l-2 border-accent bg-accent/5 rounded-r-md" 
                                 : "text-foreground/80"
                             )}
                             onClick={() => setOpen(false)}
                           >
                             {subItem.title}
+                            <ChevronRight className="ml-auto h-4 w-4 opacity-70" />
                           </Link>
                         ))}
                       </div>
@@ -114,7 +115,7 @@ export function MobileMenu() {
             ))}
           </div>
           
-          <div className="mt-6 border-t pt-6">
+          <div className="mt-6 border-t border-accent/10 pt-6">
             <div className="flex items-center space-x-4">
               <Button asChild variant="ghost" size="icon" className="rounded-full">
                 <Link href={siteConfig.links.instagram} target="_blank" rel="noopener noreferrer">

@@ -9,45 +9,35 @@ export const siteConfig = {
       href: "/",
     },
     {
-      title: "Discover",
+      title: "Services",
+      href: "/services",
+    },
+    {
+      title: "Galleries",
+      href: "/galleries",
+    },
+    {
+      title: "Bookings",
+      href: "/bookings",
+    },
+    {
+      title: "About",
       items: [
         {
-          title: "Galleries",
-          href: "/galleries",
+          title: "About Jason",
+          href: "/about",
         },
         {
           title: "Testimonials",
           href: "/testimonials",
         },
         {
-          title: "Services",
-          href: "/services",
-        },
-      ],
-    },
-    {
-      title: "Sessions",
-      items: [
-        {
-          title: "Bookings",
-          href: "/bookings",
+          title: "Blog",
+          href: "/blog",
         },
         {
           title: "Contact",
           href: "/contact",
-        },
-      ],
-    },
-    {
-      title: "About",
-      items: [
-        {
-          title: "Jason",
-          href: "/about",
-        },
-        {
-          title: "Blog",
-          href: "/blog",
         },
       ],
     },

@@ -93,6 +93,7 @@ const config = {
         soft: "0 10px 30px -12px rgba(0, 0, 0, 0.3)",
         card: "0 4px 6px rgba(0, 0, 0, 0.1)",
         hover: "0 10px 40px -12px rgba(0, 0, 0, 0.35)",
+        glow: "0 0 15px 2px rgba(126, 214, 185, 0.6)",
       },
       keyframes: {
         "accordion-down": {
@@ -111,12 +112,17 @@ const config = {
           "0%, 100%": { opacity: "0.7" },
           "50%": { opacity: "0.9" },
         },
+        "subtle-zoom": {
+          "0%": { transform: "scale(1.02)" },
+          "100%": { transform: "scale(1.08)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "float": "float 6s ease-in-out infinite",
         "pulse-subtle": "pulse-subtle 4s ease-in-out infinite",
+        "subtle-zoom": "subtle-zoom 10s ease-out forwards",
       },
       fontSize: {
         "2xs": "0.625rem",

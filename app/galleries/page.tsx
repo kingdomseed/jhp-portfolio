@@ -1,70 +1,60 @@
 "use client"
 
-import { useState } from "react"
-import Image from "next/image"
+import { useState, useEffect, useMemo } from "react"
 import Link from "next/link"
 import { BackgroundBlobs } from "@/components/ui/background-blobs"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { AspectRatio } from "@/components/ui/aspect-ratio"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Dialog, DialogContent } from "@/components/ui/dialog"
+import { MasonryGrid } from "@/components/ui/masonry-grid"
+import { EnhancedLightbox } from "@/components/ui/enhanced-lightbox"
+import { GalleryFilters } from "@/components/ui/gallery-filters"
 
-// Define gallery images by category
+// Define gallery images by category with additional metadata
 const galleryImages = {
   portraits: [
-    { src: "/images/headshot1.jpeg", alt: "Professional headshot", category: "portraits" },
-    { src: "/images/headshot2.jpeg", alt: "Professional headshot", category: "portraits" },
-    { src: "/images/headshot3.jpeg", alt: "Professional headshot", category: "portraits" },
-    { src: "/images/headshot4.jpeg", alt: "Professional headshot", category: "portraits" },
-    { src: "/images/headshot5.jpeg", alt: "Professional headshot", category: "portraits" },
-    { src: "/images/headshot6.jpeg", alt: "Professional headshot", category: "portraits" },
-    { src: "/images/portrait1.jpeg", alt: "Portrait photography", category: "portraits" },
+    { src: "/images/headshot1.jpeg", alt: "Professional headshot", category: "portraits", date: "2024-02-15", location: "Frankfurt Studio" },
+    { src: "/images/headshot2.jpeg", alt: "Corporate portrait", category: "portraits", date: "2024-01-20", location: "Client Office" },
+    { src: "/images/headshot3.jpeg", alt: "Creative headshot", category: "portraits", date: "2023-12-05", location: "Frankfurt Studio" },
+    { src: "/images/headshot4.jpeg", alt: "Professional profile", category: "portraits", date: "2023-11-18", location: "Outdoor Session" },
+    { src: "/images/headshot5.jpeg", alt: "Business portrait", category: "portraits", date: "2023-10-30", location: "Frankfurt Studio" },
+    { src: "/images/headshot6.jpeg", alt: "Casual headshot", category: "portraits", date: "2023-09-22", location: "Urban Setting" },
+    { src: "/images/portrait1.jpeg", alt: "Artistic portrait", category: "portraits", date: "2023-08-14", location: "Frankfurt Studio" },
   ],
   family: [
-    { src: "/images/family1.jpeg", alt: "Family photography", category: "family" },
-    { src: "/images/family2.jpeg", alt: "Family photography", category: "family" },
-    { src: "/images/family3.jpeg", alt: "Family photography", category: "family" },
-    { src: "/images/family4.jpeg", alt: "Family photography", category: "family" },
+    { src: "/images/family1.jpeg", alt: "Family outdoor session", category: "family", date: "2024-02-28", location: "City Park" },
+    { src: "/images/family2.jpeg", alt: "Family group portrait", category: "family", date: "2024-01-15", location: "Frankfurt Studio" },
+    { src: "/images/family3.jpeg", alt: "Family candid moment", category: "family", date: "2023-11-12", location: "Client Home" },
+    { src: "/images/family4.jpeg", alt: "Extended family gathering", category: "family", date: "2023-10-08", location: "Botanical Gardens" },
   ],
   engagements: [
-    { src: "/images/engagement1.jpeg", alt: "Engagement photography", category: "engagements" },
-    { src: "/images/engagement2.jpeg", alt: "Engagement photography", category: "engagements" },
-    { src: "/images/couple1.jpeg", alt: "Couple photography", category: "engagements" },
-    { src: "/images/couple2.jpeg", alt: "Couple photography", category: "engagements" },
-    { src: "/images/couple3.jpeg", alt: "Couple photography", category: "engagements" },
-    { src: "/images/couple4.jpeg", alt: "Couple photography", category: "engagements" },
-    { src: "/images/couple5.jpeg", alt: "Couple photography", category: "engagements" },
-    { src: "/images/couple6.jpeg", alt: "Couple photography", category: "engagements" },
-    { src: "/images/couple7.jpeg", alt: "Couple photography", category: "engagements" },
-    { src: "/images/couple8.jpeg", alt: "Couple photography", category: "engagements" },
+    { src: "/images/engagement1.jpeg", alt: "Engagement session", category: "engagements", date: "2024-03-01", location: "Old Town" },
+    { src: "/images/engagement2.jpeg", alt: "Couple portrait", category: "engagements", date: "2024-02-14", location: "Riverside" },
+    { src: "/images/couple1.jpeg", alt: "Romantic couple shoot", category: "engagements", date: "2024-01-28", location: "City Center" },
+    { src: "/images/couple2.jpeg", alt: "Couple outdoor session", category: "engagements", date: "2023-12-18", location: "Winter Garden" },
+    { src: "/images/couple3.jpeg", alt: "Engagement announcement", category: "engagements", date: "2023-11-30", location: "Historic District" },
+    { src: "/images/couple4.jpeg", alt: "Couple lifestyle shoot", category: "engagements", date: "2023-10-15", location: "Urban Setting" },
+    { src: "/images/couple5.jpeg", alt: "Pre-wedding session", category: "engagements", date: "2023-09-22", location: "Sunset Beach" },
+    { src: "/images/couple6.jpeg", alt: "Engagement celebration", category: "engagements", date: "2023-08-30", location: "Rooftop Venue" },
+    { src: "/images/couple7.jpeg", alt: "Couple portrait session", category: "engagements", date: "2023-07-15", location: "City Park" },
+    { src: "/images/couple8.jpeg", alt: "Engagement lifestyle", category: "engagements", date: "2023-06-20", location: "Cafe Setting" },
   ],
   events: [
-    { src: "/images/event1.jpeg", alt: "Event photography", category: "events" },
-    { src: "/images/event2.jpeg", alt: "Event photography", category: "events" },
-    { src: "/images/event3.jpeg", alt: "Event photography", category: "events" },
-    { src: "/images/event4.jpeg", alt: "Event photography", category: "events" },
-    { src: "/images/event5.jpeg", alt: "Event photography", category: "events" },
-    { src: "/images/event6.jpeg", alt: "Event photography", category: "events" },
-    { src: "/images/event-07.jpg", alt: "Event photography", category: "events" },
-    { src: "/images/event-08.jpg", alt: "Event photography", category: "events" },
-    { src: "/images/event-09.jpg", alt: "Event photography", category: "events" },
-    { src: "/images/event-10.jpg", alt: "Event photography", category: "events" },
+    { src: "/images/event1.jpeg", alt: "Corporate event", category: "events", date: "2024-02-25", location: "Conference Center" },
+    { src: "/images/event2.jpeg", alt: "Birthday celebration", category: "events", date: "2024-01-30", location: "Private Venue" },
+    { src: "/images/event3.jpeg", alt: "Award ceremony", category: "events", date: "2023-12-15", location: "Grand Hotel" },
+    { src: "/images/event4.jpeg", alt: "Networking event", category: "events", date: "2023-11-28", location: "Business Center" },
+    { src: "/images/event5.jpeg", alt: "Gala dinner", category: "events", date: "2023-10-20", location: "Luxury Hall" },
+    { src: "/images/event6.jpeg", alt: "Product launch", category: "events", date: "2023-09-15", location: "Exhibition Center" },
+    { src: "/images/event-07.jpg", alt: "Charity fundraiser", category: "events", date: "2023-08-22", location: "Community Center" },
+    { src: "/images/event-08.jpg", alt: "Fashion show", category: "events", date: "2023-07-18", location: "Design Studio" },
+    { src: "/images/event-09.jpg", alt: "Music concert", category: "events", date: "2023-06-30", location: "Outdoor Stage" },
+    { src: "/images/event-10.jpg", alt: "Art exhibition", category: "events", date: "2023-05-25", location: "Gallery Space" },
   ],
   creative: [
-    { src: "/images/creative1.jpeg", alt: "Creative photography", category: "creative" },
-    { src: "/images/creative2.jpeg", alt: "Creative photography", category: "creative" },
+    { src: "/images/creative1.jpeg", alt: "Creative portrait concept", category: "creative", date: "2024-02-10", location: "Art Studio" },
+    { src: "/images/creative2.jpeg", alt: "Artistic composition", category: "creative", date: "2023-12-05", location: "Frankfurt Studio" },
   ],
 };
-
-// Combine all images for the "all" category
-const allImages = [
-  ...galleryImages.portraits,
-  ...galleryImages.family,
-  ...galleryImages.engagements,
-  ...galleryImages.events,
-  ...galleryImages.creative,
-];
 
 // Service cards data
 const serviceCards = [
@@ -90,13 +80,92 @@ const serviceCards = [
   },
 ];
 
-export default function GalleriesPage() {
-  const [lightboxOpen, setLightboxOpen] = useState(false);
-  const [selectedImage, setSelectedImage] = useState<{ src: string; alt: string } | null>(null);
+// Define the GalleryImage type
+interface GalleryImage {
+  src: string
+  alt: string
+  category?: string
+  date?: string
+  location?: string
+}
 
-  const openLightbox = (image: { src: string; alt: string }) => {
+export default function GalleriesPage() {
+  // Combine all images for the "all" category
+  const allImages = useMemo(() => [
+    ...galleryImages.portraits,
+    ...galleryImages.family,
+    ...galleryImages.engagements,
+    ...galleryImages.events,
+    ...galleryImages.creative,
+  ], []);
+
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [selectedImage, setSelectedImage] = useState<GalleryImage | null>(null);
+  const [currentCategory, setCurrentCategory] = useState<string>("all");
+  const [sortBy, setSortBy] = useState<string>("newest");
+  const [displayedImages, setDisplayedImages] = useState<GalleryImage[]>(allImages);
+
+  // Handle category change
+  const handleCategoryChange = (category: string) => {
+    setCurrentCategory(category);
+  };
+
+  // Handle sort change
+  const handleSortChange = (sortOption: string) => {
+    setSortBy(sortOption);
+  };
+
+  // Filter and sort images when category or sort option changes
+  useEffect(() => {
+    const filteredImages = currentCategory === "all" 
+      ? [...allImages]
+      : [...galleryImages[currentCategory as keyof typeof galleryImages]];
+    
+    // Apply sorting
+    switch (sortBy) {
+      case "newest":
+        filteredImages.sort((a, b) => (b.date || "").localeCompare(a.date || ""));
+        break;
+      case "oldest":
+        filteredImages.sort((a, b) => (a.date || "").localeCompare(b.date || ""));
+        break;
+      case "az":
+        filteredImages.sort((a, b) => a.alt.localeCompare(b.alt));
+        break;
+      case "za":
+        filteredImages.sort((a, b) => b.alt.localeCompare(a.alt));
+        break;
+      case "popular":
+        // This would ideally be based on actual popularity metrics
+        // For now, we'll just use a random order as a placeholder
+        filteredImages.sort(() => Math.random() - 0.5);
+        break;
+    }
+    
+    setDisplayedImages(filteredImages);
+  }, [currentCategory, sortBy, allImages]);
+
+  // Open lightbox with selected image
+  const openLightbox = (image: GalleryImage) => {
     setSelectedImage(image);
     setLightboxOpen(true);
+  };
+
+  // Navigate between images in lightbox
+  const navigateLightbox = (direction: "prev" | "next") => {
+    if (!selectedImage) return;
+    
+    const currentIndex = displayedImages.findIndex(img => img.src === selectedImage.src);
+    if (currentIndex === -1) return;
+    
+    let newIndex;
+    if (direction === "prev") {
+      newIndex = currentIndex > 0 ? currentIndex - 1 : displayedImages.length - 1;
+    } else {
+      newIndex = currentIndex < displayedImages.length - 1 ? currentIndex + 1 : 0;
+    }
+    
+    setSelectedImage(displayedImages[newIndex]);
   };
 
   return (
@@ -135,105 +204,73 @@ export default function GalleriesPage() {
           </div>
         </section>
 
-        {/* Gallery Categories */}
+        {/* Gallery with Filters */}
         <section className="mb-16">
-          <Tabs defaultValue="all" className="w-full">
-            <div className="flex justify-center mb-8 overflow-x-auto">
-              <TabsList>
-                <TabsTrigger value="all">All</TabsTrigger>
-                <TabsTrigger value="portraits">Portraits</TabsTrigger>
-                <TabsTrigger value="family">Family</TabsTrigger>
-                <TabsTrigger value="engagements">Engagements</TabsTrigger>
-                <TabsTrigger value="events">Events</TabsTrigger>
-                <TabsTrigger value="creative">Creative</TabsTrigger>
-              </TabsList>
-            </div>
+          <div className="mb-8">
+            <h2 className="font-cormorant text-3xl font-semibold text-center mb-6">Browse My Work</h2>
             
-            <TabsContent value="all">
-              <GalleryGrid images={allImages} openLightbox={openLightbox} />
-            </TabsContent>
-            <TabsContent value="portraits">
-              <GalleryGrid images={galleryImages.portraits} openLightbox={openLightbox} />
-            </TabsContent>
-            <TabsContent value="family">
-              <GalleryGrid images={galleryImages.family} openLightbox={openLightbox} />
-            </TabsContent>
-            <TabsContent value="engagements">
-              <GalleryGrid images={galleryImages.engagements} openLightbox={openLightbox} />
-            </TabsContent>
-            <TabsContent value="events">
-              <GalleryGrid images={galleryImages.events} openLightbox={openLightbox} />
-            </TabsContent>
-            <TabsContent value="creative">
-              <GalleryGrid images={galleryImages.creative} openLightbox={openLightbox} />
-            </TabsContent>
-          </Tabs>
+            {/* Gallery Filters Component */}
+            <GalleryFilters 
+              categories={Object.keys(galleryImages)}
+              onCategoryChange={handleCategoryChange}
+              onSortChange={handleSortChange}
+            />
+          </div>
+          
+          {/* Masonry Grid Component */}
+          <MasonryGrid 
+            images={displayedImages}
+            onImageClick={openLightbox}
+            columns={3}
+            gap={16}
+          />
         </section>
 
         {/* Client Gallery Integration */}
         <section className="mb-16">
-          <Card className="p-6">
-            <div className="relative w-full" style={{ minHeight: "425px" }}>
+          <div className="mb-8 text-center">
+            <h2 className="font-cormorant text-3xl font-semibold mb-4">Client Galleries</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Access your private gallery with the link provided after your session.
+            </p>
+          </div>
+          
+          <Card className="p-6 overflow-hidden">
+            <div className="relative w-full rounded-lg overflow-hidden border border-border" style={{ minHeight: "425px" }}>
+              {/* Custom loading state */}
+              <div className="absolute inset-0 flex items-center justify-center bg-background z-10 opacity-100 transition-opacity duration-500" id="gallery-loading">
+                <div className="flex flex-col items-center">
+                  <div className="h-12 w-12 rounded-full border-4 border-primary border-t-transparent animate-spin mb-4"></div>
+                  <p className="text-muted-foreground">Loading client gallery...</p>
+                </div>
+              </div>
+              
               <iframe 
                 id="cloudspotIframe"
                 src="https://shutterbruhs-photography.client-gallery.com/?nav=false" 
                 className="w-full h-full absolute inset-0 border-0"
                 style={{ minHeight: "425px" }}
+                onLoad={() => {
+                  const loadingEl = document.getElementById('gallery-loading');
+                  if (loadingEl) loadingEl.style.opacity = '0';
+                  setTimeout(() => {
+                    if (loadingEl) loadingEl.style.display = 'none';
+                  }, 500);
+                }}
               />
             </div>
           </Card>
         </section>
       </div>
 
-      {/* Lightbox */}
-      <Dialog open={lightboxOpen} onOpenChange={setLightboxOpen}>
-        <DialogContent className="max-w-5xl p-0 overflow-hidden bg-background border">
-          <div className="relative w-full h-full p-4">
-            {selectedImage && (
-              <div className="relative w-full" style={{ height: "calc(100vh - 200px)", maxHeight: "800px" }}>
-                <Image
-                  src={selectedImage.src}
-                  alt={selectedImage.alt}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 90vw"
-                  className="object-contain"
-                />
-              </div>
-            )}
-          </div>
-        </DialogContent>
-      </Dialog>
+      {/* Enhanced Lightbox Component */}
+      <EnhancedLightbox 
+        open={lightboxOpen}
+        onOpenChange={setLightboxOpen}
+        images={displayedImages}
+        currentImage={selectedImage}
+        onNavigate={navigateLightbox}
+      />
     </>
-  );
-}
-
-// Gallery Grid Component
-function GalleryGrid({ 
-  images, 
-  openLightbox 
-}: { 
-  images: { src: string; alt: string }[]; 
-  openLightbox: (image: { src: string; alt: string }) => void;
-}) {
-  return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-      {images.map((image, index) => (
-        <div 
-          key={index}
-          className="relative group cursor-pointer overflow-hidden rounded-lg"
-          onClick={() => openLightbox(image)}
-        >
-          <AspectRatio ratio={index % 3 === 0 ? 3/4 : index % 3 === 1 ? 1 : 4/3}>
-            <Image
-              src={image.src}
-              alt={image.alt}
-              fill
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              className="object-cover transition-transform duration-300 group-hover:scale-105"
-            />
-          </AspectRatio>
-        </div>
-      ))}
-    </div>
   );
 }
