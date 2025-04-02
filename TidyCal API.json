@@ -335,7 +335,10 @@
               "schema": {
                 "type": "object",
                 "required": [
-                  "starts_at"
+                  "starts_at",
+                  "name",
+                  "email",
+                  "timezone"
                 ],
                 "properties": {
                   "starts_at": {
@@ -344,27 +347,51 @@
                     "description": "The start time of the booking in UTC",
                     "example": "2024-03-20T10:00:00Z"
                   },
+                  "name": {
+                    "type": "string",
+                    "maxLength": 191,
+                    "description": "Name of the person making the booking",
+                    "example": "John Doe"
+                  },
+                  "email": {
+                    "type": "string",
+                    "format": "email",
+                    "maxLength": 191,
+                    "description": "Email of the person making the booking",
+                    "example": "john@example.com"
+                  },
                   "timezone": {
                     "type": "string",
+                    "maxLength": 191,
                     "description": "The timezone of the booking",
                     "example": "America/Los_Angeles"
                   },
-                  "contact": {
-                    "type": "object",
-                    "description": "Contact information",
-                    "properties": {
-                      "name": {
-                        "type": "string",
-                        "example": "John Doe"
-                      },
-                      "email": {
-                        "type": "string",
-                        "format": "email",
-                        "example": "john@example.com"
-                      },
-                      "timezone": {
-                        "type": "string",
-                        "example": "America/Los_Angeles"
+                  "booking_questions": {
+                    "type": "array",
+                    "description": "Answers to booking type questions",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "booking_type_question_id": {
+                          "type": "integer",
+                          "description": "ID of the booking type question",
+                          "example": 1
+                        },
+                        "answer": {
+                          "oneOf": [
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              }
+                            }
+                          ],
+                          "description": "Answer to the question (string or array for checkbox type)",
+                          "example": "My answer"
+                        }
                       }
                     }
                   }

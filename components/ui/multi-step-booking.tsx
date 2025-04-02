@@ -423,7 +423,6 @@ export function MultiStepBooking() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    phone: "",
     message: "",
     agreeToTerms: false
   })
@@ -468,7 +467,6 @@ export function MultiStepBooking() {
         return (
           formData.name.trim() !== "" && 
           formData.email.trim() !== "" && 
-          formData.phone.trim() !== "" && 
           formData.agreeToTerms
         )
       default:
@@ -478,6 +476,9 @@ export function MultiStepBooking() {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [bookingError, setBookingError] = useState<string | null>(null);
+  const [bookingResponse, setBookingResponse] = useState<
+    { meeting_url?: string; meeting_id?: string } | null
+  >(null);
 
   // Handle form submission
   const handleSubmit = async () => {
@@ -503,21 +504,17 @@ export function MultiStepBooking() {
         throw new Error('Package details not found. Please select a different package or try again later.');
       }
       
-      // Prepare the booking data
+      // Prepare the booking data according to TidyCal API format
       const bookingData = {
         starts_at: selectedTimeslot.starts_at,
         timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
-        contact: {
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone
-        },
+        name: formData.name,
+        email: formData.email,
         questions: {
-          message: formData.message
-        },
-        // Additional fields for our API (not sent to TidyCal)
-        serviceName: selectedService,
-        packageDetails
+          message: formData.message,
+          service: selectedService,
+          package: packageDetails.title
+        }
       };
       
       console.log('Submitting booking with data:', JSON.stringify(bookingData, null, 2));
@@ -538,6 +535,9 @@ export function MultiStepBooking() {
       }
       
       console.log('Booking created successfully:', responseData);
+      
+      // Store the booking response
+      setBookingResponse(responseData.booking);
       
       // Show the confirmation step
       nextStep();
@@ -644,17 +644,6 @@ export function MultiStepBooking() {
                 />
               </div>
               <div>
-                <Label htmlFor="phone">Phone Number</Label>
-                <Input
-                  id="phone"
-                  name="phone"
-                  value={formData.phone}
-                  onChange={handleInputChange}
-                  placeholder="Your phone number"
-                  required
-                />
-              </div>
-              <div>
                 <Label htmlFor="message">Additional Information</Label>
                 <Textarea
                   id="message"
@@ -729,7 +718,6 @@ export function MultiStepBooking() {
                   <h3 className="font-medium">Contact Information</h3>
                   <p>{formData.name}</p>
                   <p>{formData.email}</p>
-                  <p>{formData.phone}</p>
                 </div>
                 {formData.message && (
                   <div>
@@ -743,11 +731,35 @@ export function MultiStepBooking() {
             <div className="space-y-4">
               <h3 className="font-medium">What&apos;s Next?</h3>
               <ol className="list-decimal list-inside text-left space-y-2 text-muted-foreground">
-                <li>You&apos;ll receive a confirmation email with your booking details.</li>
+                <li>You&apos;ll receive an automatic email from TidyCal with your session details.</li>
                 <li>I&apos;ll reach out to discuss any specific requirements for your session.</li>
                 <li>A reminder will be sent 48 hours before your scheduled session.</li>
-                <li>Come prepared and ready to create beautiful memories!</li>
+                <li>Join the Zoom meeting at your scheduled time using the link in your confirmation email.</li>
               </ol>
+              
+              {bookingResponse?.meeting_url && (
+                <div className="mt-6 p-4 bg-primary/10 rounded-lg border border-primary/20">
+                  <h3 className="font-medium text-primary mb-2">Zoom Meeting Details</h3>
+                  <p className="mb-3">Your session will be conducted via Zoom:</p>
+                  <a 
+                    href={bookingResponse.meeting_url} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center text-primary hover:underline"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M15 10l5 5-5 5"></path>
+                      <path d="M4 4v7a4 4 0 0 0 4 4h12"></path>
+                    </svg>
+                    Join Zoom Meeting
+                  </a>
+                  {bookingResponse.meeting_id && (
+                    <p className="mt-2 text-sm text-muted-foreground">
+                      Meeting ID: {bookingResponse.meeting_id}
+                    </p>
+                  )}
+                </div>
+              )}
             </div>
             
             <div className="mt-8">

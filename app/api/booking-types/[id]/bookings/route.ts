@@ -8,17 +8,26 @@ export async function POST(
 ) {
   try {
     const bookingData = await request.json();
-    const { serviceName, packageDetails } = bookingData;
+    const { serviceName, packageDetails, starts_at, timezone, name, email, questions } = bookingData;
     
-    // Remove custom fields that aren't part of the TidyCal API
+    // Validate required fields according to TidyCal API format
+    if (!starts_at) throw new Error('starts_at is required');
+    if (!timezone) throw new Error('timezone is required');
+    if (!name) throw new Error('name is required');
+    if (!email) throw new Error('email is required');
+    
+    // Construct booking data according to TidyCal API format
     const tidyCalBookingData = {
-      starts_at: bookingData.starts_at,
-      timezone: bookingData.timezone,
-      contact: bookingData.contact,
-      questions: bookingData.questions || {}
+      starts_at,
+      timezone,
+      name,
+      email,
+      ...(questions && { questions })
     };
     
-    console.log(`Creating booking for booking type ID: ${params.id}`);
+    console.log(`Creating booking for booking type ID: ${params.id}`, {
+      bookingData: tidyCalBookingData
+    });
     
     const tidyCalApi = createServerSideApiClient();
     const response = await tidyCalApi.post(
@@ -51,9 +60,18 @@ export async function POST(
     
     return NextResponse.json({ booking });
   } catch (error) {
-    console.error('Error creating booking:', error);
+    console.error('Error creating booking:', {
+      error: error instanceof Error ? error.message : 'Unknown error',
+      response: axios.isAxiosError(error) ? {
+        status: error.response?.status,
+        data: error.response?.data
+      } : undefined
+    });
     return NextResponse.json(
-      { error: 'Failed to create booking' },
+      { 
+        error: 'Failed to create booking',
+        details: axios.isAxiosError(error) ? error.response?.data : undefined
+      },
       { status: 500 }
     );
   }
