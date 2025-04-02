@@ -7,8 +7,23 @@ export async function POST(
   { params }: { params: { id: string } }
 ) {
   try {
+    // Add detailed logging to diagnose data flow
+    console.log('Received booking request for booking type ID:', params.id);
+    
     const bookingData = await request.json();
+    console.log('Raw booking request data:', JSON.stringify(bookingData, null, 2));
+    
     const { serviceName, packageDetails, starts_at, timezone, name, email, questions } = bookingData;
+    
+    // Log each critical field to diagnose missing data
+    console.log('Critical data extraction:');
+    console.log('- serviceName:', serviceName);
+    console.log('- packageDetails:', packageDetails ? 'Present (Object)' : 'Missing');
+    console.log('- starts_at:', starts_at);
+    console.log('- timezone:', timezone);
+    console.log('- name:', name);
+    console.log('- email:', email);
+    console.log('- questions:', questions ? JSON.stringify(questions) : 'Missing');
     
     // Validate required fields according to TidyCal API format
     if (!starts_at) throw new Error('starts_at is required');
@@ -44,18 +59,48 @@ export async function POST(
     }
     
     console.log(`Booking created with ID: ${booking.id}`);
+    console.log('Booking data received from TidyCal:', JSON.stringify(booking, null, 2));
+    
+    // Store the service and package details to pass to the email service
+    // Important: These values come from the original booking request, not the TidyCal response
+    const emailData = {
+      booking,
+      packageDetails: packageDetails || null,
+      serviceName: serviceName || null
+    };
+    
+    console.log('Email notification data prepared:', JSON.stringify({
+      booking: 'Booking object present',
+      packageDetails: emailData.packageDetails ? 'Present' : 'Missing',
+      serviceName: emailData.serviceName
+    }));
     
     // Send email notification
     try {
-      await axios.post('/api/send-booking-email', {
-        booking,
-        packageDetails,
-        serviceName
-      });
-      console.log('Booking notification email sent');
-    } catch (emailError) {
+      // Get base URL from environment or use default for development
+      const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 
+                      (process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : '');
+      
+      if (!baseUrl) {
+        console.warn('NEXT_PUBLIC_BASE_URL not set. Email sending might fail.');
+      }
+      
+      // Use absolute URL for API endpoint to avoid Invalid URL errors
+      await axios.post(`${baseUrl}/api/send-booking-email`, emailData);
+      console.log('Booking notification email sent successfully');
+    } catch (error) {
       // Log the error but don't fail the booking process
-      console.error('Failed to send booking notification email:', emailError);
+      console.error('Failed to send booking notification email:', error);
+      
+      if (axios.isAxiosError(error)) {
+        console.error('Email API response error:', error.response?.data);
+        console.error('Email API status:', error.response?.status);
+      } else if (error instanceof Error) {
+        console.error('Email error message:', error.message);
+        console.error('Email error stack:', error.stack);
+      } else {
+        console.error('Unknown email error type:', String(error));
+      }
     }
     
     return NextResponse.json({ booking });

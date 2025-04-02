@@ -514,10 +514,16 @@ export function MultiStepBooking() {
           message: formData.message,
           service: selectedService,
           package: packageDetails.title
-        }
+        },
+        // Include package details and service name for email notifications
+        serviceName: selectedService,
+        packageDetails: packageDetails
       };
       
-      console.log('Submitting booking with data:', JSON.stringify(bookingData, null, 2));
+      console.log('Submitting booking with data:', JSON.stringify({
+        ...bookingData,
+        packageDetails: bookingData.packageDetails ? 'Present (Object)' : 'Missing',
+      }, null, 2));
       
       // Create the booking
       const response = await fetch(`/api/booking-types/${bookingTypeId}/bookings`, {
@@ -686,9 +692,15 @@ export function MultiStepBooking() {
               </svg>
             </div>
             <h2 className="text-2xl font-cormorant font-semibold mb-4">Booking Confirmed!</h2>
-              <p className="text-muted-foreground mb-8">
+              <p className="text-muted-foreground mb-4">
                 Thank you for booking a session with Jason Holt Photography. I&apos;ll be in touch within 24 hours to confirm your appointment.
               </p>
+              
+              {/* Spam folder warning */}
+              <div className="mb-8 p-3 bg-yellow-100 dark:bg-yellow-900/30 rounded-lg text-sm">
+                <p className="font-medium">⚠️ Important:</p>
+                <p>Please check your spam/junk folder if you don&apos;t see the confirmation email in your inbox.</p>
+              </div>
             
             <Card className="mb-8 text-left">
               <CardHeader>
@@ -737,29 +749,35 @@ export function MultiStepBooking() {
                 <li>Join the Zoom meeting at your scheduled time using the link in your confirmation email.</li>
               </ol>
               
-              {bookingResponse?.meeting_url && (
-                <div className="mt-6 p-4 bg-primary/10 rounded-lg border border-primary/20">
-                  <h3 className="font-medium text-primary mb-2">Zoom Meeting Details</h3>
-                  <p className="mb-3">Your session will be conducted via Zoom:</p>
-                  <a 
-                    href={bookingResponse.meeting_url} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center text-primary hover:underline"
-                  >
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M15 10l5 5-5 5"></path>
-                      <path d="M4 4v7a4 4 0 0 0 4 4h12"></path>
-                    </svg>
-                    Join Zoom Meeting
-                  </a>
-                  {bookingResponse.meeting_id && (
-                    <p className="mt-2 text-sm text-muted-foreground">
-                      Meeting ID: {bookingResponse.meeting_id}
-                    </p>
-                  )}
-                </div>
-              )}
+              <div className="mt-6 p-4 bg-primary/10 rounded-lg border border-primary/20">
+                <h3 className="font-medium text-primary mb-2">Meeting Details</h3>
+                {bookingResponse?.meeting_url ? (
+                  <>
+                    <p className="mb-3">Your session will be conducted via Zoom:</p>
+                    <a 
+                      href={bookingResponse.meeting_url} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center text-primary hover:underline"
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M15 10l5 5-5 5"></path>
+                        <path d="M4 4v7a4 4 0 0 0 4 4h12"></path>
+                      </svg>
+                      Join Zoom Meeting
+                    </a>
+                    {bookingResponse.meeting_id && (
+                      <p className="mt-2 text-sm text-muted-foreground">
+                        Meeting ID: {bookingResponse.meeting_id}
+                      </p>
+                    )}
+                  </>
+                ) : (
+                  <p>
+                    You&apos;ll receive meeting details in your confirmation email. If no Zoom link was included, I&apos;ll send you one within 24 hours of your session.
+                  </p>
+                )}
+              </div>
             </div>
             
             <div className="mt-8">
