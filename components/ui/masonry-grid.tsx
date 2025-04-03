@@ -67,6 +67,8 @@ export function MasonryGrid({
 }: MasonryGridProps) {
   const [visibleCount, setVisibleCount] = useState(12)
   const [hasMore, setHasMore] = useState(true)
+  const [isLoadingMore, setIsLoadingMore] = useState(false)
+  const loadMoreRef = useRef<HTMLDivElement>(null)
   const [gridItems, setGridItems] = useState<JSX.Element[]>([])
   const [gridHeight, setGridHeight] = useState(0)
   const [metadata, setMetadata] = useState<typeof imageMetadata>(null)
@@ -169,13 +171,28 @@ export function MasonryGrid({
             onClick={() => onImageClick(image)}
           >
             <div className="relative h-full w-full">
-              <Image
-                src={image.src}
-                alt={image.alt}
-                fill
-                sizes={`(max-width: 768px) 100vw, (max-width: 1200px) 50vw, ${100 / responsiveColumns}vw`}
-                className="object-cover transition-transform duration-500 group-hover:scale-105"
-              />
+                <Image
+                  src={image.src}
+                  alt={image.alt}
+                  fill
+                  priority={index < 6} // Prioritize loading the first 6 images
+                  loading={index < 12 ? "eager" : "lazy"} // Eagerly load first 12 images
+                  sizes={`(max-width: 768px) 100vw, (max-width: 1200px) 50vw, ${100 / responsiveColumns}vw`}
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  onLoad={(e) => {
+                    // Add a loaded class to help with animation
+                    const target = e.target as HTMLImageElement;
+                    target.classList.add('loaded');
+                  }}
+                  style={{
+                    opacity: 0,
+                    transition: 'opacity 0.3s ease-in-out',
+                  }}
+                  onLoadingComplete={(img) => {
+                    // Fade in the image when loading is complete
+                    img.style.opacity = '1';
+                  }}
+                />
               
               {/* Hover overlay with category info */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
@@ -222,6 +239,33 @@ export function MasonryGrid({
     setHasMore(visibleCount < images.length);
   }, [images, visibleCount, responsiveColumns, gap, onImageClick, getImageAspectRatio]);
   
+  // Implement automatic loading on scroll using Intersection Observer API
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting && hasMore && !isLoadingMore) {
+          setIsLoadingMore(true);
+          // Delay loading more to prevent too many calculations at once
+          setTimeout(() => {
+            setVisibleCount(prev => Math.min(prev + 8, images.length));
+            setIsLoadingMore(false);
+          }, 200);
+        }
+      },
+      { threshold: 0.1, rootMargin: '200px' }
+    );
+    
+    if (loadMoreRef.current) {
+      observer.observe(loadMoreRef.current);
+    }
+    
+    return () => {
+      if (loadMoreRef.current) {
+        observer.unobserve(loadMoreRef.current);
+      }
+    };
+  }, [hasMore, images.length, isLoadingMore]);
+
   // Recalculate layout when dependencies change
   useEffect(() => {
     calculateLayout();
@@ -235,11 +279,7 @@ export function MasonryGrid({
       resizeObserver.observe(gridRef.current);
       return () => resizeObserver.disconnect();
     }
-  }, [calculateLayout, metadata]); // Re-run when metadata loads
-  
-  const loadMore = () => {
-    setVisibleCount(prev => Math.min(prev + 8, images.length));
-  };
+  }, [calculateLayout, metadata, visibleCount]); // Re-run when metadata loads or visible count changes
 
   return (
     <div className={cn("w-full", className)}>
@@ -254,14 +294,19 @@ export function MasonryGrid({
         {gridItems}
       </div>
       
+      {/* Infinite scroll loading trigger */}
       {hasMore && (
-        <div className="flex justify-center mt-8">
-          <button
-            onClick={loadMore}
-            className="px-6 py-2 bg-primary text-white rounded-full hover:bg-primary/90 transition-colors"
-          >
-            Load More
-          </button>
+        <div 
+          ref={loadMoreRef} 
+          className="flex justify-center mt-8 h-8"
+        >
+          {isLoadingMore && (
+            <div className="flex items-center space-x-2">
+              <div className="w-4 h-4 rounded-full bg-primary animate-bounce [animation-delay:-0.3s]"></div>
+              <div className="w-4 h-4 rounded-full bg-primary animate-bounce [animation-delay:-0.15s]"></div>
+              <div className="w-4 h-4 rounded-full bg-primary animate-bounce"></div>
+            </div>
+          )}
         </div>
       )}
     </div>

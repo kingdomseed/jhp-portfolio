@@ -8,82 +8,86 @@ import { MasonryGrid } from "@/components/ui/masonry-grid"
 import { EnhancedLightbox } from "@/components/ui/enhanced-lightbox"
 import { GalleryFilters } from "@/components/ui/gallery-filters"
 
-// Define gallery images by category with additional metadata
-const galleryImages = {
-  portraits: [
-    { src: "/images/portraits/portrait-1.jpg", alt: "Professional portrait", category: "portraits", date: "2024-02-15", location: "Frankfurt Studio" },
-    { src: "/images/portraits/portrait-2.jpg", alt: "Artistic portrait", category: "portraits", date: "2024-01-20", location: "Outdoor Session" },
-    { src: "/images/portraits/portrait-3.jpg", alt: "Moody portrait", category: "portraits", date: "2023-12-05", location: "Urban Setting" },
-    { src: "/images/portraits/portrait-4.jpg", alt: "Fashion portrait", category: "portraits", date: "2023-11-18", location: "City Center" },
-    { src: "/images/portraits/senior-1.jpeg", alt: "Senior portrait", category: "portraits", date: "2023-10-30", location: "Park" },
-    { src: "/images/portraits/senior-2.jpg", alt: "Graduate portrait", category: "portraits", date: "2023-09-22", location: "Campus" },
-    { src: "/images/portraits/senior-3.jpeg", alt: "Senior session", category: "portraits", date: "2023-08-14", location: "Urban Setting" },
-    { src: "/images/portraits/senior-5.jpeg", alt: "Professional senior portrait", category: "portraits", date: "2023-07-10", location: "Studio" },
-    { src: "/images/portraits/senior-8.jpeg", alt: "Creative senior photo", category: "portraits", date: "2023-06-15", location: "Outdoor" },
-    { src: "/images/portraits/senior-12.jpeg", alt: "Casual senior portrait", category: "portraits", date: "2023-05-20", location: "Downtown" },
-  ],
-  weddings: [
-    // Using selected event photos that are from a wedding (36-45)
-    { src: "/images/events/event-36.jpg", alt: "Wedding ceremony", category: "weddings", date: "2024-02-28", location: "Garden Venue" },
-    { src: "/images/events/event-37.jpg", alt: "Bride and groom", category: "weddings", date: "2024-02-28", location: "Garden Venue" },
-    { src: "/images/events/event-38.jpg", alt: "Wedding details", category: "weddings", date: "2024-02-28", location: "Garden Venue" },
-    { src: "/images/events/event-39.jpg", alt: "Wedding party", category: "weddings", date: "2024-02-28", location: "Garden Venue" },
-    { src: "/images/events/event-40.jpg", alt: "Wedding reception", category: "weddings", date: "2024-02-28", location: "Garden Venue" },
-    { src: "/images/events/event-41.jpg", alt: "First dance", category: "weddings", date: "2024-02-28", location: "Garden Venue" },
-    { src: "/images/events/event-42.jpg", alt: "Wedding guests", category: "weddings", date: "2024-02-28", location: "Garden Venue" },
-    { src: "/images/events/event-43.jpg", alt: "Wedding portraits", category: "weddings", date: "2024-02-28", location: "Garden Venue" },
-    { src: "/images/events/event-44.jpg", alt: "Wedding cake", category: "weddings", date: "2024-02-28", location: "Garden Venue" },
-    { src: "/images/events/event-45.jpg", alt: "Cutting the cake", category: "weddings", date: "2024-02-28", location: "Garden Venue" },
-    // Including selected couples photos as requested
-    { src: "/images/couples/couple-8.jpeg", alt: "Couple's ceremony", category: "weddings", date: "2024-01-15", location: "Rustic Venue" },
-    { src: "/images/couples/couple-14.jpg", alt: "Romantic wedding moment", category: "weddings", date: "2024-01-10", location: "Beach Wedding" },
-    { src: "/images/couples/couple-20.jpg", alt: "Wedding portrait", category: "weddings", date: "2023-12-18", location: "Church" },
-    { src: "/images/couples/couple-29.jpg", alt: "Elegant wedding", category: "weddings", date: "2023-11-05", location: "Historic Venue" },
-  ],
-  engagements: [
-    { src: "/images/couples/couple-1.jpeg", alt: "Engagement session", category: "engagements", date: "2024-03-01", location: "Old Town" },
-    { src: "/images/couples/couple-2.jpeg", alt: "Couple portrait", category: "engagements", date: "2024-02-14", location: "Riverside" },
-    { src: "/images/couples/couple-3.jpeg", alt: "Romantic couple shoot", category: "engagements", date: "2024-01-28", location: "City Center" },
-    { src: "/images/couples/couple-4.jpeg", alt: "Couple outdoor session", category: "engagements", date: "2023-12-18", location: "Winter Garden" },
-    { src: "/images/couples/couple-5.jpeg", alt: "Engagement announcement", category: "engagements", date: "2023-11-30", location: "Historic District" },
-    { src: "/images/couples/couple-6.jpeg", alt: "Couple lifestyle shoot", category: "engagements", date: "2023-10-15", location: "Urban Setting" },
-    { src: "/images/couples/couple-7.jpeg", alt: "Pre-wedding session", category: "engagements", date: "2023-09-22", location: "Sunset Beach" },
-    { src: "/images/couples/couple-9.jpg", alt: "Engagement celebration", category: "engagements", date: "2023-08-30", location: "Rooftop Venue" },
-    { src: "/images/couples/couple-11.jpeg", alt: "Couple portrait session", category: "engagements", date: "2023-07-15", location: "City Park" },
-    { src: "/images/couples/couple-12.jpg", alt: "Engagement lifestyle", category: "engagements", date: "2023-06-20", location: "Cafe Setting" },
-  ],
-  events: [
-    { src: "/images/events/event-1.jpg", alt: "Corporate event", category: "events", date: "2024-02-25", location: "Conference Center" },
-    { src: "/images/events/event-2.jpg", alt: "Birthday celebration", category: "events", date: "2024-01-30", location: "Private Venue" },
-    { src: "/images/events/event-3.jpg", alt: "Award ceremony", category: "events", date: "2023-12-15", location: "Grand Hotel" },
-    { src: "/images/events/event-4.jpg", alt: "Networking event", category: "events", date: "2023-11-28", location: "Business Center" },
-    { src: "/images/events/event-5.jpg", alt: "Gala dinner", category: "events", date: "2023-10-20", location: "Luxury Hall" },
-    { src: "/images/events/event-6.jpg", alt: "Product launch", category: "events", date: "2023-09-15", location: "Exhibition Center" },
-    { src: "/images/events/event-7.jpg", alt: "Charity fundraiser", category: "events", date: "2023-08-22", location: "Community Center" },
-    { src: "/images/events/event-8.jpg", alt: "Fashion show", category: "events", date: "2023-07-18", location: "Design Studio" },
-    { src: "/images/events/event-9.jpg", alt: "Music concert", category: "events", date: "2023-06-30", location: "Outdoor Stage" },
-    { src: "/images/events/event-10.jpg", alt: "Art exhibition", category: "events", date: "2023-05-25", location: "Gallery Space" },
-  ],
-  family: [
-    { src: "/images/family/family1.jpeg", alt: "Family outdoor session", category: "family", date: "2024-02-28", location: "City Park" },
-    { src: "/images/family/family2.jpeg", alt: "Family group portrait", category: "family", date: "2024-01-15", location: "Frankfurt Studio" },
-    { src: "/images/family/family3.jpeg", alt: "Family candid moment", category: "family", date: "2023-11-12", location: "Client Home" },
-    { src: "/images/family/family4.jpeg", alt: "Extended family gathering", category: "family", date: "2023-10-08", location: "Botanical Gardens" },
-    { src: "/images/family/family5.jpeg", alt: "Family lifestyle", category: "family", date: "2023-09-20", location: "Home Setting" },
-  ],
-  headshots: [
-    { src: "/images/headshots/headshot1.jpeg", alt: "Professional headshot", category: "headshots", date: "2024-02-15", location: "Frankfurt Studio" },
-    { src: "/images/headshots/headshot2.jpeg", alt: "Corporate portrait", category: "headshots", date: "2024-01-20", location: "Client Office" },
-    { src: "/images/headshots/headshot3.jpeg", alt: "Creative headshot", category: "headshots", date: "2023-12-05", location: "Frankfurt Studio" },
-    { src: "/images/headshots/headshot4.jpeg", alt: "Professional profile", category: "headshots", date: "2023-11-18", location: "Outdoor Session" },
-    { src: "/images/headshots/headshot5.jpeg", alt: "Business portrait", category: "headshots", date: "2023-10-30", location: "Frankfurt Studio" },
-    { src: "/images/headshots/headshot6.jpeg", alt: "Casual headshot", category: "headshots", date: "2023-09-22", location: "Urban Setting" },
-    { src: "/images/headshots/headshot7.jpeg", alt: "Executive headshot", category: "headshots", date: "2023-08-14", location: "Office Setting" },
-    { src: "/images/headshots/headshot8.jpeg", alt: "Professional headshot", category: "headshots", date: "2023-07-10", location: "Studio" },
-    { src: "/images/headshots/headshot9.jpeg", alt: "Actor headshot", category: "headshots", date: "2023-06-15", location: "Studio" },
-    { src: "/images/headshots/headshot10.jpeg", alt: "Corporate headshot", category: "headshots", date: "2023-05-20", location: "Office" },
-  ],
+// Image metadata - dynamically loaded from Next.js public directory structure
+interface GalleryImage {
+  src: string
+  alt: string
+  category?: string
+  date?: string
+  location?: string
+}
+
+// Function to create a date string from a file number or index
+const createDateFromIndex = (index: number, baseYear: number = 2023): string => {
+  // Deterministic but distributed dates based on the index
+  const month = ((index % 12) + 1).toString().padStart(2, '0');
+  const day = ((index % 28) + 1).toString().padStart(2, '0');
+  const yearOffset = Math.floor(index / 24); // Every 24 images moves back a year
+  return `${baseYear - yearOffset}-${month}-${day}`;
 };
+
+// Image metadata initialized with empty arrays - will be filled at runtime
+const galleryImages: Record<string, GalleryImage[]> = {
+  portraits: [],
+  weddings: [],
+  engagements: [],
+  events: [],
+  family: [],
+  headshots: []
+};
+
+// Wedding event numbers to exclude from events category
+const weddingEventNumbers = Array.from({ length: 10 }, (_, i) => i + 36); // 36-45
+// Couples photos to exclude from engagements category (used in weddings)
+const weddingCoupleNumbers = [8, 14, 20, 29];
+
+// Wedding images come from both couples and events directories
+const weddingImages = [
+  // From events directory - specifically events 36-45
+  ...Array.from({ length: 10 }, (_, i) => {
+    const eventNum = i + 36;
+    return {
+      src: `/images/events/event-${eventNum}.jpg`,
+      alt: `Wedding event ${i + 1}`,
+      category: 'weddings',
+      date: '2024-02-28',
+      location: 'Garden Venue'
+    };
+  }),
+  // From couples directory - specific wedding-appropriate couples
+  {
+    src: '/images/couples/couple-8.jpeg',
+    alt: "Couple's ceremony",
+    category: 'weddings',
+    date: '2024-01-15',
+    location: 'Rustic Venue'
+  },
+  {
+    src: '/images/couples/couple-14.jpg',
+    alt: 'Romantic wedding moment',
+    category: 'weddings',
+    date: '2024-01-10',
+    location: 'Beach Wedding'
+  },
+  {
+    src: '/images/couples/couple-20.jpg',
+    alt: 'Wedding portrait',
+    category: 'weddings',
+    date: '2023-12-18',
+    location: 'Church'
+  },
+  {
+    src: '/images/couples/couple-29.jpg',
+    alt: 'Elegant wedding',
+    category: 'weddings',
+    date: '2023-11-05',
+    location: 'Historic Venue'
+  },
+];
+
+// Set weddings category directly
+galleryImages.weddings = weddingImages;
+
 
 // No service cards needed anymore
 
@@ -97,15 +101,155 @@ interface GalleryImage {
 }
 
 export default function GalleriesPage() {
-  // Combine all images for the "all" category
-  const allImages = useMemo(() => [
-    ...galleryImages.portraits,
-    ...galleryImages.weddings,
-    ...galleryImages.family,
-    ...galleryImages.engagements,
-    ...galleryImages.events,
-    ...galleryImages.headshots,
-  ], []);
+  // State to force re-render when gallery is updated
+  const [galleryUpdated, setGalleryUpdated] = useState(false);
+  
+  // Load and process image metadata from the public directory
+  useEffect(() => {
+    // Only run in the browser
+    if (typeof window === 'undefined') return;
+    
+    const loadMetadata = async () => {
+      try {
+        const response = await fetch('/image-metadata.json');
+        if (!response.ok) throw new Error('Failed to load image metadata');
+        
+        const data = await response.json();
+        const metadata = data.images;
+        
+        // Temporary containers for each category
+        const portraits: GalleryImage[] = [];
+        const headshots: GalleryImage[] = [];
+        const family: GalleryImage[] = [];
+        const events: GalleryImage[] = [];
+        const engagements: GalleryImage[] = [];
+        
+        // Process each image path from the metadata
+        Object.keys(metadata).forEach(path => {
+          // Clean up the path for processing
+          const imagePath = path.startsWith('/') ? path : `/${path}`;
+          
+          // Skip non-image files
+          if (!imagePath.match(/\.(jpg|jpeg|png|webp)$/i)) return;
+          
+          // Extract key information from path
+          let category: string | null = null;
+          let alt = "Photography";
+          
+          // Determine category from path
+          if (imagePath.includes('/portraits/')) {
+            category = 'portraits';
+            alt = "Portrait photography";
+          } else if (imagePath.includes('/headshots/')) {
+            category = 'headshots';
+            alt = "Professional headshot";
+          } else if (imagePath.includes('/family/')) {
+            category = 'family';
+            alt = "Family photography";
+          } else if (imagePath.includes('/events/')) {
+            // Skip events 36-45 as they're already in weddings
+            const eventMatch = imagePath.match(/\/events\/event-(\d+)/i);
+            if (eventMatch) {
+              const eventNum = parseInt(eventMatch[1], 10);
+              if (weddingEventNumbers.includes(eventNum)) return;
+            }
+            
+            category = 'events';
+            alt = "Event photography";
+          } else if (imagePath.includes('/couples/')) {
+            // Skip specific couples images already in weddings
+            const coupleMatch = imagePath.match(/\/couples\/couple-(\d+)/i);
+            if (coupleMatch) {
+              const coupleNum = parseInt(coupleMatch[1], 10);
+              if (weddingCoupleNumbers.includes(coupleNum)) return;
+            }
+            
+            category = 'engagements';
+            alt = "Engagement photography";
+          }
+          
+          // If we identified a category, create the image object
+          if (category) {
+            // Generate a date based on the filename
+            const numMatch = imagePath.match(/\d+/);
+            const dateNum = numMatch ? parseInt(numMatch[0], 10) : 0;
+            const date = createDateFromIndex(dateNum);
+            
+            // Generate location based on category
+            const location = 
+              category === 'portraits' ? 'Photography Studio' :
+              category === 'headshots' ? 'Professional Studio' :
+              category === 'family' ? 'Outdoor Session' :
+              category === 'events' ? 'Event Venue' :
+              category === 'engagements' ? 'Engagement Session' : '';
+            
+            // Create the image object
+            const imageObj: GalleryImage = {
+              src: imagePath,
+              alt,
+              category,
+              date,
+              location
+            };
+            
+            // Add to the appropriate category array
+            switch(category) {
+              case 'portraits': portraits.push(imageObj); break;
+              case 'headshots': headshots.push(imageObj); break;
+              case 'family': family.push(imageObj); break;
+              case 'events': events.push(imageObj); break;
+              case 'engagements': engagements.push(imageObj); break;
+            }
+          }
+        });
+        
+        // Sort each category by date (newest first)
+        const sortByDate = (a: GalleryImage, b: GalleryImage) => 
+          (b.date || '').localeCompare(a.date || '');
+          
+        portraits.sort(sortByDate);
+        headshots.sort(sortByDate);
+        family.sort(sortByDate);
+        events.sort(sortByDate);
+        engagements.sort(sortByDate);
+        
+        // Update the gallery images object
+        galleryImages.portraits = portraits;
+        galleryImages.headshots = headshots;
+        galleryImages.family = family;
+        galleryImages.events = events;
+        galleryImages.engagements = engagements;
+        
+        // Force re-render with new images
+        setGalleryUpdated(prevState => !prevState);
+      } catch (error) {
+        console.error('Error loading image metadata:', error);
+      }
+    };
+    
+    loadMetadata();
+  }, []);
+  
+  // Combine all images for the "all" category and shuffle them
+  const allImages = useMemo(() => {
+    // Gather all images from all categories
+    const combined = [
+      ...galleryImages.portraits,
+      ...galleryImages.weddings,
+      ...galleryImages.family,
+      ...galleryImages.engagements,
+      ...galleryImages.events,
+      ...galleryImages.headshots,
+    ];
+    
+    // Thoroughly shuffle the combined array using Fisher-Yates algorithm
+    for (let i = combined.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [combined[i], combined[j]] = [combined[j], combined[i]];
+    }
+    
+    return combined;
+  }, [galleryUpdated]); // React to gallery updates
 
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState<GalleryImage | null>(null);
@@ -125,19 +269,22 @@ export default function GalleriesPage() {
 
   // Filter and sort images when category or sort option changes
   useEffect(() => {
-    const filteredImages = currentCategory === "all" 
-      ? [...allImages]
-      : [...galleryImages[currentCategory as keyof typeof galleryImages]];
+    // Skip processing if no images available
+    if (!allImages.length) return;
     
-    // Randomize the "all" category by default
-    if (currentCategory === "all" && sortBy !== "newest" && sortBy !== "oldest" && sortBy !== "az" && sortBy !== "za") {
-      // Use Fisher-Yates shuffle algorithm for better randomization
-      for (let i = filteredImages.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [filteredImages[i], filteredImages[j]] = [filteredImages[j], filteredImages[i]];
-      }
+    let filteredImages: GalleryImage[];
+    
+    // Select images based on category
+    if (currentCategory === "all") {
+      // For "all" category, use the pre-shuffled allImages array
+      filteredImages = [...allImages];
     } else {
-      // Apply sorting for specific sort options
+      // For specific categories, use the images from that category
+      filteredImages = [...galleryImages[currentCategory as keyof typeof galleryImages]];
+    }
+    
+    // Apply specific sorting if requested (otherwise keep randomized for "all")
+    if (currentCategory !== "all" || ["newest", "oldest", "az", "za"].includes(sortBy)) {
       switch (sortBy) {
         case "newest":
           filteredImages.sort((a, b) => (b.date || "").localeCompare(a.date || ""));
@@ -152,13 +299,16 @@ export default function GalleriesPage() {
           filteredImages.sort((a, b) => b.alt.localeCompare(a.alt));
           break;
         case "popular":
-          // This would ideally be based on actual popularity metrics
-          // For now, we'll just use a random order
-          filteredImages.sort(() => Math.random() - 0.5);
+          // Shuffle again if popular is explicitly selected
+          for (let i = filteredImages.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [filteredImages[i], filteredImages[j]] = [filteredImages[j], filteredImages[i]];
+          }
           break;
       }
     }
     
+    // Update displayed images
     setDisplayedImages(filteredImages);
   }, [currentCategory, sortBy, allImages]);
 
@@ -226,13 +376,26 @@ export default function GalleriesPage() {
             />
           </div>
           
-          {/* Masonry Grid Component */}
+          {/* Masonry Grid Component with loading optimization */}
           <MasonryGrid 
             images={displayedImages}
             onImageClick={openLightbox}
             columns={3}
             gap={4}
           />
+          
+          {/* Image Preload Optimization */}
+          <div className="hidden">
+            {/* Preload the first few images that aren't immediately visible */}
+            {displayedImages.slice(12, 20).map((img, index) => (
+              <link 
+                key={`preload-${index}`} 
+                rel="preload" 
+                as="image" 
+                href={img.src} 
+              />
+            ))}
+          </div>
         </section>
       </div>
 
