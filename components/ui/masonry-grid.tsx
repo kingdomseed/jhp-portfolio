@@ -38,7 +38,7 @@ const DEFAULT_ASPECT_RATIOS = {
   'family': 1.5,   // Landscape orientation (wider than tall)
   'engagements': 1.5,
   'events': 1.5,
-  'creative': 1.33,
+  'weddings': 1.5, // Wedding photos are often landscape
   'default': 1.5    // Default fallback
 };
 

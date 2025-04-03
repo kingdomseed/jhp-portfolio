@@ -141,7 +141,7 @@ export default function ServicesPage() {
                 <div>
                   <div className="relative rounded-xl overflow-hidden shadow-md aspect-[4/5] mb-4">
                     <Image 
-                      src="/images/headshot1.jpeg" 
+                      src="/images/headshots/headshot1.jpeg" 
                       alt="Portrait Photography" 
                       fill
                       className="object-cover"
@@ -149,7 +149,7 @@ export default function ServicesPage() {
                   </div>
                   <div className="relative rounded-xl overflow-hidden shadow-md aspect-[4/5]">
                     <Image 
-                      src="/images/headshot6.jpeg" 
+                      src="/images/headshots/headshot6.jpeg" 
                       alt="Portrait Photography" 
                       fill
                       className="object-cover"
@@ -189,7 +189,7 @@ export default function ServicesPage() {
                 <div>
                   <div className="relative rounded-xl overflow-hidden shadow-md aspect-[4/5] mb-4">
                     <Image 
-                      src="/images/family1.jpeg" 
+                      src="/images/family/family1.jpeg" 
                       alt="Family Photography" 
                       fill
                       className="object-cover"
@@ -197,7 +197,7 @@ export default function ServicesPage() {
                   </div>
                   <div className="relative rounded-xl overflow-hidden shadow-md aspect-[4/5]">
                     <Image 
-                      src="/images/family3.jpeg" 
+                      src="/images/family/family3.jpeg" 
                       alt="Family Photography" 
                       fill
                       className="object-cover"
@@ -237,7 +237,7 @@ export default function ServicesPage() {
                 <div>
                   <div className="relative rounded-xl overflow-hidden shadow-md aspect-[4/5] mb-4">
                     <Image 
-                      src="/images/event1.jpeg" 
+                      src="/images/events/event-1.jpg" 
                       alt="Event Photography" 
                       fill
                       className="object-cover"
@@ -245,7 +245,7 @@ export default function ServicesPage() {
                   </div>
                   <div className="relative rounded-xl overflow-hidden shadow-md aspect-[4/5]">
                     <Image 
-                      src="/images/event5.jpeg" 
+                      src="/images/events/event-5.jpg" 
                       alt="Event Photography" 
                       fill
                       className="object-cover"
@@ -285,7 +285,7 @@ export default function ServicesPage() {
                 <div>
                   <div className="relative rounded-xl overflow-hidden shadow-md aspect-[4/5] mb-4">
                     <Image 
-                      src="/images/couple1.jpeg" 
+                      src="/images/couples/couple-1.jpeg" 
                       alt="Engagement Photography" 
                       fill
                       className="object-cover"
@@ -293,7 +293,7 @@ export default function ServicesPage() {
                   </div>
                   <div className="relative rounded-xl overflow-hidden shadow-md aspect-[4/5]">
                     <Image 
-                      src="/images/couple7.jpeg" 
+                      src="/images/couples/couple-7.jpeg" 
                       alt="Engagement Photography" 
                       fill
                       className="object-cover"

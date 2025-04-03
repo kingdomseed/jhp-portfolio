@@ -11,47 +11,77 @@ import { GalleryFilters } from "@/components/ui/gallery-filters"
 // Define gallery images by category with additional metadata
 const galleryImages = {
   portraits: [
-    { src: "/images/headshot1.jpeg", alt: "Professional headshot", category: "portraits", date: "2024-02-15", location: "Frankfurt Studio" },
-    { src: "/images/headshot2.jpeg", alt: "Corporate portrait", category: "portraits", date: "2024-01-20", location: "Client Office" },
-    { src: "/images/headshot3.jpeg", alt: "Creative headshot", category: "portraits", date: "2023-12-05", location: "Frankfurt Studio" },
-    { src: "/images/headshot4.jpeg", alt: "Professional profile", category: "portraits", date: "2023-11-18", location: "Outdoor Session" },
-    { src: "/images/headshot5.jpeg", alt: "Business portrait", category: "portraits", date: "2023-10-30", location: "Frankfurt Studio" },
-    { src: "/images/headshot6.jpeg", alt: "Casual headshot", category: "portraits", date: "2023-09-22", location: "Urban Setting" },
-    { src: "/images/portrait1.jpeg", alt: "Artistic portrait", category: "portraits", date: "2023-08-14", location: "Frankfurt Studio" },
+    { src: "/images/portraits/portrait-1.jpg", alt: "Professional portrait", category: "portraits", date: "2024-02-15", location: "Frankfurt Studio" },
+    { src: "/images/portraits/portrait-2.jpg", alt: "Artistic portrait", category: "portraits", date: "2024-01-20", location: "Outdoor Session" },
+    { src: "/images/portraits/portrait-3.jpg", alt: "Moody portrait", category: "portraits", date: "2023-12-05", location: "Urban Setting" },
+    { src: "/images/portraits/portrait-4.jpg", alt: "Fashion portrait", category: "portraits", date: "2023-11-18", location: "City Center" },
+    { src: "/images/portraits/senior-1.jpeg", alt: "Senior portrait", category: "portraits", date: "2023-10-30", location: "Park" },
+    { src: "/images/portraits/senior-2.jpg", alt: "Graduate portrait", category: "portraits", date: "2023-09-22", location: "Campus" },
+    { src: "/images/portraits/senior-3.jpeg", alt: "Senior session", category: "portraits", date: "2023-08-14", location: "Urban Setting" },
+    { src: "/images/portraits/senior-5.jpeg", alt: "Professional senior portrait", category: "portraits", date: "2023-07-10", location: "Studio" },
+    { src: "/images/portraits/senior-8.jpeg", alt: "Creative senior photo", category: "portraits", date: "2023-06-15", location: "Outdoor" },
+    { src: "/images/portraits/senior-12.jpeg", alt: "Casual senior portrait", category: "portraits", date: "2023-05-20", location: "Downtown" },
   ],
-  family: [
-    { src: "/images/family1.jpeg", alt: "Family outdoor session", category: "family", date: "2024-02-28", location: "City Park" },
-    { src: "/images/family2.jpeg", alt: "Family group portrait", category: "family", date: "2024-01-15", location: "Frankfurt Studio" },
-    { src: "/images/family3.jpeg", alt: "Family candid moment", category: "family", date: "2023-11-12", location: "Client Home" },
-    { src: "/images/family4.jpeg", alt: "Extended family gathering", category: "family", date: "2023-10-08", location: "Botanical Gardens" },
+  weddings: [
+    // Using selected event photos that are from a wedding (36-45)
+    { src: "/images/events/event-36.jpg", alt: "Wedding ceremony", category: "weddings", date: "2024-02-28", location: "Garden Venue" },
+    { src: "/images/events/event-37.jpg", alt: "Bride and groom", category: "weddings", date: "2024-02-28", location: "Garden Venue" },
+    { src: "/images/events/event-38.jpg", alt: "Wedding details", category: "weddings", date: "2024-02-28", location: "Garden Venue" },
+    { src: "/images/events/event-39.jpg", alt: "Wedding party", category: "weddings", date: "2024-02-28", location: "Garden Venue" },
+    { src: "/images/events/event-40.jpg", alt: "Wedding reception", category: "weddings", date: "2024-02-28", location: "Garden Venue" },
+    { src: "/images/events/event-41.jpg", alt: "First dance", category: "weddings", date: "2024-02-28", location: "Garden Venue" },
+    { src: "/images/events/event-42.jpg", alt: "Wedding guests", category: "weddings", date: "2024-02-28", location: "Garden Venue" },
+    { src: "/images/events/event-43.jpg", alt: "Wedding portraits", category: "weddings", date: "2024-02-28", location: "Garden Venue" },
+    { src: "/images/events/event-44.jpg", alt: "Wedding cake", category: "weddings", date: "2024-02-28", location: "Garden Venue" },
+    { src: "/images/events/event-45.jpg", alt: "Cutting the cake", category: "weddings", date: "2024-02-28", location: "Garden Venue" },
+    // Including selected couples photos as requested
+    { src: "/images/couples/couple-8.jpeg", alt: "Couple's ceremony", category: "weddings", date: "2024-01-15", location: "Rustic Venue" },
+    { src: "/images/couples/couple-14.jpg", alt: "Romantic wedding moment", category: "weddings", date: "2024-01-10", location: "Beach Wedding" },
+    { src: "/images/couples/couple-20.jpg", alt: "Wedding portrait", category: "weddings", date: "2023-12-18", location: "Church" },
+    { src: "/images/couples/couple-29.jpg", alt: "Elegant wedding", category: "weddings", date: "2023-11-05", location: "Historic Venue" },
   ],
   engagements: [
-    { src: "/images/engagement1.jpeg", alt: "Engagement session", category: "engagements", date: "2024-03-01", location: "Old Town" },
-    { src: "/images/engagement2.jpeg", alt: "Couple portrait", category: "engagements", date: "2024-02-14", location: "Riverside" },
-    { src: "/images/couple1.jpeg", alt: "Romantic couple shoot", category: "engagements", date: "2024-01-28", location: "City Center" },
-    { src: "/images/couple2.jpeg", alt: "Couple outdoor session", category: "engagements", date: "2023-12-18", location: "Winter Garden" },
-    { src: "/images/couple3.jpeg", alt: "Engagement announcement", category: "engagements", date: "2023-11-30", location: "Historic District" },
-    { src: "/images/couple4.jpeg", alt: "Couple lifestyle shoot", category: "engagements", date: "2023-10-15", location: "Urban Setting" },
-    { src: "/images/couple5.jpeg", alt: "Pre-wedding session", category: "engagements", date: "2023-09-22", location: "Sunset Beach" },
-    { src: "/images/couple6.jpeg", alt: "Engagement celebration", category: "engagements", date: "2023-08-30", location: "Rooftop Venue" },
-    { src: "/images/couple7.jpeg", alt: "Couple portrait session", category: "engagements", date: "2023-07-15", location: "City Park" },
-    { src: "/images/couple8.jpeg", alt: "Engagement lifestyle", category: "engagements", date: "2023-06-20", location: "Cafe Setting" },
+    { src: "/images/couples/couple-1.jpeg", alt: "Engagement session", category: "engagements", date: "2024-03-01", location: "Old Town" },
+    { src: "/images/couples/couple-2.jpeg", alt: "Couple portrait", category: "engagements", date: "2024-02-14", location: "Riverside" },
+    { src: "/images/couples/couple-3.jpeg", alt: "Romantic couple shoot", category: "engagements", date: "2024-01-28", location: "City Center" },
+    { src: "/images/couples/couple-4.jpeg", alt: "Couple outdoor session", category: "engagements", date: "2023-12-18", location: "Winter Garden" },
+    { src: "/images/couples/couple-5.jpeg", alt: "Engagement announcement", category: "engagements", date: "2023-11-30", location: "Historic District" },
+    { src: "/images/couples/couple-6.jpeg", alt: "Couple lifestyle shoot", category: "engagements", date: "2023-10-15", location: "Urban Setting" },
+    { src: "/images/couples/couple-7.jpeg", alt: "Pre-wedding session", category: "engagements", date: "2023-09-22", location: "Sunset Beach" },
+    { src: "/images/couples/couple-9.jpg", alt: "Engagement celebration", category: "engagements", date: "2023-08-30", location: "Rooftop Venue" },
+    { src: "/images/couples/couple-11.jpeg", alt: "Couple portrait session", category: "engagements", date: "2023-07-15", location: "City Park" },
+    { src: "/images/couples/couple-12.jpg", alt: "Engagement lifestyle", category: "engagements", date: "2023-06-20", location: "Cafe Setting" },
   ],
   events: [
-    { src: "/images/event1.jpeg", alt: "Corporate event", category: "events", date: "2024-02-25", location: "Conference Center" },
-    { src: "/images/event2.jpeg", alt: "Birthday celebration", category: "events", date: "2024-01-30", location: "Private Venue" },
-    { src: "/images/event3.jpeg", alt: "Award ceremony", category: "events", date: "2023-12-15", location: "Grand Hotel" },
-    { src: "/images/event4.jpeg", alt: "Networking event", category: "events", date: "2023-11-28", location: "Business Center" },
-    { src: "/images/event5.jpeg", alt: "Gala dinner", category: "events", date: "2023-10-20", location: "Luxury Hall" },
-    { src: "/images/event6.jpeg", alt: "Product launch", category: "events", date: "2023-09-15", location: "Exhibition Center" },
-    { src: "/images/event-07.jpg", alt: "Charity fundraiser", category: "events", date: "2023-08-22", location: "Community Center" },
-    { src: "/images/event-08.jpg", alt: "Fashion show", category: "events", date: "2023-07-18", location: "Design Studio" },
-    { src: "/images/event-09.jpg", alt: "Music concert", category: "events", date: "2023-06-30", location: "Outdoor Stage" },
-    { src: "/images/event-10.jpg", alt: "Art exhibition", category: "events", date: "2023-05-25", location: "Gallery Space" },
+    { src: "/images/events/event-1.jpg", alt: "Corporate event", category: "events", date: "2024-02-25", location: "Conference Center" },
+    { src: "/images/events/event-2.jpg", alt: "Birthday celebration", category: "events", date: "2024-01-30", location: "Private Venue" },
+    { src: "/images/events/event-3.jpg", alt: "Award ceremony", category: "events", date: "2023-12-15", location: "Grand Hotel" },
+    { src: "/images/events/event-4.jpg", alt: "Networking event", category: "events", date: "2023-11-28", location: "Business Center" },
+    { src: "/images/events/event-5.jpg", alt: "Gala dinner", category: "events", date: "2023-10-20", location: "Luxury Hall" },
+    { src: "/images/events/event-6.jpg", alt: "Product launch", category: "events", date: "2023-09-15", location: "Exhibition Center" },
+    { src: "/images/events/event-7.jpg", alt: "Charity fundraiser", category: "events", date: "2023-08-22", location: "Community Center" },
+    { src: "/images/events/event-8.jpg", alt: "Fashion show", category: "events", date: "2023-07-18", location: "Design Studio" },
+    { src: "/images/events/event-9.jpg", alt: "Music concert", category: "events", date: "2023-06-30", location: "Outdoor Stage" },
+    { src: "/images/events/event-10.jpg", alt: "Art exhibition", category: "events", date: "2023-05-25", location: "Gallery Space" },
   ],
-  creative: [
-    { src: "/images/creative1.jpeg", alt: "Creative portrait concept", category: "creative", date: "2024-02-10", location: "Art Studio" },
-    { src: "/images/creative2.jpeg", alt: "Artistic composition", category: "creative", date: "2023-12-05", location: "Frankfurt Studio" },
+  family: [
+    { src: "/images/family/family1.jpeg", alt: "Family outdoor session", category: "family", date: "2024-02-28", location: "City Park" },
+    { src: "/images/family/family2.jpeg", alt: "Family group portrait", category: "family", date: "2024-01-15", location: "Frankfurt Studio" },
+    { src: "/images/family/family3.jpeg", alt: "Family candid moment", category: "family", date: "2023-11-12", location: "Client Home" },
+    { src: "/images/family/family4.jpeg", alt: "Extended family gathering", category: "family", date: "2023-10-08", location: "Botanical Gardens" },
+    { src: "/images/family/family5.jpeg", alt: "Family lifestyle", category: "family", date: "2023-09-20", location: "Home Setting" },
+  ],
+  headshots: [
+    { src: "/images/headshots/headshot1.jpeg", alt: "Professional headshot", category: "headshots", date: "2024-02-15", location: "Frankfurt Studio" },
+    { src: "/images/headshots/headshot2.jpeg", alt: "Corporate portrait", category: "headshots", date: "2024-01-20", location: "Client Office" },
+    { src: "/images/headshots/headshot3.jpeg", alt: "Creative headshot", category: "headshots", date: "2023-12-05", location: "Frankfurt Studio" },
+    { src: "/images/headshots/headshot4.jpeg", alt: "Professional profile", category: "headshots", date: "2023-11-18", location: "Outdoor Session" },
+    { src: "/images/headshots/headshot5.jpeg", alt: "Business portrait", category: "headshots", date: "2023-10-30", location: "Frankfurt Studio" },
+    { src: "/images/headshots/headshot6.jpeg", alt: "Casual headshot", category: "headshots", date: "2023-09-22", location: "Urban Setting" },
+    { src: "/images/headshots/headshot7.jpeg", alt: "Executive headshot", category: "headshots", date: "2023-08-14", location: "Office Setting" },
+    { src: "/images/headshots/headshot8.jpeg", alt: "Professional headshot", category: "headshots", date: "2023-07-10", location: "Studio" },
+    { src: "/images/headshots/headshot9.jpeg", alt: "Actor headshot", category: "headshots", date: "2023-06-15", location: "Studio" },
+    { src: "/images/headshots/headshot10.jpeg", alt: "Corporate headshot", category: "headshots", date: "2023-05-20", location: "Office" },
   ],
 };
 
@@ -70,10 +100,11 @@ export default function GalleriesPage() {
   // Combine all images for the "all" category
   const allImages = useMemo(() => [
     ...galleryImages.portraits,
+    ...galleryImages.weddings,
     ...galleryImages.family,
     ...galleryImages.engagements,
     ...galleryImages.events,
-    ...galleryImages.creative,
+    ...galleryImages.headshots,
   ], []);
 
   const [lightboxOpen, setLightboxOpen] = useState(false);
@@ -98,25 +129,34 @@ export default function GalleriesPage() {
       ? [...allImages]
       : [...galleryImages[currentCategory as keyof typeof galleryImages]];
     
-    // Apply sorting
-    switch (sortBy) {
-      case "newest":
-        filteredImages.sort((a, b) => (b.date || "").localeCompare(a.date || ""));
-        break;
-      case "oldest":
-        filteredImages.sort((a, b) => (a.date || "").localeCompare(b.date || ""));
-        break;
-      case "az":
-        filteredImages.sort((a, b) => a.alt.localeCompare(b.alt));
-        break;
-      case "za":
-        filteredImages.sort((a, b) => b.alt.localeCompare(a.alt));
-        break;
-      case "popular":
-        // This would ideally be based on actual popularity metrics
-        // For now, we'll just use a random order as a placeholder
-        filteredImages.sort(() => Math.random() - 0.5);
-        break;
+    // Randomize the "all" category by default
+    if (currentCategory === "all" && sortBy !== "newest" && sortBy !== "oldest" && sortBy !== "az" && sortBy !== "za") {
+      // Use Fisher-Yates shuffle algorithm for better randomization
+      for (let i = filteredImages.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [filteredImages[i], filteredImages[j]] = [filteredImages[j], filteredImages[i]];
+      }
+    } else {
+      // Apply sorting for specific sort options
+      switch (sortBy) {
+        case "newest":
+          filteredImages.sort((a, b) => (b.date || "").localeCompare(a.date || ""));
+          break;
+        case "oldest":
+          filteredImages.sort((a, b) => (a.date || "").localeCompare(b.date || ""));
+          break;
+        case "az":
+          filteredImages.sort((a, b) => a.alt.localeCompare(b.alt));
+          break;
+        case "za":
+          filteredImages.sort((a, b) => b.alt.localeCompare(a.alt));
+          break;
+        case "popular":
+          // This would ideally be based on actual popularity metrics
+          // For now, we'll just use a random order
+          filteredImages.sort(() => Math.random() - 0.5);
+          break;
+      }
     }
     
     setDisplayedImages(filteredImages);

@@ -41,7 +41,7 @@ const services: Service[] = [
   {
     title: "Headshots",
     description: "Professional headshots for business, acting, or personal branding",
-    image: "/images/headshot1.jpeg",
+    image: "/images/headshots/headshot1.jpeg",
     href: "/galleries#headshots",
   }
 ]
