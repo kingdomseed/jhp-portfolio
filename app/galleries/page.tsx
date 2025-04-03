@@ -191,7 +191,7 @@ export default function GalleriesPage() {
             images={displayedImages}
             onImageClick={openLightbox}
             columns={3}
-            gap={16}
+            gap={4}
           />
         </section>
       </div>
