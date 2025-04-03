@@ -456,7 +456,7 @@ export default function Home() {
                   quote: "Our family photos turned out amazing! Jason was great with our kids and somehow managed to get everyone looking at the camera at the same time. A true miracle worker!",
                   name: "The Andersons",
                   role: "Family Session",
-                  image: "/images/family/family2.jpeg",
+                  image: "/images/family/family-2.jpeg",
                   rating: 5
                 },
                 {

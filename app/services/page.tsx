@@ -189,7 +189,7 @@ export default function ServicesPage() {
                 <div>
                   <div className="relative rounded-xl overflow-hidden shadow-md aspect-[4/5] mb-4">
                     <Image 
-                      src="/images/family/family1.jpeg" 
+                      src="/images/family/family-1.jpeg" 
                       alt="Family Photography" 
                       fill
                       className="object-cover"
@@ -197,7 +197,7 @@ export default function ServicesPage() {
                   </div>
                   <div className="relative rounded-xl overflow-hidden shadow-md aspect-[4/5]">
                     <Image 
-                      src="/images/family/family3.jpeg" 
+                      src="/images/family/family-3.jpeg" 
                       alt="Family Photography" 
                       fill
                       className="object-cover"

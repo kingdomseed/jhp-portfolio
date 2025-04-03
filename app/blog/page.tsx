@@ -187,7 +187,7 @@ Stay tuned for more posts coming soon!
     title: "The Art of Natural Light Photography",
     excerpt: "Natural light is one of the most beautiful and versatile tools in photography. Learn how to harness the power of natural light to create stunning, evocative images in any setting.",
     date: "March 10, 2025",
-    image: "/images/family1.jpeg",
+    image: "/images/-1.jpeg",
     category: "Photography Techniques",
     slug: "the-art-of-natural-light-photography"
   },
@@ -203,7 +203,7 @@ Stay tuned for more posts coming soon!
     title: "Choosing the Perfect Location for Family Photos",
     excerpt: "Location plays a crucial role in family photography. Discover how to select the ideal setting that complements your family's personality and creates the perfect backdrop for your memories.",
     date: "March 20, 2025",
-    image: "/images/family3.jpeg",
+    image: "/images/family-3.jpeg",
     category: "Tips & Advice",
     slug: "choosing-the-perfect-location-for-family-photos"
   },
