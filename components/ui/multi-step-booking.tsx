@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
@@ -13,13 +13,15 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Checkbox } from "@/components/ui/checkbox"
 import { BookingCalendar } from "@/components/ui/booking-calendar"
-import { Timeslot, getBookingTypeIdFromPackageId } from "@/lib/tidycal-api"
+import { Timeslot } from "@/lib/tidycal-api"
 import { format, parseISO } from "date-fns"
 
-// Define the steps in the booking process
+// Define the TidyCal booking type ID
+const TIDYCAL_BOOKING_TYPE_ID = 951394; // Use the booking type ID from your TidyCal account
+
+// Define the steps in the booking process (removed package step)
 const STEPS = [
   { id: "service", title: "Choose Service" },
-  { id: "package", title: "Select Package" },
   { id: "calendar", title: "Schedule Date" },
   { id: "details", title: "Your Details" },
   { id: "confirm", title: "Confirmation" }
@@ -33,299 +35,29 @@ type Service = {
   href: string
 }
 
-// Package type definition
-type Package = {
-  id: string
-  title: string
-  price: string
-  description: string
-  features: string[]
-  popular?: boolean
+// Add Headshots service to the list from siteConfig
+const services: Service[] = [
+  ...siteConfig.services,
+  {
+    title: "Headshots",
+    description: "Professional headshots for business, acting, or personal branding",
+    image: "/images/headshot1.jpeg",
+    href: "/galleries#headshots",
+  }
+]
+
+// Service-specific additional information prompts
+const additionalInfoPrompts: Record<string, string> = {
+  "Portraits": "Tell me about the style of portraits you envision, any specific themes or settings you have in mind, and what you hope to convey through these images. Feel free to share details about yourself that might inform our session.",
+  "Weddings": "Share some details about your wedding vision, venue, and what moments are most important for you to capture. Any specific style preferences or unique aspects of your celebration?",
+  "Engagements": "Tell me about your love story, how you met, and the vision for your engagement photos. What locations or styles would best represent your relationship?",
+  "Events": "Please share details about your event - the nature of the celebration, key moments you'd like captured, and any specific requirements or preferences you have.",
+  "Family": "Tell me about your family members, the dynamics you'd like to capture, and any specific themes or locations you have in mind. Are there any particular moments or relationships you want to highlight?",
+  "Headshots": "Share details about how you plan to use these headshots (LinkedIn, company website, acting portfolio, etc.). What impression would you like to convey, and do you have specific style preferences?"
 }
 
-// Define available packages
-const PACKAGES: Record<string, Package[]> = {
-  "Portraits": [
-    {
-      id: "portrait-essential",
-      title: "Essential",
-      price: "€250",
-      description: "Perfect for individuals and professionals needing high-quality portraits.",
-      features: [
-        "60-minute session",
-        "1-2 outfit changes",
-        "10 professionally edited digital images",
-        "Online gallery for easy sharing",
-        "Print release for personal use"
-      ]
-    },
-    {
-      id: "portrait-premium",
-      title: "Premium",
-      price: "€450",
-      description: "Ideal for extended portrait sessions with more variety.",
-      features: [
-        "90-minute session",
-        "2-3 outfit changes",
-        "20 professionally edited digital images",
-        "Online gallery for easy sharing",
-        "Print release for personal use",
-        "Complimentary location consultation"
-      ],
-      popular: true
-    },
-    {
-      id: "portrait-luxury",
-      title: "Luxury",
-      price: "€650",
-      description: "Comprehensive coverage for professional needs.",
-      features: [
-        "2-hour session",
-        "Multiple outfit changes",
-        "30 professionally edited digital images",
-        "Online gallery for easy sharing",
-        "Print release for personal use",
-        "Complimentary location consultation",
-        "Professional hair and makeup consultation"
-      ]
-    }
-  ],
-  "Weddings": [
-    {
-      id: "wedding-essential",
-      title: "Essential",
-      price: "€1,200",
-      description: "Coverage for intimate weddings and elopements.",
-      features: [
-        "4 hours of coverage",
-        "One photographer",
-        "100+ professionally edited digital images",
-        "Online gallery for easy sharing",
-        "Print release for personal use"
-      ]
-    },
-    {
-      id: "wedding-premium",
-      title: "Premium",
-      price: "€2,200",
-      description: "Comprehensive coverage for your special day.",
-      features: [
-        "8 hours of coverage",
-        "One photographer",
-        "300+ professionally edited digital images",
-        "Online gallery for easy sharing",
-        "Print release for personal use",
-        "Engagement session included"
-      ],
-      popular: true
-    },
-    {
-      id: "wedding-luxury",
-      title: "Luxury",
-      price: "€3,500",
-      description: "Complete wedding day documentation with premium services.",
-      features: [
-        "10 hours of coverage",
-        "Two photographers",
-        "500+ professionally edited digital images",
-        "Online gallery for easy sharing",
-        "Print release for personal use",
-        "Engagement session included",
-        "Wedding album (10x10, 20 pages)"
-      ]
-    }
-  ],
-  "Engagements": [
-    {
-      id: "engagement-essential",
-      title: "Essential",
-      price: "€250",
-      description: "Perfect for couples wanting quality engagement photos.",
-      features: [
-        "60-minute session",
-        "1 location",
-        "10 professionally edited digital images",
-        "Online gallery for easy sharing",
-        "Print release for personal use"
-      ]
-    },
-    {
-      id: "engagement-premium",
-      title: "Premium",
-      price: "€400",
-      description: "Extended session with more variety and locations.",
-      features: [
-        "90-minute session",
-        "2 locations",
-        "20 professionally edited digital images",
-        "Online gallery for easy sharing",
-        "Print release for personal use",
-        "Complimentary location consultation"
-      ],
-      popular: true
-    },
-    {
-      id: "engagement-luxury",
-      title: "Luxury",
-      price: "€600",
-      description: "Comprehensive engagement photography experience.",
-      features: [
-        "2-hour session",
-        "Multiple locations",
-        "30 professionally edited digital images",
-        "Online gallery for easy sharing",
-        "Print release for personal use",
-        "Complimentary location consultation",
-        "Save-the-date card design"
-      ]
-    }
-  ],
-  "Events": [
-    {
-      id: "event-essential",
-      title: "Essential",
-      price: "€500",
-      description: "Coverage for small events and gatherings.",
-      features: [
-        "2 hours of coverage",
-        "One location",
-        "50+ professionally edited digital images",
-        "Online gallery for easy sharing",
-        "Print release for personal use"
-      ]
-    },
-    {
-      id: "event-premium",
-      title: "Premium",
-      price: "€900",
-      description: "Extended coverage for medium-sized events.",
-      features: [
-        "4 hours of coverage",
-        "One location",
-        "100+ professionally edited digital images",
-        "Online gallery for easy sharing",
-        "Print release for personal use",
-        "Same-day preview images (5-10)"
-      ],
-      popular: true
-    },
-    {
-      id: "event-luxury",
-      title: "Luxury",
-      price: "€1,500",
-      description: "Comprehensive coverage for large events.",
-      features: [
-        "8 hours of coverage",
-        "Multiple locations if needed",
-        "200+ professionally edited digital images",
-        "Online gallery for easy sharing",
-        "Print release for personal use",
-        "Same-day preview images (10-15)",
-        "Second photographer"
-      ]
-    }
-  ],
-  "Family": [
-    {
-      id: "family-essential",
-      title: "Essential",
-      price: "€300",
-      description: "Perfect for families wanting quality portraits.",
-      features: [
-        "60-minute session",
-        "1 location",
-        "15 professionally edited digital images",
-        "Online gallery for easy sharing",
-        "Print release for personal use"
-      ]
-    },
-    {
-      id: "family-premium",
-      title: "Premium",
-      price: "€500",
-      description: "Extended session with more variety for families.",
-      features: [
-        "90-minute session",
-        "1-2 locations",
-        "25 professionally edited digital images",
-        "Online gallery for easy sharing",
-        "Print release for personal use",
-        "Complimentary location consultation"
-      ],
-      popular: true
-    },
-    {
-      id: "family-luxury",
-      title: "Luxury",
-      price: "€700",
-      description: "Comprehensive family photography experience.",
-      features: [
-        "2-hour session",
-        "Multiple locations if desired",
-        "35 professionally edited digital images",
-        "Online gallery for easy sharing",
-        "Print release for personal use",
-        "Complimentary location consultation",
-        "Family photo album (8x8, 20 pages)"
-      ]
-    }
-  ]
-}
-
-
-// Package card component
-function PackageCard({ 
-  pkg, 
-  selected, 
-  onSelect 
-}: { 
-  pkg: Package; 
-  selected: boolean; 
-  onSelect: () => void;
-}) {
-  return (
-    <Card 
-      className={`relative cursor-pointer transition-all ${selected ? 'ring-2 ring-primary' : 'hover:shadow-md'}`}
-      onClick={onSelect}
-    >
-      {pkg.popular && (
-        <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-primary text-white text-xs px-3 py-1 rounded-full">
-          Most Popular
-        </div>
-      )}
-      <CardHeader>
-        <CardTitle>{pkg.title}</CardTitle>
-        <CardDescription>{pkg.description}</CardDescription>
-      </CardHeader>
-      <CardContent>
-        <div className="text-2xl font-cormorant font-semibold mb-4">{pkg.price}</div>
-        <div className="space-y-2">
-          <h4 className="font-medium">Includes:</h4>
-          <ul className="list-disc pl-5 text-muted-foreground">
-            {pkg.features.map((feature, index) => (
-              <li key={index}>{feature}</li>
-            ))}
-          </ul>
-        </div>
-      </CardContent>
-      <CardFooter>
-        <RadioGroup className="w-full">
-          <div className="flex items-center space-x-2">
-            <RadioGroupItem 
-              value={pkg.id} 
-              id={pkg.id} 
-              checked={selected}
-              className="data-[state=checked]:border-primary data-[state=checked]:bg-primary"
-            />
-            <Label htmlFor={pkg.id} className="w-full cursor-pointer">
-              {selected ? "Selected" : "Select Package"}
-            </Label>
-          </div>
-        </RadioGroup>
-      </CardFooter>
-    </Card>
-  )
-}
+// Default prompt if service not found
+const defaultAdditionalInfoPrompt = "Please share any additional information, questions, or special requests for your photography session. The more details you provide, the better I can prepare to capture your vision."
 
 // Service card component
 function ServiceCard({ 
@@ -418,7 +150,6 @@ export function MultiStepBooking() {
   const router = useRouter()
   const [currentStep, setCurrentStep] = useState(0)
   const [selectedService, setSelectedService] = useState<string | null>(null)
-  const [selectedPackage, setSelectedPackage] = useState<string | null>(null)
   const [selectedTimeslot, setSelectedTimeslot] = useState<Timeslot | null>(null)
   const [formData, setFormData] = useState({
     name: "",
@@ -426,6 +157,14 @@ export function MultiStepBooking() {
     message: "",
     agreeToTerms: false
   })
+  const [additionalInfoPrompt, setAdditionalInfoPrompt] = useState(defaultAdditionalInfoPrompt)
+
+  // Update the additional info prompt when service changes
+  useEffect(() => {
+    if (selectedService) {
+      setAdditionalInfoPrompt(additionalInfoPrompts[selectedService] || defaultAdditionalInfoPrompt)
+    }
+  }, [selectedService])
 
   // Handle form input changes
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -459,11 +198,9 @@ export function MultiStepBooking() {
     switch (currentStep) {
       case 0: // Service selection
         return selectedService !== null
-      case 1: // Package selection
-        return selectedPackage !== null
-      case 2: // Calendar
+      case 1: // Calendar
         return selectedTimeslot !== null
-      case 3: // Details
+      case 2: // Details
         return (
           formData.name.trim() !== "" && 
           formData.email.trim() !== "" && 
@@ -482,7 +219,7 @@ export function MultiStepBooking() {
 
   // Handle form submission
   const handleSubmit = async () => {
-    if (!selectedService || !selectedPackage || !selectedTimeslot) {
+    if (!selectedService || !selectedTimeslot) {
       return;
     }
     
@@ -490,43 +227,30 @@ export function MultiStepBooking() {
     setBookingError(null);
     
     try {
-      // Get the booking type ID from the package ID
-      const bookingTypeId = await getBookingTypeIdFromPackageId(selectedPackage);
-      
-      if (!bookingTypeId) {
-        throw new Error('Unable to find the appropriate booking type. Please try again or contact us directly.');
-      }
-      
-      // Get the selected package details
-      const packageDetails = getSelectedPackageDetails();
-      
-      if (!packageDetails) {
-        throw new Error('Package details not found. Please select a different package or try again later.');
-      }
-      
       // Prepare the booking data according to TidyCal API format
+      // Testing approach: Use a simplified booking_questions format
       const bookingData = {
         starts_at: selectedTimeslot.starts_at,
         timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
         name: formData.name,
         email: formData.email,
-        questions: {
-          message: formData.message,
-          service: selectedService,
-          package: packageDetails.title
-        },
-        // Include package details and service name for email notifications
-        serviceName: selectedService,
-        packageDetails: packageDetails
+        // Use a simpler approach with one question - combine service and message
+        booking_questions: [
+          {
+            booking_type_question_id: 1, 
+            answer: `Service: ${selectedService}\nAdditional Info: ${formData.message}`
+          }
+        ],
+        // Include service name for email notifications
+        serviceName: selectedService
       };
       
-      console.log('Submitting booking with data:', JSON.stringify({
-        ...bookingData,
-        packageDetails: bookingData.packageDetails ? 'Present (Object)' : 'Missing',
-      }, null, 2));
+      console.log('Testing simplified booking questions format to fix TidyCal integration issue');
+      
+      console.log('Submitting booking with data:', JSON.stringify(bookingData, null, 2));
       
       // Create the booking
-      const response = await fetch(`/api/booking-types/${bookingTypeId}/bookings`, {
+      const response = await fetch(`/api/booking-types/${TIDYCAL_BOOKING_TYPE_ID}/bookings`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -555,16 +279,6 @@ export function MultiStepBooking() {
     }
   }
 
-  // Get the selected package details
-  const getSelectedPackageDetails = () => {
-    if (!selectedService || !selectedPackage) return null
-    
-    const packages = PACKAGES[selectedService]
-    if (!packages) return null
-    
-    return packages.find(pkg => pkg.id === selectedPackage) || null
-  }
-
   // Render step content based on current step
   const renderStepContent = () => {
     switch (currentStep) {
@@ -572,8 +286,11 @@ export function MultiStepBooking() {
         return (
           <div>
             <h2 className="text-2xl font-cormorant font-semibold mb-6">Choose a Service</h2>
+            <p className="mb-6 text-muted-foreground">
+              Select the type of photography service you&apos;re interested in. Each service is tailored to capture specific moments and tell your unique story.
+            </p>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {siteConfig.services.map((service) => (
+              {services.map((service) => (
                 <ServiceCard
                   key={service.title}
                   service={service}
@@ -585,45 +302,27 @@ export function MultiStepBooking() {
           </div>
         )
       
-      case 1: // Package selection
+      case 1: // Calendar
         return (
           <div>
-            <h2 className="text-2xl font-cormorant font-semibold mb-6">
-              Select a Package for {selectedService}
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {selectedService && PACKAGES[selectedService]?.map((pkg) => (
-                <PackageCard
-                  key={pkg.id}
-                  pkg={pkg}
-                  selected={selectedPackage === pkg.id}
-                  onSelect={() => setSelectedPackage(pkg.id)}
-                />
-              ))}
-            </div>
-          </div>
-        )
-      
-      case 2: // Calendar
-        return (
-          <div>
-            <h2 className="text-2xl font-cormorant font-semibold mb-6">Schedule Your Session</h2>
+            <h2 className="text-2xl font-cormorant font-semibold mb-6">Schedule Your Discovery Call</h2>
             <p className="mb-6 text-muted-foreground">
-              Please select a date and time that works for you. I&apos;ll confirm your booking within 24 hours.
+              Select a date and time for us to discuss your {selectedService?.toLowerCase()} session in detail. 
+              This call helps me understand your vision and prepare for a successful photoshoot.
             </p>
             <BookingCalendar 
-              packageId={selectedPackage}
+              packageId={TIDYCAL_BOOKING_TYPE_ID.toString()}
               onSelectTimeslot={(timeslot) => setSelectedTimeslot(timeslot)}
             />
           </div>
         )
       
-      case 3: // Details
+      case 2: // Details
         return (
           <div>
             <h2 className="text-2xl font-cormorant font-semibold mb-6">Your Details</h2>
             <p className="mb-6 text-muted-foreground">
-              Please provide your contact information so I can get in touch with you about your session.
+              Please provide your contact information so I can get in touch with you about your {selectedService?.toLowerCase()} session.
             </p>
             <div className="space-y-4">
               <div>
@@ -651,13 +350,16 @@ export function MultiStepBooking() {
               </div>
               <div>
                 <Label htmlFor="message">Additional Information</Label>
+                <p className="text-sm text-muted-foreground mb-2">
+                  {additionalInfoPrompt}
+                </p>
                 <Textarea
                   id="message"
                   name="message"
                   value={formData.message}
                   onChange={handleInputChange}
-                  placeholder="Any specific requests or information about your session"
-                  rows={4}
+                  placeholder="Share your vision, questions, or special requests..."
+                  rows={5}
                 />
               </div>
               <div className="flex items-center space-x-2">
@@ -681,8 +383,7 @@ export function MultiStepBooking() {
           </div>
         )
       
-      case 4: // Confirmation
-        const packageDetails = getSelectedPackageDetails()
+      case 3: // Confirmation
         return (
           <div className="text-center">
             <div className="mb-6 text-primary">
@@ -693,7 +394,7 @@ export function MultiStepBooking() {
             </div>
             <h2 className="text-2xl font-cormorant font-semibold mb-4">Booking Confirmed!</h2>
               <p className="text-muted-foreground mb-4">
-                Thank you for booking a session with Jason Holt Photography. I&apos;ll be in touch within 24 hours to confirm your appointment.
+                Thank you for scheduling a discovery call with Jason Holt Photography. I&apos;m looking forward to discussing your {selectedService?.toLowerCase()} vision and creating beautiful images together.
               </p>
               
               {/* Spam folder warning */}
@@ -708,15 +409,9 @@ export function MultiStepBooking() {
               </CardHeader>
               <CardContent className="space-y-4">
                 <div>
-                  <h3 className="font-medium">Service</h3>
+                  <h3 className="font-medium">Service Type</h3>
                   <p>{selectedService}</p>
                 </div>
-                {packageDetails && (
-                  <div>
-                    <h3 className="font-medium">Package</h3>
-                    <p>{packageDetails.title} - {packageDetails.price}</p>
-                  </div>
-                )}
                 {selectedTimeslot && (
                   <div>
                     <h3 className="font-medium">Date & Time</h3>
@@ -743,17 +438,17 @@ export function MultiStepBooking() {
             <div className="space-y-4">
               <h3 className="font-medium">What&apos;s Next?</h3>
               <ol className="list-decimal list-inside text-left space-y-2 text-muted-foreground">
-                <li>You&apos;ll receive an automatic email from TidyCal with your session details.</li>
-                <li>I&apos;ll reach out to discuss any specific requirements for your session.</li>
-                <li>A reminder will be sent 48 hours before your scheduled session.</li>
-                <li>Join the Zoom meeting at your scheduled time using the link in your confirmation email.</li>
+                <li>You&apos;ll receive an automatic email confirmation with the call details.</li>
+                <li>I&apos;ll prepare for our call by reviewing any information you&apos;ve shared.</li>
+                <li>During our conversation, we&apos;ll discuss your vision, answer questions, and create a plan for your session.</li>
+                <li>A reminder will be sent 48 hours before our scheduled call.</li>
               </ol>
               
               <div className="mt-6 p-4 bg-primary/10 rounded-lg border border-primary/20">
                 <h3 className="font-medium text-primary mb-2">Meeting Details</h3>
                 {bookingResponse?.meeting_url ? (
                   <>
-                    <p className="mb-3">Your session will be conducted via Zoom:</p>
+                    <p className="mb-3">Your discovery call will be conducted via Zoom:</p>
                     <a 
                       href={bookingResponse.meeting_url} 
                       target="_blank" 
@@ -774,7 +469,7 @@ export function MultiStepBooking() {
                   </>
                 ) : (
                   <p>
-                    You&apos;ll receive meeting details in your confirmation email. If no Zoom link was included, I&apos;ll send you one within 24 hours of your session.
+                    You&apos;ll receive meeting details in your confirmation email. If no Zoom link was included, I&apos;ll send you one before our scheduled call.
                   </p>
                 )}
               </div>
@@ -813,14 +508,14 @@ export function MultiStepBooking() {
               Back
             </Button>
             
-            {bookingError && currentStep === 3 && (
+            {bookingError && currentStep === 2 && (
               <div className="text-destructive text-sm">
                 {bookingError}
               </div>
             )}
             
             <Button
-              onClick={currentStep === 3 ? handleSubmit : nextStep}
+              onClick={currentStep === 2 ? handleSubmit : nextStep}
               disabled={!canProceed() || isSubmitting}
               className="rounded-full"
             >
@@ -833,7 +528,7 @@ export function MultiStepBooking() {
                   Processing...
                 </span>
               ) : (
-                currentStep === 3 ? "Complete Booking" : "Continue"
+                currentStep === 2 ? "Complete Booking" : "Continue"
               )}
             </Button>
           </CardFooter>

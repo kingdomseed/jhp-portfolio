@@ -13,17 +13,16 @@ export async function POST(
     const bookingData = await request.json();
     console.log('Raw booking request data:', JSON.stringify(bookingData, null, 2));
     
-    const { serviceName, packageDetails, starts_at, timezone, name, email, questions } = bookingData;
+    const { serviceName, starts_at, timezone, name, email, booking_questions } = bookingData;
     
     // Log each critical field to diagnose missing data
     console.log('Critical data extraction:');
     console.log('- serviceName:', serviceName);
-    console.log('- packageDetails:', packageDetails ? 'Present (Object)' : 'Missing');
     console.log('- starts_at:', starts_at);
     console.log('- timezone:', timezone);
     console.log('- name:', name);
     console.log('- email:', email);
-    console.log('- questions:', questions ? JSON.stringify(questions) : 'Missing');
+    console.log('- booking_questions:', booking_questions ? JSON.stringify(booking_questions) : 'Missing');
     
     // Validate required fields according to TidyCal API format
     if (!starts_at) throw new Error('starts_at is required');
@@ -37,7 +36,7 @@ export async function POST(
       timezone,
       name,
       email,
-      ...(questions && { questions })
+      ...(booking_questions && { booking_questions })
     };
     
     console.log(`Creating booking for booking type ID: ${params.id}`, {
@@ -61,18 +60,45 @@ export async function POST(
     console.log(`Booking created with ID: ${booking.id}`);
     console.log('Booking data received from TidyCal:', JSON.stringify(booking, null, 2));
     
-    // Store the service and package details to pass to the email service
-    // Important: These values come from the original booking request, not the TidyCal response
+    // Extract service type from booking questions if available
+    let serviceType = serviceName;
+    if (booking_questions && Array.isArray(booking_questions)) {
+      const serviceQuestion = booking_questions.find(q => q.booking_type_question_id === 1);
+      if (serviceQuestion) {
+        serviceType = serviceQuestion.answer as string;
+      }
+    }
+    
+    // Extract additional info from booking questions if available
+    let additionalInfo = '';
+    if (booking_questions && Array.isArray(booking_questions)) {
+      const infoQuestion = booking_questions.find(q => q.booking_type_question_id === 2);
+      if (infoQuestion) {
+        additionalInfo = infoQuestion.answer as string;
+      }
+    }
+    
+    // Store booking information for email notifications
+    // Note: We're adding the original booking_questions to the booking 
+    // since TidyCal doesn't return them in the response
+    const bookingWithQuestions = {
+      ...booking,
+      questions: {
+        service: serviceType,
+        message: additionalInfo
+      }
+    };
+    
+    // Prepare email data
     const emailData = {
-      booking,
-      packageDetails: packageDetails || null,
-      serviceName: serviceName || null
+      booking: bookingWithQuestions,
+      serviceName: serviceType || 'Photography Session'
     };
     
     console.log('Email notification data prepared:', JSON.stringify({
       booking: 'Booking object present',
-      packageDetails: emailData.packageDetails ? 'Present' : 'Missing',
-      serviceName: emailData.serviceName
+      serviceName: emailData.serviceName,
+      additionalInfo: additionalInfo ? 'Present' : 'Missing'
     }));
     
     // Send email notification

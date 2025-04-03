@@ -18,7 +18,7 @@ export async function POST(request: NextRequest) {
       );
     }
     
-    const { booking, packageDetails, serviceName } = requestData;
+    const { booking, serviceName } = requestData;
     
     // Detailed validation with specific error messages
     const validationErrors = [];
@@ -28,13 +28,6 @@ export async function POST(request: NextRequest) {
       console.error('Email validation error: booking data is missing');
     } else {
       console.log('Booking data received with ID:', booking.id);
-    }
-    
-    if (!packageDetails) {
-      validationErrors.push('Missing package details');
-      console.error('Email validation error: package details are missing');
-    } else {
-      console.log('Package details received:', packageDetails.title);
     }
     
     if (!serviceName) {
@@ -55,8 +48,8 @@ export async function POST(request: NextRequest) {
     }
 
     // Format the booking data for the email
-    console.log('Formatting email content with booking data and package details');
-    const formattedBooking = formatBookingForEmail(booking, packageDetails, serviceName);
+    console.log('Formatting email content with booking data');
+    const formattedBooking = formatBookingForEmail(booking, serviceName);
     
     // Send email using environment variables for email configuration
     console.log('Attempting to send email notification');
@@ -94,20 +87,9 @@ export async function POST(request: NextRequest) {
   }
 }
 
-// Package type definition
-type PackageDetails = {
-  id: string;
-  title: string;
-  price: string;
-  description: string;
-  features: string[];
-  popular?: boolean;
-};
-
 // Format booking data for email
 function formatBookingForEmail(
   booking: Booking, 
-  packageDetails: PackageDetails, 
   serviceName: string
 ): string {
   const startDate = new Date(booking.starts_at);
@@ -141,16 +123,14 @@ function formatBookingForEmail(
     }
   }
   
-  // Include the service and package information that was selected
+  // Include the service information that was selected
   const selectedService = booking.questions?.service ? `Selected Service: ${booking.questions.service}` : '';
-  const selectedPackage = booking.questions?.package ? `Selected Package: ${booking.questions.package}` : '';
   
   // Build the email content
   return `
     New Booking Notification
     
     Service: ${serviceName}
-    Package: ${packageDetails.title} (${packageDetails.price})
     
     Date: ${formattedStartDate}
     Time: ${formattedStartTime} - ${formattedEndTime}
@@ -164,7 +144,6 @@ function formatBookingForEmail(
     
     Booking Details:
     ${selectedService}
-    ${selectedPackage}
     
     Booking ID: ${booking.id}
     Created: ${new Date(booking.created_at).toLocaleString()}
