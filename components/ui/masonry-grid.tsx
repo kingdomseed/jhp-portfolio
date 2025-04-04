@@ -77,7 +77,8 @@ export function MasonryGrid({
   className,
   onImageClick
 }: MasonryGridProps) {
-  const [visibleCount, setVisibleCount] = useState(12)
+  // Increased initial visible count to show more variety of images
+  const [visibleCount, setVisibleCount] = useState(50)
   const [hasMore, setHasMore] = useState(true)
   const [isLoadingMore, setIsLoadingMore] = useState(false)
   const loadMoreRef = useRef<HTMLDivElement>(null)
@@ -206,8 +207,8 @@ export function MasonryGrid({
                   src={getOptimizedImagePath(image.src)}
                   alt={image.alt}
                   fill
-                  priority={index < 6} // Prioritize loading the first 6 images
-                  loading={index < 12 ? "eager" : "lazy"} // Eagerly load first 12 images
+                  priority={index < 10} // Prioritize loading the first 10 images
+                  loading={index < 20 ? "eager" : "lazy"} // Eagerly load first 20 images
                   sizes={`(max-width: 768px) 100vw, (max-width: 1200px) 50vw, ${100 / responsiveColumns}vw`}
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                   onLoad={(e) => {
@@ -285,7 +286,7 @@ export function MasonryGrid({
           setIsLoadingMore(true);
           // Delay loading more to prevent too many calculations at once
           setTimeout(() => {
-            setVisibleCount(prev => Math.min(prev + 8, images.length));
+            setVisibleCount(prev => Math.min(prev + 12, images.length));
             setIsLoadingMore(false);
           }, 200);
         }
@@ -293,13 +294,15 @@ export function MasonryGrid({
       { threshold: 0.1, rootMargin: '200px' }
     );
     
-    if (loadMoreRef.current) {
-      observer.observe(loadMoreRef.current);
+    const currentLoadMoreRef = loadMoreRef.current;
+    
+    if (currentLoadMoreRef) {
+      observer.observe(currentLoadMoreRef);
     }
     
     return () => {
-      if (loadMoreRef.current) {
-        observer.unobserve(loadMoreRef.current);
+      if (currentLoadMoreRef) {
+        observer.unobserve(currentLoadMoreRef);
       }
     };
   }, [hasMore, images.length, isLoadingMore]);

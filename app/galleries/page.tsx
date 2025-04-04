@@ -42,8 +42,8 @@ const weddingEventNumbers = Array.from({ length: 10 }, (_, i) => i + 36); // 36-
 // Couples photos to exclude from engagements category (used in weddings)
 const weddingCoupleNumbers = [8, 14, 20, 29];
 
-// Wedding images come from both couples and events directories
-const weddingImages = [
+// Wedding images template - will be assigned during image loading to ensure proper timing
+const getWeddingImages = () => [
   // From events directory - specifically events 36-45
   ...Array.from({ length: 10 }, (_, i) => {
     const eventNum = i + 36;
@@ -86,8 +86,8 @@ const weddingImages = [
   },
 ];
 
-// Set weddings category directly
-galleryImages.weddings = weddingImages;
+// Wedding images will be set during the loadMetadata function
+// NOT directly here, to prevent them from loading before other categories
 
 
 // No service cards needed anymore
@@ -102,6 +102,9 @@ interface GalleryImage {
 }
 
 export default function GalleriesPage() {
+  // State to track if images are still loading
+  const [isLoading, setIsLoading] = useState(true);
+  
   // State to force re-render when gallery is updated
   // Using an object with a timestamp ensures the reference changes every time
   const [galleryUpdated, setGalleryUpdated] = useState({
@@ -113,6 +116,9 @@ export default function GalleriesPage() {
   useEffect(() => {
     // Only run in the browser
     if (typeof window === 'undefined') return;
+    
+    console.log('🔍 GALLERY DEBUG: Starting image metadata loading process');
+    setIsLoading(true); // Ensure loading state is set at the beginning
     
     const loadMetadata = async () => {
       try {
@@ -136,23 +142,14 @@ export default function GalleriesPage() {
         const events: GalleryImage[] = [];
         const engagements: GalleryImage[] = [];
         
-        // Process each image path from the metadata
-        console.log('\n=== PROCESSING IMAGE PATHS ===');
         Object.keys(metadata).forEach(path => {
           // Clean up the path for processing
           const imagePath = path.startsWith('/') ? path : `/${path}`;
           
-          // Skip non-image files
-          if (!imagePath.match(/\.(jpg|jpeg|png|webp)$/i)) {
-            console.log(`Skipping non-image file: ${imagePath}`);
-            return;
-          }
-          
           // Extract key information from path
           let category: string | null = null;
           let alt = "Photography";
-          
-          console.log(`Processing: ${imagePath}`);
+        
           
   // Match against both optimized and regular paths
   // Create regex patterns that will match both /category/ and /optimized/category/
@@ -277,6 +274,11 @@ export default function GalleriesPage() {
         console.log(`engagements: ${engagements.length}`);
         console.log(`weddings: ${galleryImages.weddings.length} (pre-defined)`);
         
+        // Set wedding images here - after other categories are loaded
+        console.log('\n=== ADDING WEDDING IMAGES ===');
+        galleryImages.weddings = getWeddingImages();
+        console.log(`Added ${galleryImages.weddings.length} wedding images`);
+        
         // Force re-render with new images
         console.log('\n=== TRIGGERING GALLERY UPDATE ===');
         const oldTimestamp = galleryUpdated.timestamp;
@@ -286,19 +288,30 @@ export default function GalleriesPage() {
           count: prev.count + 1
         }));
         console.log(`Gallery update timestamp changed: ${oldTimestamp} → ${newTimestamp} (count: ${galleryUpdated.count + 1})`);
+        
+        // Now that all images are loaded, we can switch the loading state
+        setIsLoading(false);
+        console.log('🔍 GALLERY DEBUG: Image loading complete, gallery ready to display');
       } catch (error) {
         console.error('Error loading image metadata:', error);
       }
     };
     
     loadMetadata();
-  }, []);
+  }, [galleryUpdated]);
   
   // Combine all images for the "all" category and shuffle them
   const allImages = useMemo(() => {
     console.log('\n=== SHUFFLE ALGORITHM EXECUTION ===');
     console.log(`Timestamp: ${new Date().toISOString()}`);
     console.log(`Trigger: galleryUpdated = ${JSON.stringify(galleryUpdated)}`);
+    console.log(`Loading state: ${isLoading ? 'LOADING' : 'COMPLETE'}`);
+    
+    // If still loading, return an empty array to prevent premature shuffling
+    if (isLoading) {
+      console.log('Images still loading, skipping shuffle');
+      return [];
+    }
     
     // Log each category's contribution to the combined array
     console.log('\nCATEGORY CONTRIBUTIONS TO SHUFFLE:');
@@ -348,14 +361,85 @@ export default function GalleriesPage() {
     
     // Log the shuffling process
     console.log('\nSHUFFLING PROCESS STARTED');
-    const shuffled = [...combined];
-    for (let i = shuffled.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      // Log every 50th swap to avoid console flood
-      if (i % 50 === 0) {
-        console.log(`  Swap ${i}: index ${i} (${shuffled[i]._sourceCategory}) with index ${j} (${shuffled[j]._sourceCategory})`);
+    
+    // First, shuffle each category independently
+    console.log('Step 1: Shuffling each category independently');
+    const portraitsShuffled = [...portraitsWithTag].sort(() => Math.random() - 0.5);
+    const weddingsShuffled = [...weddingsWithTag].sort(() => Math.random() - 0.5);
+    const engagementsShuffled = [...engagementsWithTag].sort(() => Math.random() - 0.5);
+    const eventsShuffled = [...eventsWithTag].sort(() => Math.random() - 0.5);
+    const familyShuffled = [...familyWithTag].sort(() => Math.random() - 0.5);
+    const headshotsShuffled = [...headshotsWithTag].sort(() => Math.random() - 0.5);
+    
+    // Calculate how many images we should take from each category initially
+    // This ensures even category distribution in the initial view
+    const totalCategories = Object.keys(galleryImages).filter(key => 
+      galleryImages[key as keyof typeof galleryImages].length > 0
+    ).length;
+    
+    console.log(`Found ${totalCategories} non-empty categories`);
+    
+    // Initialize the shuffled array with interleaved images from each category
+    console.log('Step 2: Creating category-balanced array');
+    const shuffled: Array<GalleryImage & { _sourceCategory: string }> = [];
+    
+    // Create category arrays with their current position trackers
+    const categoryArrays = [
+      { name: 'portraits', array: portraitsShuffled, index: 0 },
+      { name: 'weddings', array: weddingsShuffled, index: 0 },
+      { name: 'engagements', array: engagementsShuffled, index: 0 },
+      { name: 'events', array: eventsShuffled, index: 0 },
+      { name: 'family', array: familyShuffled, index: 0 },
+      { name: 'headshots', array: headshotsShuffled, index: 0 }
+    ].filter(cat => cat.array.length > 0);
+    
+    // Round-robin selection from each category
+    let currentCategoryIndex = 0;
+    const targetCount = combined.length;
+    
+    while (shuffled.length < targetCount) {
+      const currentCategory = categoryArrays[currentCategoryIndex];
+      
+      // If we still have images in this category, add the next one
+      if (currentCategory.index < currentCategory.array.length) {
+        shuffled.push(currentCategory.array[currentCategory.index]);
+        currentCategory.index++;
       }
-      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+      
+      // Move to next category
+      currentCategoryIndex = (currentCategoryIndex + 1) % categoryArrays.length;
+      
+      // If we've sampled from all categories once, apply additional randomization
+      if (currentCategoryIndex === 0 && shuffled.length > categoryArrays.length) {
+        // Apply a Fisher-Yates shuffle to the most recent batch to prevent predictable patterns
+        const batchSize = categoryArrays.length;
+        const startIdx = Math.max(0, shuffled.length - batchSize);
+        
+        for (let i = shuffled.length - 1; i > startIdx; i--) {
+          const j = startIdx + Math.floor(Math.random() * (i - startIdx + 1));
+          [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+        }
+      }
+    }
+    
+    // Apply a final shuffle to the entire array to prevent too-perfect distribution
+    // but only shuffle blocks to maintain some of the category distribution
+    console.log('Step 3: Applying final randomization while preserving balance');
+    const blockSize = 15; // Keep some category balance but add randomness
+    for (let blockStart = 0; blockStart < shuffled.length; blockStart += blockSize) {
+      const blockEnd = Math.min(blockStart + blockSize, shuffled.length);
+      const block = shuffled.slice(blockStart, blockEnd);
+      
+      // Shuffle this block
+      for (let i = block.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [block[i], block[j]] = [block[j], block[i]];
+      }
+      
+      // Replace the block in the array
+      for (let i = 0; i < block.length; i++) {
+        shuffled[blockStart + i] = block[i];
+      }
     }
     
     // Log category distribution after shuffle
@@ -389,7 +473,7 @@ export default function GalleriesPage() {
     // Remove our temporary _sourceCategory tag before returning
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     return shuffled.map(({_sourceCategory, ...rest}) => rest);
-  }, [galleryUpdated]); // React to gallery updates
+  }, [galleryUpdated, isLoading]); // React to gallery updates
 
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState<GalleryImage | null>(null);
@@ -567,26 +651,51 @@ export default function GalleriesPage() {
             </div>
           </div>
           
-          {/* Masonry Grid Component with loading optimization */}
-          <MasonryGrid 
-            images={displayedImages}
-            onImageClick={openLightbox}
-            columns={3}
-            gap={4}
-          />
+          {/* Loading indicator */}
+          {isLoading ? (
+            <div className="flex flex-col items-center justify-center py-12">
+              <div className="flex items-center space-x-2 mb-4">
+                <div className="w-4 h-4 rounded-full bg-primary animate-bounce [animation-delay:-0.3s]"></div>
+                <div className="w-4 h-4 rounded-full bg-primary animate-bounce [animation-delay:-0.15s]"></div>
+                <div className="w-4 h-4 rounded-full bg-primary animate-bounce"></div>
+              </div>
+              <p className="text-muted-foreground text-sm">Loading gallery images...</p>
+            </div>
+          ) : (
+            /* Masonry Grid Component with loading optimization */
+            <MasonryGrid 
+              images={displayedImages}
+              onImageClick={openLightbox}
+              columns={3}
+              gap={4}
+            />
+          )}
           
-          {/* Image Preload Optimization */}
-          <div className="hidden">
-            {/* Preload the first few images that aren't immediately visible */}
-            {displayedImages.slice(12, 20).map((img, index) => (
-              <link 
-                key={`preload-${index}`} 
-                rel="preload" 
-                as="image" 
-                href={img.src} 
-              />
-            ))}
-          </div>
+          {/* Debug info to show category distribution */}
+          {process.env.NODE_ENV !== 'production' && (
+            <div className="mt-8 p-4 bg-muted rounded-lg text-xs overflow-auto max-h-60 hidden">
+              <h3 className="font-semibold mb-2">Gallery Debug Info:</h3>
+              <div>
+                <p>Current Category: {currentCategory}</p>
+                <p>Sort Method: {sortBy}</p>
+                <p>Total Images: {displayedImages.length}</p>
+                <p>Loading State: {isLoading ? 'Loading' : 'Complete'}</p>
+                
+                {displayedImages.length > 0 && (
+                  <div className="mt-2">
+                    <p className="font-semibold">First 10 Displayed Images:</p>
+                    <ul className="mt-1">
+                      {displayedImages.slice(0, 10).map((img, i) => (
+                        <li key={i} className="truncate">
+                          {i+1}. {img.src.split('/').pop()} ({img.category})
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
         </section>
       </div>
 
