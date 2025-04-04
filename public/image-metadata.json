@@ -5,16 +5,7 @@
       "height": 3344,
       "aspectRatio": 1.6363636363636365,
       "orientation": "landscape",
-      "originalPath": "/images/couples/couple-1.jpeg",
-      "optimizedPath": "/images/optimized/couples/couple-1.webp",
-      "isOptimized": true
-    },
-    "/images/couples/couple-1.jpeg": {
-      "width": 5472,
-      "height": 3344,
-      "aspectRatio": 1.6363636363636365,
-      "orientation": "landscape",
-      "originalPath": "/images/couples/couple-1.jpeg",
+      "originalPath": "/images/optimized/couples/couple-1.webp",
       "optimizedPath": "/images/optimized/couples/couple-1.webp",
       "isOptimized": true
     },
@@ -23,16 +14,7 @@
       "height": 3321,
       "aspectRatio": 1.5001505570611262,
       "orientation": "landscape",
-      "originalPath": "/images/couples/couple-11.jpeg",
-      "optimizedPath": "/images/optimized/couples/couple-11.webp",
-      "isOptimized": true
-    },
-    "/images/couples/couple-11.jpeg": {
-      "width": 4982,
-      "height": 3321,
-      "aspectRatio": 1.5001505570611262,
-      "orientation": "landscape",
-      "originalPath": "/images/couples/couple-11.jpeg",
+      "originalPath": "/images/optimized/couples/couple-11.webp",
       "optimizedPath": "/images/optimized/couples/couple-11.webp",
       "isOptimized": true
     },
@@ -41,16 +23,7 @@
       "height": 4000,
       "aspectRatio": 1.5,
       "orientation": "landscape",
-      "originalPath": "/images/couples/couple-12.jpg",
-      "optimizedPath": "/images/optimized/couples/couple-12.webp",
-      "isOptimized": true
-    },
-    "/images/couples/couple-12.jpg": {
-      "width": 6000,
-      "height": 4000,
-      "aspectRatio": 1.5,
-      "orientation": "landscape",
-      "originalPath": "/images/couples/couple-12.jpg",
+      "originalPath": "/images/optimized/couples/couple-12.webp",
       "optimizedPath": "/images/optimized/couples/couple-12.webp",
       "isOptimized": true
     },
@@ -59,16 +32,7 @@
       "height": 4000,
       "aspectRatio": 1.5,
       "orientation": "landscape",
-      "originalPath": "/images/couples/couple-13.jpg",
-      "optimizedPath": "/images/optimized/couples/couple-13.webp",
-      "isOptimized": true
-    },
-    "/images/couples/couple-13.jpg": {
-      "width": 6000,
-      "height": 4000,
-      "aspectRatio": 1.5,
-      "orientation": "landscape",
-      "originalPath": "/images/couples/couple-13.jpg",
+      "originalPath": "/images/optimized/couples/couple-13.webp",
       "optimizedPath": "/images/optimized/couples/couple-13.webp",
       "isOptimized": true
     },
@@ -77,16 +41,7 @@
       "height": 3665,
       "aspectRatio": 1.4998635743519781,
       "orientation": "landscape",
-      "originalPath": "/images/couples/couple-14.jpg",
-      "optimizedPath": "/images/optimized/couples/couple-14.webp",
-      "isOptimized": true
-    },
-    "/images/couples/couple-14.jpg": {
-      "width": 5497,
-      "height": 3665,
-      "aspectRatio": 1.4998635743519781,
-      "orientation": "landscape",
-      "originalPath": "/images/couples/couple-14.jpg",
+      "originalPath": "/images/optimized/couples/couple-14.webp",
       "optimizedPath": "/images/optimized/couples/couple-14.webp",
       "isOptimized": true
     },
@@ -95,16 +50,7 @@
       "height": 6000,
       "aspectRatio": 0.6666666666666666,
       "orientation": "portrait",
-      "originalPath": "/images/couples/couple-15.jpg",
-      "optimizedPath": "/images/optimized/couples/couple-15.webp",
-      "isOptimized": true
-    },
-    "/images/couples/couple-15.jpg": {
-      "width": 4000,
-      "height": 6000,
-      "aspectRatio": 0.6666666666666666,
-      "orientation": "portrait",
-      "originalPath": "/images/couples/couple-15.jpg",
+      "originalPath": "/images/optimized/couples/couple-15.webp",
       "optimizedPath": "/images/optimized/couples/couple-15.webp",
       "isOptimized": true
     },
@@ -113,16 +59,7 @@
       "height": 4000,
       "aspectRatio": 1.5,
       "orientation": "landscape",
-      "originalPath": "/images/couples/couple-16.jpg",
-      "optimizedPath": "/images/optimized/couples/couple-16.webp",
-      "isOptimized": true
-    },
-    "/images/couples/couple-16.jpg": {
-      "width": 6000,
-      "height": 4000,
-      "aspectRatio": 1.5,
-      "orientation": "landscape",
-      "originalPath": "/images/couples/couple-16.jpg",
+      "originalPath": "/images/optimized/couples/couple-16.webp",
       "optimizedPath": "/images/optimized/couples/couple-16.webp",
       "isOptimized": true
     },
@@ -131,16 +68,7 @@
       "height": 3876,
       "aspectRatio": 1.5,
       "orientation": "landscape",
-      "originalPath": "/images/couples/couple-17.jpg",
-      "optimizedPath": "/images/optimized/couples/couple-17.webp",
-      "isOptimized": true
-    },
-    "/images/couples/couple-17.jpg": {
-      "width": 5814,
-      "height": 3876,
-      "aspectRatio": 1.5,
-      "orientation": "landscape",
-      "originalPath": "/images/couples/couple-17.jpg",
+      "originalPath": "/images/optimized/couples/couple-17.webp",
       "optimizedPath": "/images/optimized/couples/couple-17.webp",
       "isOptimized": true
     },
@@ -149,16 +77,7 @@
       "height": 5959,
       "aspectRatio": 0.6667226044638362,
       "orientation": "portrait",
-      "originalPath": "/images/couples/couple-18.jpg",
-      "optimizedPath": "/images/optimized/couples/couple-18.webp",
-      "isOptimized": true
-    },
-    "/images/couples/couple-18.jpg": {
-      "width": 3973,
-      "height": 5959,
-      "aspectRatio": 0.6667226044638362,
-      "orientation": "portrait",
-      "originalPath": "/images/couples/couple-18.jpg",
+      "originalPath": "/images/optimized/couples/couple-18.webp",
       "optimizedPath": "/images/optimized/couples/couple-18.webp",
       "isOptimized": true
     },
@@ -167,16 +86,7 @@
       "height": 5995,
       "aspectRatio": 0.6667222685571309,
       "orientation": "portrait",
-      "originalPath": "/images/couples/couple-19.jpg",
-      "optimizedPath": "/images/optimized/couples/couple-19.webp",
-      "isOptimized": true
-    },
-    "/images/couples/couple-19.jpg": {
-      "width": 3997,
-      "height": 5995,
-      "aspectRatio": 0.6667222685571309,
-      "orientation": "portrait",
-      "originalPath": "/images/couples/couple-19.jpg",
+      "originalPath": "/images/optimized/couples/couple-19.webp",
       "optimizedPath": "/images/optimized/couples/couple-19.webp",
       "isOptimized": true
     },
@@ -185,16 +95,7 @@
       "height": 4392,
       "aspectRatio": 0.7887067395264117,
       "orientation": "portrait",
-      "originalPath": "/images/couples/couple-2.jpeg",
-      "optimizedPath": "/images/optimized/couples/couple-2.webp",
-      "isOptimized": true
-    },
-    "/images/couples/couple-2.jpeg": {
-      "width": 3464,
-      "height": 4392,
-      "aspectRatio": 0.7887067395264117,
-      "orientation": "portrait",
-      "originalPath": "/images/couples/couple-2.jpeg",
+      "originalPath": "/images/optimized/couples/couple-2.webp",
       "optimizedPath": "/images/optimized/couples/couple-2.webp",
       "isOptimized": true
     },
@@ -203,16 +104,7 @@
       "height": 5938,
       "aspectRatio": 0.6667228022903334,
       "orientation": "portrait",
-      "originalPath": "/images/couples/couple-20.jpg",
-      "optimizedPath": "/images/optimized/couples/couple-20.webp",
-      "isOptimized": true
-    },
-    "/images/couples/couple-20.jpg": {
-      "width": 3959,
-      "height": 5938,
-      "aspectRatio": 0.6667228022903334,
-      "orientation": "portrait",
-      "originalPath": "/images/couples/couple-20.jpg",
+      "originalPath": "/images/optimized/couples/couple-20.webp",
       "optimizedPath": "/images/optimized/couples/couple-20.webp",
       "isOptimized": true
     },
@@ -221,16 +113,7 @@
       "height": 5947,
       "aspectRatio": 0.6667227173364721,
       "orientation": "portrait",
-      "originalPath": "/images/couples/couple-21.jpg",
-      "optimizedPath": "/images/optimized/couples/couple-21.webp",
-      "isOptimized": true
-    },
-    "/images/couples/couple-21.jpg": {
-      "width": 3965,
-      "height": 5947,
-      "aspectRatio": 0.6667227173364721,
-      "orientation": "portrait",
-      "originalPath": "/images/couples/couple-21.jpg",
+      "originalPath": "/images/optimized/couples/couple-21.webp",
       "optimizedPath": "/images/optimized/couples/couple-21.webp",
       "isOptimized": true
     },
@@ -239,16 +122,7 @@
       "height": 5964,
       "aspectRatio": 0.6666666666666666,
       "orientation": "portrait",
-      "originalPath": "/images/couples/couple-22.jpg",
-      "optimizedPath": "/images/optimized/couples/couple-22.webp",
-      "isOptimized": true
-    },
-    "/images/couples/couple-22.jpg": {
-      "width": 3976,
-      "height": 5964,
-      "aspectRatio": 0.6666666666666666,
-      "orientation": "portrait",
-      "originalPath": "/images/couples/couple-22.jpg",
+      "originalPath": "/images/optimized/couples/couple-22.webp",
       "optimizedPath": "/images/optimized/couples/couple-22.webp",
       "isOptimized": true
     },
@@ -257,16 +131,7 @@
       "height": 5790,
       "aspectRatio": 0.6666666666666666,
       "orientation": "portrait",
-      "originalPath": "/images/couples/couple-23.jpg",
-      "optimizedPath": "/images/optimized/couples/couple-23.webp",
-      "isOptimized": true
-    },
-    "/images/couples/couple-23.jpg": {
-      "width": 3860,
-      "height": 5790,
-      "aspectRatio": 0.6666666666666666,
-      "orientation": "portrait",
-      "originalPath": "/images/couples/couple-23.jpg",
+      "originalPath": "/images/optimized/couples/couple-23.webp",
       "optimizedPath": "/images/optimized/couples/couple-23.webp",
       "isOptimized": true
     },
@@ -275,16 +140,7 @@
       "height": 3999,
       "aspectRatio": 1.5001250312578145,
       "orientation": "landscape",
-      "originalPath": "/images/couples/couple-24.jpg",
-      "optimizedPath": "/images/optimized/couples/couple-24.webp",
-      "isOptimized": true
-    },
-    "/images/couples/couple-24.jpg": {
-      "width": 5999,
-      "height": 3999,
-      "aspectRatio": 1.5001250312578145,
-      "orientation": "landscape",
-      "originalPath": "/images/couples/couple-24.jpg",
+      "originalPath": "/images/optimized/couples/couple-24.webp",
       "optimizedPath": "/images/optimized/couples/couple-24.webp",
       "isOptimized": true
     },
@@ -293,16 +149,7 @@
       "height": 4000,
       "aspectRatio": 1.5,
       "orientation": "landscape",
-      "originalPath": "/images/couples/couple-25.jpg",
-      "optimizedPath": "/images/optimized/couples/couple-25.webp",
-      "isOptimized": true
-    },
-    "/images/couples/couple-25.jpg": {
-      "width": 6000,
-      "height": 4000,
-      "aspectRatio": 1.5,
-      "orientation": "landscape",
-      "originalPath": "/images/couples/couple-25.jpg",
+      "originalPath": "/images/optimized/couples/couple-25.webp",
       "optimizedPath": "/images/optimized/couples/couple-25.webp",
       "isOptimized": true
     },
@@ -311,16 +158,7 @@
       "height": 3994,
       "aspectRatio": 1.5,
       "orientation": "landscape",
-      "originalPath": "/images/couples/couple-26.jpg",
-      "optimizedPath": "/images/optimized/couples/couple-26.webp",
-      "isOptimized": true
-    },
-    "/images/couples/couple-26.jpg": {
-      "width": 5991,
-      "height": 3994,
-      "aspectRatio": 1.5,
-      "orientation": "landscape",
-      "originalPath": "/images/couples/couple-26.jpg",
+      "originalPath": "/images/optimized/couples/couple-26.webp",
       "optimizedPath": "/images/optimized/couples/couple-26.webp",
       "isOptimized": true
     },
@@ -329,16 +167,7 @@
       "height": 6000,
       "aspectRatio": 0.6666666666666666,
       "orientation": "portrait",
-      "originalPath": "/images/couples/couple-27.jpg",
-      "optimizedPath": "/images/optimized/couples/couple-27.webp",
-      "isOptimized": true
-    },
-    "/images/couples/couple-27.jpg": {
-      "width": 4000,
-      "height": 6000,
-      "aspectRatio": 0.6666666666666666,
-      "orientation": "portrait",
-      "originalPath": "/images/couples/couple-27.jpg",
+      "originalPath": "/images/optimized/couples/couple-27.webp",
       "optimizedPath": "/images/optimized/couples/couple-27.webp",
       "isOptimized": true
     },
@@ -347,16 +176,7 @@
       "height": 5882,
       "aspectRatio": 0.666609996599796,
       "orientation": "portrait",
-      "originalPath": "/images/couples/couple-28.jpg",
-      "optimizedPath": "/images/optimized/couples/couple-28.webp",
-      "isOptimized": true
-    },
-    "/images/couples/couple-28.jpg": {
-      "width": 3921,
-      "height": 5882,
-      "aspectRatio": 0.666609996599796,
-      "orientation": "portrait",
-      "originalPath": "/images/couples/couple-28.jpg",
+      "originalPath": "/images/optimized/couples/couple-28.webp",
       "optimizedPath": "/images/optimized/couples/couple-28.webp",
       "isOptimized": true
     },
@@ -365,16 +185,7 @@
       "height": 3978,
       "aspectRatio": 1.5,
       "orientation": "landscape",
-      "originalPath": "/images/couples/couple-29.jpg",
-      "optimizedPath": "/images/optimized/couples/couple-29.webp",
-      "isOptimized": true
-    },
-    "/images/couples/couple-29.jpg": {
-      "width": 5967,
-      "height": 3978,
-      "aspectRatio": 1.5,
-      "orientation": "landscape",
-      "originalPath": "/images/couples/couple-29.jpg",
+      "originalPath": "/images/optimized/couples/couple-29.webp",
       "optimizedPath": "/images/optimized/couples/couple-29.webp",
       "isOptimized": true
     },
@@ -383,16 +194,7 @@
       "height": 3507,
       "aspectRatio": 1.4998574280011405,
       "orientation": "landscape",
-      "originalPath": "/images/couples/couple-3.jpeg",
-      "optimizedPath": "/images/optimized/couples/couple-3.webp",
-      "isOptimized": true
-    },
-    "/images/couples/couple-3.jpeg": {
-      "width": 5260,
-      "height": 3507,
-      "aspectRatio": 1.4998574280011405,
-      "orientation": "landscape",
-      "originalPath": "/images/couples/couple-3.jpeg",
+      "originalPath": "/images/optimized/couples/couple-3.webp",
       "optimizedPath": "/images/optimized/couples/couple-3.webp",
       "isOptimized": true
     },
@@ -401,16 +203,7 @@
       "height": 3509,
       "aspectRatio": 1.500142490738102,
       "orientation": "landscape",
-      "originalPath": "/images/couples/couple-4.jpeg",
-      "optimizedPath": "/images/optimized/couples/couple-4.webp",
-      "isOptimized": true
-    },
-    "/images/couples/couple-4.jpeg": {
-      "width": 5264,
-      "height": 3509,
-      "aspectRatio": 1.500142490738102,
-      "orientation": "landscape",
-      "originalPath": "/images/couples/couple-4.jpeg",
+      "originalPath": "/images/optimized/couples/couple-4.webp",
       "optimizedPath": "/images/optimized/couples/couple-4.webp",
       "isOptimized": true
     },
@@ -419,16 +212,7 @@
       "height": 3648,
       "aspectRatio": 1.5,
       "orientation": "landscape",
-      "originalPath": "/images/couples/couple-5.jpeg",
-      "optimizedPath": "/images/optimized/couples/couple-5.webp",
-      "isOptimized": true
-    },
-    "/images/couples/couple-5.jpeg": {
-      "width": 5472,
-      "height": 3648,
-      "aspectRatio": 1.5,
-      "orientation": "landscape",
-      "originalPath": "/images/couples/couple-5.jpeg",
+      "originalPath": "/images/optimized/couples/couple-5.webp",
       "optimizedPath": "/images/optimized/couples/couple-5.webp",
       "isOptimized": true
     },
@@ -437,16 +221,7 @@
       "height": 3648,
       "aspectRatio": 1.5,
       "orientation": "landscape",
-      "originalPath": "/images/couples/couple-6.jpeg",
-      "optimizedPath": "/images/optimized/couples/couple-6.webp",
-      "isOptimized": true
-    },
-    "/images/couples/couple-6.jpeg": {
-      "width": 5472,
-      "height": 3648,
-      "aspectRatio": 1.5,
-      "orientation": "landscape",
-      "originalPath": "/images/couples/couple-6.jpeg",
+      "originalPath": "/images/optimized/couples/couple-6.webp",
       "optimizedPath": "/images/optimized/couples/couple-6.webp",
       "isOptimized": true
     },
@@ -455,16 +230,7 @@
       "height": 3548,
       "aspectRatio": 1.5,
       "orientation": "landscape",
-      "originalPath": "/images/couples/couple-7.jpeg",
-      "optimizedPath": "/images/optimized/couples/couple-7.webp",
-      "isOptimized": true
-    },
-    "/images/couples/couple-7.jpeg": {
-      "width": 5322,
-      "height": 3548,
-      "aspectRatio": 1.5,
-      "orientation": "landscape",
-      "originalPath": "/images/couples/couple-7.jpeg",
+      "originalPath": "/images/optimized/couples/couple-7.webp",
       "optimizedPath": "/images/optimized/couples/couple-7.webp",
       "isOptimized": true
     },
@@ -473,16 +239,7 @@
       "height": 3183,
       "aspectRatio": 1.5001570845114671,
       "orientation": "landscape",
-      "originalPath": "/images/couples/couple-8.jpeg",
-      "optimizedPath": "/images/optimized/couples/couple-8.webp",
-      "isOptimized": true
-    },
-    "/images/couples/couple-8.jpeg": {
-      "width": 4775,
-      "height": 3183,
-      "aspectRatio": 1.5001570845114671,
-      "orientation": "landscape",
-      "originalPath": "/images/couples/couple-8.jpeg",
+      "originalPath": "/images/optimized/couples/couple-8.webp",
       "optimizedPath": "/images/optimized/couples/couple-8.webp",
       "isOptimized": true
     },
@@ -491,16 +248,7 @@
       "height": 6000,
       "aspectRatio": 0.6666666666666666,
       "orientation": "portrait",
-      "originalPath": "/images/couples/couple-9.jpg",
-      "optimizedPath": "/images/optimized/couples/couple-9.webp",
-      "isOptimized": true
-    },
-    "/images/couples/couple-9.jpg": {
-      "width": 4000,
-      "height": 6000,
-      "aspectRatio": 0.6666666666666666,
-      "orientation": "portrait",
-      "originalPath": "/images/couples/couple-9.jpg",
+      "originalPath": "/images/optimized/couples/couple-9.webp",
       "optimizedPath": "/images/optimized/couples/couple-9.webp",
       "isOptimized": true
     },
@@ -509,16 +257,7 @@
       "height": 4160,
       "aspectRatio": 1.5,
       "orientation": "landscape",
-      "originalPath": "/images/events/event-1.jpg",
-      "optimizedPath": "/images/optimized/events/event-1.webp",
-      "isOptimized": true
-    },
-    "/images/events/event-1.jpg": {
-      "width": 6240,
-      "height": 4160,
-      "aspectRatio": 1.5,
-      "orientation": "landscape",
-      "originalPath": "/images/events/event-1.jpg",
+      "originalPath": "/images/optimized/events/event-1.webp",
       "optimizedPath": "/images/optimized/events/event-1.webp",
       "isOptimized": true
     },
@@ -527,16 +266,7 @@
       "height": 4160,
       "aspectRatio": 1.5,
       "orientation": "landscape",
-      "originalPath": "/images/events/event-10.jpg",
-      "optimizedPath": "/images/optimized/events/event-10.webp",
-      "isOptimized": true
-    },
-    "/images/events/event-10.jpg": {
-      "width": 6240,
-      "height": 4160,
-      "aspectRatio": 1.5,
-      "orientation": "landscape",
-      "originalPath": "/images/events/event-10.jpg",
+      "originalPath": "/images/optimized/events/event-10.webp",
       "optimizedPath": "/images/optimized/events/event-10.webp",
       "isOptimized": true
     },
@@ -545,16 +275,7 @@
       "height": 3485,
       "aspectRatio": 1.333142037302726,
       "orientation": "landscape",
-      "originalPath": "/images/events/event-11.jpg",
-      "optimizedPath": "/images/optimized/events/event-11.webp",
-      "isOptimized": true
-    },
-    "/images/events/event-11.jpg": {
-      "width": 4646,
-      "height": 3485,
-      "aspectRatio": 1.333142037302726,
-      "orientation": "landscape",
-      "originalPath": "/images/events/event-11.jpg",
+      "originalPath": "/images/optimized/events/event-11.webp",
       "optimizedPath": "/images/optimized/events/event-11.webp",
       "isOptimized": true
     },
@@ -563,16 +284,7 @@
       "height": 3574,
       "aspectRatio": 1.5,
       "orientation": "landscape",
-      "originalPath": "/images/events/event-2.jpg",
-      "optimizedPath": "/images/optimized/events/event-2.webp",
-      "isOptimized": true
-    },
-    "/images/events/event-2.jpg": {
-      "width": 5361,
-      "height": 3574,
-      "aspectRatio": 1.5,
-      "orientation": "landscape",
-      "originalPath": "/images/events/event-2.jpg",
+      "originalPath": "/images/optimized/events/event-2.webp",
       "optimizedPath": "/images/optimized/events/event-2.webp",
       "isOptimized": true
     },
@@ -581,16 +293,7 @@
       "height": 4100,
       "aspectRatio": 1.5,
       "orientation": "landscape",
-      "originalPath": "/images/events/event-3.jpg",
-      "optimizedPath": "/images/optimized/events/event-3.webp",
-      "isOptimized": true
-    },
-    "/images/events/event-3.jpg": {
-      "width": 6150,
-      "height": 4100,
-      "aspectRatio": 1.5,
-      "orientation": "landscape",
-      "originalPath": "/images/events/event-3.jpg",
+      "originalPath": "/images/optimized/events/event-3.webp",
       "optimizedPath": "/images/optimized/events/event-3.webp",
       "isOptimized": true
     },
@@ -599,16 +302,7 @@
       "height": 2161,
       "aspectRatio": 1.2503470615455807,
       "orientation": "landscape",
-      "originalPath": "/images/events/event-30.jpg",
-      "optimizedPath": "/images/optimized/events/event-30.webp",
-      "isOptimized": true
-    },
-    "/images/events/event-30.jpg": {
-      "width": 2702,
-      "height": 2161,
-      "aspectRatio": 1.2503470615455807,
-      "orientation": "landscape",
-      "originalPath": "/images/events/event-30.jpg",
+      "originalPath": "/images/optimized/events/event-30.webp",
       "optimizedPath": "/images/optimized/events/event-30.webp",
       "isOptimized": true
     },
@@ -617,16 +311,7 @@
       "height": 1940,
       "aspectRatio": 1.5,
       "orientation": "landscape",
-      "originalPath": "/images/events/event-31.jpg",
-      "optimizedPath": "/images/optimized/events/event-31.webp",
-      "isOptimized": true
-    },
-    "/images/events/event-31.jpg": {
-      "width": 2910,
-      "height": 1940,
-      "aspectRatio": 1.5,
-      "orientation": "landscape",
-      "originalPath": "/images/events/event-31.jpg",
+      "originalPath": "/images/optimized/events/event-31.webp",
       "optimizedPath": "/images/optimized/events/event-31.webp",
       "isOptimized": true
     },
@@ -635,16 +320,7 @@
       "height": 1983,
       "aspectRatio": 1.4997478567826525,
       "orientation": "landscape",
-      "originalPath": "/images/events/event-32.jpg",
-      "optimizedPath": "/images/optimized/events/event-32.webp",
-      "isOptimized": true
-    },
-    "/images/events/event-32.jpg": {
-      "width": 2974,
-      "height": 1983,
-      "aspectRatio": 1.4997478567826525,
-      "orientation": "landscape",
-      "originalPath": "/images/events/event-32.jpg",
+      "originalPath": "/images/optimized/events/event-32.webp",
       "optimizedPath": "/images/optimized/events/event-32.webp",
       "isOptimized": true
     },
@@ -653,16 +329,7 @@
       "height": 2143,
       "aspectRatio": 1.4997666822211853,
       "orientation": "landscape",
-      "originalPath": "/images/events/event-33.jpg",
-      "optimizedPath": "/images/optimized/events/event-33.webp",
-      "isOptimized": true
-    },
-    "/images/events/event-33.jpg": {
-      "width": 3214,
-      "height": 2143,
-      "aspectRatio": 1.4997666822211853,
-      "orientation": "landscape",
-      "originalPath": "/images/events/event-33.jpg",
+      "originalPath": "/images/optimized/events/event-33.webp",
       "optimizedPath": "/images/optimized/events/event-33.webp",
       "isOptimized": true
     },
@@ -671,16 +338,7 @@
       "height": 2109,
       "aspectRatio": 1.2498814604077761,
       "orientation": "landscape",
-      "originalPath": "/images/events/event-34.jpg",
-      "optimizedPath": "/images/optimized/events/event-34.webp",
-      "isOptimized": true
-    },
-    "/images/events/event-34.jpg": {
-      "width": 2636,
-      "height": 2109,
-      "aspectRatio": 1.2498814604077761,
-      "orientation": "landscape",
-      "originalPath": "/images/events/event-34.jpg",
+      "originalPath": "/images/optimized/events/event-34.webp",
       "optimizedPath": "/images/optimized/events/event-34.webp",
       "isOptimized": true
     },
@@ -689,16 +347,7 @@
       "height": 2268,
       "aspectRatio": 1.25,
       "orientation": "landscape",
-      "originalPath": "/images/events/event-35.jpg",
-      "optimizedPath": "/images/optimized/events/event-35.webp",
-      "isOptimized": true
-    },
-    "/images/events/event-35.jpg": {
-      "width": 2835,
-      "height": 2268,
-      "aspectRatio": 1.25,
-      "orientation": "landscape",
-      "originalPath": "/images/events/event-35.jpg",
+      "originalPath": "/images/optimized/events/event-35.webp",
       "optimizedPath": "/images/optimized/events/event-35.webp",
       "isOptimized": true
     },
@@ -707,16 +356,7 @@
       "height": 4070,
       "aspectRatio": 0.8,
       "orientation": "portrait",
-      "originalPath": "/images/events/event-36.jpg",
-      "optimizedPath": "/images/optimized/events/event-36.webp",
-      "isOptimized": true
-    },
-    "/images/events/event-36.jpg": {
-      "width": 3256,
-      "height": 4070,
-      "aspectRatio": 0.8,
-      "orientation": "portrait",
-      "originalPath": "/images/events/event-36.jpg",
+      "originalPath": "/images/optimized/events/event-36.webp",
       "optimizedPath": "/images/optimized/events/event-36.webp",
       "isOptimized": true
     },
@@ -725,16 +365,7 @@
       "height": 2996,
       "aspectRatio": 1.25,
       "orientation": "landscape",
-      "originalPath": "/images/events/event-37.jpg",
-      "optimizedPath": "/images/optimized/events/event-37.webp",
-      "isOptimized": true
-    },
-    "/images/events/event-37.jpg": {
-      "width": 3745,
-      "height": 2996,
-      "aspectRatio": 1.25,
-      "orientation": "landscape",
-      "originalPath": "/images/events/event-37.jpg",
+      "originalPath": "/images/optimized/events/event-37.webp",
       "optimizedPath": "/images/optimized/events/event-37.webp",
       "isOptimized": true
     },
@@ -743,16 +374,7 @@
       "height": 3354,
       "aspectRatio": 1.2501490757304712,
       "orientation": "landscape",
-      "originalPath": "/images/events/event-38.jpg",
-      "optimizedPath": "/images/optimized/events/event-38.webp",
-      "isOptimized": true
-    },
-    "/images/events/event-38.jpg": {
-      "width": 4193,
-      "height": 3354,
-      "aspectRatio": 1.2501490757304712,
-      "orientation": "landscape",
-      "originalPath": "/images/events/event-38.jpg",
+      "originalPath": "/images/optimized/events/event-38.webp",
       "optimizedPath": "/images/optimized/events/event-38.webp",
       "isOptimized": true
     },
@@ -761,16 +383,7 @@
       "height": 4560,
       "aspectRatio": 0.8,
       "orientation": "portrait",
-      "originalPath": "/images/events/event-39.jpg",
-      "optimizedPath": "/images/optimized/events/event-39.webp",
-      "isOptimized": true
-    },
-    "/images/events/event-39.jpg": {
-      "width": 3648,
-      "height": 4560,
-      "aspectRatio": 0.8,
-      "orientation": "portrait",
-      "originalPath": "/images/events/event-39.jpg",
+      "originalPath": "/images/optimized/events/event-39.webp",
       "optimizedPath": "/images/optimized/events/event-39.webp",
       "isOptimized": true
     },
@@ -779,16 +392,7 @@
       "height": 4160,
       "aspectRatio": 1.5,
       "orientation": "landscape",
-      "originalPath": "/images/events/event-4.jpg",
-      "optimizedPath": "/images/optimized/events/event-4.webp",
-      "isOptimized": true
-    },
-    "/images/events/event-4.jpg": {
-      "width": 6240,
-      "height": 4160,
-      "aspectRatio": 1.5,
-      "orientation": "landscape",
-      "originalPath": "/images/events/event-4.jpg",
+      "originalPath": "/images/optimized/events/event-4.webp",
       "optimizedPath": "/images/optimized/events/event-4.webp",
       "isOptimized": true
     },
@@ -797,16 +401,7 @@
       "height": 3648,
       "aspectRatio": 1.25,
       "orientation": "landscape",
-      "originalPath": "/images/events/event-40.jpg",
-      "optimizedPath": "/images/optimized/events/event-40.webp",
-      "isOptimized": true
-    },
-    "/images/events/event-40.jpg": {
-      "width": 4560,
-      "height": 3648,
-      "aspectRatio": 1.25,
-      "orientation": "landscape",
-      "originalPath": "/images/events/event-40.jpg",
+      "originalPath": "/images/optimized/events/event-40.webp",
       "optimizedPath": "/images/optimized/events/event-40.webp",
       "isOptimized": true
     },
@@ -815,16 +410,7 @@
       "height": 3544,
       "aspectRatio": 1.5,
       "orientation": "landscape",
-      "originalPath": "/images/events/event-41.jpg",
-      "optimizedPath": "/images/optimized/events/event-41.webp",
-      "isOptimized": true
-    },
-    "/images/events/event-41.jpg": {
-      "width": 5316,
-      "height": 3544,
-      "aspectRatio": 1.5,
-      "orientation": "landscape",
-      "originalPath": "/images/events/event-41.jpg",
+      "originalPath": "/images/optimized/events/event-41.webp",
       "optimizedPath": "/images/optimized/events/event-41.webp",
       "isOptimized": true
     },
@@ -833,16 +419,7 @@
       "height": 3554,
       "aspectRatio": 1.2501406865503657,
       "orientation": "landscape",
-      "originalPath": "/images/events/event-42.jpg",
-      "optimizedPath": "/images/optimized/events/event-42.webp",
-      "isOptimized": true
-    },
-    "/images/events/event-42.jpg": {
-      "width": 4443,
-      "height": 3554,
-      "aspectRatio": 1.2501406865503657,
-      "orientation": "landscape",
-      "originalPath": "/images/events/event-42.jpg",
+      "originalPath": "/images/optimized/events/event-42.webp",
       "optimizedPath": "/images/optimized/events/event-42.webp",
       "isOptimized": true
     },
@@ -851,16 +428,7 @@
       "height": 3535,
       "aspectRatio": 1.4998585572843,
       "orientation": "landscape",
-      "originalPath": "/images/events/event-43.jpg",
-      "optimizedPath": "/images/optimized/events/event-43.webp",
-      "isOptimized": true
-    },
-    "/images/events/event-43.jpg": {
-      "width": 5302,
-      "height": 3535,
-      "aspectRatio": 1.4998585572843,
-      "orientation": "landscape",
-      "originalPath": "/images/events/event-43.jpg",
+      "originalPath": "/images/optimized/events/event-43.webp",
       "optimizedPath": "/images/optimized/events/event-43.webp",
       "isOptimized": true
     },
@@ -869,16 +437,7 @@
       "height": 3512,
       "aspectRatio": 1.5,
       "orientation": "landscape",
-      "originalPath": "/images/events/event-44.jpg",
-      "optimizedPath": "/images/optimized/events/event-44.webp",
-      "isOptimized": true
-    },
-    "/images/events/event-44.jpg": {
-      "width": 5268,
-      "height": 3512,
-      "aspectRatio": 1.5,
-      "orientation": "landscape",
-      "originalPath": "/images/events/event-44.jpg",
+      "originalPath": "/images/optimized/events/event-44.webp",
       "optimizedPath": "/images/optimized/events/event-44.webp",
       "isOptimized": true
     },
@@ -887,16 +446,7 @@
       "height": 3430,
       "aspectRatio": 1.5,
       "orientation": "landscape",
-      "originalPath": "/images/events/event-45.jpg",
-      "optimizedPath": "/images/optimized/events/event-45.webp",
-      "isOptimized": true
-    },
-    "/images/events/event-45.jpg": {
-      "width": 5145,
-      "height": 3430,
-      "aspectRatio": 1.5,
-      "orientation": "landscape",
-      "originalPath": "/images/events/event-45.jpg",
+      "originalPath": "/images/optimized/events/event-45.webp",
       "optimizedPath": "/images/optimized/events/event-45.webp",
       "isOptimized": true
     },
@@ -905,16 +455,7 @@
       "height": 3213,
       "aspectRatio": 1.4998443821973233,
       "orientation": "landscape",
-      "originalPath": "/images/events/event-46.jpg",
-      "optimizedPath": "/images/optimized/events/event-46.webp",
-      "isOptimized": true
-    },
-    "/images/events/event-46.jpg": {
-      "width": 4819,
-      "height": 3213,
-      "aspectRatio": 1.4998443821973233,
-      "orientation": "landscape",
-      "originalPath": "/images/events/event-46.jpg",
+      "originalPath": "/images/optimized/events/event-46.webp",
       "optimizedPath": "/images/optimized/events/event-46.webp",
       "isOptimized": true
     },
@@ -923,16 +464,7 @@
       "height": 4896,
       "aspectRatio": 0.6917892156862745,
       "orientation": "portrait",
-      "originalPath": "/images/events/event-47.jpg",
-      "optimizedPath": "/images/optimized/events/event-47.webp",
-      "isOptimized": true
-    },
-    "/images/events/event-47.jpg": {
-      "width": 3387,
-      "height": 4896,
-      "aspectRatio": 0.6917892156862745,
-      "orientation": "portrait",
-      "originalPath": "/images/events/event-47.jpg",
+      "originalPath": "/images/optimized/events/event-47.webp",
       "optimizedPath": "/images/optimized/events/event-47.webp",
       "isOptimized": true
     },
@@ -941,16 +473,7 @@
       "height": 3552,
       "aspectRatio": 1.4251126126126126,
       "orientation": "landscape",
-      "originalPath": "/images/events/event-48.jpg",
-      "optimizedPath": "/images/optimized/events/event-48.webp",
-      "isOptimized": true
-    },
-    "/images/events/event-48.jpg": {
-      "width": 5062,
-      "height": 3552,
-      "aspectRatio": 1.4251126126126126,
-      "orientation": "landscape",
-      "originalPath": "/images/events/event-48.jpg",
+      "originalPath": "/images/optimized/events/event-48.webp",
       "optimizedPath": "/images/optimized/events/event-48.webp",
       "isOptimized": true
     },
@@ -959,16 +482,7 @@
       "height": 3252,
       "aspectRatio": 1.5,
       "orientation": "landscape",
-      "originalPath": "/images/events/event-49.jpg",
-      "optimizedPath": "/images/optimized/events/event-49.webp",
-      "isOptimized": true
-    },
-    "/images/events/event-49.jpg": {
-      "width": 4878,
-      "height": 3252,
-      "aspectRatio": 1.5,
-      "orientation": "landscape",
-      "originalPath": "/images/events/event-49.jpg",
+      "originalPath": "/images/optimized/events/event-49.webp",
       "optimizedPath": "/images/optimized/events/event-49.webp",
       "isOptimized": true
     },
@@ -977,16 +491,7 @@
       "height": 4115,
       "aspectRatio": 1.5001215066828675,
       "orientation": "landscape",
-      "originalPath": "/images/events/event-5.jpg",
-      "optimizedPath": "/images/optimized/events/event-5.webp",
-      "isOptimized": true
-    },
-    "/images/events/event-5.jpg": {
-      "width": 6173,
-      "height": 4115,
-      "aspectRatio": 1.5001215066828675,
-      "orientation": "landscape",
-      "originalPath": "/images/events/event-5.jpg",
+      "originalPath": "/images/optimized/events/event-5.webp",
       "optimizedPath": "/images/optimized/events/event-5.webp",
       "isOptimized": true
     },
@@ -995,16 +500,7 @@
       "height": 3694,
       "aspectRatio": 1.5,
       "orientation": "landscape",
-      "originalPath": "/images/events/event-50.jpg",
-      "optimizedPath": "/images/optimized/events/event-50.webp",
-      "isOptimized": true
-    },
-    "/images/events/event-50.jpg": {
-      "width": 5541,
-      "height": 3694,
-      "aspectRatio": 1.5,
-      "orientation": "landscape",
-      "originalPath": "/images/events/event-50.jpg",
+      "originalPath": "/images/optimized/events/event-50.webp",
       "optimizedPath": "/images/optimized/events/event-50.webp",
       "isOptimized": true
     },
@@ -1013,16 +509,7 @@
       "height": 3517,
       "aspectRatio": 1.249928916690361,
       "orientation": "landscape",
-      "originalPath": "/images/events/event-51.jpg",
-      "optimizedPath": "/images/optimized/events/event-51.webp",
-      "isOptimized": true
-    },
-    "/images/events/event-51.jpg": {
-      "width": 4396,
-      "height": 3517,
-      "aspectRatio": 1.249928916690361,
-      "orientation": "landscape",
-      "originalPath": "/images/events/event-51.jpg",
+      "originalPath": "/images/optimized/events/event-51.webp",
       "optimizedPath": "/images/optimized/events/event-51.webp",
       "isOptimized": true
     },
@@ -1031,16 +518,7 @@
       "height": 3350,
       "aspectRatio": 1.2501492537313432,
       "orientation": "landscape",
-      "originalPath": "/images/events/event-52.jpg",
-      "optimizedPath": "/images/optimized/events/event-52.webp",
-      "isOptimized": true
-    },
-    "/images/events/event-52.jpg": {
-      "width": 4188,
-      "height": 3350,
-      "aspectRatio": 1.2501492537313432,
-      "orientation": "landscape",
-      "originalPath": "/images/events/event-52.jpg",
+      "originalPath": "/images/optimized/events/event-52.webp",
       "optimizedPath": "/images/optimized/events/event-52.webp",
       "isOptimized": true
     },
@@ -1049,16 +527,7 @@
       "height": 3594,
       "aspectRatio": 0.7999443516972732,
       "orientation": "portrait",
-      "originalPath": "/images/events/event-53.jpg",
-      "optimizedPath": "/images/optimized/events/event-53.webp",
-      "isOptimized": true
-    },
-    "/images/events/event-53.jpg": {
-      "width": 2875,
-      "height": 3594,
-      "aspectRatio": 0.7999443516972732,
-      "orientation": "portrait",
-      "originalPath": "/images/events/event-53.jpg",
+      "originalPath": "/images/optimized/events/event-53.webp",
       "optimizedPath": "/images/optimized/events/event-53.webp",
       "isOptimized": true
     },
@@ -1067,16 +536,7 @@
       "height": 3608,
       "aspectRatio": 1.25,
       "orientation": "landscape",
-      "originalPath": "/images/events/event-54.jpg",
-      "optimizedPath": "/images/optimized/events/event-54.webp",
-      "isOptimized": true
-    },
-    "/images/events/event-54.jpg": {
-      "width": 4510,
-      "height": 3608,
-      "aspectRatio": 1.25,
-      "orientation": "landscape",
-      "originalPath": "/images/events/event-54.jpg",
+      "originalPath": "/images/optimized/events/event-54.webp",
       "optimizedPath": "/images/optimized/events/event-54.webp",
       "isOptimized": true
     },
@@ -1085,16 +545,7 @@
       "height": 3548,
       "aspectRatio": 1.25,
       "orientation": "landscape",
-      "originalPath": "/images/events/event-55.jpg",
-      "optimizedPath": "/images/optimized/events/event-55.webp",
-      "isOptimized": true
-    },
-    "/images/events/event-55.jpg": {
-      "width": 4435,
-      "height": 3548,
-      "aspectRatio": 1.25,
-      "orientation": "landscape",
-      "originalPath": "/images/events/event-55.jpg",
+      "originalPath": "/images/optimized/events/event-55.webp",
       "optimizedPath": "/images/optimized/events/event-55.webp",
       "isOptimized": true
     },
@@ -1103,16 +554,7 @@
       "height": 3648,
       "aspectRatio": 1.5,
       "orientation": "landscape",
-      "originalPath": "/images/events/event-56.jpg",
-      "optimizedPath": "/images/optimized/events/event-56.webp",
-      "isOptimized": true
-    },
-    "/images/events/event-56.jpg": {
-      "width": 5472,
-      "height": 3648,
-      "aspectRatio": 1.5,
-      "orientation": "landscape",
-      "originalPath": "/images/events/event-56.jpg",
+      "originalPath": "/images/optimized/events/event-56.webp",
       "optimizedPath": "/images/optimized/events/event-56.webp",
       "isOptimized": true
     },
@@ -1121,16 +563,7 @@
       "height": 3548,
       "aspectRatio": 1.25,
       "orientation": "landscape",
-      "originalPath": "/images/events/event-57.jpg",
-      "optimizedPath": "/images/optimized/events/event-57.webp",
-      "isOptimized": true
-    },
-    "/images/events/event-57.jpg": {
-      "width": 4435,
-      "height": 3548,
-      "aspectRatio": 1.25,
-      "orientation": "landscape",
-      "originalPath": "/images/events/event-57.jpg",
+      "originalPath": "/images/optimized/events/event-57.webp",
       "optimizedPath": "/images/optimized/events/event-57.webp",
       "isOptimized": true
     },
@@ -1139,16 +572,7 @@
       "height": 3623,
       "aspectRatio": 1.2500690035881865,
       "orientation": "landscape",
-      "originalPath": "/images/events/event-58.jpg",
-      "optimizedPath": "/images/optimized/events/event-58.webp",
-      "isOptimized": true
-    },
-    "/images/events/event-58.jpg": {
-      "width": 4529,
-      "height": 3623,
-      "aspectRatio": 1.2500690035881865,
-      "orientation": "landscape",
-      "originalPath": "/images/events/event-58.jpg",
+      "originalPath": "/images/optimized/events/event-58.webp",
       "optimizedPath": "/images/optimized/events/event-58.webp",
       "isOptimized": true
     },
@@ -1157,16 +581,7 @@
       "height": 3641,
       "aspectRatio": 1.4998626750892612,
       "orientation": "landscape",
-      "originalPath": "/images/events/event-59.jpg",
-      "optimizedPath": "/images/optimized/events/event-59.webp",
-      "isOptimized": true
-    },
-    "/images/events/event-59.jpg": {
-      "width": 5461,
-      "height": 3641,
-      "aspectRatio": 1.4998626750892612,
-      "orientation": "landscape",
-      "originalPath": "/images/events/event-59.jpg",
+      "originalPath": "/images/optimized/events/event-59.webp",
       "optimizedPath": "/images/optimized/events/event-59.webp",
       "isOptimized": true
     },
@@ -1175,16 +590,7 @@
       "height": 4077,
       "aspectRatio": 1.499877360804513,
       "orientation": "landscape",
-      "originalPath": "/images/events/event-6.jpg",
-      "optimizedPath": "/images/optimized/events/event-6.webp",
-      "isOptimized": true
-    },
-    "/images/events/event-6.jpg": {
-      "width": 6115,
-      "height": 4077,
-      "aspectRatio": 1.499877360804513,
-      "orientation": "landscape",
-      "originalPath": "/images/events/event-6.jpg",
+      "originalPath": "/images/optimized/events/event-6.webp",
       "optimizedPath": "/images/optimized/events/event-6.webp",
       "isOptimized": true
     },
@@ -1193,16 +599,7 @@
       "height": 3907,
       "aspectRatio": 1.5001279754287178,
       "orientation": "landscape",
-      "originalPath": "/images/events/event-60.jpg",
-      "optimizedPath": "/images/optimized/events/event-60.webp",
-      "isOptimized": true
-    },
-    "/images/events/event-60.jpg": {
-      "width": 5861,
-      "height": 3907,
-      "aspectRatio": 1.5001279754287178,
-      "orientation": "landscape",
-      "originalPath": "/images/events/event-60.jpg",
+      "originalPath": "/images/optimized/events/event-60.webp",
       "optimizedPath": "/images/optimized/events/event-60.webp",
       "isOptimized": true
     },
@@ -1211,16 +608,7 @@
       "height": 2904,
       "aspectRatio": 1.25,
       "orientation": "landscape",
-      "originalPath": "/images/events/event-61.jpg",
-      "optimizedPath": "/images/optimized/events/event-61.webp",
-      "isOptimized": true
-    },
-    "/images/events/event-61.jpg": {
-      "width": 3630,
-      "height": 2904,
-      "aspectRatio": 1.25,
-      "orientation": "landscape",
-      "originalPath": "/images/events/event-61.jpg",
+      "originalPath": "/images/optimized/events/event-61.webp",
       "optimizedPath": "/images/optimized/events/event-61.webp",
       "isOptimized": true
     },
@@ -1229,16 +617,7 @@
       "height": 3612,
       "aspectRatio": 1.25,
       "orientation": "landscape",
-      "originalPath": "/images/events/event-62.jpg",
-      "optimizedPath": "/images/optimized/events/event-62.webp",
-      "isOptimized": true
-    },
-    "/images/events/event-62.jpg": {
-      "width": 4515,
-      "height": 3612,
-      "aspectRatio": 1.25,
-      "orientation": "landscape",
-      "originalPath": "/images/events/event-62.jpg",
+      "originalPath": "/images/optimized/events/event-62.webp",
       "optimizedPath": "/images/optimized/events/event-62.webp",
       "isOptimized": true
     },
@@ -1247,16 +626,7 @@
       "height": 3469,
       "aspectRatio": 1.5001441337561257,
       "orientation": "landscape",
-      "originalPath": "/images/events/event-63.jpg",
-      "optimizedPath": "/images/optimized/events/event-63.webp",
-      "isOptimized": true
-    },
-    "/images/events/event-63.jpg": {
-      "width": 5204,
-      "height": 3469,
-      "aspectRatio": 1.5001441337561257,
-      "orientation": "landscape",
-      "originalPath": "/images/events/event-63.jpg",
+      "originalPath": "/images/optimized/events/event-63.webp",
       "optimizedPath": "/images/optimized/events/event-63.webp",
       "isOptimized": true
     },
@@ -1265,16 +635,7 @@
       "height": 3486,
       "aspectRatio": 1.2498565691336776,
       "orientation": "landscape",
-      "originalPath": "/images/events/event-64.jpg",
-      "optimizedPath": "/images/optimized/events/event-64.webp",
-      "isOptimized": true
-    },
-    "/images/events/event-64.jpg": {
-      "width": 4357,
-      "height": 3486,
-      "aspectRatio": 1.2498565691336776,
-      "orientation": "landscape",
-      "originalPath": "/images/events/event-64.jpg",
+      "originalPath": "/images/optimized/events/event-64.webp",
       "optimizedPath": "/images/optimized/events/event-64.webp",
       "isOptimized": true
     },
@@ -1283,16 +644,7 @@
       "height": 3648,
       "aspectRatio": 1.5,
       "orientation": "landscape",
-      "originalPath": "/images/events/event-65.jpg",
-      "optimizedPath": "/images/optimized/events/event-65.webp",
-      "isOptimized": true
-    },
-    "/images/events/event-65.jpg": {
-      "width": 5472,
-      "height": 3648,
-      "aspectRatio": 1.5,
-      "orientation": "landscape",
-      "originalPath": "/images/events/event-65.jpg",
+      "originalPath": "/images/optimized/events/event-65.webp",
       "optimizedPath": "/images/optimized/events/event-65.webp",
       "isOptimized": true
     },
@@ -1301,16 +653,7 @@
       "height": 3648,
       "aspectRatio": 1.5,
       "orientation": "landscape",
-      "originalPath": "/images/events/event-66.jpg",
-      "optimizedPath": "/images/optimized/events/event-66.webp",
-      "isOptimized": true
-    },
-    "/images/events/event-66.jpg": {
-      "width": 5472,
-      "height": 3648,
-      "aspectRatio": 1.5,
-      "orientation": "landscape",
-      "originalPath": "/images/events/event-66.jpg",
+      "originalPath": "/images/optimized/events/event-66.webp",
       "optimizedPath": "/images/optimized/events/event-66.webp",
       "isOptimized": true
     },
@@ -1319,16 +662,7 @@
       "height": 3648,
       "aspectRatio": 1.5,
       "orientation": "landscape",
-      "originalPath": "/images/events/event-67.jpg",
-      "optimizedPath": "/images/optimized/events/event-67.webp",
-      "isOptimized": true
-    },
-    "/images/events/event-67.jpg": {
-      "width": 5472,
-      "height": 3648,
-      "aspectRatio": 1.5,
-      "orientation": "landscape",
-      "originalPath": "/images/events/event-67.jpg",
+      "originalPath": "/images/optimized/events/event-67.webp",
       "optimizedPath": "/images/optimized/events/event-67.webp",
       "isOptimized": true
     },
@@ -1337,16 +671,7 @@
       "height": 3648,
       "aspectRatio": 1.5,
       "orientation": "landscape",
-      "originalPath": "/images/events/event-68.jpg",
-      "optimizedPath": "/images/optimized/events/event-68.webp",
-      "isOptimized": true
-    },
-    "/images/events/event-68.jpg": {
-      "width": 5472,
-      "height": 3648,
-      "aspectRatio": 1.5,
-      "orientation": "landscape",
-      "originalPath": "/images/events/event-68.jpg",
+      "originalPath": "/images/optimized/events/event-68.webp",
       "optimizedPath": "/images/optimized/events/event-68.webp",
       "isOptimized": true
     },
@@ -1355,16 +680,7 @@
       "height": 3648,
       "aspectRatio": 1.5,
       "orientation": "landscape",
-      "originalPath": "/images/events/event-69.jpg",
-      "optimizedPath": "/images/optimized/events/event-69.webp",
-      "isOptimized": true
-    },
-    "/images/events/event-69.jpg": {
-      "width": 5472,
-      "height": 3648,
-      "aspectRatio": 1.5,
-      "orientation": "landscape",
-      "originalPath": "/images/events/event-69.jpg",
+      "originalPath": "/images/optimized/events/event-69.webp",
       "optimizedPath": "/images/optimized/events/event-69.webp",
       "isOptimized": true
     },
@@ -1373,16 +689,7 @@
       "height": 3677,
       "aspectRatio": 0.6665760130541202,
       "orientation": "portrait",
-      "originalPath": "/images/events/event-7.jpg",
-      "optimizedPath": "/images/optimized/events/event-7.webp",
-      "isOptimized": true
-    },
-    "/images/events/event-7.jpg": {
-      "width": 2451,
-      "height": 3677,
-      "aspectRatio": 0.6665760130541202,
-      "orientation": "portrait",
-      "originalPath": "/images/events/event-7.jpg",
+      "originalPath": "/images/optimized/events/event-7.webp",
       "optimizedPath": "/images/optimized/events/event-7.webp",
       "isOptimized": true
     },
@@ -1391,16 +698,7 @@
       "height": 3648,
       "aspectRatio": 1.5,
       "orientation": "landscape",
-      "originalPath": "/images/events/event-70.jpg",
-      "optimizedPath": "/images/optimized/events/event-70.webp",
-      "isOptimized": true
-    },
-    "/images/events/event-70.jpg": {
-      "width": 5472,
-      "height": 3648,
-      "aspectRatio": 1.5,
-      "orientation": "landscape",
-      "originalPath": "/images/events/event-70.jpg",
+      "originalPath": "/images/optimized/events/event-70.webp",
       "optimizedPath": "/images/optimized/events/event-70.webp",
       "isOptimized": true
     },
@@ -1409,16 +707,7 @@
       "height": 3648,
       "aspectRatio": 1.25,
       "orientation": "landscape",
-      "originalPath": "/images/events/event-71.jpg",
-      "optimizedPath": "/images/optimized/events/event-71.webp",
-      "isOptimized": true
-    },
-    "/images/events/event-71.jpg": {
-      "width": 4560,
-      "height": 3648,
-      "aspectRatio": 1.25,
-      "orientation": "landscape",
-      "originalPath": "/images/events/event-71.jpg",
+      "originalPath": "/images/optimized/events/event-71.webp",
       "optimizedPath": "/images/optimized/events/event-71.webp",
       "isOptimized": true
     },
@@ -1427,16 +716,7 @@
       "height": 3448,
       "aspectRatio": 1.25,
       "orientation": "landscape",
-      "originalPath": "/images/events/event-72.jpg",
-      "optimizedPath": "/images/optimized/events/event-72.webp",
-      "isOptimized": true
-    },
-    "/images/events/event-72.jpg": {
-      "width": 4310,
-      "height": 3448,
-      "aspectRatio": 1.25,
-      "orientation": "landscape",
-      "originalPath": "/images/events/event-72.jpg",
+      "originalPath": "/images/optimized/events/event-72.webp",
       "optimizedPath": "/images/optimized/events/event-72.webp",
       "isOptimized": true
     },
@@ -1445,16 +725,7 @@
       "height": 3265,
       "aspectRatio": 1.2499234303215927,
       "orientation": "landscape",
-      "originalPath": "/images/events/event-73.jpg",
-      "optimizedPath": "/images/optimized/events/event-73.webp",
-      "isOptimized": true
-    },
-    "/images/events/event-73.jpg": {
-      "width": 4081,
-      "height": 3265,
-      "aspectRatio": 1.2499234303215927,
-      "orientation": "landscape",
-      "originalPath": "/images/events/event-73.jpg",
+      "originalPath": "/images/optimized/events/event-73.webp",
       "optimizedPath": "/images/optimized/events/event-73.webp",
       "isOptimized": true
     },
@@ -1463,16 +734,7 @@
       "height": 5306,
       "aspectRatio": 0.6666038447041086,
       "orientation": "portrait",
-      "originalPath": "/images/events/event-74.jpg",
-      "optimizedPath": "/images/optimized/events/event-74.webp",
-      "isOptimized": true
-    },
-    "/images/events/event-74.jpg": {
-      "width": 3537,
-      "height": 5306,
-      "aspectRatio": 0.6666038447041086,
-      "orientation": "portrait",
-      "originalPath": "/images/events/event-74.jpg",
+      "originalPath": "/images/optimized/events/event-74.webp",
       "optimizedPath": "/images/optimized/events/event-74.webp",
       "isOptimized": true
     },
@@ -1481,16 +743,7 @@
       "height": 3792,
       "aspectRatio": 1.25,
       "orientation": "landscape",
-      "originalPath": "/images/events/event-75.jpg",
-      "optimizedPath": "/images/optimized/events/event-75.webp",
-      "isOptimized": true
-    },
-    "/images/events/event-75.jpg": {
-      "width": 4740,
-      "height": 3792,
-      "aspectRatio": 1.25,
-      "orientation": "landscape",
-      "originalPath": "/images/events/event-75.jpg",
+      "originalPath": "/images/optimized/events/event-75.webp",
       "optimizedPath": "/images/optimized/events/event-75.webp",
       "isOptimized": true
     },
@@ -1499,16 +752,7 @@
       "height": 6000,
       "aspectRatio": 0.6666666666666666,
       "orientation": "portrait",
-      "originalPath": "/images/events/event-76.jpg",
-      "optimizedPath": "/images/optimized/events/event-76.webp",
-      "isOptimized": true
-    },
-    "/images/events/event-76.jpg": {
-      "width": 4000,
-      "height": 6000,
-      "aspectRatio": 0.6666666666666666,
-      "orientation": "portrait",
-      "originalPath": "/images/events/event-76.jpg",
+      "originalPath": "/images/optimized/events/event-76.webp",
       "optimizedPath": "/images/optimized/events/event-76.webp",
       "isOptimized": true
     },
@@ -1517,16 +761,7 @@
       "height": 3878,
       "aspectRatio": 1.5,
       "orientation": "landscape",
-      "originalPath": "/images/events/event-77.jpg",
-      "optimizedPath": "/images/optimized/events/event-77.webp",
-      "isOptimized": true
-    },
-    "/images/events/event-77.jpg": {
-      "width": 5817,
-      "height": 3878,
-      "aspectRatio": 1.5,
-      "orientation": "landscape",
-      "originalPath": "/images/events/event-77.jpg",
+      "originalPath": "/images/optimized/events/event-77.webp",
       "optimizedPath": "/images/optimized/events/event-77.webp",
       "isOptimized": true
     },
@@ -1535,16 +770,7 @@
       "height": 3899,
       "aspectRatio": 1.2500641190048731,
       "orientation": "landscape",
-      "originalPath": "/images/events/event-78.jpg",
-      "optimizedPath": "/images/optimized/events/event-78.webp",
-      "isOptimized": true
-    },
-    "/images/events/event-78.jpg": {
-      "width": 4874,
-      "height": 3899,
-      "aspectRatio": 1.2500641190048731,
-      "orientation": "landscape",
-      "originalPath": "/images/events/event-78.jpg",
+      "originalPath": "/images/optimized/events/event-78.webp",
       "optimizedPath": "/images/optimized/events/event-78.webp",
       "isOptimized": true
     },
@@ -1553,16 +779,7 @@
       "height": 5768,
       "aspectRatio": 0.6666088765603329,
       "orientation": "portrait",
-      "originalPath": "/images/events/event-79.jpg",
-      "optimizedPath": "/images/optimized/events/event-79.webp",
-      "isOptimized": true
-    },
-    "/images/events/event-79.jpg": {
-      "width": 3845,
-      "height": 5768,
-      "aspectRatio": 0.6666088765603329,
-      "orientation": "portrait",
-      "originalPath": "/images/events/event-79.jpg",
+      "originalPath": "/images/optimized/events/event-79.webp",
       "optimizedPath": "/images/optimized/events/event-79.webp",
       "isOptimized": true
     },
@@ -1571,16 +788,7 @@
       "height": 3389,
       "aspectRatio": 1.249926231926822,
       "orientation": "landscape",
-      "originalPath": "/images/events/event-8.jpg",
-      "optimizedPath": "/images/optimized/events/event-8.webp",
-      "isOptimized": true
-    },
-    "/images/events/event-8.jpg": {
-      "width": 4236,
-      "height": 3389,
-      "aspectRatio": 1.249926231926822,
-      "orientation": "landscape",
-      "originalPath": "/images/events/event-8.jpg",
+      "originalPath": "/images/optimized/events/event-8.webp",
       "optimizedPath": "/images/optimized/events/event-8.webp",
       "isOptimized": true
     },
@@ -1589,16 +797,7 @@
       "height": 3651,
       "aspectRatio": 1.2500684743905779,
       "orientation": "landscape",
-      "originalPath": "/images/events/event-80.jpg",
-      "optimizedPath": "/images/optimized/events/event-80.webp",
-      "isOptimized": true
-    },
-    "/images/events/event-80.jpg": {
-      "width": 4564,
-      "height": 3651,
-      "aspectRatio": 1.2500684743905779,
-      "orientation": "landscape",
-      "originalPath": "/images/events/event-80.jpg",
+      "originalPath": "/images/optimized/events/event-80.webp",
       "optimizedPath": "/images/optimized/events/event-80.webp",
       "isOptimized": true
     },
@@ -1607,16 +806,7 @@
       "height": 3399,
       "aspectRatio": 1.5001471020888497,
       "orientation": "landscape",
-      "originalPath": "/images/events/event-81.jpg",
-      "optimizedPath": "/images/optimized/events/event-81.webp",
-      "isOptimized": true
-    },
-    "/images/events/event-81.jpg": {
-      "width": 5099,
-      "height": 3399,
-      "aspectRatio": 1.5001471020888497,
-      "orientation": "landscape",
-      "originalPath": "/images/events/event-81.jpg",
+      "originalPath": "/images/optimized/events/event-81.webp",
       "optimizedPath": "/images/optimized/events/event-81.webp",
       "isOptimized": true
     },
@@ -1625,16 +815,7 @@
       "height": 3063,
       "aspectRatio": 1.4998367613450865,
       "orientation": "landscape",
-      "originalPath": "/images/events/event-89.jpg",
-      "optimizedPath": "/images/optimized/events/event-89.webp",
-      "isOptimized": true
-    },
-    "/images/events/event-89.jpg": {
-      "width": 4594,
-      "height": 3063,
-      "aspectRatio": 1.4998367613450865,
-      "orientation": "landscape",
-      "originalPath": "/images/events/event-89.jpg",
+      "originalPath": "/images/optimized/events/event-89.webp",
       "optimizedPath": "/images/optimized/events/event-89.webp",
       "isOptimized": true
     },
@@ -1643,16 +824,7 @@
       "height": 4160,
       "aspectRatio": 1.3334134615384616,
       "orientation": "landscape",
-      "originalPath": "/images/events/event-9.jpg",
-      "optimizedPath": "/images/optimized/events/event-9.webp",
-      "isOptimized": true
-    },
-    "/images/events/event-9.jpg": {
-      "width": 5547,
-      "height": 4160,
-      "aspectRatio": 1.3334134615384616,
-      "orientation": "landscape",
-      "originalPath": "/images/events/event-9.jpg",
+      "originalPath": "/images/optimized/events/event-9.webp",
       "optimizedPath": "/images/optimized/events/event-9.webp",
       "isOptimized": true
     },
@@ -1661,16 +833,7 @@
       "height": 3229,
       "aspectRatio": 1.4998451532982346,
       "orientation": "landscape",
-      "originalPath": "/images/events/event-90.jpg",
-      "optimizedPath": "/images/optimized/events/event-90.webp",
-      "isOptimized": true
-    },
-    "/images/events/event-90.jpg": {
-      "width": 4843,
-      "height": 3229,
-      "aspectRatio": 1.4998451532982346,
-      "orientation": "landscape",
-      "originalPath": "/images/events/event-90.jpg",
+      "originalPath": "/images/optimized/events/event-90.webp",
       "optimizedPath": "/images/optimized/events/event-90.webp",
       "isOptimized": true
     },
@@ -1679,16 +842,7 @@
       "height": 3425,
       "aspectRatio": 1.4998540145985402,
       "orientation": "landscape",
-      "originalPath": "/images/events/event-91.jpg",
-      "optimizedPath": "/images/optimized/events/event-91.webp",
-      "isOptimized": true
-    },
-    "/images/events/event-91.jpg": {
-      "width": 5137,
-      "height": 3425,
-      "aspectRatio": 1.4998540145985402,
-      "orientation": "landscape",
-      "originalPath": "/images/events/event-91.jpg",
+      "originalPath": "/images/optimized/events/event-91.webp",
       "optimizedPath": "/images/optimized/events/event-91.webp",
       "isOptimized": true
     },
@@ -1697,16 +851,7 @@
       "height": 3064,
       "aspectRatio": 1.5,
       "orientation": "landscape",
-      "originalPath": "/images/events/event-92.jpg",
-      "optimizedPath": "/images/optimized/events/event-92.webp",
-      "isOptimized": true
-    },
-    "/images/events/event-92.jpg": {
-      "width": 4596,
-      "height": 3064,
-      "aspectRatio": 1.5,
-      "orientation": "landscape",
-      "originalPath": "/images/events/event-92.jpg",
+      "originalPath": "/images/optimized/events/event-92.webp",
       "optimizedPath": "/images/optimized/events/event-92.webp",
       "isOptimized": true
     },
@@ -1715,16 +860,7 @@
       "height": 3265,
       "aspectRatio": 1.4998468606431854,
       "orientation": "landscape",
-      "originalPath": "/images/family/family-1.jpeg",
-      "optimizedPath": "/images/optimized/family/family-1.webp",
-      "isOptimized": true
-    },
-    "/images/family/family-1.jpeg": {
-      "width": 4897,
-      "height": 3265,
-      "aspectRatio": 1.4998468606431854,
-      "orientation": "landscape",
-      "originalPath": "/images/family/family-1.jpeg",
+      "originalPath": "/images/optimized/family/family-1.webp",
       "optimizedPath": "/images/optimized/family/family-1.webp",
       "isOptimized": true
     },
@@ -1733,16 +869,7 @@
       "height": 3448,
       "aspectRatio": 1.3332366589327147,
       "orientation": "landscape",
-      "originalPath": "/images/family/family-2.jpeg",
-      "optimizedPath": "/images/optimized/family/family-2.webp",
-      "isOptimized": true
-    },
-    "/images/family/family-2.jpeg": {
-      "width": 4597,
-      "height": 3448,
-      "aspectRatio": 1.3332366589327147,
-      "orientation": "landscape",
-      "originalPath": "/images/family/family-2.jpeg",
+      "originalPath": "/images/optimized/family/family-2.webp",
       "optimizedPath": "/images/optimized/family/family-2.webp",
       "isOptimized": true
     },
@@ -1751,16 +878,7 @@
       "height": 3356,
       "aspectRatio": 1.5,
       "orientation": "landscape",
-      "originalPath": "/images/family/family-3.jpeg",
-      "optimizedPath": "/images/optimized/family/family-3.webp",
-      "isOptimized": true
-    },
-    "/images/family/family-3.jpeg": {
-      "width": 5034,
-      "height": 3356,
-      "aspectRatio": 1.5,
-      "orientation": "landscape",
-      "originalPath": "/images/family/family-3.jpeg",
+      "originalPath": "/images/optimized/family/family-3.webp",
       "optimizedPath": "/images/optimized/family/family-3.webp",
       "isOptimized": true
     },
@@ -1769,16 +887,7 @@
       "height": 3557,
       "aspectRatio": 1.500140567894293,
       "orientation": "landscape",
-      "originalPath": "/images/family/family-4.jpeg",
-      "optimizedPath": "/images/optimized/family/family-4.webp",
-      "isOptimized": true
-    },
-    "/images/family/family-4.jpeg": {
-      "width": 5336,
-      "height": 3557,
-      "aspectRatio": 1.500140567894293,
-      "orientation": "landscape",
-      "originalPath": "/images/family/family-4.jpeg",
+      "originalPath": "/images/optimized/family/family-4.webp",
       "optimizedPath": "/images/optimized/family/family-4.webp",
       "isOptimized": true
     },
@@ -1787,16 +896,7 @@
       "height": 3799,
       "aspectRatio": 1.4216899183995788,
       "orientation": "landscape",
-      "originalPath": "/images/family/family-5.jpeg",
-      "optimizedPath": "/images/optimized/family/family-5.webp",
-      "isOptimized": true
-    },
-    "/images/family/family-5.jpeg": {
-      "width": 5401,
-      "height": 3799,
-      "aspectRatio": 1.4216899183995788,
-      "orientation": "landscape",
-      "originalPath": "/images/family/family-5.jpeg",
+      "originalPath": "/images/optimized/family/family-5.webp",
       "optimizedPath": "/images/optimized/family/family-5.webp",
       "isOptimized": true
     },
@@ -1805,16 +905,7 @@
       "height": 3465,
       "aspectRatio": 1.5001443001443002,
       "orientation": "landscape",
-      "originalPath": "/images/family/family-6.jpg",
-      "optimizedPath": "/images/optimized/family/family-6.webp",
-      "isOptimized": true
-    },
-    "/images/family/family-6.jpg": {
-      "width": 5198,
-      "height": 3465,
-      "aspectRatio": 1.5001443001443002,
-      "orientation": "landscape",
-      "originalPath": "/images/family/family-6.jpg",
+      "originalPath": "/images/optimized/family/family-6.webp",
       "optimizedPath": "/images/optimized/family/family-6.webp",
       "isOptimized": true
     },
@@ -1823,16 +914,7 @@
       "height": 3874,
       "aspectRatio": 1.1587506453278265,
       "orientation": "landscape",
-      "originalPath": "/images/headshots/headshot1.jpeg",
-      "optimizedPath": "/images/optimized/headshots/headshot1.webp",
-      "isOptimized": true
-    },
-    "/images/headshots/headshot1.jpeg": {
-      "width": 4489,
-      "height": 3874,
-      "aspectRatio": 1.1587506453278265,
-      "orientation": "landscape",
-      "originalPath": "/images/headshots/headshot1.jpeg",
+      "originalPath": "/images/optimized/headshots/headshot1.webp",
       "optimizedPath": "/images/optimized/headshots/headshot1.webp",
       "isOptimized": true
     },
@@ -1841,16 +923,7 @@
       "height": 2282,
       "aspectRatio": 1,
       "orientation": "square",
-      "originalPath": "/images/headshots/headshot10.jpeg",
-      "optimizedPath": "/images/optimized/headshots/headshot10.webp",
-      "isOptimized": true
-    },
-    "/images/headshots/headshot10.jpeg": {
-      "width": 2282,
-      "height": 2282,
-      "aspectRatio": 1,
-      "orientation": "square",
-      "originalPath": "/images/headshots/headshot10.jpeg",
+      "originalPath": "/images/optimized/headshots/headshot10.webp",
       "optimizedPath": "/images/optimized/headshots/headshot10.webp",
       "isOptimized": true
     },
@@ -1859,16 +932,7 @@
       "height": 3648,
       "aspectRatio": 1,
       "orientation": "square",
-      "originalPath": "/images/headshots/headshot11.jpeg",
-      "optimizedPath": "/images/optimized/headshots/headshot11.webp",
-      "isOptimized": true
-    },
-    "/images/headshots/headshot11.jpeg": {
-      "width": 3648,
-      "height": 3648,
-      "aspectRatio": 1,
-      "orientation": "square",
-      "originalPath": "/images/headshots/headshot11.jpeg",
+      "originalPath": "/images/optimized/headshots/headshot11.webp",
       "optimizedPath": "/images/optimized/headshots/headshot11.webp",
       "isOptimized": true
     },
@@ -1877,16 +941,7 @@
       "height": 3648,
       "aspectRatio": 1,
       "orientation": "square",
-      "originalPath": "/images/headshots/headshot12.jpeg",
-      "optimizedPath": "/images/optimized/headshots/headshot12.webp",
-      "isOptimized": true
-    },
-    "/images/headshots/headshot12.jpeg": {
-      "width": 3648,
-      "height": 3648,
-      "aspectRatio": 1,
-      "orientation": "square",
-      "originalPath": "/images/headshots/headshot12.jpeg",
+      "originalPath": "/images/optimized/headshots/headshot12.webp",
       "optimizedPath": "/images/optimized/headshots/headshot12.webp",
       "isOptimized": true
     },
@@ -1895,16 +950,7 @@
       "height": 4030,
       "aspectRatio": 1.400744416873449,
       "orientation": "landscape",
-      "originalPath": "/images/headshots/headshot2.jpeg",
-      "optimizedPath": "/images/optimized/headshots/headshot2.webp",
-      "isOptimized": true
-    },
-    "/images/headshots/headshot2.jpeg": {
-      "width": 5645,
-      "height": 4030,
-      "aspectRatio": 1.400744416873449,
-      "orientation": "landscape",
-      "originalPath": "/images/headshots/headshot2.jpeg",
+      "originalPath": "/images/optimized/headshots/headshot2.webp",
       "optimizedPath": "/images/optimized/headshots/headshot2.webp",
       "isOptimized": true
     },
@@ -1913,16 +959,7 @@
       "height": 4832,
       "aspectRatio": 0.8559602649006622,
       "orientation": "portrait",
-      "originalPath": "/images/headshots/headshot3.jpeg",
-      "optimizedPath": "/images/optimized/headshots/headshot3.webp",
-      "isOptimized": true
-    },
-    "/images/headshots/headshot3.jpeg": {
-      "width": 4136,
-      "height": 4832,
-      "aspectRatio": 0.8559602649006622,
-      "orientation": "portrait",
-      "originalPath": "/images/headshots/headshot3.jpeg",
+      "originalPath": "/images/optimized/headshots/headshot3.webp",
       "optimizedPath": "/images/optimized/headshots/headshot3.webp",
       "isOptimized": true
     },
@@ -1931,16 +968,7 @@
       "height": 3715,
       "aspectRatio": 1.0312247644683714,
       "orientation": "square",
-      "originalPath": "/images/headshots/headshot4.jpeg",
-      "optimizedPath": "/images/optimized/headshots/headshot4.webp",
-      "isOptimized": true
-    },
-    "/images/headshots/headshot4.jpeg": {
-      "width": 3831,
-      "height": 3715,
-      "aspectRatio": 1.0312247644683714,
-      "orientation": "square",
-      "originalPath": "/images/headshots/headshot4.jpeg",
+      "originalPath": "/images/optimized/headshots/headshot4.webp",
       "optimizedPath": "/images/optimized/headshots/headshot4.webp",
       "isOptimized": true
     },
@@ -1949,16 +977,7 @@
       "height": 3438,
       "aspectRatio": 1,
       "orientation": "square",
-      "originalPath": "/images/headshots/headshot5.jpeg",
-      "optimizedPath": "/images/optimized/headshots/headshot5.webp",
-      "isOptimized": true
-    },
-    "/images/headshots/headshot5.jpeg": {
-      "width": 3438,
-      "height": 3438,
-      "aspectRatio": 1,
-      "orientation": "square",
-      "originalPath": "/images/headshots/headshot5.jpeg",
+      "originalPath": "/images/optimized/headshots/headshot5.webp",
       "optimizedPath": "/images/optimized/headshots/headshot5.webp",
       "isOptimized": true
     },
@@ -1967,16 +986,7 @@
       "height": 3334,
       "aspectRatio": 1,
       "orientation": "square",
-      "originalPath": "/images/headshots/headshot6.jpeg",
-      "optimizedPath": "/images/optimized/headshots/headshot6.webp",
-      "isOptimized": true
-    },
-    "/images/headshots/headshot6.jpeg": {
-      "width": 3334,
-      "height": 3334,
-      "aspectRatio": 1,
-      "orientation": "square",
-      "originalPath": "/images/headshots/headshot6.jpeg",
+      "originalPath": "/images/optimized/headshots/headshot6.webp",
       "optimizedPath": "/images/optimized/headshots/headshot6.webp",
       "isOptimized": true
     },
@@ -1985,16 +995,7 @@
       "height": 3648,
       "aspectRatio": 1.25,
       "orientation": "landscape",
-      "originalPath": "/images/headshots/headshot7.jpeg",
-      "optimizedPath": "/images/optimized/headshots/headshot7.webp",
-      "isOptimized": true
-    },
-    "/images/headshots/headshot7.jpeg": {
-      "width": 4560,
-      "height": 3648,
-      "aspectRatio": 1.25,
-      "orientation": "landscape",
-      "originalPath": "/images/headshots/headshot7.jpeg",
+      "originalPath": "/images/optimized/headshots/headshot7.webp",
       "optimizedPath": "/images/optimized/headshots/headshot7.webp",
       "isOptimized": true
     },
@@ -2003,16 +1004,7 @@
       "height": 3206,
       "aspectRatio": 1.2498440424204615,
       "orientation": "landscape",
-      "originalPath": "/images/headshots/headshot8.jpeg",
-      "optimizedPath": "/images/optimized/headshots/headshot8.webp",
-      "isOptimized": true
-    },
-    "/images/headshots/headshot8.jpeg": {
-      "width": 4007,
-      "height": 3206,
-      "aspectRatio": 1.2498440424204615,
-      "orientation": "landscape",
-      "originalPath": "/images/headshots/headshot8.jpeg",
+      "originalPath": "/images/optimized/headshots/headshot8.webp",
       "optimizedPath": "/images/optimized/headshots/headshot8.webp",
       "isOptimized": true
     },
@@ -2021,36 +1013,9 @@
       "height": 3648,
       "aspectRatio": 1,
       "orientation": "square",
-      "originalPath": "/images/headshots/headshot9.jpeg",
+      "originalPath": "/images/optimized/headshots/headshot9.webp",
       "optimizedPath": "/images/optimized/headshots/headshot9.webp",
       "isOptimized": true
-    },
-    "/images/headshots/headshot9.jpeg": {
-      "width": 3648,
-      "height": 3648,
-      "aspectRatio": 1,
-      "orientation": "square",
-      "originalPath": "/images/headshots/headshot9.jpeg",
-      "optimizedPath": "/images/optimized/headshots/headshot9.webp",
-      "isOptimized": true
-    },
-    "/images/jholt1.jpeg": {
-      "width": 8064,
-      "height": 6048,
-      "aspectRatio": 1.3333333333333333,
-      "orientation": "landscape",
-      "originalPath": "/images/jholt1.jpeg",
-      "optimizedPath": "/images/jholt1.jpeg",
-      "isOptimized": false
-    },
-    "/images/jholt2.jpeg": {
-      "width": 4879,
-      "height": 3253,
-      "aspectRatio": 1.499846295727021,
-      "orientation": "landscape",
-      "originalPath": "/images/jholt2.jpeg",
-      "optimizedPath": "/images/jholt2.jpeg",
-      "isOptimized": false
     },
     "/images/optimized/jholt1.webp": {
       "width": 8064,
@@ -2075,576 +1040,288 @@
       "height": 5588,
       "aspectRatio": 0.7999284180386542,
       "orientation": "portrait",
-      "originalPath": "/images/portraits/portrait-1.jpg",
+      "originalPath": "/images/optimized/portraits/portrait-1.webp",
       "optimizedPath": "/images/optimized/portraits/portrait-1.webp",
-      "isOptimized": false
-    },
-    "/images/portraits/portrait-1.jpg": {
-      "width": 4470,
-      "height": 5588,
-      "aspectRatio": 0.7999284180386542,
-      "orientation": "portrait",
-      "originalPath": "/images/portraits/portrait-1.jpg",
-      "optimizedPath": "/images/optimized/portraits/portrait-1.webp",
-      "isOptimized": false
+      "isOptimized": true
     },
     "/images/optimized/portraits/portrait-2.webp": {
       "width": 6465,
       "height": 4310,
       "aspectRatio": 1.5,
       "orientation": "landscape",
-      "originalPath": "/images/portraits/portrait-2.jpg",
+      "originalPath": "/images/optimized/portraits/portrait-2.webp",
       "optimizedPath": "/images/optimized/portraits/portrait-2.webp",
-      "isOptimized": false
-    },
-    "/images/portraits/portrait-2.jpg": {
-      "width": 6465,
-      "height": 4310,
-      "aspectRatio": 1.5,
-      "orientation": "landscape",
-      "originalPath": "/images/portraits/portrait-2.jpg",
-      "optimizedPath": "/images/optimized/portraits/portrait-2.webp",
-      "isOptimized": false
+      "isOptimized": true
     },
     "/images/optimized/portraits/portrait-3.webp": {
       "width": 6782,
       "height": 4521,
       "aspectRatio": 1.500110595001106,
       "orientation": "landscape",
-      "originalPath": "/images/portraits/portrait-3.jpg",
+      "originalPath": "/images/optimized/portraits/portrait-3.webp",
       "optimizedPath": "/images/optimized/portraits/portrait-3.webp",
-      "isOptimized": false
-    },
-    "/images/portraits/portrait-3.jpg": {
-      "width": 6782,
-      "height": 4521,
-      "aspectRatio": 1.500110595001106,
-      "orientation": "landscape",
-      "originalPath": "/images/portraits/portrait-3.jpg",
-      "optimizedPath": "/images/optimized/portraits/portrait-3.webp",
-      "isOptimized": false
+      "isOptimized": true
     },
     "/images/optimized/portraits/portrait-4.webp": {
       "width": 4672,
       "height": 7008,
       "aspectRatio": 0.6666666666666666,
       "orientation": "portrait",
-      "originalPath": "/images/portraits/portrait-4.jpg",
+      "originalPath": "/images/optimized/portraits/portrait-4.webp",
       "optimizedPath": "/images/optimized/portraits/portrait-4.webp",
-      "isOptimized": false
-    },
-    "/images/portraits/portrait-4.jpg": {
-      "width": 4672,
-      "height": 7008,
-      "aspectRatio": 0.6666666666666666,
-      "orientation": "portrait",
-      "originalPath": "/images/portraits/portrait-4.jpg",
-      "optimizedPath": "/images/optimized/portraits/portrait-4.webp",
-      "isOptimized": false
+      "isOptimized": true
     },
     "/images/optimized/portraits/senior-1.webp": {
       "width": 6000,
       "height": 4000,
       "aspectRatio": 1.5,
       "orientation": "landscape",
-      "originalPath": "/images/portraits/senior-1.jpeg",
+      "originalPath": "/images/optimized/portraits/senior-1.webp",
       "optimizedPath": "/images/optimized/portraits/senior-1.webp",
-      "isOptimized": false
-    },
-    "/images/portraits/senior-1.jpeg": {
-      "width": 6000,
-      "height": 4000,
-      "aspectRatio": 1.5,
-      "orientation": "landscape",
-      "originalPath": "/images/portraits/senior-1.jpeg",
-      "optimizedPath": "/images/optimized/portraits/senior-1.webp",
-      "isOptimized": false
+      "isOptimized": true
     },
     "/images/optimized/portraits/senior-10.webp": {
       "width": 5272,
       "height": 3515,
       "aspectRatio": 1.4998577524893315,
       "orientation": "landscape",
-      "originalPath": "/images/portraits/senior-10.jpeg",
+      "originalPath": "/images/optimized/portraits/senior-10.webp",
       "optimizedPath": "/images/optimized/portraits/senior-10.webp",
-      "isOptimized": false
-    },
-    "/images/portraits/senior-10.jpeg": {
-      "width": 5272,
-      "height": 3515,
-      "aspectRatio": 1.4998577524893315,
-      "orientation": "landscape",
-      "originalPath": "/images/portraits/senior-10.jpeg",
-      "optimizedPath": "/images/optimized/portraits/senior-10.webp",
-      "isOptimized": false
+      "isOptimized": true
     },
     "/images/optimized/portraits/senior-11.webp": {
       "width": 5472,
       "height": 3648,
       "aspectRatio": 1.5,
       "orientation": "landscape",
-      "originalPath": "/images/portraits/senior-11.jpeg",
+      "originalPath": "/images/optimized/portraits/senior-11.webp",
       "optimizedPath": "/images/optimized/portraits/senior-11.webp",
-      "isOptimized": false
-    },
-    "/images/portraits/senior-11.jpeg": {
-      "width": 5472,
-      "height": 3648,
-      "aspectRatio": 1.5,
-      "orientation": "landscape",
-      "originalPath": "/images/portraits/senior-11.jpeg",
-      "optimizedPath": "/images/optimized/portraits/senior-11.webp",
-      "isOptimized": false
+      "isOptimized": true
     },
     "/images/optimized/portraits/senior-12.webp": {
       "width": 3620,
       "height": 5431,
       "aspectRatio": 0.6665439145645369,
       "orientation": "portrait",
-      "originalPath": "/images/portraits/senior-12.jpeg",
+      "originalPath": "/images/optimized/portraits/senior-12.webp",
       "optimizedPath": "/images/optimized/portraits/senior-12.webp",
-      "isOptimized": false
-    },
-    "/images/portraits/senior-12.jpeg": {
-      "width": 3620,
-      "height": 5431,
-      "aspectRatio": 0.6665439145645369,
-      "orientation": "portrait",
-      "originalPath": "/images/portraits/senior-12.jpeg",
-      "optimizedPath": "/images/optimized/portraits/senior-12.webp",
-      "isOptimized": false
+      "isOptimized": true
     },
     "/images/optimized/portraits/senior-13.webp": {
       "width": 5472,
       "height": 3648,
       "aspectRatio": 1.5,
       "orientation": "landscape",
-      "originalPath": "/images/portraits/senior-13.jpeg",
+      "originalPath": "/images/optimized/portraits/senior-13.webp",
       "optimizedPath": "/images/optimized/portraits/senior-13.webp",
-      "isOptimized": false
-    },
-    "/images/portraits/senior-13.jpeg": {
-      "width": 5472,
-      "height": 3648,
-      "aspectRatio": 1.5,
-      "orientation": "landscape",
-      "originalPath": "/images/portraits/senior-13.jpeg",
-      "optimizedPath": "/images/optimized/portraits/senior-13.webp",
-      "isOptimized": false
+      "isOptimized": true
     },
     "/images/optimized/portraits/senior-14.webp": {
       "width": 5165,
       "height": 3443,
       "aspectRatio": 1.5001452221899507,
       "orientation": "landscape",
-      "originalPath": "/images/portraits/senior-14.jpeg",
+      "originalPath": "/images/optimized/portraits/senior-14.webp",
       "optimizedPath": "/images/optimized/portraits/senior-14.webp",
-      "isOptimized": false
-    },
-    "/images/portraits/senior-14.jpeg": {
-      "width": 5165,
-      "height": 3443,
-      "aspectRatio": 1.5001452221899507,
-      "orientation": "landscape",
-      "originalPath": "/images/portraits/senior-14.jpeg",
-      "optimizedPath": "/images/optimized/portraits/senior-14.webp",
-      "isOptimized": false
+      "isOptimized": true
     },
     "/images/optimized/portraits/senior-15.webp": {
       "width": 5263,
       "height": 3508,
       "aspectRatio": 1.5002850627137971,
       "orientation": "landscape",
-      "originalPath": "/images/portraits/senior-15.jpeg",
+      "originalPath": "/images/optimized/portraits/senior-15.webp",
       "optimizedPath": "/images/optimized/portraits/senior-15.webp",
-      "isOptimized": false
-    },
-    "/images/portraits/senior-15.jpeg": {
-      "width": 5263,
-      "height": 3508,
-      "aspectRatio": 1.5002850627137971,
-      "orientation": "landscape",
-      "originalPath": "/images/portraits/senior-15.jpeg",
-      "optimizedPath": "/images/optimized/portraits/senior-15.webp",
-      "isOptimized": false
+      "isOptimized": true
     },
     "/images/optimized/portraits/senior-16.webp": {
       "width": 3624,
       "height": 5436,
       "aspectRatio": 0.6666666666666666,
       "orientation": "portrait",
-      "originalPath": "/images/portraits/senior-16.jpeg",
+      "originalPath": "/images/optimized/portraits/senior-16.webp",
       "optimizedPath": "/images/optimized/portraits/senior-16.webp",
-      "isOptimized": false
-    },
-    "/images/portraits/senior-16.jpeg": {
-      "width": 3624,
-      "height": 5436,
-      "aspectRatio": 0.6666666666666666,
-      "orientation": "portrait",
-      "originalPath": "/images/portraits/senior-16.jpeg",
-      "optimizedPath": "/images/optimized/portraits/senior-16.webp",
-      "isOptimized": false
+      "isOptimized": true
     },
     "/images/optimized/portraits/senior-17.webp": {
       "width": 5203,
       "height": 3469,
       "aspectRatio": 1.4998558662438743,
       "orientation": "landscape",
-      "originalPath": "/images/portraits/senior-17.jpeg",
+      "originalPath": "/images/optimized/portraits/senior-17.webp",
       "optimizedPath": "/images/optimized/portraits/senior-17.webp",
-      "isOptimized": false
-    },
-    "/images/portraits/senior-17.jpeg": {
-      "width": 5203,
-      "height": 3469,
-      "aspectRatio": 1.4998558662438743,
-      "orientation": "landscape",
-      "originalPath": "/images/portraits/senior-17.jpeg",
-      "optimizedPath": "/images/optimized/portraits/senior-17.webp",
-      "isOptimized": false
+      "isOptimized": true
     },
     "/images/optimized/portraits/senior-18.webp": {
       "width": 5460,
       "height": 3640,
       "aspectRatio": 1.5,
       "orientation": "landscape",
-      "originalPath": "/images/portraits/senior-18.jpeg",
+      "originalPath": "/images/optimized/portraits/senior-18.webp",
       "optimizedPath": "/images/optimized/portraits/senior-18.webp",
-      "isOptimized": false
-    },
-    "/images/portraits/senior-18.jpeg": {
-      "width": 5460,
-      "height": 3640,
-      "aspectRatio": 1.5,
-      "orientation": "landscape",
-      "originalPath": "/images/portraits/senior-18.jpeg",
-      "optimizedPath": "/images/optimized/portraits/senior-18.webp",
-      "isOptimized": false
+      "isOptimized": true
     },
     "/images/optimized/portraits/senior-19.webp": {
       "width": 3484,
       "height": 4355,
       "aspectRatio": 0.8,
       "orientation": "portrait",
-      "originalPath": "/images/portraits/senior-19.jpeg",
+      "originalPath": "/images/optimized/portraits/senior-19.webp",
       "optimizedPath": "/images/optimized/portraits/senior-19.webp",
-      "isOptimized": false
-    },
-    "/images/portraits/senior-19.jpeg": {
-      "width": 3484,
-      "height": 4355,
-      "aspectRatio": 0.8,
-      "orientation": "portrait",
-      "originalPath": "/images/portraits/senior-19.jpeg",
-      "optimizedPath": "/images/optimized/portraits/senior-19.webp",
-      "isOptimized": false
+      "isOptimized": true
     },
     "/images/optimized/portraits/senior-2.webp": {
       "width": 3221,
       "height": 4832,
       "aspectRatio": 0.6665976821192053,
       "orientation": "portrait",
-      "originalPath": "/images/portraits/senior-2.jpg",
+      "originalPath": "/images/optimized/portraits/senior-2.webp",
       "optimizedPath": "/images/optimized/portraits/senior-2.webp",
-      "isOptimized": false
-    },
-    "/images/portraits/senior-2.jpg": {
-      "width": 3221,
-      "height": 4832,
-      "aspectRatio": 0.6665976821192053,
-      "orientation": "portrait",
-      "originalPath": "/images/portraits/senior-2.jpg",
-      "optimizedPath": "/images/optimized/portraits/senior-2.webp",
-      "isOptimized": false
+      "isOptimized": true
     },
     "/images/optimized/portraits/senior-20.webp": {
       "width": 3624,
       "height": 4530,
       "aspectRatio": 0.8,
       "orientation": "portrait",
-      "originalPath": "/images/portraits/senior-20.jpeg",
+      "originalPath": "/images/optimized/portraits/senior-20.webp",
       "optimizedPath": "/images/optimized/portraits/senior-20.webp",
-      "isOptimized": false
-    },
-    "/images/portraits/senior-20.jpeg": {
-      "width": 3624,
-      "height": 4530,
-      "aspectRatio": 0.8,
-      "orientation": "portrait",
-      "originalPath": "/images/portraits/senior-20.jpeg",
-      "optimizedPath": "/images/optimized/portraits/senior-20.webp",
-      "isOptimized": false
+      "isOptimized": true
     },
     "/images/optimized/portraits/senior-21.webp": {
       "width": 3575,
       "height": 5362,
       "aspectRatio": 0.6667288325251771,
       "orientation": "portrait",
-      "originalPath": "/images/portraits/senior-21.jpeg",
+      "originalPath": "/images/optimized/portraits/senior-21.webp",
       "optimizedPath": "/images/optimized/portraits/senior-21.webp",
-      "isOptimized": false
-    },
-    "/images/portraits/senior-21.jpeg": {
-      "width": 3575,
-      "height": 5362,
-      "aspectRatio": 0.6667288325251771,
-      "orientation": "portrait",
-      "originalPath": "/images/portraits/senior-21.jpeg",
-      "optimizedPath": "/images/optimized/portraits/senior-21.webp",
-      "isOptimized": false
+      "isOptimized": true
     },
     "/images/optimized/portraits/senior-22.webp": {
       "width": 5472,
       "height": 3648,
       "aspectRatio": 1.5,
       "orientation": "landscape",
-      "originalPath": "/images/portraits/senior-22.jpeg",
+      "originalPath": "/images/optimized/portraits/senior-22.webp",
       "optimizedPath": "/images/optimized/portraits/senior-22.webp",
-      "isOptimized": false
-    },
-    "/images/portraits/senior-22.jpeg": {
-      "width": 5472,
-      "height": 3648,
-      "aspectRatio": 1.5,
-      "orientation": "landscape",
-      "originalPath": "/images/portraits/senior-22.jpeg",
-      "optimizedPath": "/images/optimized/portraits/senior-22.webp",
-      "isOptimized": false
+      "isOptimized": true
     },
     "/images/optimized/portraits/senior-23.webp": {
       "width": 6731,
       "height": 4487,
       "aspectRatio": 1.5001114330287497,
       "orientation": "landscape",
-      "originalPath": "/images/portraits/senior-23.jpeg",
+      "originalPath": "/images/optimized/portraits/senior-23.webp",
       "optimizedPath": "/images/optimized/portraits/senior-23.webp",
-      "isOptimized": false
-    },
-    "/images/portraits/senior-23.jpeg": {
-      "width": 6731,
-      "height": 4487,
-      "aspectRatio": 1.5001114330287497,
-      "orientation": "landscape",
-      "originalPath": "/images/portraits/senior-23.jpeg",
-      "optimizedPath": "/images/optimized/portraits/senior-23.webp",
-      "isOptimized": false
+      "isOptimized": true
     },
     "/images/optimized/portraits/senior-24.webp": {
       "width": 7008,
       "height": 4672,
       "aspectRatio": 1.5,
       "orientation": "landscape",
-      "originalPath": "/images/portraits/senior-24.jpeg",
+      "originalPath": "/images/optimized/portraits/senior-24.webp",
       "optimizedPath": "/images/optimized/portraits/senior-24.webp",
-      "isOptimized": false
-    },
-    "/images/portraits/senior-24.jpeg": {
-      "width": 7008,
-      "height": 4672,
-      "aspectRatio": 1.5,
-      "orientation": "landscape",
-      "originalPath": "/images/portraits/senior-24.jpeg",
-      "optimizedPath": "/images/optimized/portraits/senior-24.webp",
-      "isOptimized": false
+      "isOptimized": true
     },
     "/images/optimized/portraits/senior-25.webp": {
       "width": 6968,
       "height": 4645,
       "aspectRatio": 1.50010764262648,
       "orientation": "landscape",
-      "originalPath": "/images/portraits/senior-25.jpeg",
+      "originalPath": "/images/optimized/portraits/senior-25.webp",
       "optimizedPath": "/images/optimized/portraits/senior-25.webp",
-      "isOptimized": false
-    },
-    "/images/portraits/senior-25.jpeg": {
-      "width": 6968,
-      "height": 4645,
-      "aspectRatio": 1.50010764262648,
-      "orientation": "landscape",
-      "originalPath": "/images/portraits/senior-25.jpeg",
-      "optimizedPath": "/images/optimized/portraits/senior-25.webp",
-      "isOptimized": false
+      "isOptimized": true
     },
     "/images/optimized/portraits/senior-26.webp": {
       "width": 6871,
       "height": 4581,
       "aspectRatio": 1.4998908535254312,
       "orientation": "landscape",
-      "originalPath": "/images/portraits/senior-26.jpeg",
+      "originalPath": "/images/optimized/portraits/senior-26.webp",
       "optimizedPath": "/images/optimized/portraits/senior-26.webp",
-      "isOptimized": false
-    },
-    "/images/portraits/senior-26.jpeg": {
-      "width": 6871,
-      "height": 4581,
-      "aspectRatio": 1.4998908535254312,
-      "orientation": "landscape",
-      "originalPath": "/images/portraits/senior-26.jpeg",
-      "optimizedPath": "/images/optimized/portraits/senior-26.webp",
-      "isOptimized": false
+      "isOptimized": true
     },
     "/images/optimized/portraits/senior-27.webp": {
       "width": 3625,
       "height": 5438,
       "aspectRatio": 0.6666053696211842,
       "orientation": "portrait",
-      "originalPath": "/images/portraits/senior-27.jpeg",
+      "originalPath": "/images/optimized/portraits/senior-27.webp",
       "optimizedPath": "/images/optimized/portraits/senior-27.webp",
-      "isOptimized": false
-    },
-    "/images/portraits/senior-27.jpeg": {
-      "width": 3625,
-      "height": 5438,
-      "aspectRatio": 0.6666053696211842,
-      "orientation": "portrait",
-      "originalPath": "/images/portraits/senior-27.jpeg",
-      "optimizedPath": "/images/optimized/portraits/senior-27.webp",
-      "isOptimized": false
+      "isOptimized": true
     },
     "/images/optimized/portraits/senior-28.webp": {
       "width": 3648,
       "height": 5472,
       "aspectRatio": 0.6666666666666666,
       "orientation": "portrait",
-      "originalPath": "/images/portraits/senior-28.jpg",
+      "originalPath": "/images/optimized/portraits/senior-28.webp",
       "optimizedPath": "/images/optimized/portraits/senior-28.webp",
-      "isOptimized": false
-    },
-    "/images/portraits/senior-28.jpg": {
-      "width": 3648,
-      "height": 5472,
-      "aspectRatio": 0.6666666666666666,
-      "orientation": "portrait",
-      "originalPath": "/images/portraits/senior-28.jpg",
-      "optimizedPath": "/images/optimized/portraits/senior-28.webp",
-      "isOptimized": false
+      "isOptimized": true
     },
     "/images/optimized/portraits/senior-3.webp": {
       "width": 4491,
       "height": 3593,
       "aspectRatio": 1.2499304202616197,
       "orientation": "landscape",
-      "originalPath": "/images/portraits/senior-3.jpeg",
+      "originalPath": "/images/optimized/portraits/senior-3.webp",
       "optimizedPath": "/images/optimized/portraits/senior-3.webp",
-      "isOptimized": false
-    },
-    "/images/portraits/senior-3.jpeg": {
-      "width": 4491,
-      "height": 3593,
-      "aspectRatio": 1.2499304202616197,
-      "orientation": "landscape",
-      "originalPath": "/images/portraits/senior-3.jpeg",
-      "optimizedPath": "/images/optimized/portraits/senior-3.webp",
-      "isOptimized": false
+      "isOptimized": true
     },
     "/images/optimized/portraits/senior-4.webp": {
       "width": 5393,
       "height": 3595,
       "aspectRatio": 1.5001390820584144,
       "orientation": "landscape",
-      "originalPath": "/images/portraits/senior-4.jpeg",
+      "originalPath": "/images/optimized/portraits/senior-4.webp",
       "optimizedPath": "/images/optimized/portraits/senior-4.webp",
-      "isOptimized": false
-    },
-    "/images/portraits/senior-4.jpeg": {
-      "width": 5393,
-      "height": 3595,
-      "aspectRatio": 1.5001390820584144,
-      "orientation": "landscape",
-      "originalPath": "/images/portraits/senior-4.jpeg",
-      "optimizedPath": "/images/optimized/portraits/senior-4.webp",
-      "isOptimized": false
+      "isOptimized": true
     },
     "/images/optimized/portraits/senior-5.webp": {
       "width": 3545,
       "height": 5317,
       "aspectRatio": 0.666729358660899,
       "orientation": "portrait",
-      "originalPath": "/images/portraits/senior-5.jpeg",
+      "originalPath": "/images/optimized/portraits/senior-5.webp",
       "optimizedPath": "/images/optimized/portraits/senior-5.webp",
-      "isOptimized": false
-    },
-    "/images/portraits/senior-5.jpeg": {
-      "width": 3545,
-      "height": 5317,
-      "aspectRatio": 0.666729358660899,
-      "orientation": "portrait",
-      "originalPath": "/images/portraits/senior-5.jpeg",
-      "optimizedPath": "/images/optimized/portraits/senior-5.webp",
-      "isOptimized": false
+      "isOptimized": true
     },
     "/images/optimized/portraits/senior-6.webp": {
       "width": 3637,
       "height": 5455,
       "aspectRatio": 0.6667277726856096,
       "orientation": "portrait",
-      "originalPath": "/images/portraits/senior-6.jpeg",
+      "originalPath": "/images/optimized/portraits/senior-6.webp",
       "optimizedPath": "/images/optimized/portraits/senior-6.webp",
-      "isOptimized": false
-    },
-    "/images/portraits/senior-6.jpeg": {
-      "width": 3637,
-      "height": 5455,
-      "aspectRatio": 0.6667277726856096,
-      "orientation": "portrait",
-      "originalPath": "/images/portraits/senior-6.jpeg",
-      "optimizedPath": "/images/optimized/portraits/senior-6.webp",
-      "isOptimized": false
+      "isOptimized": true
     },
     "/images/optimized/portraits/senior-7.webp": {
       "width": 4506,
       "height": 3379,
       "aspectRatio": 1.333530630364013,
       "orientation": "landscape",
-      "originalPath": "/images/portraits/senior-7.jpeg",
+      "originalPath": "/images/optimized/portraits/senior-7.webp",
       "optimizedPath": "/images/optimized/portraits/senior-7.webp",
-      "isOptimized": false
-    },
-    "/images/portraits/senior-7.jpeg": {
-      "width": 4506,
-      "height": 3379,
-      "aspectRatio": 1.333530630364013,
-      "orientation": "landscape",
-      "originalPath": "/images/portraits/senior-7.jpeg",
-      "optimizedPath": "/images/optimized/portraits/senior-7.webp",
-      "isOptimized": false
+      "isOptimized": true
     },
     "/images/optimized/portraits/senior-8.webp": {
       "width": 4675,
       "height": 3117,
       "aspectRatio": 1.4998395893487328,
       "orientation": "landscape",
-      "originalPath": "/images/portraits/senior-8.jpeg",
+      "originalPath": "/images/optimized/portraits/senior-8.webp",
       "optimizedPath": "/images/optimized/portraits/senior-8.webp",
-      "isOptimized": false
-    },
-    "/images/portraits/senior-8.jpeg": {
-      "width": 4675,
-      "height": 3117,
-      "aspectRatio": 1.4998395893487328,
-      "orientation": "landscape",
-      "originalPath": "/images/portraits/senior-8.jpeg",
-      "optimizedPath": "/images/optimized/portraits/senior-8.webp",
-      "isOptimized": false
+      "isOptimized": true
     },
     "/images/optimized/portraits/senior-9.webp": {
       "width": 5472,
       "height": 3648,
       "aspectRatio": 1.5,
       "orientation": "landscape",
-      "originalPath": "/images/portraits/senior-9.jpeg",
+      "originalPath": "/images/optimized/portraits/senior-9.webp",
       "optimizedPath": "/images/optimized/portraits/senior-9.webp",
-      "isOptimized": false
-    },
-    "/images/portraits/senior-9.jpeg": {
-      "width": 5472,
-      "height": 3648,
-      "aspectRatio": 1.5,
-      "orientation": "landscape",
-      "originalPath": "/images/portraits/senior-9.jpeg",
-      "optimizedPath": "/images/optimized/portraits/senior-9.webp",
-      "isOptimized": false
+      "isOptimized": true
     }
   }
 }

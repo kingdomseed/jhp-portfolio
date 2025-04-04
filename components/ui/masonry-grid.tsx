@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef, useCallback } from "react"
 import Image from "next/image"
-import { cn } from "@/lib/utils"
+import { cn, getOptimizedImagePath } from "@/lib/utils"
 
 // Import the image metadata
 let imageMetadata: { 
@@ -203,7 +203,7 @@ export function MasonryGrid({
           >
             <div className="relative h-full w-full">
                 <Image
-                  src={image.src}
+                  src={getOptimizedImagePath(image.src)}
                   alt={image.alt}
                   fill
                   priority={index < 6} // Prioritize loading the first 6 images
@@ -215,6 +215,9 @@ export function MasonryGrid({
                     const target = e.target as HTMLImageElement;
                     target.classList.add('loaded');
                     
+                    // Fade in the image when loading is complete
+                    target.style.opacity = '1';
+                    
                     // Log successful image loads for first few images
                     if (index < 5) {
                       console.log(`Image loaded: ${image.src}`);
@@ -223,10 +226,6 @@ export function MasonryGrid({
                   style={{
                     opacity: 0,
                     transition: 'opacity 0.3s ease-in-out',
-                  }}
-                  onLoadingComplete={(img) => {
-                    // Fade in the image when loading is complete
-                    img.style.opacity = '1';
                   }}
                   onError={() => {
                     console.error(`Failed to load image: ${image.src}`);

@@ -223,6 +223,18 @@ try {
   const metadataEntryCount = Object.keys(metadata).length;
   console.log(`Generated ${metadataEntryCount} metadata entries`);
 
+  // Fix the isOptimized flag for all images in the optimized directory
+  console.log('\n=== FIXING OPTIMIZED FLAGS ===');
+  Object.keys(metadata).forEach(path => {
+    if (path.includes('/optimized/')) {
+      if (metadata[path].isOptimized === false) {
+        console.log(`Setting isOptimized to true for: ${path}`);
+        metadata[path].isOptimized = true;
+      }
+    }
+  });
+  console.log('Optimized flags fixed');
+
   // Write metadata to JSON file
   fs.writeFileSync(OUTPUT_FILE, JSON.stringify({ images: metadata }, null, 2));
   console.log(`Metadata saved to ${OUTPUT_FILE}`);

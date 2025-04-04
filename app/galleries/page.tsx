@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button"
 import { MasonryGrid } from "@/components/ui/masonry-grid"
 import { EnhancedLightbox } from "@/components/ui/enhanced-lightbox"
 import { GalleryFilters } from "@/components/ui/gallery-filters"
+import { getOptimizedImagePath } from "@/lib/utils"
 
 // Image metadata - dynamically loaded from Next.js public directory structure
 interface GalleryImage {
@@ -227,9 +228,12 @@ export default function GalleriesPage() {
               category === 'events' ? 'Event Venue' :
               category === 'engagements' ? 'Engagement Session' : '';
             
+            // Ensure we're using the optimized path
+            const optimizedPath = getOptimizedImagePath(imagePath);
+            
             // Create the image object
             const imageObj: GalleryImage = {
-              src: imagePath,
+              src: optimizedPath,
               alt,
               category,
               date,
