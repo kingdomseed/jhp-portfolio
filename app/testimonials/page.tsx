@@ -163,7 +163,7 @@ const testimonials = {
       name: "Sarah & Michael",
       service: "Wedding Photography",
       quote: "Jason made our wedding day so special with his incredible photography. He captured every moment perfectly and made us feel completely at ease throughout the day. The photos are absolutely stunning and we couldn't be happier with the results!",
-      image: "/images/couples/couple-3.jpeg"
+      image: "/images/optimized/couples/couple-3.webp"
     }
   ],
   portraits: [
@@ -390,7 +390,7 @@ export default function TestimonialsPage() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               <div className="relative aspect-square rounded-lg overflow-hidden">
                 <Image 
-                  src="/images/couples/couple-1.jpeg" 
+                  src="/images/optimized/couples/couple-1.webp" 
                   alt="Happy client" 
                   fill
                   className="object-cover"
@@ -398,7 +398,7 @@ export default function TestimonialsPage() {
               </div>
               <div className="relative aspect-square rounded-lg overflow-hidden">
                 <Image 
-                  src="/images/family/family1.jpeg" 
+                  src="/images/optimized/family/family1.webp" 
                   alt="Happy client" 
                   fill
                   className="object-cover"
@@ -406,7 +406,7 @@ export default function TestimonialsPage() {
               </div>
               <div className="relative aspect-square rounded-lg overflow-hidden">
                 <Image 
-                  src="/images/headshots/headshot1.jpeg" 
+                  src="/images/optimized/headshots/headshot1.webp" 
                   alt="Happy client" 
                   fill
                   className="object-cover"
@@ -414,7 +414,7 @@ export default function TestimonialsPage() {
               </div>
               <div className="relative aspect-square rounded-lg overflow-hidden">
                 <Image 
-                  src="/images/events/event-1.jpg" 
+                  src="/images/optimized/events/event-1.webp" 
                   alt="Happy client" 
                   fill
                   className="object-cover"

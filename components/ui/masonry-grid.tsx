@@ -17,12 +17,24 @@ let imageMetadata: {
 // Dynamically import the metadata on client side
 const loadImageMetadata = async () => {
   try {
+    console.log('=== MASONRY GRID: LOADING METADATA ===');
+    
     // Only fetch once
     if (!imageMetadata) {
       const response = await fetch('/image-metadata.json');
       if (!response.ok) throw new Error('Failed to load image metadata');
       imageMetadata = await response.json();
-      console.log('Loaded image metadata for gallery');
+      
+      console.log(`Loaded metadata for ${Object.keys(imageMetadata?.images || {}).length} images`);
+      
+      // Log a sample of the metadata to verify its structure
+      const sampleKeys = Object.keys(imageMetadata?.images || {}).slice(0, 3);
+      console.log('Sample metadata entries:');
+      sampleKeys.forEach(key => {
+        console.log(`  ${key}: ${JSON.stringify(imageMetadata?.images[key])}`);
+      });
+    } else {
+      console.log('Using cached image metadata');
     }
     return imageMetadata;
   } catch (error) {
@@ -106,15 +118,36 @@ export function MasonryGrid({
   const getImageAspectRatio = useCallback((image: GalleryImage) => {
     // First try to get aspect ratio from metadata
     if (metadata?.images && metadata.images[image.src]) {
+      console.log(`Found aspect ratio in metadata for: ${image.src}`);
       return metadata.images[image.src].aspectRatio;
     }
     
+    // If not found, try with different path variations
+    // Check if there's a need to transform from standard path to optimized path
+    if (image.src && !image.src.includes('/optimized/')) {
+      const optimizedPath = image.src.replace(
+        /\/images\/([^/]+)\/([^/]+)\.([^.]+)$/,
+        '/images/optimized/$1/$2.webp'
+      );
+      
+      if (metadata?.images && metadata.images[optimizedPath]) {
+        console.log(`Found aspect ratio using optimized path: ${optimizedPath}`);
+        return metadata.images[optimizedPath].aspectRatio;
+      }
+      console.log(`No metadata found for optimized path: ${optimizedPath}`);
+    }
+    
+    // Log the missing metadata
+    console.log(`No metadata found for: ${image.src} - Using fallback`);
+    
     // If not found, use category-based fallback
     if (image.category && DEFAULT_ASPECT_RATIOS[image.category as keyof typeof DEFAULT_ASPECT_RATIOS]) {
+      console.log(`Using category fallback for: ${image.category}`);
       return DEFAULT_ASPECT_RATIOS[image.category as keyof typeof DEFAULT_ASPECT_RATIOS];
     }
     
     // Final fallback to default
+    console.log(`Using default fallback: ${DEFAULT_ASPECT_RATIOS.default}`);
     return DEFAULT_ASPECT_RATIOS.default;
   }, [metadata]);
 
@@ -183,6 +216,11 @@ export function MasonryGrid({
                     // Add a loaded class to help with animation
                     const target = e.target as HTMLImageElement;
                     target.classList.add('loaded');
+                    
+                    // Log successful image loads for first few images
+                    if (index < 5) {
+                      console.log(`Image loaded: ${image.src}`);
+                    }
                   }}
                   style={{
                     opacity: 0,
@@ -191,6 +229,9 @@ export function MasonryGrid({
                   onLoadingComplete={(img) => {
                     // Fade in the image when loading is complete
                     img.style.opacity = '1';
+                  }}
+                  onError={() => {
+                    console.error(`Failed to load image: ${image.src}`);
                   }}
                 />
               

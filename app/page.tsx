@@ -12,10 +12,10 @@ export default function Home() {
         {/* Hero Image Carousel */}
         <HeroCarousel 
           images={[
-            { src: "/images/couples/couple-1.jpeg", alt: "Couple photography" },
-            { src: "/images/events/event-1.jpg", alt: "Event photography" },
-            { src: "/images/portraits/portrait-1.jpg", alt: "Portrait photography" },
-            { src: "/images/couples/couple-2.jpeg", alt: "Engagement photography" }
+            { src: "/images/optimized/couples/couple-1.webp", alt: "Couple photography" },
+            { src: "/images/optimized/events/event-1.webp", alt: "Event photography" },
+            { src: "/images/optimized/portraits/portrait-1.webp", alt: "Portrait photography" },
+            { src: "/images/optimized/couples/couple-2.webp", alt: "Engagement photography" }
           ]}
           interval={6000}
         />
@@ -91,7 +91,7 @@ export default function Home() {
             <div className="group relative overflow-hidden rounded-2xl shadow-soft transition-all hover:shadow-hover">
               <div className="aspect-[4/5] w-full">
                 <Image 
-                  src="/images/portraits/portrait-1.jpg" 
+                  src="/images/optimized/portraits/portrait-1.webp" 
                   alt="Portrait Photography" 
                   width={400} 
                   height={500}
@@ -161,7 +161,7 @@ export default function Home() {
             <div className="group relative overflow-hidden rounded-2xl shadow-soft transition-all hover:shadow-hover">
               <div className="aspect-[4/5] w-full">
                 <Image 
-                  src="/images/couples/couple-3.jpeg" 
+                  src="/images/optimized/couples/couple-3.webp" 
                   alt="Wedding Photography" 
                   width={400} 
                   height={500}
@@ -231,7 +231,7 @@ export default function Home() {
             <div className="group relative overflow-hidden rounded-2xl shadow-soft transition-all hover:shadow-hover">
               <div className="aspect-[4/5] w-full">
                 <Image 
-                  src="/images/couples/couple-2.jpeg" 
+                  src="/images/optimized/couples/couple-2.webp" 
                   alt="Engagement Photography" 
                   width={400} 
                   height={500}
@@ -304,7 +304,7 @@ export default function Home() {
             <div className="group relative overflow-hidden rounded-2xl shadow-soft transition-all hover:shadow-hover">
               <div className="aspect-[4/5] w-full">
                 <Image 
-                  src="/images/events/event-1.jpg" 
+                  src="/images/optimized/events/event-1.webp" 
                   alt="Event Photography" 
                   width={400} 
                   height={500}
@@ -435,35 +435,35 @@ export default function Home() {
                   quote: "Jason made our wedding day so special with his incredible photography. He captured every moment perfectly and made us feel completely at ease. The photos are absolutely stunning!",
                   name: "Sarah & Michael",
                   role: "Wedding Photography",
-                  image: "/images/couples/couple-2.jpeg",
+                  image: "/images/optimized/couples/couple-2.webp",
                   rating: 5
                 },
                 {
                   quote: "I was nervous about my portrait session, but Jason made me feel so comfortable. The results were beyond my expectations - he truly captured my personality in every shot.",
                   name: "Emily Johnson",
                   role: "Portrait Session",
-                  image: "/images/headshots/headshot3.jpeg",
+                  image: "/images/optimized/headshots/headshot3.webp",
                   rating: 5
                 },
                 {
                   quote: "Jason photographed our corporate event and delivered exceptional results. He was professional, unobtrusive, and captured all the key moments. We'll definitely be booking him again!",
                   name: "David Williams",
                   role: "Corporate Event",
-                  image: "/images/headshots/headshot7.jpeg",
+                  image: "/images/optimized/headshots/headshot7.webp",
                   rating: 5
                 },
                 {
                   quote: "Our family photos turned out amazing! Jason was great with our kids and somehow managed to get everyone looking at the camera at the same time. A true miracle worker!",
                   name: "The Andersons",
                   role: "Family Session",
-                  image: "/images/family/family-2.jpeg",
+                  image: "/images/optimized/family/family-2.webp",
                   rating: 5
                 },
                 {
                   quote: "The engagement photos Jason took for us are absolutely perfect. He found the most beautiful locations and made us feel so natural in front of the camera.",
                   name: "Jessica & Tom",
                   role: "Engagement Session",
-                  image: "/images/couples/couple-4.jpeg",
+                  image: "/images/optimized/couples/couple-4.webp",
                   rating: 5
                 }
               ]}

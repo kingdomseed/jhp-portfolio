@@ -47,7 +47,7 @@ const weddingImages = [
   ...Array.from({ length: 10 }, (_, i) => {
     const eventNum = i + 36;
     return {
-      src: `/images/events/event-${eventNum}.jpg`,
+      src: `/images/optimized/events/event-${eventNum}.webp`,
       alt: `Wedding event ${i + 1}`,
       category: 'weddings',
       date: '2024-02-28',
@@ -56,28 +56,28 @@ const weddingImages = [
   }),
   // From couples directory - specific wedding-appropriate couples
   {
-    src: '/images/couples/couple-8.jpeg',
+    src: '/images/optimized/couples/couple-8.webp',
     alt: "Couple's ceremony",
     category: 'weddings',
     date: '2024-01-15',
     location: 'Rustic Venue'
   },
   {
-    src: '/images/couples/couple-14.jpg',
+    src: '/images/optimized/couples/couple-14.webp',
     alt: 'Romantic wedding moment',
     category: 'weddings',
     date: '2024-01-10',
     location: 'Beach Wedding'
   },
   {
-    src: '/images/couples/couple-20.jpg',
+    src: '/images/optimized/couples/couple-20.webp',
     alt: 'Wedding portrait',
     category: 'weddings',
     date: '2023-12-18',
     location: 'Church'
   },
   {
-    src: '/images/couples/couple-29.jpg',
+    src: '/images/optimized/couples/couple-29.webp',
     alt: 'Elegant wedding',
     category: 'weddings',
     date: '2023-11-05',
@@ -111,11 +111,18 @@ export default function GalleriesPage() {
     
     const loadMetadata = async () => {
       try {
+        console.log('=== IMAGE METADATA LOADING ===');
         const response = await fetch('/image-metadata.json');
         if (!response.ok) throw new Error('Failed to load image metadata');
         
         const data = await response.json();
         const metadata = data.images;
+        
+        console.log(`Loaded metadata for ${Object.keys(metadata).length} images`);
+        console.log('Sample paths from metadata:');
+        Object.keys(metadata).slice(0, 5).forEach(path => {
+          console.log(`  ${path} (Optimized: ${path.includes('/optimized/')})`);
+        });
         
         // Temporary containers for each category
         const portraits: GalleryImage[] = [];
@@ -125,47 +132,66 @@ export default function GalleriesPage() {
         const engagements: GalleryImage[] = [];
         
         // Process each image path from the metadata
+        console.log('\n=== PROCESSING IMAGE PATHS ===');
         Object.keys(metadata).forEach(path => {
           // Clean up the path for processing
           const imagePath = path.startsWith('/') ? path : `/${path}`;
           
           // Skip non-image files
-          if (!imagePath.match(/\.(jpg|jpeg|png|webp)$/i)) return;
+          if (!imagePath.match(/\.(jpg|jpeg|png|webp)$/i)) {
+            console.log(`Skipping non-image file: ${imagePath}`);
+            return;
+          }
           
           // Extract key information from path
           let category: string | null = null;
           let alt = "Photography";
           
+          console.log(`Processing: ${imagePath}`);
+          
           // Determine category from path
           if (imagePath.includes('/portraits/')) {
             category = 'portraits';
             alt = "Portrait photography";
+            console.log(`  Category: portraits`);
           } else if (imagePath.includes('/headshots/')) {
             category = 'headshots';
             alt = "Professional headshot";
+            console.log(`  Category: headshots`);
           } else if (imagePath.includes('/family/')) {
             category = 'family';
             alt = "Family photography";
+            console.log(`  Category: family`);
           } else if (imagePath.includes('/events/')) {
             // Skip events 36-45 as they're already in weddings
             const eventMatch = imagePath.match(/\/events\/event-(\d+)/i);
             if (eventMatch) {
               const eventNum = parseInt(eventMatch[1], 10);
-              if (weddingEventNumbers.includes(eventNum)) return;
+              if (weddingEventNumbers.includes(eventNum)) {
+                console.log(`  Skipping: event-${eventNum} (already in weddings)`);
+                return;
+              }
             }
             
             category = 'events';
             alt = "Event photography";
+            console.log(`  Category: events`);
           } else if (imagePath.includes('/couples/')) {
             // Skip specific couples images already in weddings
             const coupleMatch = imagePath.match(/\/couples\/couple-(\d+)/i);
             if (coupleMatch) {
               const coupleNum = parseInt(coupleMatch[1], 10);
-              if (weddingCoupleNumbers.includes(coupleNum)) return;
+              if (weddingCoupleNumbers.includes(coupleNum)) {
+                console.log(`  Skipping: couple-${coupleNum} (already in weddings)`);
+                return;
+              }
             }
             
             category = 'engagements';
             alt = "Engagement photography";
+            console.log(`  Category: engagements`);
+          } else {
+            console.log(`  No category match found`);
           }
           
           // If we identified a category, create the image object
@@ -220,8 +246,20 @@ export default function GalleriesPage() {
         galleryImages.events = events;
         galleryImages.engagements = engagements;
         
+        // Log final category counts
+        console.log('\n=== CATEGORY COUNTS AFTER PROCESSING ===');
+        console.log(`portraits: ${portraits.length}`);
+        console.log(`headshots: ${headshots.length}`);
+        console.log(`family: ${family.length}`);
+        console.log(`events: ${events.length}`);
+        console.log(`engagements: ${engagements.length}`);
+        console.log(`weddings: ${galleryImages.weddings.length} (pre-defined)`);
+        
         // Force re-render with new images
+        console.log('\n=== TRIGGERING GALLERY UPDATE ===');
+        const oldState = galleryUpdated;
         setGalleryUpdated(prevState => !prevState);
+        console.log(`Gallery update state changed: ${oldState} → ${!oldState}`);
       } catch (error) {
         console.error('Error loading image metadata:', error);
       }
@@ -232,23 +270,99 @@ export default function GalleriesPage() {
   
   // Combine all images for the "all" category and shuffle them
   const allImages = useMemo(() => {
-    // Gather all images from all categories
+    console.log('\n=== SHUFFLE ALGORITHM EXECUTION ===');
+    console.log(`Timestamp: ${new Date().toISOString()}`);
+    console.log(`Trigger: galleryUpdated = ${JSON.stringify(galleryUpdated)}`);
+    
+    // Log each category's contribution to the combined array
+    console.log('\nCATEGORY CONTRIBUTIONS TO SHUFFLE:');
+    console.log(`portraits: ${galleryImages.portraits.length} images`);
+    console.log(`weddings: ${galleryImages.weddings.length} images`);
+    console.log(`engagements: ${galleryImages.engagements.length} images`);
+    console.log(`events: ${galleryImages.events.length} images`);
+    console.log(`family: ${galleryImages.family.length} images`);
+    console.log(`headshots: ${galleryImages.headshots.length} images`);
+    
+    // Create and log the combined array before shuffling with source category tags
+    const portraitsWithTag = galleryImages.portraits.map(img => ({...img, _sourceCategory: 'portraits'}));
+    const weddingsWithTag = galleryImages.weddings.map(img => ({...img, _sourceCategory: 'weddings'}));
+    const engagementsWithTag = galleryImages.engagements.map(img => ({...img, _sourceCategory: 'engagements'}));
+    const eventsWithTag = galleryImages.events.map(img => ({...img, _sourceCategory: 'events'}));
+    const familyWithTag = galleryImages.family.map(img => ({...img, _sourceCategory: 'family'}));
+    const headshotsWithTag = galleryImages.headshots.map(img => ({...img, _sourceCategory: 'headshots'}));
+    
     const combined = [
-      ...galleryImages.portraits,
-      ...galleryImages.weddings,
-      ...galleryImages.family,
-      ...galleryImages.engagements,
-      ...galleryImages.events,
-      ...galleryImages.headshots,
+      ...portraitsWithTag,
+      ...weddingsWithTag,
+      ...engagementsWithTag,
+      ...eventsWithTag,
+      ...familyWithTag,
+      ...headshotsWithTag,
     ];
     
-    // Thoroughly shuffle the combined array using Fisher-Yates algorithm
-    for (let i = combined.length - 1; i > 0; i--) {
+    console.log(`\nPRE-SHUFFLE ARRAY: ${combined.length} total images`);
+    
+    // Log category distribution before shuffle
+    const preCategoryCounts: Record<string, number> = {};
+    combined.forEach(img => {
+      const category = img._sourceCategory as string;
+      preCategoryCounts[category] = (preCategoryCounts[category] || 0) + 1;
+    });
+    console.log('Pre-shuffle category distribution:', preCategoryCounts);
+    
+    // Log first and last 5 items of pre-shuffled array
+    console.log('\nPRE-SHUFFLE FIRST 5 ITEMS:');
+    combined.slice(0, 5).forEach((img, i) => {
+      console.log(`  ${i}: ${img.src} (${img._sourceCategory})`);
+    });
+    console.log('\nPRE-SHUFFLE LAST 5 ITEMS:');
+    combined.slice(-5).forEach((img, i) => {
+      console.log(`  ${combined.length - 5 + i}: ${img.src} (${img._sourceCategory})`);
+    });
+    
+    // Log the shuffling process
+    console.log('\nSHUFFLING PROCESS STARTED');
+    const shuffled = [...combined];
+    for (let i = shuffled.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
-      [combined[i], combined[j]] = [combined[j], combined[i]];
+      // Log every 50th swap to avoid console flood
+      if (i % 50 === 0) {
+        console.log(`  Swap ${i}: index ${i} (${shuffled[i]._sourceCategory}) with index ${j} (${shuffled[j]._sourceCategory})`);
+      }
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
     }
     
-    return combined;
+    // Log category distribution after shuffle
+    const postCategoryCounts: Record<string, number> = {};
+    shuffled.forEach(img => {
+      const category = img._sourceCategory as string;
+      postCategoryCounts[category] = (postCategoryCounts[category] || 0) + 1;
+    });
+    console.log('\nPost-shuffle category distribution:', postCategoryCounts);
+    
+    // Log first and last 5 items of shuffled array
+    console.log('\nPOST-SHUFFLE FIRST 5 ITEMS:');
+    shuffled.slice(0, 5).forEach((img, i) => {
+      console.log(`  ${i}: ${img.src} (${img._sourceCategory})`);
+    });
+    console.log('\nPOST-SHUFFLE LAST 5 ITEMS:');
+    shuffled.slice(-5).forEach((img, i) => {
+      console.log(`  ${shuffled.length - 5 + i}: ${img.src} (${img._sourceCategory})`);
+    });
+    
+    // Analyze if shuffle was effective
+    let positionChanges = 0;
+    for (let i = 0; i < combined.length; i++) {
+      if (combined[i].src !== shuffled[i].src) {
+        positionChanges++;
+      }
+    }
+    const changePercentage = (positionChanges / combined.length) * 100;
+    console.log(`\nShuffle effectiveness: ${positionChanges}/${combined.length} positions changed (${changePercentage.toFixed(2)}%)`);
+    
+    // Remove our temporary _sourceCategory tag before returning
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    return shuffled.map(({_sourceCategory, ...rest}) => rest);
   }, [galleryUpdated]); // React to gallery updates
 
   const [lightboxOpen, setLightboxOpen] = useState(false);
@@ -269,36 +383,53 @@ export default function GalleriesPage() {
 
   // Filter and sort images when category or sort option changes
   useEffect(() => {
+    console.log('\n=== FILTER & SORT EFFECT TRIGGERED ===');
+    console.log(`Current category: ${currentCategory}`);
+    console.log(`Current sort: ${sortBy}`);
+    console.log(`allImages length: ${allImages.length}`);
+    
     // Skip processing if no images available
-    if (!allImages.length) return;
+    if (!allImages.length) {
+      console.log('No images available, skipping processing');
+      return;
+    }
     
     let filteredImages: GalleryImage[];
     
     // Select images based on category
     if (currentCategory === "all") {
-      // For "all" category, use the pre-shuffled allImages array
+      console.log('Using pre-shuffled allImages array');
       filteredImages = [...allImages];
+      console.log(`Selected ${filteredImages.length} images from "all" category`);
     } else {
-      // For specific categories, use the images from that category
+      console.log(`Filtering for category: ${currentCategory}`);
       filteredImages = [...galleryImages[currentCategory as keyof typeof galleryImages]];
+      console.log(`Selected ${filteredImages.length} images from "${currentCategory}" category`);
     }
     
     // Apply specific sorting if requested (otherwise keep randomized for "all")
     if (currentCategory !== "all" || ["newest", "oldest", "az", "za"].includes(sortBy)) {
+      console.log(`Applying sort: ${sortBy}`);
+      
       switch (sortBy) {
         case "newest":
+          console.log('Sorting by date (newest first)');
           filteredImages.sort((a, b) => (b.date || "").localeCompare(a.date || ""));
           break;
         case "oldest":
+          console.log('Sorting by date (oldest first)');
           filteredImages.sort((a, b) => (a.date || "").localeCompare(b.date || ""));
           break;
         case "az":
+          console.log('Sorting alphabetically A-Z');
           filteredImages.sort((a, b) => a.alt.localeCompare(b.alt));
           break;
         case "za":
+          console.log('Sorting alphabetically Z-A');
           filteredImages.sort((a, b) => b.alt.localeCompare(a.alt));
           break;
         case "popular":
+          console.log('Applying random shuffle for "popular" sort');
           // Shuffle again if popular is explicitly selected
           for (let i = filteredImages.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
@@ -306,9 +437,18 @@ export default function GalleriesPage() {
           }
           break;
       }
+    } else {
+      console.log(`Keeping pre-shuffled order (${sortBy})`);
     }
     
+    // Log sample of filtered images
+    console.log('\nSample of filtered/sorted images:');
+    filteredImages.slice(0, 3).forEach((img, i) => {
+      console.log(`  ${i}: ${img.src} (${img.category})`);
+    });
+    
     // Update displayed images
+    console.log(`Updating displayed images: ${filteredImages.length} total`);
     setDisplayedImages(filteredImages);
   }, [currentCategory, sortBy, allImages]);
 
