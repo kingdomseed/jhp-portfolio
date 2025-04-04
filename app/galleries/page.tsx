@@ -102,7 +102,11 @@ interface GalleryImage {
 
 export default function GalleriesPage() {
   // State to force re-render when gallery is updated
-  const [galleryUpdated, setGalleryUpdated] = useState(false);
+  // Using an object with a timestamp ensures the reference changes every time
+  const [galleryUpdated, setGalleryUpdated] = useState({
+    timestamp: Date.now(),
+    count: 0
+  });
   
   // Load and process image metadata from the public directory
   useEffect(() => {
@@ -149,50 +153,64 @@ export default function GalleriesPage() {
           
           console.log(`Processing: ${imagePath}`);
           
-          // Determine category from path
-          if (imagePath.includes('/portraits/')) {
-            category = 'portraits';
-            alt = "Portrait photography";
-            console.log(`  Category: portraits`);
-          } else if (imagePath.includes('/headshots/')) {
-            category = 'headshots';
-            alt = "Professional headshot";
-            console.log(`  Category: headshots`);
-          } else if (imagePath.includes('/family/')) {
-            category = 'family';
-            alt = "Family photography";
-            console.log(`  Category: family`);
-          } else if (imagePath.includes('/events/')) {
-            // Skip events 36-45 as they're already in weddings
-            const eventMatch = imagePath.match(/\/events\/event-(\d+)/i);
-            if (eventMatch) {
-              const eventNum = parseInt(eventMatch[1], 10);
-              if (weddingEventNumbers.includes(eventNum)) {
-                console.log(`  Skipping: event-${eventNum} (already in weddings)`);
-                return;
-              }
-            }
-            
-            category = 'events';
-            alt = "Event photography";
-            console.log(`  Category: events`);
-          } else if (imagePath.includes('/couples/')) {
-            // Skip specific couples images already in weddings
-            const coupleMatch = imagePath.match(/\/couples\/couple-(\d+)/i);
-            if (coupleMatch) {
-              const coupleNum = parseInt(coupleMatch[1], 10);
-              if (weddingCoupleNumbers.includes(coupleNum)) {
-                console.log(`  Skipping: couple-${coupleNum} (already in weddings)`);
-                return;
-              }
-            }
-            
-            category = 'engagements';
-            alt = "Engagement photography";
-            console.log(`  Category: engagements`);
-          } else {
-            console.log(`  No category match found`);
-          }
+  // Match against both optimized and regular paths
+  // Create regex patterns that will match both /category/ and /optimized/category/
+  const portraitsPattern = /\/(optimized\/)?portraits\//i;
+  const headshotsPattern = /\/(optimized\/)?headshots\//i;
+  const familyPattern = /\/(optimized\/)?family\//i;
+  const eventsPattern = /\/(optimized\/)?events\//i;
+  const couplesPattern = /\/(optimized\/)?couples\//i;
+  
+  // Log whether this is an optimized path
+  const isOptimized = imagePath.includes('/optimized/');
+  console.log(`  Optimized: ${isOptimized}`);
+
+  // Determine category from path
+  if (portraitsPattern.test(imagePath)) {
+    category = 'portraits';
+    alt = "Portrait photography";
+    console.log(`  Category: portraits`);
+  } else if (headshotsPattern.test(imagePath)) {
+    category = 'headshots';
+    alt = "Professional headshot";
+    console.log(`  Category: headshots`);
+  } else if (familyPattern.test(imagePath)) {
+    category = 'family';
+    alt = "Family photography";
+    console.log(`  Category: family`);
+  } else if (eventsPattern.test(imagePath)) {
+    // Skip events 36-45 as they're already in weddings
+    // Extract event number regardless of optimized path
+    const eventMatch = imagePath.match(/\/(?:optimized\/)?events\/event-(\d+)/i);
+    if (eventMatch) {
+      const eventNum = parseInt(eventMatch[1], 10);
+      if (weddingEventNumbers.includes(eventNum)) {
+        console.log(`  Skipping: event-${eventNum} (already in weddings)`);
+        return;
+      }
+    }
+    
+    category = 'events';
+    alt = "Event photography";
+    console.log(`  Category: events`);
+  } else if (couplesPattern.test(imagePath)) {
+    // Skip specific couples images already in weddings
+    // Extract couple number regardless of optimized path
+    const coupleMatch = imagePath.match(/\/(?:optimized\/)?couples\/couple-(\d+)/i);
+    if (coupleMatch) {
+      const coupleNum = parseInt(coupleMatch[1], 10);
+      if (weddingCoupleNumbers.includes(coupleNum)) {
+        console.log(`  Skipping: couple-${coupleNum} (already in weddings)`);
+        return;
+      }
+    }
+    
+    category = 'engagements';
+    alt = "Engagement photography";
+    console.log(`  Category: engagements`);
+  } else {
+    console.log(`  No category match found`);
+  }
           
           // If we identified a category, create the image object
           if (category) {
@@ -257,9 +275,13 @@ export default function GalleriesPage() {
         
         // Force re-render with new images
         console.log('\n=== TRIGGERING GALLERY UPDATE ===');
-        const oldState = galleryUpdated;
-        setGalleryUpdated(prevState => !prevState);
-        console.log(`Gallery update state changed: ${oldState} → ${!oldState}`);
+        const oldTimestamp = galleryUpdated.timestamp;
+        const newTimestamp = Date.now();
+        setGalleryUpdated(prev => ({
+          timestamp: newTimestamp,
+          count: prev.count + 1
+        }));
+        console.log(`Gallery update timestamp changed: ${oldTimestamp} → ${newTimestamp} (count: ${galleryUpdated.count + 1})`);
       } catch (error) {
         console.error('Error loading image metadata:', error);
       }
@@ -509,11 +531,36 @@ export default function GalleriesPage() {
             <h2 className="font-cormorant text-3xl font-semibold text-center mb-6">Browse My Work</h2>
             
             {/* Gallery Filters Component */}
-            <GalleryFilters 
-              categories={Object.keys(galleryImages)}
-              onCategoryChange={handleCategoryChange}
-              onSortChange={handleSortChange}
-            />
+            <div>
+              <GalleryFilters 
+                categories={Object.keys(galleryImages)}
+                onCategoryChange={handleCategoryChange}
+                onSortChange={handleSortChange}
+              />
+              
+              {/* Add a manual refresh button to help force re-rendering */}
+              <div className="flex justify-center mt-4">
+                <Button 
+                  variant="outline" 
+                  size="sm"
+                  onClick={() => {
+                    console.log('\n=== MANUAL GALLERY REFRESH TRIGGERED ===');
+                    const newTimestamp = Date.now();
+                    setGalleryUpdated(prev => ({
+                      timestamp: newTimestamp,
+                      count: prev.count + 1
+                    }));
+                    console.log(`Manual gallery update: timestamp ${newTimestamp} (count: ${galleryUpdated.count + 1})`);
+                  }}
+                  className="text-xs rounded-full px-3"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                  </svg>
+                  Refresh Gallery
+                </Button>
+              </div>
+            </div>
           </div>
           
           {/* Masonry Grid Component with loading optimization */}
