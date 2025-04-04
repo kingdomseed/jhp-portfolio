@@ -117,37 +117,54 @@ export function MasonryGrid({
 
   // Helper function to get image aspect ratio
   const getImageAspectRatio = useCallback((image: GalleryImage) => {
-    // First try to get aspect ratio from metadata
-    if (metadata?.images && metadata.images[image.src]) {
-      return metadata.images[image.src].aspectRatio;
+    // Keep a static cache to prevent repeated lookups causing re-renders
+    const aspectRatioCache = new Map<string, number>();
+    
+    // If this path has been cached, return the cached value
+    if (aspectRatioCache.has(image.src)) {
+      return aspectRatioCache.get(image.src)!;
     }
     
-    // If not found, try with different path variations
-    // Check if there's a need to transform from standard path to optimized path
-    if (image.src && !image.src.includes('/optimized/')) {
-      const optimizedPath = image.src.replace(
-        /\/images\/([^/]+)\/([^/]+)\.([^.]+)$/,
-        '/images/optimized/$1/$2.webp'
-      );
-      
-      if (metadata?.images && metadata.images[optimizedPath]) {
-        return metadata.images[optimizedPath].aspectRatio;
+    let aspectRatio: number | undefined;
+    
+    // Try all possible metadata paths to find the aspect ratio
+    if (metadata?.images) {
+      // Try exact path match
+      if (metadata.images[image.src]) {
+        aspectRatio = metadata.images[image.src].aspectRatio;
       }
-      console.log(`No metadata found for optimized path: ${optimizedPath}`);
+      // Try without optimized prefix
+      else if (image.src.includes('/optimized/')) {
+        const nonOptimizedPath = image.src.replace('/optimized/', '/');
+        if (metadata.images[nonOptimizedPath]) {
+          aspectRatio = metadata.images[nonOptimizedPath].aspectRatio;
+        }
+      }
+      // Try with optimized prefix
+      else if (!image.src.includes('/optimized/')) {
+        const optimizedPath = image.src.replace(
+          /\/images\/([^/]+)\/([^/]+)\.([^.]+)$/,
+          '/images/optimized/$1/$2.webp'
+        );
+        if (metadata.images[optimizedPath]) {
+          aspectRatio = metadata.images[optimizedPath].aspectRatio;
+        }
+      }
     }
     
-    // Log the missing metadata
-    console.log(`No metadata found for: ${image.src} - Using fallback`);
-    
-    // If not found, use category-based fallback
-    if (image.category && DEFAULT_ASPECT_RATIOS[image.category as keyof typeof DEFAULT_ASPECT_RATIOS]) {
-      console.log(`Using category fallback for: ${image.category}`);
-      return DEFAULT_ASPECT_RATIOS[image.category as keyof typeof DEFAULT_ASPECT_RATIOS];
+    // If no metadata found, use category-based fallback
+    if (aspectRatio === undefined) {
+      if (image.category && DEFAULT_ASPECT_RATIOS[image.category as keyof typeof DEFAULT_ASPECT_RATIOS]) {
+        aspectRatio = DEFAULT_ASPECT_RATIOS[image.category as keyof typeof DEFAULT_ASPECT_RATIOS];
+      } else {
+        // Final fallback to default
+        aspectRatio = DEFAULT_ASPECT_RATIOS.default;
+      }
     }
     
-    // Final fallback to default
-    console.log(`Using default fallback: ${DEFAULT_ASPECT_RATIOS.default}`);
-    return DEFAULT_ASPECT_RATIOS.default;
+    // Cache the result to prevent repeated lookups
+    aspectRatioCache.set(image.src, aspectRatio);
+    return aspectRatio;
   }, [metadata]);
 
   // Calculate optimal layout for images
@@ -320,7 +337,7 @@ export function MasonryGrid({
       resizeObserver.observe(gridRef.current);
       return () => resizeObserver.disconnect();
     }
-  }, [calculateLayout, metadata, visibleCount]); // Re-run when metadata loads or visible count changes
+  }, [calculateLayout, visibleCount, images.length]); // Only re-run when these change
 
   return (
     <div className={cn("w-full", className)}>
