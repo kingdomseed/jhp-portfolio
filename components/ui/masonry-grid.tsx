@@ -118,7 +118,6 @@ export function MasonryGrid({
   const getImageAspectRatio = useCallback((image: GalleryImage) => {
     // First try to get aspect ratio from metadata
     if (metadata?.images && metadata.images[image.src]) {
-      console.log(`Found aspect ratio in metadata for: ${image.src}`);
       return metadata.images[image.src].aspectRatio;
     }
     
@@ -131,7 +130,6 @@ export function MasonryGrid({
       );
       
       if (metadata?.images && metadata.images[optimizedPath]) {
-        console.log(`Found aspect ratio using optimized path: ${optimizedPath}`);
         return metadata.images[optimizedPath].aspectRatio;
       }
       console.log(`No metadata found for optimized path: ${optimizedPath}`);
