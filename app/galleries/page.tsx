@@ -53,7 +53,6 @@ export default function GalleriesPage() {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState<GalleryImage | null>(null);
   const [activeCategory, setActiveCategory] = useState("all");
-  const [sortBy, setSortBy] = useState("random");
   
   // Load all images at once with a single function
   useEffect(() => {
@@ -138,44 +137,24 @@ export default function GalleriesPage() {
     loadAllImages();
   }, [refreshKey]); // Only re-run if refreshKey changes
   
-  // The displayed images based on category and sort selection
+  // The displayed images based on category selection
   const displayedImages = useMemo(() => {
     if (isLoading) return [];
     
     // For "all" category, combine and shuffle all images
     if (activeCategory === "all") {
       const allImages = Object.values(galleryImages).flat();
-      return sortBy === "random" ? shuffleArray(allImages) : sortImages(allImages, sortBy);
+      return shuffleArray(allImages);
     }
     
-    // Otherwise, return the selected category with appropriate sorting
+    // Otherwise, return the selected category with date sorting
     const categoryImages = galleryImages[activeCategory as keyof typeof galleryImages] || [];
-    return sortImages(categoryImages, sortBy);
-  }, [galleryImages, activeCategory, sortBy, isLoading]);
-  
-  // Sorting function for images
-  function sortImages(images: GalleryImage[], sortType: string): GalleryImage[] {
-    const sorted = [...images]; // Create a copy to avoid mutating the original
-    
-    switch (sortType) {
-      case "newest":
-        return sorted.sort((a, b) => (b.date || "").localeCompare(a.date || ""));
-      case "oldest":
-        return sorted.sort((a, b) => (a.date || "").localeCompare(b.date || ""));
-      case "az":
-        return sorted.sort((a, b) => a.alt.localeCompare(b.alt));
-      case "za":
-        return sorted.sort((a, b) => b.alt.localeCompare(a.alt));
-      case "random":
-        return shuffleArray(sorted);
-      default:
-        return sorted;
-    }
-  }
+    // Always sort by newest first for category views
+    return [...categoryImages].sort((a, b) => (b.date || "").localeCompare(a.date || ""));
+  }, [galleryImages, activeCategory, isLoading]);
   
   // Handler functions
   const handleCategoryChange = (category: string) => setActiveCategory(category);
-  const handleSortChange = (sortOption: string) => setSortBy(sortOption);
   const handleRefresh = () => setRefreshKey(Date.now());
   
   const openLightbox = (image: GalleryImage) => {
@@ -237,23 +216,8 @@ export default function GalleriesPage() {
               <GalleryFilters 
                 categories={Object.keys(galleryImages)}
                 onCategoryChange={handleCategoryChange}
-                onSortChange={handleSortChange}
+                onRefresh={handleRefresh}
               />
-              
-              {/* Refresh button */}
-              <div className="flex justify-center mt-4">
-                <Button 
-                  variant="outline" 
-                  size="sm"
-                  onClick={handleRefresh}
-                  className="text-xs rounded-full px-3"
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-                  </svg>
-                  Refresh Gallery
-                </Button>
-              </div>
             </div>
           </div>
           

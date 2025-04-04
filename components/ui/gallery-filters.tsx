@@ -2,33 +2,26 @@
 
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { cn } from "@/lib/utils"
 
 interface GalleryFiltersProps {
   categories: string[]
   onCategoryChange: (category: string) => void
-  onSortChange: (sortBy: string) => void
+  onRefresh: () => void
   className?: string
 }
 
 export function GalleryFilters({
   categories,
   onCategoryChange,
-  onSortChange,
+  onRefresh,
   className
 }: GalleryFiltersProps) {
   const [activeCategory, setActiveCategory] = useState<string>("all")
-  const [activeSort, setActiveSort] = useState<string>("newest")
 
   const handleCategoryChange = (category: string) => {
     setActiveCategory(category)
     onCategoryChange(category)
-  }
-
-  const handleSortChange = (sortBy: string) => {
-    setActiveSort(sortBy)
-    onSortChange(sortBy)
   }
 
   return (
@@ -58,25 +51,18 @@ export function GalleryFilters({
           ))}
         </div>
         
-        {/* Sort options */}
-        <div className="flex items-center gap-2">
-          <span className="text-sm text-muted-foreground">Sort by:</span>
-          <Select
-            value={activeSort}
-            onValueChange={handleSortChange}
-          >
-            <SelectTrigger className="w-[140px]">
-              <SelectValue placeholder="Sort by" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="newest">Newest</SelectItem>
-              <SelectItem value="oldest">Oldest</SelectItem>
-              <SelectItem value="popular">Most Popular</SelectItem>
-              <SelectItem value="az">A-Z</SelectItem>
-              <SelectItem value="za">Z-A</SelectItem>
-            </SelectContent>
-          </Select>
-        </div>
+        {/* Roll the Dice button */}
+        <Button 
+          variant="outline" 
+          size="sm"
+          onClick={onRefresh}
+          className="rounded-full px-3"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+          </svg>
+          Surprise Me!
+        </Button>
       </div>
     </div>
   )
