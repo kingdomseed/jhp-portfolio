@@ -3,6 +3,29 @@
 This guide documents solutions to common issues with the image gallery system. It covers the recent fixes implemented to address problems with images not loading and the "All" tab not displaying all images.
 
 ## Recent Fixes
+### 0. Path Normalization Utility
+
+**Problem**: Different parts of the codebase handled image paths inconsistently, causing some components to use original paths and others to use optimized paths.
+
+**Solution**: Implemented a centralized path normalization utility:
+
+```typescript
+// In lib/utils.ts
+export function getOptimizedImagePath(path: string): string {
+  // If it's already an optimized path, return it as is
+  if (path.includes('/optimized/')) {
+    return path;
+  }
+  
+  // Convert standard path to optimized path
+  return path.replace(
+    /\/images\/([^/]+)\/([^/]+)\.([^.]+)$/,
+    '/images/optimized/$1/$2.webp'
+  );
+}
+```
+
+This utility is now used consistently across the codebase to ensure all images use the optimized WebP versions.
 
 ### 1. Optimized Path Recognition
 
@@ -71,6 +94,42 @@ This ensures that each update creates a completely new object reference that Rea
 </Button>
 ```
 
+### 4. Deprecated API Fix
+
+**Problem**: The MasonryGrid component was using the deprecated `onLoadingComplete` prop from Next.js Image component, causing warnings in the console.
+
+**Solution**: Updated to use the recommended `onLoad` approach instead:
+
+```typescript
+// Old approach (deprecated)
+<Image
+  src={image.src}
+  alt={image.alt}
+  // other props...
+  onLoadingComplete={(img) => {
+    // Fade in the image when loading is complete
+    img.style.opacity = '1';
+  }}
+/>
+
+// New approach
+<Image
+  src={getOptimizedImagePath(image.src)}
+  alt={image.alt}
+  // other props...
+  onLoad={(e) => {
+    // Add a loaded class to help with animation
+    const target = e.target as HTMLImageElement;
+    target.classList.add('loaded');
+    
+    // Fade in the image when loading is complete
+    target.style.opacity = '1';
+  }}
+/>
+```
+
+## Debugging Steps
+
 ## Debugging Steps
 
 If you encounter issues with the gallery in the future, follow these steps:
@@ -92,6 +151,12 @@ If images aren't loading:
 1. Check the browser console for 404 errors
 2. Ensure WebP optimized versions exist in the `/public/images/optimized/[category]/` directories
 3. Verify the paths being used in the gallery match the actual file structure
+4. Check that the `getOptimizedImagePath` function is correctly transforming paths:
+   ```typescript
+   const originalPath = '/images/portraits/portrait-1.jpg';
+   const optimizedPath = getOptimizedImagePath(originalPath);
+   // Should result in: '/images/optimized/portraits/portrait-1.webp'
+   ```
 
 ### 3. Reset the Gallery
 
@@ -134,6 +199,8 @@ If both thumbnail and regular versions of the same image appear:
 1. Review the path generation in `MasonryGrid.tsx` to ensure it's using the correct paths
 2. Check for duplicate entries in the image metadata
 3. Verify that the WebP conversion script is generating correct output paths
+4. Ensure that the `getOptimizedImagePath` function is being used consistently throughout the code
+5. Verify the `isOptimized` flag is correctly set in the metadata for all images
 
 ### Browser Freezing or Poor Performance
 

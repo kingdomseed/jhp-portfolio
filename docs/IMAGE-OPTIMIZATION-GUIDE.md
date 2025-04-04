@@ -2,6 +2,8 @@
 
 This document explains how to optimize images for the Jason Holt Photography website, addressing common issues and providing best practices.
 
+> **IMPORTANT UPDATE**: This guide has been updated to include the new path normalization utility (`getOptimizedImagePath`) and fixes for image loading issues. The deprecated `onLoadingComplete` property has been replaced with `onLoad`.
+
 ## Table of Contents
 
 1. [Overview of Image Structure](#overview-of-image-structure)
@@ -62,7 +64,7 @@ node scripts/optimize-large-images.js
 
 The script provides detailed output about the optimization process, including file sizes and space savings.
 
-### Path Mapping
+### Path Mapping and Normalization
 
 After optimization, images will have these path correspondences:
 
@@ -70,6 +72,26 @@ After optimization, images will have these path correspondences:
 |----------------|----------------|----------------|
 | `/images/couples/couple-1.jpeg` | `/images/optimized/couples/couple-1.webp` | `/images/optimized/couples/couple-1-thumb.webp` |
 | `/images/events/event-1.jpg` | `/images/optimized/events/event-1.webp` | `/images/optimized/events/event-1-thumb.webp` |
+
+The path normalization utility (`getOptimizedImagePath`) automatically handles the conversion from original paths to optimized WebP paths:
+
+```typescript
+// In lib/utils.ts
+export function getOptimizedImagePath(path: string): string {
+  // If it's already an optimized path, return it as is
+  if (path.includes('/optimized/')) {
+    return path;
+  }
+  
+  // Convert standard path to optimized path
+  return path.replace(
+    /\/images\/([^/]+)\/([^/]+)\.([^.]+)$/,
+    '/images/optimized/$1/$2.webp'
+  );
+}
+```
+
+This utility is used throughout the codebase to ensure all images use the optimized versions consistently.
 
 ## Common Issues and Solutions
 
@@ -81,32 +103,29 @@ After optimization, images will have these path correspondences:
 - The optimization script hasn't been run
 - The path structure in the code doesn't match the actual filesystem
 - Code is looking for files in the wrong location
+- The path normalization utility isn't being used consistently
 
 **Solutions**:
 1. **Verify optimized files exist**: Check that the `public/images/optimized/` directory contains the expected files
 2. **Run the optimization script**: If files are missing, run the script to generate them
-3. **Use correct path mappings**: Ensure your code uses the correct path structure:
+3. **Use the path normalization utility**: Ensure your code uses the `getOptimizedImagePath` utility:
    ```typescript
-   // Incorrect path (common issue)
-   const thumbSrc = `/images/category/optimized/filename-thumb.webp`;
-
-   // Correct path
-   const thumbSrc = `/images/optimized/category/filename-thumb.webp`;
-   ```
-4. **Fallback to original images**: If optimized versions aren't available, use the original:
-   ```typescript
-   // Safe fallback approach
-   let imagePath = originalPath;
-   const optimizedPath = originalPath.replace(
-     /\/images\/([^/]+)\/([^/]+)\.([^.]+)$/,
-     '/images/optimized/$1/$2.webp'
-   );
+   // Import the utility
+   import { getOptimizedImagePath } from '@/lib/utils';
    
-   // Check if optimized file exists (client-side)
-   const img = new Image();
-   img.onload = () => { imagePath = optimizedPath; };
-   img.onerror = () => { /* Keep using original */ };
-   img.src = optimizedPath;
+   // Incorrect approach (using hardcoded paths)
+   <Image src="/images/couples/couple-1.jpeg" />
+   
+   // Correct approach (using the utility)
+   <Image src={getOptimizedImagePath("/images/couples/couple-1.jpeg")} />
+   ```
+4. **Check path patterns**: Ensure your path follows the expected format:
+   ```
+   /images/[category]/[filename].[extension]
+   ```
+   The utility expects this format to correctly transform it to:
+   ```
+   /images/optimized/[category]/[filename].webp
    ```
 
 ### Path Structure Mismatches
@@ -117,6 +136,41 @@ After optimization, images will have these path correspondences:
 - Original: `/images/[category]/[filename].[ext]`
 - Optimized: `/images/optimized/[category]/[filename].webp`
 - Thumbnails: `/images/optimized/[category]/[filename]-thumb.webp`
+
+The `getOptimizedImagePath` utility handles the conversion from original to optimized paths automatically, so you can use original paths in your code, and the utility will transform them as needed.
+
+### Deprecated API Warnings
+
+**Problem**: Console shows warnings about the deprecated `onLoadingComplete` property in Next.js Image component.
+
+**Solution**:
+Replace the deprecated `onLoadingComplete` with the `onLoad` event handler:
+
+```typescript
+// Old approach (deprecated)
+<Image
+  src={image.src}
+  // other props...
+  onLoadingComplete={(img) => {
+    img.style.opacity = '1';
+  }}
+/>
+
+// New approach
+<Image
+  src={getOptimizedImagePath(image.src)}
+  // other props...
+  onLoad={(e) => {
+    const target = e.target as HTMLImageElement;
+    target.classList.add('loaded');
+    target.style.opacity = '1';
+  }}
+  style={{
+    opacity: 0,
+    transition: 'opacity 0.3s ease-in-out',
+  }}
+/>
+```
 
 ### Reshuffle Functionality Issues
 
@@ -129,10 +183,16 @@ After optimization, images will have these path correspondences:
    const [galleryUpdated, setGalleryUpdated] = useState(false);
    
    // Use this:
-   const [galleryUpdated, setGalleryUpdated] = useState({ timestamp: Date.now() });
+   const [galleryUpdated, setGalleryUpdated] = useState({ 
+     timestamp: Date.now(),
+     count: 0
+   });
    
    // And update like this:
-   setGalleryUpdated({ timestamp: Date.now(), random: Math.random() });
+   setGalleryUpdated(prev => ({
+     timestamp: Date.now(),
+     count: prev.count + 1
+   }));
    ```
 
 2. Ensure the `useMemo` dependency array includes the state object:
@@ -142,6 +202,11 @@ After optimization, images will have these path correspondences:
    }, [galleryUpdated, getAllImages]);
    ```
 
+3. Add logging to verify the shuffling is working:
+   ```typescript
+   console.log('Shuffle triggered at:', new Date().toISOString(), 'with state:', galleryUpdated);
+   ```
+
 ## Gallery Component Architecture
 
 The gallery uses several key components:
@@ -149,6 +214,8 @@ The gallery uses several key components:
 1. **MasonryGrid**: Primary display component that arranges images in a masonry layout
 2. **GalleryFilters**: Category and sorting options 
 3. **EnhancedLightbox**: Fullscreen image viewer
+
+These components now all use the `getOptimizedImagePath` utility to ensure consistent image path handling.
 
 ### Data Flow
 
@@ -169,12 +236,12 @@ The gallery uses several key components:
   │ Image Metadata   │                          │ Displayed      │
   │ Generation       │                          │ Image Array    │
   └──────────────────┘                          └────────────────┘
-                                                        │
-                                                        ▼
-                                               ┌────────────────┐
-                                               │ MasonryGrid    │
-                                               │ Component      │
-                                               └────────────────┘
+           │                                              │
+           ▼                                              ▼
+  ┌──────────────────┐                          ┌────────────────┐
+  │ Path             │                          │ MasonryGrid    │
+  │ Normalization    │--------------------------▶ Component      │
+  └──────────────────┘                          └────────────────┘
 ```
 
 ## Step-by-Step Implementation Guide
@@ -188,13 +255,21 @@ node scripts/optimize-large-images.js
 
 ### 2. Update Image Path Handling
 
-In `masonry-grid.tsx`, ensure you're using the correct path structure for thumbnails:
+In `masonry-grid.tsx`, ensure you're using the `getOptimizedImagePath` utility:
 
 ```typescript
-// Low-resolution thumbnail placeholder
-const thumbSrc = image.src.includes('/optimized/') 
-  ? image.src.replace(/\.(jpg|jpeg|png|webp)$/i, '-thumb.webp')
-  : image.src; // Fallback to original image if not optimized
+import { cn, getOptimizedImagePath } from '@/lib/utils';
+
+// In the component where the image is rendered:
+<Image
+  src={getOptimizedImagePath(image.src)}
+  alt={image.alt}
+  // other props...
+/>
+
+// For thumbnails, you can still apply additional transformations:
+const optimizedSrc = getOptimizedImagePath(image.src);
+const thumbSrc = optimizedSrc.replace(/\.webp$/i, '-thumb.webp');
 ```
 
 ### 3. Fix the Reshuffle Functionality
@@ -202,32 +277,47 @@ const thumbSrc = image.src.includes('/optimized/')
 In `galleries/page.tsx`:
 
 ```typescript
-// Use object state instead of boolean
-const [galleryUpdated, setGalleryUpdated] = useState({ timestamp: Date.now() });
+// Use object state with timestamp and counter
+const [galleryUpdated, setGalleryUpdated] = useState({
+  timestamp: Date.now(),
+  count: 0
+});
 
-// Update with unique values
+// Update with new timestamp and incremented counter
 const handleReshuffle = useCallback(() => {
-  setGalleryUpdated({ timestamp: Date.now(), random: Math.random() });
+  setGalleryUpdated(prev => ({
+    timestamp: Date.now(),
+    count: prev.count + 1
+  }));
 }, []);
 
 // Ensure allImages depends on galleryUpdated
 const allImages = useMemo(() => {
+  console.log('Regenerating all images at:', new Date().toISOString());
   // Shuffling logic
 }, [galleryUpdated, getAllImages]); 
 ```
 
-### 4. Avoid 404 Errors
+### 4. Fix Deprecated API Warnings
 
-To prevent 404 errors, use a defensive approach:
+Replace all instances of `onLoadingComplete` with `onLoad`:
 
 ```typescript
-// Always prefer original images if optimized aren't available
-let imageSrc = originalPath;
-
-// Only use optimized if you're sure they exist
-if (confirmedOptimizedImagesExist) {
-  imageSrc = optimizedPath;
-}
+// In masonry-grid.tsx
+<Image
+  src={getOptimizedImagePath(image.src)}
+  alt={image.alt}
+  // other props...
+  onLoad={(e) => {
+    const target = e.target as HTMLImageElement;
+    target.classList.add('loaded');
+    target.style.opacity = '1';
+  }}
+  style={{
+    opacity: 0,
+    transition: 'opacity 0.3s ease-in-out',
+  }}
+/>
 ```
 
 ### 5. Verify Image Categories
@@ -253,16 +343,25 @@ Ensure the image categories match the folder structure:
    }
    ```
 
-2. **Use appropriate Next.js Image component options**:
+2. **Use appropriate Next.js Image component options with path normalization**:
    ```typescript
    <Image
-     src={imageSrc}
+     src={getOptimizedImagePath(imageSrc)}
      alt={image.alt}
      fill
      priority={index < 6} // Prioritize first 6 images
      loading={index < 12 ? "eager" : "lazy"} // Lazy load after first 12
      quality={index < 20 ? 85 : 75} // Higher quality for visible images
      sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
+     onLoad={(e) => {
+       const target = e.target as HTMLImageElement;
+       target.classList.add('loaded');
+       target.style.opacity = '1';
+     }}
+     style={{
+       opacity: 0,
+       transition: 'opacity 0.3s ease-in-out',
+     }}
    />
    ```
 
@@ -272,4 +371,4 @@ Ensure the image categories match the folder structure:
    const LARGE_IMAGE_THRESHOLD = 100 * 1024; // 100KB
    ```
 
-By following this guide, you should be able to correctly implement WebP image optimization and fix the common issues with the gallery implementation.
+By following this guide, you should be able to correctly implement WebP image optimization and fix the common issues with the gallery implementation. The path normalization utility ensures consistent use of optimized images, and the updated event handlers fix the deprecated API warnings.

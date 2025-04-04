@@ -188,22 +188,31 @@ Use Next.js Image component with these optimizations:
 
 ```tsx
 import Image from 'next/image';
+import { getOptimizedImagePath } from '@/lib/utils';
 
 // For standard gallery images
 <Image
-  src={`/images/portraits/${imageName}`}
+  src={getOptimizedImagePath(`/images/portraits/${imageName}`)}
   alt="Portrait description"
   width={originalWidth}
   height={originalHeight}
   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
   loading="lazy"
-  placeholder="blur"
-  blurDataURL={tinyPlaceholderBase64}
+  onLoad={(e) => {
+    const target = e.target as HTMLImageElement;
+    target.classList.add('loaded');
+    // Fade in the image when loaded
+    target.style.opacity = '1';
+  }}
+  style={{
+    opacity: 0,
+    transition: 'opacity 0.3s ease-in-out',
+  }}
 />
 
 // For priority hero images
 <Image
-  src="/images/featured/homepage/hero.jpeg"
+  src={getOptimizedImagePath("/images/featured/homepage/hero.jpeg")}
   alt="Jason Holt Photography - Professional portraits in Frankfurt"
   priority
   quality={90}
@@ -211,6 +220,24 @@ import Image from 'next/image';
   sizes="100vw"
   style={{ objectFit: 'cover' }}
 />
+```
+
+The `getOptimizedImagePath` utility ensures all images use the optimized WebP versions when available:
+
+```typescript
+// In lib/utils.ts
+export function getOptimizedImagePath(path: string): string {
+  // If it's already an optimized path, return it as is
+  if (path.includes('/optimized/')) {
+    return path;
+  }
+  
+  // Convert standard path to optimized path
+  return path.replace(
+    /\/images\/([^/]+)\/([^/]+)\.([^.]+)$/,
+    '/images/optimized/$1/$2.webp'
+  );
+}
 ```
 
 ## Batch Processing Tools
@@ -248,15 +275,17 @@ Added to package.json:
 Before deploying new images, verify:
 
 - [ ] All images are properly resized and optimized
-- [ ] Metadata generation completed successfully
+- [ ] Metadata generation completed successfully with correct `isOptimized` flags
 - [ ] Images display correctly in the masonry grid
 - [ ] Aspect ratios are preserved
 - [ ] Alt text is meaningful and descriptive
 - [ ] Images load efficiently on mobile devices
+- [ ] No deprecated API warnings appear in the console
 - [ ] Lightbox functionality works for all new images
 - [ ] Categories and filters work correctly
 - [ ] Featured images are displayed in the correct locations
 - [ ] Image sort order is appropriate (newest first, etc.)
+- [ ] The `getOptimizedImagePath` function is used consistently across the codebase
 
 ## Troubleshooting Common Issues
 
@@ -266,7 +295,8 @@ If images aren't displaying correctly due to missing metadata:
 
 1. Check `public/image-metadata.json` for the image entry
 2. Run the metadata generator again with `--verbose` flag to see issues
-3. Add fallback dimensions manually if needed
+3. Verify the `isOptimized` flag is correctly set for all optimized images
+4. Add fallback dimensions manually if needed
 
 ### Aspect Ratio Problems
 
@@ -283,7 +313,8 @@ If image loading is slow:
 1. Check image file sizes (aim for <200KB for standard images)
 2. Verify proper lazy loading implementation
 3. Ensure appropriate image sizes are being served
-4. Consider implementing pagination for very large galleries
+4. Confirm the `getOptimizedImagePath` function is properly routing to WebP versions
+5. Consider implementing pagination for very large galleries
 
 ## Conclusion
 

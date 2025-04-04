@@ -2,6 +2,8 @@
 
 This document provides a comprehensive overview of the image metadata system that powers the responsive masonry grid gallery in the Jason Holt Photography website.
 
+**IMPORTANT UPDATE**: Recent fixes have addressed issues with image path inconsistencies and optimized WebP handling. The metadata system now works in conjunction with the `getOptimizedImagePath` utility to ensure all images use optimized paths consistently.
+
 ## Table of Contents
 
 1. [System Overview](#system-overview)
@@ -22,6 +24,7 @@ The image metadata system is a critical component of the gallery experience, res
 3. **Storing presentation data**: Maintains metadata for optimal display in the masonry grid
 4. **Supporting filtering**: Provides category and tag metadata for gallery filtering
 5. **Enhancing the UX**: Enables smooth, responsive display of images with proper proportions
+6. **Path normalization**: Works with the `getOptimizedImagePath` utility to ensure consistent use of optimized WebP images
 
 This system operates through a build-time process that generates a centralized JSON file containing metadata for all images, which is then consumed by the frontend components.
 
@@ -37,7 +40,10 @@ This script:
 2. Analyzes each image using the `image-size` library
 3. Extracts dimensions, calculates aspect ratios, and determines orientation
 4. Infers categories from directory structure
-5. Generates `/public/image-metadata.json` with complete metadata information
+5. Sets an `isOptimized` flag based on whether the image is in the optimized directory
+6. Generates `/public/image-metadata.json` with complete metadata information
+
+**Recent Fix**: The script now correctly identifies and flags WebP images in the `/images/optimized/` directory with `isOptimized: true`. This flag is critical for proper image path handling.
 
 ### Running the Generator
 
@@ -87,7 +93,16 @@ The generated `image-metadata.json` file follows this structure:
       "location": "Frankfurt Studio",
       "description": "Professional headshot for corporate website",
       "tags": ["corporate", "professional", "indoor"],
-      "isFeatured": false
+      "isFeatured": false,
+      "isOptimized": false
+    },
+    "/images/optimized/portraits/portrait-1.webp": {
+      "width": 1200,
+      "height": 800,
+      "aspectRatio": 1.5,
+      "orientation": "landscape",
+      "category": "portrait",
+      "isOptimized": true
     },
     "path/to/another-image.jpg": {
       // Metadata for another image
@@ -122,6 +137,7 @@ The generated `image-metadata.json` file follows this structure:
 | description | string | Brief image description | Manual or from filename |
 | tags | string[] | Array of relevant tags | Manual or from filename |
 | isFeatured | boolean | Whether image is featured | Manual addition |
+| isOptimized | boolean | Whether image is an optimized WebP | Determined from file path |
 
 ### Fallback System
 
@@ -139,14 +155,15 @@ If an image's metadata cannot be found:
 The MasonryGrid component consumes the image metadata:
 
 ```tsx
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import Image from 'next/image';
-import styles from './MasonryGrid.module.css';
+import { cn, getOptimizedImagePath } from '@/lib/utils';
 
 interface ImageMetadata {
   width: number;
   height: number;
   aspectRatio: number;
+  isOptimized?: boolean;
   // Other metadata properties
 }
 
@@ -173,6 +190,13 @@ export default function MasonryGrid({
         const response = await fetch('/image-metadata.json');
         const data = await response.json();
         setMetadata(data.images || {});
+        
+        // Log metadata sample for debugging
+        console.log('Loaded metadata for gallery', Object.keys(data.images || {}).length, 'images');
+        console.log('Sample metadata entries:');
+        Object.keys(data.images || {}).slice(0, 3).forEach(key => {
+          console.log(`  ${key}: ${JSON.stringify(data.images[key])}`);
+        });
       } catch (error) {
         console.error('Failed to load image metadata:', error);
       }
@@ -194,7 +218,19 @@ export default function MasonryGrid({
       const shortestColumn = heights.indexOf(Math.min(...heights));
       
       // Get image metadata or use fallbacks
-      const imgMeta = metadata[image] || getCategoryFallback(image) || { aspectRatio: 1.5 };
+      // First try the exact path in metadata
+      let imgMeta = metadata[image];
+      
+      // If not found and image isn't already optimized, try the optimized path
+      if (!imgMeta && !image.includes('/optimized/')) {
+        const optimizedPath = getOptimizedImagePath(image);
+        imgMeta = metadata[optimizedPath];
+      }
+      
+      // If still not found, use category fallback
+      if (!imgMeta) {
+        imgMeta = getCategoryFallback(image) || { aspectRatio: 1.5 };
+      }
       
       // Calculate image height based on width and aspect ratio
       const columnWidth = 100 / columns;
@@ -212,14 +248,64 @@ export default function MasonryGrid({
 
 // Helper function to get category-based fallbacks
 function getCategoryFallback(imagePath: string) {
-  if (imagePath.includes('portrait')) {
-    return { aspectRatio: 0.8 };
-  } else if (imagePath.includes('square')) {
-    return { aspectRatio: 1.0 };
-  } else if (imagePath.includes('landscape')) {
-    return { aspectRatio: 1.5 };
+  // Create regex patterns that will match both /category/ and /optimized/category/
+  const portraitsPattern = /\/(optimized\/)?portraits\//i;
+  const headhotsPattern = /\/(optimized\/)?headshots\//i;
+  const familyPattern = /\/(optimized\/)?family\//i;
+  
+  if (portraitsPattern.test(imagePath)) {
+    return { aspectRatio: 0.8 }; // Portrait orientation (taller than wide)
+  } else if (headhotsPattern.test(imagePath)) {
+    return { aspectRatio: 1.0 }; // Square aspect ratio
+  } else if (familyPattern.test(imagePath)) {
+    return { aspectRatio: 1.5 }; // Landscape orientation
   }
+  
   return null;
+}
+```
+
+### Path Normalization Utility
+
+The MasonryGrid component works with the path normalization utility to ensure consistent use of optimized WebP versions:
+
+```tsx
+// In the image rendering part of the MasonryGrid component:
+<Image
+  src={getOptimizedImagePath(image.src)}
+  alt={image.alt}
+  fill
+  priority={index < 6}
+  loading={index < 12 ? "eager" : "lazy"}
+  sizes={`(max-width: 768px) 100vw, (max-width: 1200px) 50vw, ${100 / responsiveColumns}vw`}
+  className="object-cover transition-transform duration-500 group-hover:scale-105"
+  onLoad={(e) => {
+    // Add a loaded class to help with animation
+    const target = e.target as HTMLImageElement;
+    target.classList.add('loaded');
+    target.style.opacity = '1';
+  }}
+  style={{
+    opacity: 0,
+    transition: 'opacity 0.3s ease-in-out',
+  }}
+/>
+```
+
+The `getOptimizedImagePath` utility is defined in `lib/utils.ts`:
+
+```typescript
+export function getOptimizedImagePath(path: string): string {
+  // If it's already an optimized path, return it as is
+  if (path.includes('/optimized/')) {
+    return path;
+  }
+  
+  // Convert standard path to optimized path
+  return path.replace(
+    /\/images\/([^/]+)\/([^/]+)\.([^.]+)$/,
+    '/images/optimized/$1/$2.webp'
+  );
 }
 ```
 
@@ -227,7 +313,7 @@ function getCategoryFallback(imagePath: string) {
 
 The basic metadata system can be extended with custom fields:
 
-### 1. Extending the Generator Script
+### 1. Extending the Generator Script with Optimized Flag
 
 Edit the generator script to include custom metadata:
 
@@ -240,6 +326,9 @@ function processImage(filePath) {
   // Extract custom metadata from filename or path
   const customMetadata = extractCustomMetadata(filePath);
   
+  // Determine if this is an optimized image
+  const isOptimized = filePath.includes('/optimized/');
+  
   return {
     width,
     height,
@@ -249,6 +338,7 @@ function processImage(filePath) {
     location: customMetadata.location || null,
     dateTaken: customMetadata.date || null,
     tags: customMetadata.tags || [],
+    isOptimized: isOptimized,
     // Other custom fields
   };
 }
@@ -506,8 +596,28 @@ console.log('Featured images updated successfully');
 - Delete the existing metadata file before regenerating
 - Verify file permissions allow writing to the metadata file
 
+### 6. Issues with Optimized Image Recognition
+
+**Symptoms**: The system is not properly identifying optimized WebP images.
+
+**Solutions**:
+- Verify the `isOptimized` flag is being correctly set in the metadata
+- Check that the generation script is correctly processing paths in the `/images/optimized/` directory
+- Ensure the `getOptimizedImagePath` utility function is working correctly:
+  ```bash
+  # Use Node REPL to test the function
+  node -e "const { getOptimizedImagePath } = require('./lib/utils'); console.log(getOptimizedImagePath('/images/portraits/portrait-1.jpg'));"
+  # Should output: /images/optimized/portraits/portrait-1.webp
+  ```
+- Regenerate metadata with the fixed script by running:
+  ```bash
+  npm run generate-image-metadata
+  ```
+
 ## Conclusion
 
 The image metadata system is a crucial component of the Jason Holt Photography website's gallery functionality. By maintaining accurate metadata about image dimensions, categories, and presentation attributes, it enables a responsive and visually appealing masonry grid layout that properly showcases photography work.
+
+The integration of the path normalization utility with the metadata system ensures that optimized WebP images are consistently used throughout the gallery, improving load times and visual quality. The `isOptimized` flag in the metadata helps identify which images have been processed and where optimization opportunities still exist.
 
 For large-scale image management, combine this system with the processes outlined in the Image Management Guide to create a comprehensive workflow for handling new imagery.

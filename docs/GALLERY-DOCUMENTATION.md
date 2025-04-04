@@ -19,6 +19,8 @@ Images should be added to the `/public/images/` directory. The gallery supports 
 - WebP (.webp)
 - GIF (.gif)
 
+For optimized images, WebP versions will be stored in the `/public/images/optimized/` directory, mirroring the category structure of the original images.
+
 ```bash
 # Example of copying images to the public/images folder
 cp your-new-images/*.jpeg jhp-next/public/images/
@@ -33,12 +35,23 @@ npm run generate-image-metadata
 ```
 
 This script:
-- Scans all images in the `/public/images/` directory
+- Scans all images in the `/public/images/` directory (including the `optimized` subdirectory)
 - Calculates dimensions and aspect ratios for each image
+- Sets the `isOptimized` flag for images in the optimized directory
 - Generates `/public/image-metadata.json` with this information
 - Automatically runs as part of the build process (`npm run build`)
 
-### Step 3: Add Images to the Gallery Data
+### Step 3: Optimize Images
+For best performance, you should create optimized WebP versions of your images:
+
+```bash
+cd jhp-next
+node scripts/optimize-large-images.js
+```
+
+This creates WebP versions in the `/public/images/optimized/` directory.
+
+### Step 4: Add Images to the Gallery Data
 Open `/app/galleries/page.tsx` and locate the `galleryImages` object. Add your new images to the appropriate category:
 
 ```typescript
@@ -46,7 +59,7 @@ const galleryImages = {
   portraits: [
     // Existing images...
     { 
-      src: "/images/your-new-image.jpeg", 
+      src: "/images/portraits/your-new-image.jpeg", 
       alt: "Description of the image", 
       category: "portraits", 
       date: "2024-04-01", 
@@ -56,6 +69,8 @@ const galleryImages = {
   // Other categories...
 };
 ```
+
+**Note**: The `getOptimizedImagePath` utility will automatically convert these paths to use the optimized WebP versions when they're displayed in the gallery. You don't need to manually reference the optimized paths.
 
 Required properties for each image:
 - `src`: Path to the image (relative to /public)
@@ -73,8 +88,12 @@ The aspect ratio calculation happens automatically:
 
 2. **During Runtime**: The `MasonryGrid` component loads this JSON file and uses the stored aspect ratios to correctly size each image.
 
-3. **Fallback System**: If metadata isn't found for an image (e.g., newly added image without running the generator), the component uses smart fallbacks:
-   - Category-based defaults (portraits: 0.8, headshots: 1.0, etc.)
+3. **Optimized Image Path Handling**: The system now uses the `getOptimizedImagePath` utility to ensure all images use optimized WebP versions when available.
+
+4. **Fallback System**: If metadata isn't found for an image, the component uses smart fallbacks:
+   - First checks metadata for the original path
+   - Then checks metadata for the optimized path
+   - Then uses category-based defaults (portraits: 0.8, headshots: 1.0, etc.)
    - Final fallback to 1.5 (standard landscape ratio)
 
 ### How Aspect Ratios Work
@@ -104,7 +123,7 @@ const galleryImages = {
   // Existing categories...
   newCategory: [
     { 
-      src: "/images/new-category1.jpeg", 
+      src: "/images/new-category/image1.jpeg", 
       alt: "First new category image", 
       category: "newCategory", 
       date: "2024-04-01", 
@@ -114,6 +133,8 @@ const galleryImages = {
   ],
 };
 ```
+
+Note that you should place images in a corresponding directory structure under `/public/images/` to match your category naming.
 
 2. **Update DEFAULT_ASPECT_RATIOS**: Add the new category to the default aspect ratios in `/components/ui/masonry-grid.tsx`:
 
@@ -162,6 +183,26 @@ To modify this behavior, edit the `handleResize` function in `/components/ui/mas
 ### Image Hover Effects
 The hover effect on gallery images can be customized in `/components/ui/masonry-grid.tsx`. Look for the `<div className="absolute inset-0 bg-gradient-to-t...">` section.
 
+### Image Loading Animation
+The fade-in effect when images load is handled via the `onLoad` event handler:
+
+```tsx
+<Image
+  // other props...
+  style={{
+    opacity: 0,
+    transition: 'opacity 0.3s ease-in-out',
+  }}
+  onLoad={(e) => {
+    const target = e.target as HTMLImageElement;
+    target.classList.add('loaded');
+    target.style.opacity = '1';
+  }}
+/>
+```
+
+This replaces the deprecated `onLoadingComplete` prop that was previously used.
+
 ### Sorting Options
 Sorting options are controlled by the `handleSortChange` function in `/app/galleries/page.tsx`. Current options are:
 - `newest`: Sort by date (newest first)
@@ -188,12 +229,17 @@ The gallery loads 12 images initially and adds 8 more each time "Load More" is c
    cat jhp-next/public/image-metadata.json | grep "your-image-name"
    ```
 
-2. **Regenerate metadata**: Run the generator script
+2. **Check optimized paths**: Ensure the metadata includes both original and optimized paths
+   ```bash
+   cat jhp-next/public/image-metadata.json | grep "optimized" | grep "your-image-name"
+   ```
+
+3. **Regenerate metadata**: Run the generator script
    ```bash
    npm run generate-image-metadata
    ```
 
-3. **Check console logs**: Look for "Loaded image metadata for gallery" in browser console
+4. **Check console logs**: Look for "Loaded metadata for gallery" in browser console
 
 ### New Category Not Showing
 
@@ -203,6 +249,8 @@ The gallery loads 12 images initially and adds 8 more each time "Load More" is c
 
 ### General Performance Tips
 
-1. **Optimize image sizes**: Pre-optimize images before adding them to the gallery
+1. **Use optimized WebP images**: Always run the optimization script to create WebP versions
 2. **Lazy loading**: The gallery already implements lazy loading with the "Load More" button
-3. **Image dimensions**: Consider standardizing on common aspect ratios when shooting (helps with layout consistency)
+3. **Path normalization**: The `getOptimizedImagePath` utility ensures optimized images are used
+4. **Image dimensions**: Consider standardizing on common aspect ratios when shooting (helps with layout consistency)
+5. **Check for warnings**: Make sure to address any console warnings about deprecated APIs
