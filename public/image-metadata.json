@@ -351,42 +351,6 @@
       "optimizedPath": "/images/optimized/events/event-35.webp",
       "isOptimized": true
     },
-    "/images/optimized/events/event-36.webp": {
-      "width": 3256,
-      "height": 4070,
-      "aspectRatio": 0.8,
-      "orientation": "portrait",
-      "originalPath": "/images/optimized/events/event-36.webp",
-      "optimizedPath": "/images/optimized/events/event-36.webp",
-      "isOptimized": true
-    },
-    "/images/optimized/events/event-37.webp": {
-      "width": 3745,
-      "height": 2996,
-      "aspectRatio": 1.25,
-      "orientation": "landscape",
-      "originalPath": "/images/optimized/events/event-37.webp",
-      "optimizedPath": "/images/optimized/events/event-37.webp",
-      "isOptimized": true
-    },
-    "/images/optimized/events/event-38.webp": {
-      "width": 4193,
-      "height": 3354,
-      "aspectRatio": 1.2501490757304712,
-      "orientation": "landscape",
-      "originalPath": "/images/optimized/events/event-38.webp",
-      "optimizedPath": "/images/optimized/events/event-38.webp",
-      "isOptimized": true
-    },
-    "/images/optimized/events/event-39.webp": {
-      "width": 3648,
-      "height": 4560,
-      "aspectRatio": 0.8,
-      "orientation": "portrait",
-      "originalPath": "/images/optimized/events/event-39.webp",
-      "optimizedPath": "/images/optimized/events/event-39.webp",
-      "isOptimized": true
-    },
     "/images/optimized/events/event-4.webp": {
       "width": 6240,
       "height": 4160,
@@ -394,60 +358,6 @@
       "orientation": "landscape",
       "originalPath": "/images/optimized/events/event-4.webp",
       "optimizedPath": "/images/optimized/events/event-4.webp",
-      "isOptimized": true
-    },
-    "/images/optimized/events/event-40.webp": {
-      "width": 4560,
-      "height": 3648,
-      "aspectRatio": 1.25,
-      "orientation": "landscape",
-      "originalPath": "/images/optimized/events/event-40.webp",
-      "optimizedPath": "/images/optimized/events/event-40.webp",
-      "isOptimized": true
-    },
-    "/images/optimized/events/event-41.webp": {
-      "width": 5316,
-      "height": 3544,
-      "aspectRatio": 1.5,
-      "orientation": "landscape",
-      "originalPath": "/images/optimized/events/event-41.webp",
-      "optimizedPath": "/images/optimized/events/event-41.webp",
-      "isOptimized": true
-    },
-    "/images/optimized/events/event-42.webp": {
-      "width": 4443,
-      "height": 3554,
-      "aspectRatio": 1.2501406865503657,
-      "orientation": "landscape",
-      "originalPath": "/images/optimized/events/event-42.webp",
-      "optimizedPath": "/images/optimized/events/event-42.webp",
-      "isOptimized": true
-    },
-    "/images/optimized/events/event-43.webp": {
-      "width": 5302,
-      "height": 3535,
-      "aspectRatio": 1.4998585572843,
-      "orientation": "landscape",
-      "originalPath": "/images/optimized/events/event-43.webp",
-      "optimizedPath": "/images/optimized/events/event-43.webp",
-      "isOptimized": true
-    },
-    "/images/optimized/events/event-44.webp": {
-      "width": 5268,
-      "height": 3512,
-      "aspectRatio": 1.5,
-      "orientation": "landscape",
-      "originalPath": "/images/optimized/events/event-44.webp",
-      "optimizedPath": "/images/optimized/events/event-44.webp",
-      "isOptimized": true
-    },
-    "/images/optimized/events/event-45.webp": {
-      "width": 5145,
-      "height": 3430,
-      "aspectRatio": 1.5,
-      "orientation": "landscape",
-      "originalPath": "/images/optimized/events/event-45.webp",
-      "optimizedPath": "/images/optimized/events/event-45.webp",
       "isOptimized": true
     },
     "/images/optimized/events/event-46.webp": {
@@ -1321,6 +1231,96 @@
       "orientation": "landscape",
       "originalPath": "/images/optimized/portraits/senior-9.webp",
       "optimizedPath": "/images/optimized/portraits/senior-9.webp",
+      "isOptimized": true
+    },
+    "/images/optimized/weddings/event-36.webp": {
+      "width": 3256,
+      "height": 4070,
+      "aspectRatio": 0.8,
+      "orientation": "portrait",
+      "originalPath": "/images/optimized/weddings/event-36.webp",
+      "optimizedPath": "/images/optimized/weddings/event-36.webp",
+      "isOptimized": true
+    },
+    "/images/optimized/weddings/event-37.webp": {
+      "width": 3745,
+      "height": 2996,
+      "aspectRatio": 1.25,
+      "orientation": "landscape",
+      "originalPath": "/images/optimized/weddings/event-37.webp",
+      "optimizedPath": "/images/optimized/weddings/event-37.webp",
+      "isOptimized": true
+    },
+    "/images/optimized/weddings/event-38.webp": {
+      "width": 4193,
+      "height": 3354,
+      "aspectRatio": 1.2501490757304712,
+      "orientation": "landscape",
+      "originalPath": "/images/optimized/weddings/event-38.webp",
+      "optimizedPath": "/images/optimized/weddings/event-38.webp",
+      "isOptimized": true
+    },
+    "/images/optimized/weddings/event-39.webp": {
+      "width": 3648,
+      "height": 4560,
+      "aspectRatio": 0.8,
+      "orientation": "portrait",
+      "originalPath": "/images/optimized/weddings/event-39.webp",
+      "optimizedPath": "/images/optimized/weddings/event-39.webp",
+      "isOptimized": true
+    },
+    "/images/optimized/weddings/event-40.webp": {
+      "width": 4560,
+      "height": 3648,
+      "aspectRatio": 1.25,
+      "orientation": "landscape",
+      "originalPath": "/images/optimized/weddings/event-40.webp",
+      "optimizedPath": "/images/optimized/weddings/event-40.webp",
+      "isOptimized": true
+    },
+    "/images/optimized/weddings/event-41.webp": {
+      "width": 5316,
+      "height": 3544,
+      "aspectRatio": 1.5,
+      "orientation": "landscape",
+      "originalPath": "/images/optimized/weddings/event-41.webp",
+      "optimizedPath": "/images/optimized/weddings/event-41.webp",
+      "isOptimized": true
+    },
+    "/images/optimized/weddings/event-42.webp": {
+      "width": 4443,
+      "height": 3554,
+      "aspectRatio": 1.2501406865503657,
+      "orientation": "landscape",
+      "originalPath": "/images/optimized/weddings/event-42.webp",
+      "optimizedPath": "/images/optimized/weddings/event-42.webp",
+      "isOptimized": true
+    },
+    "/images/optimized/weddings/event-43.webp": {
+      "width": 5302,
+      "height": 3535,
+      "aspectRatio": 1.4998585572843,
+      "orientation": "landscape",
+      "originalPath": "/images/optimized/weddings/event-43.webp",
+      "optimizedPath": "/images/optimized/weddings/event-43.webp",
+      "isOptimized": true
+    },
+    "/images/optimized/weddings/event-44.webp": {
+      "width": 5268,
+      "height": 3512,
+      "aspectRatio": 1.5,
+      "orientation": "landscape",
+      "originalPath": "/images/optimized/weddings/event-44.webp",
+      "optimizedPath": "/images/optimized/weddings/event-44.webp",
+      "isOptimized": true
+    },
+    "/images/optimized/weddings/event-45.webp": {
+      "width": 5145,
+      "height": 3430,
+      "aspectRatio": 1.5,
+      "orientation": "landscape",
+      "originalPath": "/images/optimized/weddings/event-45.webp",
+      "optimizedPath": "/images/optimized/weddings/event-45.webp",
       "isOptimized": true
     }
   }
