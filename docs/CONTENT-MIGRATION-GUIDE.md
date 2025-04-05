@@ -172,17 +172,17 @@ Source of Truth: [Business document/Owner confirmation/etc.]
 
 ### Phase 2: Customer-Facing Content
 
-1. Migrate and verify all service descriptions
-2. Update testimonials ensuring they represent actual clients
-3. Verify about page content and photographer bio
-4. Update process descriptions and what-to-expect content
+1. Migrate and verify all service descriptions, clearly aligning them with the refined brand philosophy of lifelong storytelling and authenticity.
+2. Update testimonials ensuring they represent actual clients and reinforce the lifelong storytelling approach.
+3. Verify about page content and photographer bio, clearly communicating the refined UVP: "Creating lifelong stories through authentic, heartfelt photography."
+4. Update process descriptions and what-to-expect content, emphasizing the pillars of authenticity, storytelling, excellence, and connection.
 
 ### Phase 3: Supporting Content
 
-1. Migrate and update FAQ content
-2. Create or update blog content strategy
-3. Add location-specific information for Frankfurt area
-4. Implement seasonal or special offer content
+1. Migrate and update FAQ content to reflect the refined brand pillars and lifelong storytelling approach.
+2. Create or update blog content strategy to share client stories, behind-the-scenes experiences, and photography tips, reinforcing authority, humanity, and connection.
+3. Add location-specific information for Frankfurt area, emphasizing local connections and storytelling opportunities.
+4. Implement seasonal or special offer content aligned with the refined brand philosophy.
 
 ### Phase 4: SEO & Metadata
 
