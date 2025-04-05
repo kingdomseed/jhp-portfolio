@@ -19,15 +19,10 @@ export function HeroCarousel({
   className,
 }: HeroCarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0)
-  const [isTransitioning, setIsTransitioning] = useState(false)
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setIsTransitioning(true)
-      setTimeout(() => {
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length)
-        setIsTransitioning(false)
-      }, 1000) // Match this with the CSS transition duration
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length)
     }, interval)
 
     return () => clearInterval(timer)
@@ -41,7 +36,7 @@ export function HeroCarousel({
           className={cn(
             "absolute inset-0 h-full w-full transition-opacity duration-1000",
             index === currentIndex 
-              ? "opacity-100 z-10" 
+              ? "opacity-100 z-10 scale-[1.02] animate-subtle-zoom" 
               : "opacity-0 z-0"
           )}
         >
@@ -49,10 +44,7 @@ export function HeroCarousel({
             src={image.src}
             alt={image.alt}
             fill
-            className={cn(
-              "object-cover object-top transition-transform duration-&lsqb;300ms&rsqb;",
-              !isTransitioning && "scale-[1.02] animate-subtle-zoom"
-            )}
+            className="object-cover object-top"
             priority={index === 0}
             sizes="100vw"
           />
@@ -71,11 +63,7 @@ export function HeroCarousel({
                 : "bg-white/50 hover:bg-white/80"
             )}
             onClick={() => {
-              setIsTransitioning(true)
-              setTimeout(() => {
-                setCurrentIndex(index)
-                setIsTransitioning(false)
-              }, 500)
+              setCurrentIndex(index)
             }}
             aria-label={`Go to slide ${index + 1}`}
           />
@@ -91,7 +79,7 @@ export function HeroCarousel({
 
         {/* Desktop version */}
         <h2 className="hidden md:block text-3xl font-serif font-semibold drop-shadow-md">
-          Capturing Your Life&apos;s Timeless Moments Through Authentic Storytelling
+        Capturing Your Life&apos;s Timeless Journey, One Moment at a Time
         </h2>
 
         <button className="mt-4 bg-primary text-primary-foreground px-6 py-2 rounded shadow-lg hover:bg-primary-light transition-colors">
