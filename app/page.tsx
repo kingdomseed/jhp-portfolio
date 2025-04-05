@@ -12,10 +12,10 @@ export default function Home() {
         {/* Hero Image Carousel */}
         <HeroCarousel 
           images={[
-            { src: "/images/optimized/couples/couple-1.webp", alt: "Couple photography" },
-            { src: "/images/optimized/events/event-1.webp", alt: "Event photography" },
-            { src: "/images/optimized/portraits/portrait-1.webp", alt: "Portrait photography" },
-            { src: "/images/optimized/couples/couple-2.webp", alt: "Engagement photography" }
+            { src: "/images/optimized/couples/couple-8.webp", alt: "Couple photography" },
+            { src: "/images/optimized/events/event-90.webp", alt: "Event photography" },
+            { src: "/images/optimized/portraits/portrait-2.webp", alt: "Portrait photography" },
+            { src: "/images/optimized/family/family-4.webp", alt: "Engagement photography" }
           ]}
           interval={6000}
         />

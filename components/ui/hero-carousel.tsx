@@ -50,12 +50,13 @@ export function HeroCarousel({
             alt={image.alt}
             fill
             className={cn(
-              "object-cover scale-[1.02] transition-transform duration-[10000ms]",
-              !isTransitioning && "animate-subtle-zoom"
+              "object-cover object-top transition-transform duration-&lsqb;300ms&rsqb;",
+              !isTransitioning && "scale-[1.02] animate-subtle-zoom"
             )}
             priority={index === 0}
             sizes="100vw"
           />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
         </div>
       ))}
       
@@ -79,6 +80,23 @@ export function HeroCarousel({
             aria-label={`Go to slide ${index + 1}`}
           />
         ))}
+      </div>
+
+      {/* CTA Overlay */}
+      <div className="absolute bottom-12 left-1/2 z-20 -translate-x-1/2 text-center text-white px-4">
+        {/* Mobile version */}
+        <h2 className="block md:hidden text-2xl font-serif font-semibold drop-shadow-md">
+          All your life&apos;s moments, celebrated.
+        </h2>
+
+        {/* Desktop version */}
+        <h2 className="hidden md:block text-3xl font-serif font-semibold drop-shadow-md">
+          Capturing Your Life&apos;s Timeless Moments Through Authentic Storytelling
+        </h2>
+
+        <button className="mt-4 bg-primary text-primary-foreground px-6 py-2 rounded shadow-lg hover:bg-primary-light transition-colors">
+          Book Your Session
+        </button>
       </div>
     </div>
   )
