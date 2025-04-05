@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"
 import Image from "next/image"
 import { cn } from "@/lib/utils"
+import { motion, AnimatePresence } from "framer-motion"
 
 interface HeroCarouselProps {
   images: {
@@ -30,27 +31,44 @@ export function HeroCarousel({
 
   return (
     <div className={cn("relative h-full w-full overflow-hidden", className)}>
-      {images.map((image, index) => (
-        <div
-          key={image.src}
-          className={cn(
-            "absolute inset-0 h-full w-full transition-opacity duration-1000",
-            index === currentIndex 
-              ? "opacity-100 z-10 scale-[1.02] animate-subtle-zoom" 
-              : "opacity-0 z-0"
-          )}
-        >
-          <Image
-            src={image.src}
-            alt={image.alt}
-            fill
-            className="object-cover object-top"
-            priority={index === 0}
-            sizes="100vw"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-        </div>
-      ))}
+      <AnimatePresence initial={false}>
+        {images.map((image, index) => (
+          index === currentIndex && (
+            <motion.div
+              key={image.src}
+              className="absolute inset-0 h-full w-full z-10"
+              initial={{ opacity: 0, scale: 1 }}
+              animate={{ 
+                opacity: 1,
+                scale: 1.05 // Subtle zoom level that looks professional
+              }}
+              exit={{ 
+                opacity: 0,
+                transition: { 
+                  opacity: { duration: 1 } 
+                }
+              }}
+              transition={{ 
+                opacity: { duration: 1 },
+                scale: { 
+                  duration: interval / 1000, // Match the interval
+                  ease: "easeOut" 
+                }
+              }}
+            >
+              <Image
+                src={image.src}
+                alt={image.alt}
+                fill
+                className="object-cover object-top"
+                priority={index === 0}
+                sizes="100vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+            </motion.div>
+          )
+        ))}
+      </AnimatePresence>
       
       <div className="absolute bottom-6 left-1/2 z-20 flex -translate-x-1/2 space-x-2">
         {images.map((_, index) => (
