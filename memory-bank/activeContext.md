@@ -2,7 +2,7 @@
 
 ## Current Focus: Branding and Content Reorganization
 
-The current focus has shifted to updating the website's branding, messaging, and content organization according to newly defined brand guidelines. Having just completed the color scheme update, we now need to align all text content and page structure with the refined brand identity that emphasizes "capturing life's journey" and celebrating all moments from newborns to weddings.
+The current focus has shifted to updating the website's branding, messaging, and content organization according to newly defined brand guidelines. Having completed the color scheme update and homepage service card revisions, we now need to continue aligning all text content and page structure with the refined brand identity that emphasizes "capturing life's journey" and celebrating all moments from newborns to weddings.
 
 ## Problem Statement
 
@@ -11,7 +11,7 @@ The previous website content has several issues that need to be addressed:
 - Website structure doesn't align with the recommended navigation categories
 - Inconsistent tone and voice across different pages
 - CTAs are not strategically aligned with the new brand guidelines
-- Gallery categorization doesn't reflect the four key photography focus areas
+- Gallery categorization doesn't reflect the key photography focus areas
 
 ## Solution Approach
 
@@ -27,7 +27,7 @@ A comprehensive branding and content update is being implemented with the follow
    - Implement recommended navigation structure:
      - Home
      - About Jason (My Story, My Approach)
-     - Portfolio (Families & Babies, Young Adults & Graduates, Couples & Engagements, Weddings & Celebrations)
+     - Portfolio (Families & Babies, Young Adults & Graduates, Couples & Engagements, Weddings & Celebrations, Professional & Corporate, Tailored Photography Experiences)
      - Client Experience (expectations, testimonials, FAQ)
      - Journal (blog, client stories)
      - Contact (with clear CTA)
@@ -36,7 +36,7 @@ A comprehensive branding and content update is being implemented with the follow
    - Page-by-page review and revision
    - Implementation of consistent, warm, and authentic voice
    - Integration of strategic CTAs on each page
-   - Gallery reorganization to align with the four main photography categories
+   - Gallery reorganization to align with the main photography categories
 
 4. **Documentation**
    - Create `.migration-plan.md` to guide the branding update process
@@ -46,9 +46,11 @@ A comprehensive branding and content update is being implemented with the follow
 
 The brand update is in progress with:
 - Color scheme update completed (see COLOR-MIGRATION-GUIDE.md)
+- Homepage service cards updated with new "Tailored Photography Experiences" option
+- Simplified CTAs on service cards for clearer user journey
 - Brand guidelines document created with clear direction for voice, tone, and messaging
 - Initial planning for content reorganization completed
-- Ready to implement text and structure changes across all pages
+- Ready to implement text and structure changes across remaining pages
 
 ## Recent Changes
 
@@ -58,14 +60,25 @@ The brand update is in progress with:
    - Improved section differentiation with new color applications
    - Enhanced visual hierarchy through strategic color use
 
-2. **Brand Guidelines Development**
+2. **Homepage Service Cards Update**
+   - Added sixth "Tailored Photography Experiences" card for custom services
+   - Simplified CTA approach - single, clear CTA per card instead of dual-CTA system
+   - Created strategic user paths with service-specific CTAs:
+     - "Capture Your Story" for families and couples
+     - "View Portfolio" for graduates and weddings
+     - "Elevate Your Image" for professional/corporate
+     - "Start the Conversation" for custom experiences
+   - Created balanced 3×2 grid layout for visual appeal
+   - Enhanced mobile experience with consistent CTA placement
+
+3. **Brand Guidelines Development**
    - Defined clear brand promise and taglines
    - Established brand pillars (Authenticity, Celebration, Storytelling, Excellence, Relationship)
-   - Created photography focus categories (Families & Babies, Young Adults & Graduates, Couples & Engagements, Weddings & Celebrations)
+   - Created photography focus categories, now including "Tailored Photography Experiences"
    - Developed consistent voice and tone guidelines
 
-3. **Planning and Documentation**
-   - Created a branding migration plan
+4. **Planning and Documentation**
+   - Updated migration plan to reflect new six-category approach
    - Identified all pages and components that require updating
    - Developed a systematic approach for content review and revision
 
@@ -73,25 +86,19 @@ The brand update is in progress with:
 
 The following improvements are planned for the branding and content update:
 
-1. **Homepage Update**
-   - Revise hero section text to incorporate new brand promise
-   - Update service section to align with the four photography categories
-   - Implement clear, compelling CTAs following brand guidelines
-   - Ensure testimonials reflect the life journey storytelling approach
-
-2. **Portfolio Reorganization**
-   - Reorganize galleries according to the four photography focus areas
+1. **Portfolio Reorganization**
+   - Reorganize galleries according to the six photography focus areas
    - Add category descriptions that reinforce the brand story
    - Update gallery filtering system to match new categories
    - Ensure image selection effectively demonstrates the life journey theme
 
-3. **About Page Revision**
+2. **About Page Revision**
    - Update content to emphasize Jason's experience documenting life's journey
    - Structure content to include both "My Story" and "My Approach" sections
    - Incorporate brand pillars into the narrative
    - Add visual elements that reinforce the brand story
 
-4. **New Pages Development**
+3. **New Pages Development**
    - Create Client Experience page with expectations, testimonials, and FAQ
    - Develop Journal section for blog posts and client stories
    - Update Contact page with clear, compelling CTAs
@@ -123,13 +130,19 @@ Current areas to address during implementation:
    - Builds deeper client relationships through multiple milestones
    - Positions Jason as a lifelong photography partner, not just a one-time service
 
-2. **Navigation Approach**
+2. **Why Add "Tailored Photography Experiences" Category?**
+   - Creates a pathway for unique client requests that don't fit other categories
+   - Communicates flexibility and willingness to collaborate on custom projects
+   - Increases perceived value by moving beyond "one-size-fits-all" services
+   - Balances the service grid with a 3×2 layout for visual appeal
+
+3. **Navigation Approach**
    - More intuitive organization based on client journey
    - Better showcases the breadth of services
    - Clearer paths to conversion based on life stage
    - Improved user experience with logical content grouping
 
-3. **Content Strategy**
+4. **Content Strategy**
    - Warm, authentic voice establishes connection
    - Consistent messaging reinforces brand value
    - Strategic CTAs guide user journey
