@@ -20,7 +20,7 @@
   --secondary-foreground: 83 14% 25%;
   --muted: 44 23% 81%; /* Bone-2: #DAD4C4ff */
   --muted-foreground: 83 14% 40%;
-  --accent: 197 10% 53%; /* Slate Gray: #7C8D94ff */
+  --accent: 36 33% 54%; /* Lion: #B09163ff */
   --accent-foreground: 0 0% 100%;
   --destructive: 0 72% 65%;
   --destructive-foreground: 0 0% 100%;
@@ -40,7 +40,7 @@
   --primary: 55 11% 46%; /* Reseda Green: #828069ff */
   --primary-light: 44 23% 81%; /* Bone-2: #DAD4C4ff */
   --primary-foreground: 0 0% 100%;
-  --secondary: 197 10% 53%; /* Slate Gray: #7C8D94ff */
+  --secondary: 36 33% 54%; /* Lion: #B09163ff */
   --secondary-foreground: 48 17% 94%;
   --muted: 83 14% 18%;
   --muted-foreground: 44 23% 81%;
@@ -51,6 +51,55 @@
   --border: 83 14% 30%;
   --input: 83 14% 30%;
   --ring: 55 11% 46%;
+}
+
+/* Cool-toned palette - From the second color set */
+.palette-cool {
+  /* Light mode */
+  --background: 0 0% 100%; /* White: #FFFFFFff */
+  --foreground: 199 27% 18%; /* Gunmetal: #22333Bff */
+  --card: 0 0% 100%;
+  --card-foreground: 199 27% 18%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 199 27% 18%;
+  --primary: 199 27% 18%; /* Gunmetal: #22333Bff */
+  --primary-light: 210 8% 46%; /* Slate Gray: #6C757Eff */
+  --primary-foreground: 0 0% 100%;
+  --secondary: 36 33% 54%; /* Lion: #B09163ff */
+  --secondary-foreground: 0 0% 100%;
+  --muted: 0 0% 90%; /* Platinum: #E5E5E5ff */
+  --muted-foreground: 199 27% 30%;
+  --accent: 215 23% 57%; /* Cool Gray: #788DAAff */
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 72% 65%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 0 0% 90%;
+  --input: 0 0% 90%;
+  --ring: 199 27% 18%;
+}
+
+/* Dark mode for cool palette */
+.dark.palette-cool {
+  --background: 199 27% 18%; /* Gunmetal: #22333Bff */
+  --foreground: 0 0% 100%; /* White: #FFFFFFff */
+  --card: 199 27% 15%;
+  --card-foreground: 0 0% 100%;
+  --popover: 199 27% 15%;
+  --popover-foreground: 0 0% 100%;
+  --primary: 210 8% 46%; /* Slate Gray: #6C757Eff */
+  --primary-light: 0 0% 90%; /* Platinum: #E5E5E5ff */
+  --primary-foreground: 0 0% 100%;
+  --secondary: 36 33% 54%; /* Lion: #B09163ff */
+  --secondary-foreground: 0 0% 100%;
+  --muted: 199 27% 12%;
+  --muted-foreground: 0 0% 90%;
+  --accent: 215 23% 57%; /* Cool Gray: #788DAAff */
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 62% 55%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 199 27% 25%;
+  --input: 199 27% 25%;
+  --ring: 210 8% 46%;
 }
 
 

@@ -54,8 +54,8 @@ document.addEventListener('DOMContentLoaded', function() {
   const paletteOptions = document.querySelectorAll('.palette-option');
   const darkModeToggle = document.getElementById('dark-mode-toggle');
   
-  // Always use the brand palette
-  const savedPalette = 'palette-brand';
+  // Use the saved palette preference or default to brand palette
+  const savedPalette = localStorage.getItem('selectedPalette') || 'palette-brand';
   const savedDarkMode = localStorage.getItem('darkMode') === 'true';
   
   // Apply saved preferences
@@ -175,13 +175,47 @@ function updateContrastInfo() {
   const isDarkMode = document.body.classList.contains('dark');
   let html = '';
   
-  // Define our brand colors directly as RGB values for more reliability
-  // These match our CSS HSL values but are pre-converted to RGB
-  const backgroundRgb = isDarkMode ? { r: 65, g: 72, b: 54 } : { r: 243, g: 242, b: 238 }; // Isabelline/#F3F2EE or Black Olive/#414836
-  const foregroundRgb = isDarkMode ? { r: 243, g: 242, b: 238 } : { r: 65, g: 72, b: 54 }; // Black Olive/#414836 or Isabelline/#F3F2EE
-  const primaryRgb = isDarkMode ? { r: 130, g: 128, b: 105 } : { r: 65, g: 72, b: 54 }; // Reseda Green/#828069 or Black Olive/#414836
-  const accentRgb = isDarkMode ? { r: 199, g: 198, b: 180 } : { r: 124, g: 141, b: 148 }; // Bone/#C7C6B4 or Slate Gray/#7C8D94
-  const mutedRgb = isDarkMode ? { r: 52, g: 58, b: 43 } : { r: 218, g: 212, b: 196 }; // Darker Black Olive or Bone-2/#DAD4C4
+  // Determine which palette is currently active
+  const isCoolPalette = document.body.classList.contains('palette-cool');
+  
+  // Define colors based on the active palette
+  let backgroundRgb, foregroundRgb, primaryRgb, accentRgb, mutedRgb;
+  
+  if (isCoolPalette) {
+    // Cool palette colors
+    if (isDarkMode) {
+      // Dark mode - Cool palette
+      backgroundRgb = { r: 34, g: 51, b: 59 };    // Gunmetal: #22333B
+      foregroundRgb = { r: 255, g: 255, b: 255 }; // White: #FFFFFF
+      primaryRgb = { r: 108, g: 117, b: 126 };    // Slate Gray: #6C757E
+      accentRgb = { r: 120, g: 141, b: 170 };     // Cool Gray: #788DAA
+      mutedRgb = { r: 27, g: 41, b: 47 };         // Darker Gunmetal
+    } else {
+      // Light mode - Cool palette
+      backgroundRgb = { r: 255, g: 255, b: 255 }; // White: #FFFFFF
+      foregroundRgb = { r: 34, g: 51, b: 59 };    // Gunmetal: #22333B
+      primaryRgb = { r: 34, g: 51, b: 59 };       // Gunmetal: #22333B
+      accentRgb = { r: 120, g: 141, b: 170 };     // Cool Gray: #788DAA
+      mutedRgb = { r: 229, g: 229, b: 229 };      // Platinum: #E5E5E5
+    }
+  } else {
+    // Brand palette colors
+    if (isDarkMode) {
+      // Dark mode - Brand palette
+      backgroundRgb = { r: 65, g: 72, b: 54 };    // Black Olive: #414836
+      foregroundRgb = { r: 243, g: 242, b: 238 }; // Isabelline: #F3F2EE
+      primaryRgb = { r: 130, g: 128, b: 105 };    // Reseda Green: #828069
+      accentRgb = { r: 199, g: 198, b: 180 };     // Bone: #C7C6B4
+      mutedRgb = { r: 52, g: 58, b: 43 };         // Darker Black Olive
+    } else {
+      // Light mode - Brand palette
+      backgroundRgb = { r: 243, g: 242, b: 238 }; // Isabelline: #F3F2EE
+      foregroundRgb = { r: 65, g: 72, b: 54 };    // Black Olive: #414836
+      primaryRgb = { r: 65, g: 72, b: 54 };       // Black Olive: #414836
+      accentRgb = { r: 124, g: 141, b: 148 };     // Slate Gray: #7C8D94
+      mutedRgb = { r: 218, g: 212, b: 196 };      // Bone-2: #DAD4C4
+    }
+  }
   
   // Badge colors - badge uses full primary color with white text
   const badgeBgRgb = primaryRgb;
