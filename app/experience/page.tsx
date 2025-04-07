@@ -1,8 +1,9 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Image from "next/image"
 import Link from "next/link"
+import { useSearchParams } from "next/navigation"
 import { BackgroundBlobs } from "@/components/ui/background-blobs"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
@@ -388,11 +389,22 @@ const categories = [
 ];
 
 export default function ExperiencePage() {
+  // Get URL query parameters
+  const searchParams = useSearchParams();
+  const tabParam = searchParams.get('tab');
+  
   // State for tabs and journal category
-  const [, setActiveTab] = useState("expect");
+  const [activeTab, setActiveTab] = useState(tabParam || "expect");
   const [activeCategory, setActiveCategory] = useState("All");
   const [emailInput, setEmailInput] = useState("");
   const [isSubscribed, setIsSubscribed] = useState(false);
+  
+  // Update active tab when URL parameters change
+  useEffect(() => {
+    if (tabParam) {
+      setActiveTab(tabParam);
+    }
+  }, [tabParam]);
   
   // Filter posts by category for journal tab
   const filteredPosts = activeCategory === "All" 
@@ -429,7 +441,7 @@ export default function ExperiencePage() {
         </section>
 
         {/* Tabbed Content Section */}
-        <Tabs defaultValue="expect" className="mb-16" onValueChange={setActiveTab}>
+        <Tabs value={activeTab} className="mb-16" onValueChange={setActiveTab}>
           <div className="flex justify-center mb-10">
             <TabsList className="grid w-full max-w-md grid-cols-3">
               <TabsTrigger value="expect">What to Expect</TabsTrigger>

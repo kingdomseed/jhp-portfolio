@@ -20,8 +20,7 @@ export function SiteFooter() {
               </span>
             </Link>
             <p className="mt-4 text-sm text-muted-foreground">
-              Professional photographer specializing in portraits, events, engagements, and weddings.
-              Capturing life&apos;s beautiful moments with a natural, timeless style.
+              Capturing your life&apos;s timeless journey, one moment at a time. Professional photography for families, graduates, couples, weddings, and more in Frankfurt.
             </p>
           </div>
           
@@ -31,23 +30,23 @@ export function SiteFooter() {
             <ul className="mt-4 space-y-2">
               <li>
                 <Link 
-                  href="/"
+                  href="/about"
                   className="text-sm text-muted-foreground transition-colors hover:text-accent"
                 >
-                  Home
+                  About
                 </Link>
               </li>
               <li>
                 <Link 
-                  href="/bookings"
+                  href="/galleries"
                   className="text-sm text-muted-foreground transition-colors hover:text-accent"
                 >
-                  Bookings
+                  Galleries
                 </Link>
               </li>
               <li>
                 <Link 
-                  href="/testimonials"
+                  href="/experience?tab=testimonials"
                   className="text-sm text-muted-foreground transition-colors hover:text-accent"
                 >
                   Testimonials
@@ -55,10 +54,10 @@ export function SiteFooter() {
               </li>
               <li>
                 <Link 
-                  href="/contact"
+                  href="/contact?tab=book"
                   className="text-sm text-muted-foreground transition-colors hover:text-accent"
                 >
-                  Contact
+                  Book a Session
                 </Link>
               </li>
             </ul>
