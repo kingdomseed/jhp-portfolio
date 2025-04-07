@@ -29,5 +29,6 @@ export const categorizedTestimonials: TestimonialCollection = {
   // Only put the testimonial in its correct category, graduates
   graduates: [biancaGantt],
   couples: [],
-  weddings: []
+  weddings: [],
+  professional: []
 };

@@ -27,4 +27,5 @@ export interface TestimonialCollection {
   graduates: Testimonial[];
   couples: Testimonial[];
   weddings: Testimonial[];
+  professional: Testimonial[];
 }

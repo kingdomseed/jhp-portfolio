@@ -383,7 +383,8 @@ const categories = [
   "Families & Babies",
   "Young Adults & Graduates",
   "Couples & Engagements",
-  "Weddings & Celebrations"
+  "Weddings & Celebrations",
+  "Professional & Corporate"
 ];
 
 export default function ExperiencePage() {
@@ -517,6 +518,7 @@ export default function ExperiencePage() {
                       <TabsTrigger value="graduates">Young Adults & Graduates</TabsTrigger>
                       <TabsTrigger value="couples">Couples & Engagements</TabsTrigger>
                       <TabsTrigger value="weddings">Weddings & Celebrations</TabsTrigger>
+                      <TabsTrigger value="professional">Professional & Corporate</TabsTrigger>
                     </TabsList>
                   </div>
                   
@@ -594,6 +596,31 @@ export default function ExperiencePage() {
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                       {testimonials.weddings.length > 0 ? (
                         testimonials.weddings.map((testimonial, index) => (
+                          <TestimonialCard 
+                            key={index}
+                            name={testimonial.name}
+                            service={testimonial.service}
+                            quote={testimonial.quote}
+                            rating={testimonial.rating}
+                          />
+                        ))
+                      ) : (
+                        <div className="col-span-3 text-center py-10">
+                          <p className="text-muted-foreground">No reviews available in this category yet.</p>
+                          {testimonials.graduates.length > 0 && (
+                            <p className="mt-2">
+                              Please check the &quot;Young Adults & Graduates&quot; section to see our review.
+                            </p>
+                          )}
+                        </div>
+                      )}
+                    </div>
+                  </TabsContent>
+                  
+                  <TabsContent value="professional">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                      {testimonials.professional?.length > 0 ? (
+                        testimonials.professional.map((testimonial, index) => (
                           <TestimonialCard 
                             key={index}
                             name={testimonial.name}
