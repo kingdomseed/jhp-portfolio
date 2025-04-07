@@ -14,11 +14,13 @@ export default function Home() {
         <HeroCarousel 
           images={[
             { src: "/images/optimized/couples/couple-8.webp", alt: "Couple photography" },
-            { src: "/images/optimized/events/event-90.webp", alt: "Event photography" },
-            { src: "/images/optimized/portraits/portrait-2.webp", alt: "Portrait photography" },
-            { src: "/images/optimized/family/family-4.webp", alt: "Engagement photography" },
-            { src: "/images/optimized/portraits/senior-26.webp", alt: "Senior photography" },
-            { src: "/images/optimized/portraits/senior-28.webp", alt: "Engagement photography" }
+            { src: "/images/optimized/portraits/senior-7.webp", alt: "Portrait photography" },
+            { src: "/images/optimized/family/family-1.webp", alt: "Engagement photography" },
+            { src: "/images/optimized/couples/couple-14.webp", alt: "Senior photography" },
+            { src: "/images/optimized/portraits/senior-22.webp", alt: "Engagement photography" },
+            { src: "/images/optimized/events/event-91.webp", alt: "Event photography" },
+            { src: "/images/optimized/events/event-2.webp", alt: "Event photography" },
+            { src: "/images/optimized/headshots/headshot2.webp", alt: "Headshot photography" }
           ]}
           interval={6000}
         />
@@ -288,7 +290,7 @@ export default function Home() {
           <div className="group relative overflow-hidden rounded-2xl shadow-soft transition-all hover:shadow-hover">
             <div className="aspect-[4/5] w-full">
               <Image 
-                src="/images/optimized/events/event-1.webp" 
+                src="/images/optimized/events/event-2.webp" 
                 alt="Event Photography" 
                 width={400} 
                 height={500}
