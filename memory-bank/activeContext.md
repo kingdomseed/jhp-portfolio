@@ -1,156 +1,136 @@
 # Jason Holt Photography Active Context
 
-## Current Focus: Gallery System Optimization and Debugging
+## Current Focus: Branding and Content Reorganization
 
-The current focus has shifted to optimizing and debugging the gallery system, with particular emphasis on image optimization, path handling, and shuffle functionality. The goal is to ensure all images are properly optimized, correctly loaded from optimized paths, and that the gallery's shuffle functionality works as expected.
+The current focus has shifted to updating the website's branding, messaging, and content organization according to newly defined brand guidelines. Having just completed the color scheme update, we now need to align all text content and page structure with the refined brand identity that emphasizes "capturing life's journey" and celebrating all moments from newborns to weddings.
 
 ## Problem Statement
 
-The previous gallery implementation had issues with image display:
-- Fixed row heights that didn't respect image aspect ratios
-- Inconsistent image presentation
-- Image metadata was not being effectively utilized
-- Limited customization options
+The previous website content has several issues that need to be addressed:
+- Messaging doesn't fully capture the "life's journey" focus of the brand 
+- Website structure doesn't align with the recommended navigation categories
+- Inconsistent tone and voice across different pages
+- CTAs are not strategically aligned with the new brand guidelines
+- Gallery categorization doesn't reflect the four key photography focus areas
 
-## Solution Implemented
+## Solution Approach
 
-A new gallery system has been developed with the following components:
+A comprehensive branding and content update is being implemented with the following components:
 
-1. **Image Metadata Generator**
-   - Script: `/scripts/generate-image-metadata.js`
-   - Runs at build time to analyze all images in `/public/images/`
-   - Calculates dimensions, aspect ratios, and orientation
-   - Generates `/public/image-metadata.json`
+1. **Brand Messaging Implementation**
+   - Implement primary brand promise on desktop: "Capturing Your Life's Timeless Journey, One Moment at a Time."
+   - Implement mobile tagline: "All Your Life's Moments, Celebrated."
+   - Update all text content to reflect the "life's journey" theme
+   - Ensure brand pillars (Authenticity, Celebration, Storytelling, Excellence, Relationship) are reflected in content
 
-2. **Enhanced MasonryGrid Component**
-   - Component: `/components/ui/masonry-grid.tsx`
-   - Implements a true masonry layout algorithm
-   - Dynamically loads image metadata at runtime
-   - Automatically adjusts to image aspect ratios
-   - Provides fallbacks for images missing metadata
-   - Responsive design with adaptive column counts
+2. **Website Structure Reorganization**
+   - Implement recommended navigation structure:
+     - Home
+     - About Jason (My Story, My Approach)
+     - Portfolio (Families & Babies, Young Adults & Graduates, Couples & Engagements, Weddings & Celebrations)
+     - Client Experience (expectations, testimonials, FAQ)
+     - Journal (blog, client stories)
+     - Contact (with clear CTA)
 
-3. **Gallery Experience**
-   - Page: `/app/galleries/page.tsx`
-   - Categorized image management
-   - Filtering by category
-   - Multiple sort options
-   - Lightbox integration for detailed viewing
+3. **Content Update Strategy**
+   - Page-by-page review and revision
+   - Implementation of consistent, warm, and authentic voice
+   - Integration of strategic CTAs on each page
+   - Gallery reorganization to align with the four main photography categories
 
 4. **Documentation**
-   - Comprehensive documentation in `GALLERY-DOCUMENTATION.md`
-   - Quick reference guide in `GALLERY-QUICK-REFERENCE.md`
+   - Create `.migration-plan.md` to guide the branding update process
+   - Update all memory bank files to reflect the new brand focus
 
 ## Current State
 
-The gallery system is now functioning properly with:
-- Correct aspect ratio handling for all images
-- Visually appealing masonry layout
-- Improved responsiveness across devices
-- Better organization by category
-- Enhanced user experience with filtering and sorting
+The brand update is in progress with:
+- Color scheme update completed (see COLOR-MIGRATION-GUIDE.md)
+- Brand guidelines document created with clear direction for voice, tone, and messaging
+- Initial planning for content reorganization completed
+- Ready to implement text and structure changes across all pages
 
 ## Recent Changes
 
-1. **MasonryGrid Refactoring**
-   - Implemented dynamic fetching of image metadata
-   - Created a true masonry layout algorithm
-   - Added smart fallbacks for missing metadata
-   - Improved responsiveness
+1. **Color Palette Update**
+   - Implemented new color scheme with Isabelline, Black Olive, Bone, Reseda Green, Slate Gray, and Light Bone
+   - Updated Tailwind configuration and component styling
+   - Improved section differentiation with new color applications
+   - Enhanced visual hierarchy through strategic color use
 
-2. **Gallery UI Improvements**
-   - Reduced spacing between images from 16px to 8px
-   - Enhanced hover effects with image information
-   - Added category badges and location information
+2. **Brand Guidelines Development**
+   - Defined clear brand promise and taglines
+   - Established brand pillars (Authenticity, Celebration, Storytelling, Excellence, Relationship)
+   - Created photography focus categories (Families & Babies, Young Adults & Graduates, Couples & Engagements, Weddings & Celebrations)
+   - Developed consistent voice and tone guidelines
 
-3. **Metadata System**
-   - Ensured metadata generation is automatic during builds
-   - Added category-based fallbacks for better reliability
-
-## Recent Work: Gallery System Debugging & Path Fixes
-
-The gallery system has been debugged and fixed to properly handle optimized image paths:
-
-1. **Fixed Path Recognition Logic**
-   - Implemented regex pattern matching to handle both original and optimized image paths
-   - Created path patterns that recognize both `/images/[category]/` and `/images/optimized/[category]/`
-   - Fixed category mapping for optimized images in WebP format
-
-2. **Improved State Management**
-   - Enhanced React state management with timestamp-based objects instead of boolean flags
-   - Made the `galleryUpdated` state more reliable for triggering re-renders
-   - Added counter and timestamp for tracking state changes in the console
-
-3. **User Experience Improvements**
-   - Added a manual gallery refresh button for users to force regeneration
-   - Improved console logging to track image processing and categorization
-   - Created debugging documentation to help diagnose future issues
-
-4. **Comprehensive Debugging Tools**
-   - Implemented path update tool to automatically convert image references
-   - Fixed issues with image categorization for optimized paths
-   - Added extensive diagnostic logging to track gallery image flow
-
-5. **Documentation**
-   - Created `GALLERY-DEBUG-GUIDE.md` with solutions to common problems
-   - Documented all debugging steps and fixes implemented
-   - Added a troubleshooting guide for future maintenance
+3. **Planning and Documentation**
+   - Created a branding migration plan
+   - Identified all pages and components that require updating
+   - Developed a systematic approach for content review and revision
 
 ## Next Steps
 
-The following improvements are planned for the gallery system:
+The following improvements are planned for the branding and content update:
 
-1. **Performance Optimization**
-   - Implement virtual scrolling for very large galleries
-   - Further optimize WebP compression settings for the best quality/size ratio
-   - Improve loading time metrics and tracking
+1. **Homepage Update**
+   - Revise hero section text to incorporate new brand promise
+   - Update service section to align with the four photography categories
+   - Implement clear, compelling CTAs following brand guidelines
+   - Ensure testimonials reflect the life journey storytelling approach
 
-2. **Accessibility Enhancements**
-   - Add proper DialogTitle to lightbox for screen readers
-   - Improve keyboard navigation
-   - Ensure appropriate ARIA attributes
+2. **Portfolio Reorganization**
+   - Reorganize galleries according to the four photography focus areas
+   - Add category descriptions that reinforce the brand story
+   - Update gallery filtering system to match new categories
+   - Ensure image selection effectively demonstrates the life journey theme
 
-3. **Enhanced Features**
-   - Implement category descriptions at the top of each filtered view
-   - Add before/after editing examples to showcase editing skill
-   - Add location-based filtering
+3. **About Page Revision**
+   - Update content to emphasize Jason's experience documenting life's journey
+   - Structure content to include both "My Story" and "My Approach" sections
+   - Incorporate brand pillars into the narrative
+   - Add visual elements that reinforce the brand story
 
-4. **Analytics Integration**
-   - Track which images receive the most interactions
-   - Identify popular categories for content planning
-   - Measure time spent in gallery and conversion to contact
+4. **New Pages Development**
+   - Create Client Experience page with expectations, testimonials, and FAQ
+   - Develop Journal section for blog posts and client stories
+   - Update Contact page with clear, compelling CTAs
 
 ## Related Components
 
-The gallery system interacts with these other components:
-- **EnhancedLightbox**: For detailed image viewing
-- **GalleryFilters**: For category filtering and sorting
-- **Image Component**: For optimized image display
-- **Build Process**: For metadata generation
+The branding update affects these key components:
+- **Navigation**: Site structure and organization
+- **Hero Components**: Primary messaging and first impressions
+- **Gallery System**: Categorization and presentation
+- **Service Components**: Descriptions and value propositions 
+- **CTA Components**: Conversion-focused elements
+- **Typography System**: Voice and tone implementation
 
-## Technical Debt
+## Implementation Considerations
 
-Current areas of technical debt that need to be addressed:
-- Some accessibility warnings in the console
-- Remaining image references that need updating to optimized paths
-- Potential state management issues in gallery component
-- Need for more comprehensive error handling
-- Better type safety for image metadata
+Current areas to address during implementation:
+- Maintaining consistent voice across all pages
+- Ensuring the new categories work with existing image metadata
+- Preserving SEO value while updating content
+- Balancing technical improvements with brand message updates
+- Ensuring mobile experience maintains brand integrity
 
 ## Decisions & Considerations
 
-1. **Why Custom Masonry Implementation?**
-   - Commercial masonry libraries often don't handle aspect ratios correctly
-   - Greater control over the layout algorithm
-   - Better integration with Next.js Image optimization
-   - Custom hover effects and information display
+1. **Why Life Journey Focus?**
+   - Differentiates from competitors focused on single specialties
+   - Creates opportunities for repeat business across life stages
+   - Builds deeper client relationships through multiple milestones
+   - Positions Jason as a lifelong photography partner, not just a one-time service
 
-2. **Metadata Approach**
-   - Build-time generation was chosen for performance reasons
-   - Runtime consumption provides flexibility
-   - Fallback system ensures resilience
+2. **Navigation Approach**
+   - More intuitive organization based on client journey
+   - Better showcases the breadth of services
+   - Clearer paths to conversion based on life stage
+   - Improved user experience with logical content grouping
 
-3. **Gallery Organization**
-   - Category-based organization aligns with user mental models
-   - Sort options provide flexibility in browsing
-   - Lightbox integration creates immersive viewing experience
+3. **Content Strategy**
+   - Warm, authentic voice establishes connection
+   - Consistent messaging reinforces brand value
+   - Strategic CTAs guide user journey
+   - Emotional storytelling creates stronger engagement
