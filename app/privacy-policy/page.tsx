@@ -7,7 +7,7 @@ export default function PrivacyPolicyPage() {
         </h1>
         
         <div className="prose prose-lg dark:prose-invert max-w-none">
-          <p className="lead">
+          <p className="lead mb-8">
             This Privacy Policy explains how Jason Holt Photography collects, uses, and protects your personal information. We are committed to ensuring your privacy is protected in accordance with the General Data Protection Regulation (GDPR) and other applicable data protection laws.
           </p>
           
@@ -22,16 +22,16 @@ export default function PrivacyPolicyPage() {
             </p>
           </div>
           
-          <h2>1. Controller Information</h2>
-          <p>
+          <h2 className="mt-8">1. Controller Information</h2>
+          <p className="mb-8">
             The controller responsible for data processing on this website is Jason Holt Photography, based in Frankfurt, Germany. Complete contact information can be found in the Impressum section.
           </p>
           
-          <h2>2. Information We Collect</h2>
+          <h2 className="mt-8">2. Information We Collect</h2>
           <p>
             We may collect the following information:
           </p>
-          <ul>
+          <ul className="mb-8">
             <li>Name and contact information including email address and phone number</li>
             <li>Demographic information such as address and postal code</li>
             <li>Session preferences and requirements</li>
@@ -39,22 +39,22 @@ export default function PrivacyPolicyPage() {
             <li>Website usage data through cookies and analytics</li>
           </ul>
           
-          <h2>3. Legal Basis for Processing</h2>
+          <h2 className="mt-8">3. Legal Basis for Processing</h2>
           <p>
             We process your personal data on the following legal bases according to Article 6 of the GDPR:
           </p>
-          <ul>
+          <ul className="mb-8">
             <li><strong>Contract fulfillment (Art. 6(1)(b) GDPR):</strong> Processing necessary for the performance of our contract with you (booking, providing photography services)</li>
             <li><strong>Legitimate interests (Art. 6(1)(f) GDPR):</strong> Processing necessary for our legitimate interests (improving services, internal record keeping, portfolio development)</li>
             <li><strong>Legal obligation (Art. 6(1)(c) GDPR):</strong> Processing necessary for compliance with legal obligations (tax records, commercial law requirements)</li>
             <li><strong>Consent (Art. 6(1)(a) GDPR):</strong> Processing based on your specific consent (marketing communications, use of images for portfolio)</li>
           </ul>
           
-          <h2>4. How We Use Your Information</h2>
+          <h2 className="mt-8">4. How We Use Your Information</h2>
           <p>
             We use your personal information for:
           </p>
-          <ul>
+          <ul className="mb-8">
             <li>Managing your booking and providing photography services (legal basis: contract fulfillment)</li>
             <li>Internal record keeping and business management (legal basis: legitimate interests, legal obligation)</li>
             <li>Improving our products and services (legal basis: legitimate interests)</li>
@@ -63,12 +63,12 @@ export default function PrivacyPolicyPage() {
             <li>Contacting you regarding your session or booking (legal basis: contract fulfillment)</li>
           </ul>
           
-          <h2>5. Data Security</h2>
-          <p>
+          <h2 className="mt-8">5. Data Security</h2>
+          <p className="mb-8">
             We are committed to ensuring your information is secure. We have implemented suitable physical, electronic, and managerial procedures to safeguard and secure the information we collect online, following the requirements of Art. 32 GDPR on data security.
           </p>
           
-          <h2>6. Cookies and Tracking</h2>
+          <h2 className="mt-8">6. Cookies and Tracking</h2>
           <p>
             Our website uses cookies to improve your experience. Cookies are small files stored on your computer that help analyze web traffic and allow web applications to respond to you as an individual.
           </p>
@@ -81,11 +81,11 @@ export default function PrivacyPolicyPage() {
             <li><strong>Statistics cookies:</strong> Help us understand how visitors interact with the website</li>
             <li><strong>Marketing cookies:</strong> Used to track visitors across websites for marketing purposes (only with your explicit consent)</li>
           </ul>
-          <p>
+          <p className="mb-8">
             When you first visit our website, you will be asked to consent to non-essential cookies. You can manage your cookie preferences at any time through our cookie banner or by modifying your browser settings.
           </p>
           
-          <h2>7. Third-Party Services</h2>
+          <h2 className="mt-8">7. Third-Party Services</h2>
           <p>
             We use third-party services for:
           </p>
@@ -95,35 +95,35 @@ export default function PrivacyPolicyPage() {
             <li><strong>Image galleries and delivery:</strong> Secure gallery platforms for sharing images with clients</li>
             <li><strong>Website analytics:</strong> To analyze website performance and user behavior</li>
           </ul>
-          <p>
+          <p className="mb-8">
             These third parties have access to your personal data only to perform specific tasks on our behalf and are obligated to not disclose or use it for any other purpose. All third parties we use that process EU citizen data comply with GDPR requirements.
           </p>
           
-          <h2>8. Data Transfers Outside the EU</h2>
+          <h2 className="mt-8">8. Data Transfers Outside the EU</h2>
           <p>
             Some of our service providers may be based outside the European Economic Area (EEA), which means your data may be processed outside the EEA. Whenever we transfer your personal data outside the EEA, we ensure a similar degree of protection by ensuring at least one of the following safeguards is implemented:
           </p>
-          <ul>
+          <ul className="mb-8">
             <li>Transfer to countries that have been deemed to provide an adequate level of protection by the European Commission</li>
             <li>Use of specific contracts approved by the European Commission (Standard Contractual Clauses)</li>
             <li>Transfer to providers participating in approved certification mechanisms</li>
           </ul>
           
-          <h2>9. Data Retention</h2>
+          <h2 className="mt-8">9. Data Retention</h2>
           <p>
             We retain your personal information only for as long as necessary to fulfill the purposes we collected it for, including for the purposes of satisfying any legal, accounting, or reporting requirements.
           </p>
           <p>
             Specific retention periods:
           </p>
-          <ul>
+          <ul className="mb-8">
             <li><strong>Contact information:</strong> Retained for up to 3 years after our last interaction</li>
             <li><strong>Contract and payment data:</strong> Retained for 10 years to comply with tax and commercial law requirements</li>
             <li><strong>Photography images:</strong> Retained for a minimum of one year after delivery, or longer with your permission for portfolio use</li>
             <li><strong>Website analytics data:</strong> Retained in anonymous form for up to 26 months</li>
           </ul>
           
-          <h2>10. Your Rights Under GDPR</h2>
+          <h2 className="mt-8">10. Your Rights Under GDPR</h2>
           <p>
             Under GDPR and other applicable data protection laws, you have the following rights:
           </p>
@@ -138,27 +138,27 @@ export default function PrivacyPolicyPage() {
             <li><strong>Right to lodge a complaint:</strong> You can complain to a supervisory authority</li>
           </ul>
           
-          <h3>How to Exercise Your Rights</h3>
-          <p>
+          <h3 className="mt-6">How to Exercise Your Rights</h3>
+          <p className="mb-8">
             To exercise any of these rights, please contact us using the information in the Contact section. We will respond to all legitimate requests within one month. There is no fee for exercising your rights, but we may charge a reasonable fee if your request is clearly unfounded, repetitive, or excessive.
           </p>
           
-          <h2>11. Data Protection Officer</h2>
-          <p>
+          <h2 className="mt-8">11. Data Protection Officer</h2>
+          <p className="mb-8">
             Based on the size and nature of our operations, Jason Holt Photography is not required to appoint a formal Data Protection Officer according to Art. 37 GDPR. However, for all concerns regarding data protection, please contact us directly using the information provided in the Contact section.
           </p>
           
-          <h2>12. Children&apos;s Privacy</h2>
-          <p>
+          <h2 className="mt-8">12. Children&apos;s Privacy</h2>
+          <p className="mb-8">
             For sessions involving minors under 16, we require parental consent before collecting any personal information, in accordance with Art. 8 GDPR. Parents have the right to review and request deletion of their child&apos;s information.
           </p>
           
-          <h2>13. Changes to This Policy</h2>
-          <p>
+          <h2 className="mt-8">13. Changes to This Policy</h2>
+          <p className="mb-8">
             We may update this privacy policy periodically. Changes will be posted on this page with an updated revision date. If we make significant changes to how we treat your personal data, we will notify you through a notice on our website.
           </p>
           
-          <h2>14. Contact Information</h2>
+          <h2 className="mt-8">14. Contact Information</h2>
           <p>
             If you have any questions about this privacy policy or how we handle your personal information, please contact us at:
           </p>
