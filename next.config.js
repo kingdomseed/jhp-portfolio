@@ -14,6 +14,30 @@ const nextConfig = {
       ? 'http://localhost:3000/api' 
       : 'https://jasonholtphotography.com/api',
   },
+  
+  // Redirects configuration
+  async redirects() {
+    return [
+      // Redirect from old standalone Bookings page to Contact page with bookings tab
+      {
+        source: '/bookings',
+        destination: '/contact?tab=book',
+        permanent: true, // 308 status code - permanent redirect
+      },
+      // Redirect from old standalone Journal page to Experience page with journal tab
+      {
+        source: '/journal',
+        destination: '/experience?tab=journal',
+        permanent: true, // 308 status code - permanent redirect
+      },
+      // Preserve old journal post URLs by redirecting to experience with journal tab
+      {
+        source: '/journal/:slug',
+        destination: '/experience?tab=journal',
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

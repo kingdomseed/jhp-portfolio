@@ -18,19 +18,11 @@ export const siteConfig = {
     },
     {
       title: "Experience",
-      href: "/experience",
-    },
-    {
-      title: "Journal",
-      href: "/journal",
+      href: "/experience", // Now includes Journal content as a tab
     },
     {
       title: "Contact",
-      href: "/contact",
-    },
-    {
-      title: "Bookings",
-      href: "/bookings",
+      href: "/contact", // Now includes Bookings content as a tab
     },
   ],
   links: {
