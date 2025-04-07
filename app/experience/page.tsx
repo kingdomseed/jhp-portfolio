@@ -166,97 +166,12 @@ function ProcessStep({
   )
 }
 
-// Testimonial data
-const testimonials = {
-  featured: [
-    {
-      name: "Sarah & Michael",
-      service: "Wedding Photography",
-      quote: "Jason made our wedding day so special with his incredible photography. He captured every moment perfectly and made us feel completely at ease throughout the day. The photos are absolutely stunning and we couldn&apos;t be happier with the results!",
-      image: "/images/optimized/couples/couple-3.webp"
-    }
-  ],
-  families: [
-    {
-      name: "The Martinez Family",
-      service: "Family Session",
-      quote: "Jason was amazing with our kids and captured beautiful, natural moments of our family. The photos perfectly reflect our family&apos;s personality and connection.",
-      rating: 5
-    },
-    {
-      name: "Jennifer & Family",
-      service: "Extended Family Session",
-      quote: "Coordinating a session with three generations wasn&apos;t easy, but Jason handled it with patience and professionalism. The photos are treasures we&apos;ll keep forever.",
-      rating: 4
-    },
-    {
-      name: "The Schmidt Family",
-      service: "Family Portraits",
-      quote: "We&apos;ve had family photos taken before, but none compare to what Jason created. He captured genuine interactions and emotions rather than stiff poses.",
-      rating: 5
-    }
-  ],
-  graduates: [
-    {
-      name: "Emily Johnson",
-      service: "Senior Portraits",
-      quote: "I was nervous about my senior portrait session, but Jason made me feel so comfortable. The results were beyond my expectations - he truly captured my personality in every shot.",
-      rating: 5
-    },
-    {
-      name: "Thomas Weber",
-      service: "Graduation Photos",
-      quote: "The graduation photos Jason took were exceptional. Professional, thoughtful, and exactly what I needed to commemorate this important milestone.",
-      rating: 5
-    },
-    {
-      name: "Sophia Chen",
-      service: "Professional Headshots",
-      quote: "Jason has an incredible eye for portrait photography. He suggested poses and locations I wouldn&apos;t have thought of, and the results were stunning.",
-      rating: 5
-    }
-  ],
-  couples: [
-    {
-      name: "Alex & Jordan",
-      service: "Engagement Session",
-      quote: "Our engagement photos are absolutely perfect! Jason found the most beautiful locations and made us feel so comfortable. We&apos;re thrilled with how they turned out.",
-      rating: 5
-    },
-    {
-      name: "Emma & Noah",
-      service: "Couple&apos;s Session",
-      quote: "Jason has a talent for capturing the connection between couples. Our photos feel authentic and romantic without being cheesy or overly posed.",
-      rating: 5
-    },
-    {
-      name: "Olivia & William",
-      service: "Pre-Wedding Photos",
-      quote: "We used our engagement photos for save-the-dates, and everyone commented on how beautiful they were. Jason truly captured our relationship in these images.",
-      rating: 5
-    }
-  ],
-  weddings: [
-    {
-      name: "David & Maria",
-      service: "Wedding Photography",
-      quote: "Jason documented our wedding day with such care and attention to detail. He captured all the big moments and countless small ones we would have missed. The photos tell the complete story of our special day.",
-      rating: 5
-    },
-    {
-      name: "Frankfurt Business Association",
-      service: "Annual Gala",
-      quote: "We&apos;ve used several photographers for our annual gala, but Jason&apos;s work stands out. His attention to detail and ability to capture the energy of the celebration is unmatched.",
-      rating: 4
-    },
-    {
-      name: "The Johnson Family",
-      service: "Anniversary Celebration",
-      quote: "Jason photographed our parents&apos; 50th anniversary celebration, and the photos are priceless. He documented multiple generations celebrating together in such a heartfelt way.",
-      rating: 5
-    }
-  ]
-};
+// Import shared testimonial types and data
+import { TestimonialCollection } from "@/lib/types/testimonials";
+import { categorizedTestimonials } from "@/lib/data/testimonials";
+
+// Use the shared testimonial data
+const testimonials: TestimonialCollection = categorizedTestimonials;
 
 // FAQ data
 const faqData = [
@@ -607,57 +522,96 @@ export default function ExperiencePage() {
                   
                   <TabsContent value="families">
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                      {testimonials.families.map((testimonial, index) => (
-                        <TestimonialCard 
-                          key={index}
-                          name={testimonial.name}
-                          service={testimonial.service}
-                          quote={testimonial.quote}
-                          rating={testimonial.rating}
-                        />
-                      ))}
+                      {testimonials.families.length > 0 ? (
+                        testimonials.families.map((testimonial, index) => (
+                          <TestimonialCard 
+                            key={index}
+                            name={testimonial.name}
+                            service={testimonial.service}
+                            quote={testimonial.quote}
+                            rating={testimonial.rating}
+                          />
+                        ))
+                      ) : (
+                        <div className="col-span-3 text-center py-10">
+                          <p className="text-muted-foreground">No reviews available in this category yet.</p>
+                          {testimonials.graduates.length > 0 && (
+                            <p className="mt-2">
+                              Please check the &quot;Young Adults & Graduates&quot; section to see our review.
+                            </p>
+                          )}
+                        </div>
+                      )}
                     </div>
                   </TabsContent>
                   
                   <TabsContent value="graduates">
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                      {testimonials.graduates.map((testimonial, index) => (
-                        <TestimonialCard 
-                          key={index}
-                          name={testimonial.name}
-                          service={testimonial.service}
-                          quote={testimonial.quote}
-                          rating={testimonial.rating}
-                        />
-                      ))}
+                      {testimonials.graduates.length > 0 ? (
+                        testimonials.graduates.map((testimonial, index) => (
+                          <TestimonialCard 
+                            key={index}
+                            name={testimonial.name}
+                            service={testimonial.service}
+                            quote={testimonial.quote}
+                            rating={testimonial.rating}
+                          />
+                        ))
+                      ) : (
+                        <div className="col-span-3 text-center py-10">
+                          <p className="text-muted-foreground">No reviews available in this category yet.</p>
+                        </div>
+                      )}
                     </div>
                   </TabsContent>
                   
                   <TabsContent value="couples">
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                      {testimonials.couples.map((testimonial, index) => (
-                        <TestimonialCard 
-                          key={index}
-                          name={testimonial.name}
-                          service={testimonial.service}
-                          quote={testimonial.quote}
-                          rating={testimonial.rating}
-                        />
-                      ))}
+                      {testimonials.couples.length > 0 ? (
+                        testimonials.couples.map((testimonial, index) => (
+                          <TestimonialCard 
+                            key={index}
+                            name={testimonial.name}
+                            service={testimonial.service}
+                            quote={testimonial.quote}
+                            rating={testimonial.rating}
+                          />
+                        ))
+                      ) : (
+                        <div className="col-span-3 text-center py-10">
+                          <p className="text-muted-foreground">No reviews available in this category yet.</p>
+                          {testimonials.graduates.length > 0 && (
+                            <p className="mt-2">
+                              Please check the &quot;Young Adults & Graduates&quot; section to see our review.
+                            </p>
+                          )}
+                        </div>
+                      )}
                     </div>
                   </TabsContent>
                   
                   <TabsContent value="weddings">
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                      {testimonials.weddings.map((testimonial, index) => (
-                        <TestimonialCard 
-                          key={index}
-                          name={testimonial.name}
-                          service={testimonial.service}
-                          quote={testimonial.quote}
-                          rating={testimonial.rating}
-                        />
-                      ))}
+                      {testimonials.weddings.length > 0 ? (
+                        testimonials.weddings.map((testimonial, index) => (
+                          <TestimonialCard 
+                            key={index}
+                            name={testimonial.name}
+                            service={testimonial.service}
+                            quote={testimonial.quote}
+                            rating={testimonial.rating}
+                          />
+                        ))
+                      ) : (
+                        <div className="col-span-3 text-center py-10">
+                          <p className="text-muted-foreground">No reviews available in this category yet.</p>
+                          {testimonials.graduates.length > 0 && (
+                            <p className="mt-2">
+                              Please check the &quot;Young Adults & Graduates&quot; section to see our review.
+                            </p>
+                          )}
+                        </div>
+                      )}
                     </div>
                   </TabsContent>
                 </Tabs>

@@ -8,17 +8,10 @@ import {
   CarouselNext, 
   CarouselPrevious 
 } from "@/components/ui/carousel"
-
-interface Testimonial {
-  quote: string
-  name: string
-  role: string
-  image: string
-  rating: number
-}
+import { CarouselTestimonial } from "@/lib/types/testimonials"
 
 interface TestimonialCarouselProps {
-  testimonials: Testimonial[]
+  testimonials: CarouselTestimonial[]
   className?: string
 }
 

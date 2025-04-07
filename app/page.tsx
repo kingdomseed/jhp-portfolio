@@ -382,7 +382,7 @@ export default function Home() {
       </SectionBackground>
       
       {/* Testimonials Section */}
-      <TestimonialsSection showTestimonials={false} />
+      <TestimonialsSection showTestimonials={true} />
       
       {/* CTA Section */}
       <SectionBackground variant="primary" paddingY="lg">
