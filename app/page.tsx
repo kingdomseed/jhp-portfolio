@@ -134,12 +134,12 @@ export default function Home() {
                 </ul>
               </div>
               
-              <div className="flex items-center justify-between">
+              <div className="mt-4">
                 <Link 
-                  href="/galleries#families" 
-                  className="inline-flex items-center text-white hover:text-accent"
+                  href="/bookings" 
+                  className="inline-flex items-center text-white hover:text-accent transition-colors"
                 >
-                  View Portfolio
+                  Capture Your Story
                   <svg 
                     xmlns="http://www.w3.org/2000/svg" 
                     className="ml-2 h-4 w-4" 
@@ -149,13 +149,6 @@ export default function Home() {
                   >
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                   </svg>
-                </Link>
-                
-                <Link 
-                  href="/bookings" 
-                  className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-accent hover:text-accent/80"
-                >
-                  Capture Your Story
                 </Link>
               </div>
             </div>
@@ -204,10 +197,10 @@ export default function Home() {
                 </ul>
               </div>
               
-              <div className="flex items-center justify-between">
+              <div className="mt-4">
                 <Link 
                   href="/galleries#graduates" 
-                  className="inline-flex items-center text-white hover:text-accent"
+                  className="inline-flex items-center text-white hover:text-accent transition-colors"
                 >
                   View Portfolio
                   <svg 
@@ -219,13 +212,6 @@ export default function Home() {
                   >
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                   </svg>
-                </Link>
-                
-                <Link 
-                  href="/bookings" 
-                  className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-accent hover:text-accent/80"
-                >
-                  Capture Your Story
                 </Link>
               </div>
             </div>
@@ -277,12 +263,12 @@ export default function Home() {
                 </ul>
               </div>
               
-              <div className="flex items-center justify-between">
+              <div className="mt-4">
                 <Link 
-                  href="/galleries#couples" 
-                  className="inline-flex items-center text-white hover:text-accent"
+                  href="/bookings" 
+                  className="inline-flex items-center text-white hover:text-accent transition-colors"
                 >
-                  View Portfolio
+                  Capture Your Story
                   <svg 
                     xmlns="http://www.w3.org/2000/svg" 
                     className="ml-2 h-4 w-4" 
@@ -292,13 +278,6 @@ export default function Home() {
                   >
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                   </svg>
-                </Link>
-                
-                <Link 
-                  href="/bookings" 
-                  className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-accent hover:text-accent/80"
-                >
-                  Capture Your Story
                 </Link>
               </div>
             </div>
@@ -348,10 +327,10 @@ export default function Home() {
                 </ul>
               </div>
               
-              <div className="flex items-center justify-between">
+              <div className="mt-4">
                 <Link 
                   href="/galleries#weddings" 
-                  className="inline-flex items-center text-white hover:text-accent"
+                  className="inline-flex items-center text-white hover:text-accent transition-colors"
                 >
                   View Portfolio
                   <svg 
@@ -363,13 +342,6 @@ export default function Home() {
                   >
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                   </svg>
-                </Link>
-                
-                <Link 
-                  href="/bookings" 
-                  className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-accent hover:text-accent/80"
-                >
-                  Capture Your Story
                 </Link>
               </div>
             </div>
@@ -418,12 +390,12 @@ export default function Home() {
                 </ul>
               </div>
               
-              <div className="flex items-center justify-between">
+              <div className="mt-4">
                 <Link 
-                  href="/galleries#professional" 
-                  className="inline-flex items-center text-white hover:text-accent"
+                  href="/bookings" 
+                  className="inline-flex items-center text-white hover:text-accent transition-colors"
                 >
-                  View Portfolio
+                  Elevate Your Image
                   <svg 
                     xmlns="http://www.w3.org/2000/svg" 
                     className="ml-2 h-4 w-4" 
@@ -434,12 +406,68 @@ export default function Home() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                   </svg>
                 </Link>
-                
+              </div>
+            </div>
+          </div>
+
+          {/* Service Card 6 - Tailored Photography Experiences */}
+          <div className="group relative overflow-hidden rounded-2xl shadow-soft transition-all hover:shadow-hover">
+            <div className="aspect-[4/5] w-full">
+              <Image 
+                src="/images/optimized/events/event-91.webp" 
+                alt="Tailored Photography Experiences" 
+                width={400} 
+                height={500}
+                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+            </div>
+            {/* Base content - always visible */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent p-6 flex flex-col justify-end transition-all duration-300 group-hover:from-black/90">
+              <div className="absolute top-4 right-4 bg-primary/90 text-white text-xs px-3 py-1 rounded-full">
+                Let&apos;s Talk
+              </div>
+              <h3 className="text-2xl font-semibold text-white">Tailored Photography Experiences</h3>
+              <p className="mt-2 text-white/80">Have a vision that doesn&apos;t fit neatly into a category? Let&apos;s create something special together</p>
+              
+              {/* Additional details - revealed on hover */}
+              <div className="max-h-0 overflow-hidden opacity-0 transition-all duration-300 group-hover:max-h-40 group-hover:opacity-100 group-hover:mt-4">
+                <ul className="text-white/80 text-sm space-y-1 mb-4">
+                  <li className="flex items-center">
+                    <svg className="w-4 h-4 mr-2 text-accent" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path>
+                    </svg>
+                    Custom event coverage
+                  </li>
+                  <li className="flex items-center">
+                    <svg className="w-4 h-4 mr-2 text-accent" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path>
+                    </svg>
+                    Multi-generational projects
+                  </li>
+                  <li className="flex items-center">
+                    <svg className="w-4 h-4 mr-2 text-accent" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path>
+                    </svg>
+                    Creative collaborations
+                  </li>
+                </ul>
+              </div>
+              
+              <div className="mt-4">
                 <Link 
-                  href="/bookings" 
-                  className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-accent hover:text-accent/80"
+                  href="/contact" 
+                  className="inline-flex items-center text-white hover:text-accent transition-colors"
                 >
-                  Capture Your Story
+                  Start the Conversation
+                  <svg 
+                    xmlns="http://www.w3.org/2000/svg" 
+                    className="ml-2 h-4 w-4" 
+                    fill="none" 
+                    viewBox="0 0 24 24" 
+                    stroke="currentColor"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
                 </Link>
               </div>
             </div>
