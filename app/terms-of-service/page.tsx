@@ -11,9 +11,21 @@ export default function TermsOfServicePage() {
             These Terms of Service govern your use of Jason Holt Photography services. By booking a session or using our website, you agree to these terms.
           </p>
           
+          <div className="bg-muted p-4 rounded-md mb-8">
+            <h2 className="mt-0">Impressum (Legal Notice) - §5 TMG</h2>
+            <p className="mb-0">
+              <strong>Required legal information will be added here including:</strong><br />
+              Business name and owner<br />
+              Complete address in Frankfurt<br />
+              Commercial register information<br />
+              VAT identification number<br />
+              Contact information (telephone, email)
+            </p>
+          </div>
+          
           <h2>1. Photography Services</h2>
           <p>
-            Jason Holt Photography offers portrait, wedding, engagement, event, and family photography services as described on our website. The specific details of your session will be confirmed upon booking.
+            Jason Holt Photography offers portrait, wedding, engagement, event, and family photography services as described on our website. The specific details of your session will be confirmed upon booking. All prices include the statutory German VAT (currently 19%).
           </p>
           
           <h2>2. Booking and Payment</h2>
@@ -21,12 +33,21 @@ export default function TermsOfServicePage() {
             All bookings are confirmed upon receipt of a deposit, typically 50% of the total session fee. The remaining balance is due on or before the day of the photography session. Payments are non-refundable but may be transferable to another date with sufficient notice.
           </p>
           
-          <h2>3. Cancellation and Rescheduling</h2>
+          <h2>3. Right of Withdrawal and Cancellation Policy</h2>
           <p>
-            Cancellations made more than 14 days before the scheduled session may receive a partial refund or credit toward a future session. Cancellations with less than 14 days&apos; notice are non-refundable.
+            <strong>Right of Withdrawal:</strong> As a consumer, you have the right to withdraw from this contract within fourteen days without giving any reason. The withdrawal period will expire after 14 days from the day of the conclusion of the contract.
           </p>
           <p>
-            Rescheduling requests should be made at least 7 days in advance. Rescheduling with less notice may incur additional fees.
+            <strong>Effects of Withdrawal:</strong> If you withdraw from this contract, we shall reimburse to you all payments received from you, including the costs of delivery, without undue delay and in any event not later than 14 days from the day on which we are informed about your decision to withdraw from this contract.
+          </p>
+          <p>
+            <strong>Exception to Withdrawal Right:</strong> The right of withdrawal expires prematurely for contracts for services if the service has been fully provided and you expressly consented to us beginning the provision of service, with the knowledge that you would lose your right of withdrawal once the contract had been fully performed.
+          </p>
+          <p>
+            <strong>For Photography Sessions:</strong> Cancellations made more than 14 days before the scheduled session may receive a full refund. Cancellations with less than 14 days&apos; notice are subject to our standard cancellation policy below.
+          </p>
+          <p>
+            <strong>Standard Cancellation Policy:</strong> For cancellations less than 14 days before the session, the deposit is non-refundable. Rescheduling requests should be made at least 7 days in advance. Rescheduling with less notice may incur additional fees.
           </p>
           
           <h2>4. Image Delivery</h2>
@@ -72,7 +93,12 @@ export default function TermsOfServicePage() {
             These terms are governed by the laws of Germany. Any disputes shall be resolved in the courts of Frankfurt.
           </p>
           
-          <h2>12. Contact Information</h2>
+          <h2>12. Online Dispute Resolution</h2>
+          <p>
+            The European Commission provides a platform for online dispute resolution (ODR) which can be accessed at <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener noreferrer">https://ec.europa.eu/consumers/odr</a>. We are willing to participate in an extra-judicial dispute settlement through a consumer dispute resolution body.
+          </p>
+          
+          <h2>13. Contact Information</h2>
           <p>
             For questions regarding these terms, please contact Jason Holt Photography at:
           </p>
@@ -81,7 +107,7 @@ export default function TermsOfServicePage() {
           </p>
           
           <p className="text-sm text-muted-foreground mt-8">
-            Last updated: March 2, 2025
+            Last updated: April 7, 2025
           </p>
         </div>
       </div>
