@@ -42,8 +42,8 @@ document.addEventListener('DOMContentLoaded', function() {
   const paletteOptions = document.querySelectorAll('.palette-option');
   const darkModeToggle = document.getElementById('dark-mode-toggle');
   
-  // Check for saved preferences
-  const savedPalette = localStorage.getItem('selectedPalette') || 'palette-current';
+  // Always use the brand palette
+  const savedPalette = 'palette-brand';
   const savedDarkMode = localStorage.getItem('darkMode') === 'true';
   
   // Apply saved preferences
