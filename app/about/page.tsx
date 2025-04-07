@@ -51,20 +51,28 @@ export default function AboutPage() {
                 <h2 className="font-cormorant text-3xl font-semibold text-primary mb-6">Hello, I&apos;m Jason</h2>
                 <div className="space-y-4 text-card-foreground">
                   <p>
-                    I&apos;m not just taking photos—I&apos;m documenting life&apos;s entire journey. From the first breath of a newborn 
-                    to proud graduation moments, from joyful engagements to romantic weddings, I capture each authentic, fleeting moment 
-                    with passion and care.
+                    I&apos;m here to celebrate your life&apos;s journey—one meaningful moment at a time.
                   </p>
                   <p>
-                    My experience has deepened my sincere appreciation of life&apos;s special milestones. I&apos;ve spent three years 
-                    documenting school life—from preschoolers to graduating seniors. I&apos;ve captured countless weddings, engagements, 
-                    and intimate moments for couples. I&apos;ve preserved family connections through portraits, reunions, and group events 
-                    filled with love and laughter.
+                    My journey as a photographer started in 2015, when as a high school digital technology teacher I discovered the powerful art of photography alongside my students. While traveling the world, camera in hand, I fell in love with capturing genuine moments and the stories they tell.
                   </p>
                   <p>
-                    Based in Frankfurt, I serve clients throughout Hessen and beyond, bringing a professional yet warm approach to 
-                    every session. As an English-speaking photographer, I create a comfortable experience while delivering images 
-                    that truly tell your story.
+                    In 2021, I transitioned fully into teaching photography and became my school&apos;s official photographer, documenting hundreds of events each year. From joyful early school days to proud graduation ceremonies, I spent three years honing my ability to capture fleeting moments in every imaginable scenario: senior portraits, sports contests, proms, plays, cultural performances—even capturing the excitement and spectacle of major events like the laser and dance show at the Texas State Fair.
+                  </p>
+                  <p>
+                    Outside the classroom, I expanded my skills with headshots, branding sessions, street photography, engagements, and couples milestones, steadily building a diverse portfolio. Alongside this, I founded and led the Atlas Shutterbugs photography club for three inspiring years, guiding young photographers in their passion and creativity.
+                  </p>
+                  <p>
+                    In 2023, my own life&apos;s journey took an exciting new direction—I met the love of my life, and we married in 2024. Moving to Germany opened a fresh chapter in my life and career, allowing me to pursue professional photography full-time from our new home in Frankfurt am Main.
+                  </p>
+                  <p>
+                    Today, I specialize in photographing life&apos;s most important milestones—from newborn portraits and family gatherings, to senior photos, engagements, couples milestones, and wedding celebrations. I approach each opportunity with careful preparation, creativity, and sincere enthusiasm.
+                  </p>
+                  <p>
+                    As an English-speaking photographer based in Frankfurt, my goal is simple: to make you feel comfortable, celebrated, and truly seen. I&apos;m committed to capturing authentic, heartfelt images you and your loved ones will cherish for a lifetime.
+                  </p>
+                  <p>
+                    I&apos;d be honored to celebrate your life&apos;s journey with you—telling your unique story through joyful, timeless photography.
                   </p>
                 </div>
               </Card>

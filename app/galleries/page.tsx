@@ -239,7 +239,7 @@ export default function GalleriesPage() {
                 <p className="text-muted-foreground">Senior portraits, graduation sessions, and milestone moments capturing the transition to adulthood.</p>
               )}
               {activeCategory === "couples" && (
-                <p className="text-muted-foreground">Proposals, engagements, anniversaries, and intimate couple sessions that document your love story.</p>
+                <p className="text-muted-foreground">Proposals, engagements, anniversaries, and milestone couple sessions that document your love story.</p>
               )}
               {activeCategory === "weddings" && (
                 <p className="text-muted-foreground">Weddings, vow renewals, celebrations, performances, reunions, and special occasions worth remembering.</p>
