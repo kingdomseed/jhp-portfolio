@@ -60,6 +60,11 @@ const config = {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
         },
+        slate: {
+          DEFAULT: "hsl(var(--slate))",
+          light: "hsl(var(--slate-light))",
+          foreground: "hsl(var(--slate-foreground))",
+        },
         popover: {
           DEFAULT: "hsl(var(--popover))",
           foreground: "hsl(var(--popover-foreground))",
@@ -75,6 +80,7 @@ const config = {
         resedagreen: 'hsl(55, 11%, 46%)',
         lion: 'hsl(36, 33%, 54%)',
         bone2: 'hsl(57, 15%, 74%)',
+        slateblue: 'hsl(210, 8%, 53%)', // #7c8d94
         alert: 'hsl(0, 72%, 65%)',
       },
       borderRadius: {

@@ -25,7 +25,7 @@ export function SiteHeader() {
   }
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur-md supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-50 w-full border-b backdrop-blur-md dark:bg-muted/90 bg-muted/90 supports-[backdrop-filter]:bg-muted/80 dark:supports-[backdrop-filter]:bg-muted/80">
       <div className="container flex h-20 items-center justify-between">
         {/* Logo */}
         <div className="flex items-center">

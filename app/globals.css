@@ -35,6 +35,11 @@
     --accent: 36 33% 54%; /* Lion: #B09163ff */
     --accent-foreground: 0 0% 100%;
     
+    /* Slate color */
+    --slate: 210 8% 53%; /* #7c8d94 */
+    --slate-light: 210 8% 75%;
+    --slate-foreground: 0 0% 100%;
+    
     /* Destructive colors */
     --destructive: 0 72% 65%;
     --destructive-foreground: 0 0% 100%;
@@ -78,6 +83,11 @@
     --accent: 57 15% 74%; /* Bone: #C7C6B4ff */
     --accent-foreground: 83 14% 25%;
     
+    /* Slate color */
+    --slate: 210 8% 35%; /* Darker slate for dark mode */
+    --slate-light: 210 8% 60%;
+    --slate-foreground: 0 0% 100%;
+    
     /* Destructive colors */
     --destructive: 0 62% 55%;
     --destructive-foreground: 0 0% 100%;
@@ -115,34 +125,51 @@
 .blob {
   position: absolute;
   pointer-events: none;
-  opacity: 0.5;
   filter: blur(64px);
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
+  z-index: 0;
 }
 
+/* Light mode blobs */
 .blob-1 {
-  background-color: hsla(55, 11%, 46%, 0.3); /* Reseda Green */
-  width: 300px;
-  height: 300px;
+  background-color: hsla(36, 33%, 54%, 0.45); /* Lion - higher opacity */
+  width: 320px;
+  height: 320px;
   border-radius: 9999px;
   animation: float 15s infinite alternate;
 }
 
 .blob-2 {
-  background-color: hsla(36, 33%, 54%, 0.2); /* Lion */
-  width: 250px;
-  height: 250px;
+  background-color: hsla(210, 8%, 53%, 0.4); /* Slate blue */
+  width: 280px;
+  height: 280px;
   border-radius: 9999px;
   animation: float 12s infinite alternate-reverse;
 }
 
 .blob-3 {
-  background-color: hsla(83, 14%, 25%, 0.2); /* Black Olive */
-  width: 200px;
-  height: 200px;
+  background-color: hsla(57, 15%, 74%, 0.5); /* Bone-2 - higher opacity */
+  width: 240px;
+  height: 240px;
   border-radius: 9999px;
   animation: float 10s infinite alternate;
+}
+
+/* Dark mode specific blobs */
+.dark .blob-1 {
+  background-color: hsla(44, 23%, 81%, 0.4); /* Bone - higher opacity */
+  opacity: 0.6;
+}
+
+.dark .blob-2 {
+  background-color: hsla(210, 8%, 53%, 0.35); /* Slate blue */
+  opacity: 0.5;
+}
+
+.dark .blob-3 {
+  background-color: hsla(36, 33%, 54%, 0.4); /* Lion - higher opacity */
+  opacity: 0.5;
 }
 
 @keyframes float {

@@ -100,7 +100,7 @@ export function HeroCarousel({
         Capturing Your Life&apos;s Timeless Journey, One Moment at a Time
         </h2>
 
-        <button className="mt-4 bg-primary text-primary-foreground px-6 py-2 rounded shadow-lg hover:bg-primary-light transition-colors">
+        <button className="mt-4 bg-accent text-accent-foreground px-6 py-2 rounded shadow-lg hover:bg-primary transition-colors duration-300">
           Book Your Session
         </button>
       </div>
