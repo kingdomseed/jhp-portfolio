@@ -42,8 +42,8 @@ export default function AboutPage() {
               <div className="relative rounded-xl overflow-hidden shadow-md aspect-[3/4]">
                 <ImageRotator 
                   images={[
-                    { src: "/images/jholt1.jpeg", alt: "Jason Holt - Professional Photographer" },
-                    { src: "/images/jholt2.jpeg", alt: "Jason Holt - Professional Photographer" }
+                    { src: "/images/optimized/jholt1.webp", alt: "Jason Holt - Professional Photographer" },
+                    { src: "/images/optimized/jholt2.webp", alt: "Jason Holt - Professional Photographer" }
                   ]} 
                 />
               </div>
