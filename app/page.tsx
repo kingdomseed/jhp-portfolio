@@ -476,7 +476,7 @@ export default function Home() {
         
         <div className="mt-16 text-center">
           <Button asChild size="lg" className="rounded-full px-8 text-lg">
-            <Link href="/bookings">Book a Session</Link>
+            <Link href="/bookings">Book a Call</Link>
           </Button>
         </div>
       </SectionBackground>
@@ -488,7 +488,7 @@ export default function Home() {
       <SectionBackground variant="primary" paddingY="lg">
         <div className="mx-auto max-w-3xl text-center">
           <h2 className="font-cormorant text-3xl font-semibold md:text-4xl">
-            Ready to Book Your Photography Session?
+            Ready to Book Your Discovery Call?
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-lg text-muted-foreground">
             Let&apos;s create beautiful memories together. Contact me today to discuss your photography needs.

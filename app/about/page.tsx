@@ -193,7 +193,7 @@ export default function AboutPage() {
                     <h3 className="font-cormorant text-2xl font-semibold text-white mb-4">Experience My Approach</h3>
                     <p className="text-white/90 mb-6">Ready to create beautiful images that tell your unique story?</p>
                     <Button asChild size="lg" className="rounded-full px-8 bg-white text-accent hover:bg-white/90">
-                      <Link href="/contact">Book a Session</Link>
+                      <Link href="/contact">Book a Call</Link>
                     </Button>
                   </div>
                 </Card>

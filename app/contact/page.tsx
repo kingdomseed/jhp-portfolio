@@ -139,8 +139,8 @@ export default function ContactPage() {
         <Tabs defaultValue={activeTab} value={activeTab} onValueChange={setActiveTab} className="mb-16">
           <div className="flex justify-center mb-10">
             <TabsList className="grid w-full max-w-md grid-cols-2">
-              <TabsTrigger value="contact">Contact Me</TabsTrigger>
-              <TabsTrigger value="book">Book a Session</TabsTrigger>
+              <TabsTrigger value="contact">Message Me</TabsTrigger>
+              <TabsTrigger value="book">Book Discovery Call</TabsTrigger>
             </TabsList>
           </div>
           

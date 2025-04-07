@@ -39,7 +39,7 @@ type Service = {
 const services: Service[] = [
   ...siteConfig.services,
   {
-    title: "Headshots",
+    title: "Professional & Corporate",
     description: "Professional headshots for business, acting, or personal branding",
     image: "/images/optimized/headshots/headshot1.webp",
     href: "/galleries#headshots",
