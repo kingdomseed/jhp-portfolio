@@ -431,10 +431,9 @@ export default function ExperiencePage() {
         {/* Tabbed Content Section */}
         <Tabs defaultValue="expect" className="mb-16" onValueChange={setActiveTab}>
           <div className="flex justify-center mb-10">
-            <TabsList className="grid w-full max-w-md grid-cols-4">
+            <TabsList className="grid w-full max-w-md grid-cols-3">
               <TabsTrigger value="expect">What to Expect</TabsTrigger>
               <TabsTrigger value="testimonials">Testimonials</TabsTrigger>
-              <TabsTrigger value="journal">Journal</TabsTrigger>
               <TabsTrigger value="faq">FAQ</TabsTrigger>
             </TabsList>
           </div>

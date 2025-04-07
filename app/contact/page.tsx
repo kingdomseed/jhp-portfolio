@@ -15,6 +15,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { MultiStepBooking } from "@/components/ui/multi-step-booking"
 import { siteConfig } from "@/lib/theme"
+import { Instagram, Facebook, Hash, Mail, MapPin, Clock } from "lucide-react"
 
 // Form schema with validation
 const formSchema = z.object({
@@ -24,14 +25,14 @@ const formSchema = z.object({
   message: z.string().min(10, "Message must be at least 10 characters"),
 })
 
-// Contact info card component
+// Contact info card component with Lucide React icons
 function ContactInfoCard({ 
   icon, 
   title, 
   content,
   link = "",
 }: { 
-  icon: string; 
+  icon: React.ReactNode; 
   title: string; 
   content: string;
   link?: string;
@@ -42,8 +43,8 @@ function ContactInfoCard({
   
   return (
     <Card className="p-6 text-center transition-transform duration-300 hover:-translate-y-1">
-      <div className="text-primary text-3xl mb-4">
-        <i className={`fas fa-${icon}`}></i>
+      <div className="text-primary text-3xl mb-4 flex justify-center">
+        {icon}
       </div>
       <h3 className="font-cormorant text-xl font-semibold text-primary mb-2">{title}</h3>
       <p className="text-muted-foreground">{ContentElement}</p>
@@ -51,7 +52,7 @@ function ContactInfoCard({
   )
 }
 
-// Social media link component
+// Social media link component with Lucide React icons
 function SocialLink({ 
   platform, 
   url, 
@@ -59,7 +60,7 @@ function SocialLink({
 }: { 
   platform: string; 
   url: string; 
-  icon: string;
+  icon: React.ReactNode;
 }) {
   return (
     <a 
@@ -69,7 +70,7 @@ function SocialLink({
       className="flex items-center gap-3 p-3 rounded-lg hover:bg-muted transition-colors"
     >
       <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
-        <i className={`fab fa-${icon}`}></i>
+        {icon}
       </div>
       <span>{platform}</span>
     </a>
@@ -147,129 +148,105 @@ export default function ContactPage() {
           {/* Contact Form Tab */}
           <TabsContent value="contact">
             <section className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              {/* Contact Form */}
-              <Card className="p-8">
-                <h2 className="font-cormorant text-2xl font-semibold text-primary mb-6">Share Your Vision</h2>
-                
-                {isSuccess ? (
-                  <div className="bg-green-50 border border-green-200 text-green-700 rounded-lg p-4 mb-6">
-                    <div className="flex items-center">
-                      <div className="flex-shrink-0">
-                        <i className="fas fa-check-circle text-green-500 mr-2"></i>
-                      </div>
-                      <div>
-                        <p className="font-medium">Message sent successfully!</p>
-                        <p className="text-sm">Thank you for sharing your story with me. I&apos;ll get back to you within 24-48 hours to discuss how we can capture your special moments.</p>
+              {/* Left Column - Contact Form and Business Hours */}
+              <div className="space-y-8">
+                {/* Contact Form */}
+                <Card className="p-8">
+                  <h2 className="font-cormorant text-2xl font-semibold text-primary mb-6">Share Your Vision</h2>
+                  
+                  {isSuccess ? (
+                    <div className="bg-green-50 border border-green-200 text-green-700 rounded-lg p-4 mb-6">
+                      <div className="flex items-center">
+                        <div className="flex-shrink-0">
+                          <i className="fas fa-check-circle text-green-500 mr-2"></i>
+                        </div>
+                        <div>
+                          <p className="font-medium">Message sent successfully!</p>
+                          <p className="text-sm">Thank you for sharing your story with me. I&apos;ll get back to you within 24-48 hours to discuss how we can capture your special moments.</p>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                ) : null}
-                
-                <Form {...form}>
-                  <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                    <FormField
-                      control={form.control}
-                      name="name"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Name</FormLabel>
-                          <FormControl>
-                            <Input placeholder="Your name" {...field} />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                    
-                    <FormField
-                      control={form.control}
-                      name="email"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Email</FormLabel>
-                          <FormControl>
-                            <Input placeholder="Your email address" type="email" {...field} />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                    
-                    <FormField
-                      control={form.control}
-                      name="subject"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Subject</FormLabel>
-                          <FormControl>
-                            <Input placeholder="What is this regarding?" {...field} />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                    
-                    <FormField
-                      control={form.control}
-                      name="message"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Message</FormLabel>
-                          <FormControl>
-                            <Textarea 
-                              placeholder="Your message" 
-                              className="min-h-[150px] resize-y"
-                              {...field} 
-                            />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                    
-                    <Button 
-                      type="submit" 
-                      className="w-full rounded-full"
-                      disabled={isSubmitting}
-                    >
-                      {isSubmitting ? (
-                        <>
-                          <i className="fas fa-spinner fa-spin mr-2"></i>
-                          Sending...
-                        </>
-                      ) : "Send Message"}
-                    </Button>
-                  </form>
-                </Form>
-              </Card>
-              
-              {/* Contact Information */}
-              <div className="space-y-8">
-                <Card className="p-8">
-                  <h2 className="font-cormorant text-2xl font-semibold text-primary mb-6">Contact Information</h2>
+                  ) : null}
                   
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <ContactInfoCard 
-                      icon="envelope" 
-                      title="Email" 
-                      content="hello@jasonholtphotography.com"
-                      link="mailto:hello@jasonholtphotography.com"
-                    />
-                    
-                    <ContactInfoCard 
-                      icon="map-marker-alt" 
-                      title="Location" 
-                      content="Frankfurt am Main, Germany"
-                    />
-                    
-                    <ContactInfoCard 
-                      icon="clock" 
-                      title="Response Time" 
-                      content="Within 24-48 hours"
-                    />
-                  </div>
+                  <Form {...form}>
+                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                      <FormField
+                        control={form.control}
+                        name="name"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Name</FormLabel>
+                            <FormControl>
+                              <Input placeholder="Your name" {...field} />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                      
+                      <FormField
+                        control={form.control}
+                        name="email"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Email</FormLabel>
+                            <FormControl>
+                              <Input placeholder="Your email address" type="email" {...field} />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                      
+                      <FormField
+                        control={form.control}
+                        name="subject"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Subject</FormLabel>
+                            <FormControl>
+                              <Input placeholder="What is this regarding?" {...field} />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                      
+                      <FormField
+                        control={form.control}
+                        name="message"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Message</FormLabel>
+                            <FormControl>
+                              <Textarea 
+                                placeholder="Your message" 
+                                className="min-h-[150px] resize-y"
+                                {...field} 
+                              />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                      
+                      <Button 
+                        type="submit" 
+                        className="w-full rounded-full"
+                        disabled={isSubmitting}
+                      >
+                        {isSubmitting ? (
+                          <>
+                            <i className="fas fa-spinner fa-spin mr-2"></i>
+                            Sending...
+                          </>
+                        ) : "Send Message"}
+                      </Button>
+                    </form>
+                  </Form>
                 </Card>
                 
+                {/* Business Hours - Moved here from right column */}
                 <Card className="p-8">
                   <h2 className="font-cormorant text-2xl font-semibold text-primary mb-6">Business Hours</h2>
                   
@@ -294,6 +271,38 @@ export default function ContactPage() {
                     </p>
                   </div>
                 </Card>
+              </div>
+              
+              {/* Right Column - Contact Information and Social Media */}
+              <div className="space-y-8">
+                <Card className="p-8">
+                  <h2 className="font-cormorant text-2xl font-semibold text-primary mb-6">Contact Information</h2>
+                  
+                  <div className="space-y-6">
+                    {/* Email on its own row */}
+                    <ContactInfoCard 
+                      icon={<Mail className="size-6" />}
+                      title="Email" 
+                      content="hello@jasonholtphotography.com"
+                      link="mailto:hello@jasonholtphotography.com"
+                    />
+                    
+                    {/* Location and Response Time side by side */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <ContactInfoCard 
+                        icon={<MapPin className="size-6" />}
+                        title="Location" 
+                        content="Frankfurt am Main, Germany"
+                      />
+                      
+                      <ContactInfoCard 
+                        icon={<Clock className="size-6" />}
+                        title="Response Time" 
+                        content="Within 24-48 hours"
+                      />
+                    </div>
+                  </div>
+                </Card>
                 
                 <Card className="p-8">
                   <h2 className="font-cormorant text-2xl font-semibold text-primary mb-6">Connect on Social Media</h2>
@@ -302,19 +311,19 @@ export default function ContactPage() {
                     <SocialLink 
                       platform="Instagram" 
                       url={siteConfig.links.instagram} 
-                      icon="instagram"
+                      icon={<Instagram className="size-5" />}
                     />
                     
                     <SocialLink 
                       platform="Facebook" 
                       url={siteConfig.links.facebook} 
-                      icon="facebook"
+                      icon={<Facebook className="size-5" />}
                     />
                     
                     <SocialLink 
                       platform="Threads" 
                       url={siteConfig.links.threads} 
-                      icon="hashtag"
+                      icon={<Hash className="size-5" />}
                     />
                   </div>
                 </Card>
