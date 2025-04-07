@@ -55,5 +55,17 @@ export const siteConfig = {
       image: "/images/optimized/couples/couple-3.webp",
       href: "/galleries#weddings",
     },
+    {
+      title: "Professional & Corporate",
+      description: "Elevating your professional image with authentic, polished photography",
+      image: "/images/optimized/headshots/headshot1.webp",
+      href: "/galleries#professional",
+    },
+    {
+      title: "Tailored Photography Experiences",
+      description: "Custom photography solutions for your unique vision and needs",
+      image: "/images/optimized/events/event-1.webp",
+      href: "/galleries#tailored",
+    },
   ],
 }
