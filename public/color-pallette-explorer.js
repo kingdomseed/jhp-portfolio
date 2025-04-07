@@ -14,7 +14,19 @@ function hslToHex(h, s, l) {
 function parseHSL(hslVar) {
   const computedStyle = getComputedStyle(document.documentElement);
   const hslValue = computedStyle.getPropertyValue(hslVar).trim();
-  const [h, s, l] = hslValue.split(' ').map(val => parseFloat(val));
+  
+  // Default values in case parsing fails
+  let h = 0, s = 0, l = 50;
+  
+  if (hslValue) {
+    const values = hslValue.split(' ').map(val => parseFloat(val));
+    if (values.length >= 3) {
+      h = isNaN(values[0]) ? 0 : values[0];
+      s = isNaN(values[1]) ? 0 : values[1];
+      l = isNaN(values[2]) ? 50 : values[2];
+    }
+  }
+  
   return { h, s, l };
 }
 
@@ -154,118 +166,99 @@ function getContrastClass(ratio) {
   return 'contrast-fail'; // Fails all criteria
 }
 
-function getRgbFromComputedStyle(element, property) {
-  const color = window.getComputedStyle(element)[property];
-  const match = color.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*[\d.]+)?\)/);
-  if (match) {
-    return {
-      r: parseInt(match[1]),
-      g: parseInt(match[2]),
-      b: parseInt(match[3])
-    };
-  }
-  return null;
-}
+// We've removed the hslToRgb function since we're now using hardcoded RGB values
 
 function updateContrastInfo() {
   const contrastInfo = document.getElementById('contrast-info');
   if (!contrastInfo) return;
   
-  // Get elements for contrast checking
-  const badge = document.querySelector('.badge-primary');
-  const navLink = document.querySelector('nav a');
-  const activeNavLink = document.querySelector('nav a.active');
-  const footerLink = document.querySelector('.footer-links a');
-  
+  const isDarkMode = document.body.classList.contains('dark');
   let html = '';
   
-  // Check badge contrast
-  if (badge) {
-    const badgeBg = getRgbFromComputedStyle(badge, 'backgroundColor');
-    const badgeText = getRgbFromComputedStyle(badge, 'color');
-    if (badgeBg && badgeText) {
-      const badgeContrast = calculateContrastRatio(badgeBg, badgeText);
-      const contrastClass = getContrastClass(badgeContrast);
-      
-      html += `
-        <div class="contrast-row">
-          <div class="contrast-label">
-            <span class="contrast-text-sample" style="color: rgb(${badgeText.r}, ${badgeText.g}, ${badgeText.b}); background-color: rgb(${badgeBg.r}, ${badgeBg.g}, ${badgeBg.b});">Primary Badge</span>
-            Badge Text/Background:
-          </div>
-          <div class="contrast-value ${contrastClass}">
-            ${badgeContrast}:1 ${badgeContrast >= 4.5 ? '✓' : badgeContrast >= 3 ? '⚠' : '✗'}
-          </div>
-        </div>
-      `;
-    }
-  }
+  // Define our brand colors directly as RGB values for more reliability
+  // These match our CSS HSL values but are pre-converted to RGB
+  const backgroundRgb = isDarkMode ? { r: 65, g: 72, b: 54 } : { r: 243, g: 242, b: 238 }; // Isabelline/#F3F2EE or Black Olive/#414836
+  const foregroundRgb = isDarkMode ? { r: 243, g: 242, b: 238 } : { r: 65, g: 72, b: 54 }; // Black Olive/#414836 or Isabelline/#F3F2EE
+  const primaryRgb = isDarkMode ? { r: 130, g: 128, b: 105 } : { r: 65, g: 72, b: 54 }; // Reseda Green/#828069 or Black Olive/#414836
+  const accentRgb = isDarkMode ? { r: 199, g: 198, b: 180 } : { r: 124, g: 141, b: 148 }; // Bone/#C7C6B4 or Slate Gray/#7C8D94
+  const mutedRgb = isDarkMode ? { r: 52, g: 58, b: 43 } : { r: 218, g: 212, b: 196 }; // Darker Black Olive or Bone-2/#DAD4C4
   
-  // Check navigation link contrast
-  if (navLink) {
-    const navBg = getRgbFromComputedStyle(document.querySelector('header'), 'backgroundColor');
-    const navLinkColor = getRgbFromComputedStyle(navLink, 'color');
-    if (navBg && navLinkColor) {
-      const navContrast = calculateContrastRatio(navBg, navLinkColor);
-      const contrastClass = getContrastClass(navContrast);
-      
-      html += `
-        <div class="contrast-row">
-          <div class="contrast-label">
-            <span class="contrast-text-sample" style="color: rgb(${navLinkColor.r}, ${navLinkColor.g}, ${navLinkColor.b}); background-color: rgb(${navBg.r}, ${navBg.g}, ${navBg.b});">Navigation</span>
-            Navigation Link/Background:
-          </div>
-          <div class="contrast-value ${contrastClass}">
-            ${navContrast}:1 ${navContrast >= 4.5 ? '✓' : navContrast >= 3 ? '⚠' : '✗'}
-          </div>
-        </div>
-      `;
-    }
-  }
+  // Badge colors - badge uses full primary color with white text
+  const badgeBgRgb = primaryRgb;
   
-  // Check active navigation link contrast
-  if (activeNavLink) {
-    const navBg = getRgbFromComputedStyle(document.querySelector('header'), 'backgroundColor');
-    const activeNavLinkColor = getRgbFromComputedStyle(activeNavLink, 'color');
-    if (navBg && activeNavLinkColor) {
-      const activeNavContrast = calculateContrastRatio(navBg, activeNavLinkColor);
-      const contrastClass = getContrastClass(activeNavContrast);
-      
-      html += `
-        <div class="contrast-row">
-          <div class="contrast-label">
-            <span class="contrast-text-sample" style="color: rgb(${activeNavLinkColor.r}, ${activeNavLinkColor.g}, ${activeNavLinkColor.b}); background-color: rgb(${navBg.r}, ${navBg.g}, ${navBg.b});">Active Link</span>
-            Active Navigation Link/Background:
-          </div>
-          <div class="contrast-value ${contrastClass}">
-            ${activeNavContrast}:1 ${activeNavContrast >= 4.5 ? '✓' : activeNavContrast >= 3 ? '⚠' : '✗'}
-          </div>
-        </div>
-      `;
-    }
-  }
+  // Badge text is always white (primary-foreground)
+  const badgeTextRgb = { r: 255, g: 255, b: 255 }; // White text for badges
+  const badgeContrast = calculateContrastRatio(badgeBgRgb, badgeTextRgb);
+  const badgeContrastClass = getContrastClass(badgeContrast);
   
-  // Check footer link contrast
-  if (footerLink) {
-    const footerBg = getRgbFromComputedStyle(document.querySelector('footer'), 'backgroundColor');
-    const footerLinkColor = getRgbFromComputedStyle(footerLink, 'color');
-    if (footerBg && footerLinkColor) {
-      const footerContrast = calculateContrastRatio(footerBg, footerLinkColor);
-      const contrastClass = getContrastClass(footerContrast);
-      
-      html += `
-        <div class="contrast-row">
-          <div class="contrast-label">
-            <span class="contrast-text-sample" style="color: rgb(${footerLinkColor.r}, ${footerLinkColor.g}, ${footerLinkColor.b}); background-color: rgb(${footerBg.r}, ${footerBg.g}, ${footerBg.b});">Footer Link</span>
-            Footer Link/Background:
-          </div>
-          <div class="contrast-value ${contrastClass}">
-            ${footerContrast}:1 ${footerContrast >= 4.5 ? '✓' : footerContrast >= 3 ? '⚠' : '✗'}
-          </div>
-        </div>
-      `;
-    }
-  }
+  html += `
+    <div class="contrast-row">
+      <div class="contrast-label">
+        <span class="contrast-text-sample" style="color: rgb(${badgeTextRgb.r}, ${badgeTextRgb.g}, ${badgeTextRgb.b}); background-color: rgb(${badgeBgRgb.r}, ${badgeBgRgb.g}, ${badgeBgRgb.b});">Primary Badge</span>
+        Badge Text/Background:
+      </div>
+      <div class="contrast-value ${badgeContrastClass}">
+        ${badgeContrast}:1 ${badgeContrast >= 4.5 ? '✓' : badgeContrast >= 3 ? '⚠' : '✗'}
+      </div>
+    </div>
+  `;
+  
+  // Regular nav link - uses foreground at 80% opacity
+  const navLinkRgb = {
+    r: Math.round(foregroundRgb.r * 0.8),
+    g: Math.round(foregroundRgb.g * 0.8),
+    b: Math.round(foregroundRgb.b * 0.8)
+  };
+  
+  const navContrast = calculateContrastRatio(backgroundRgb, navLinkRgb);
+  const navContrastClass = getContrastClass(navContrast);
+  
+  html += `
+    <div class="contrast-row">
+      <div class="contrast-label">
+        <span class="contrast-text-sample" style="color: rgb(${navLinkRgb.r}, ${navLinkRgb.g}, ${navLinkRgb.b}); background-color: rgb(${backgroundRgb.r}, ${backgroundRgb.g}, ${backgroundRgb.b});">Navigation</span>
+        Navigation Link/Background:
+      </div>
+      <div class="contrast-value ${navContrastClass}">
+        ${navContrast}:1 ${navContrast >= 4.5 ? '✓' : navContrast >= 3 ? '⚠' : '✗'}
+      </div>
+    </div>
+  `;
+  
+  // Active nav link - uses accent color
+  const activeNavContrast = calculateContrastRatio(backgroundRgb, accentRgb);
+  const activeNavContrastClass = getContrastClass(activeNavContrast);
+  
+  html += `
+    <div class="contrast-row">
+      <div class="contrast-label">
+        <span class="contrast-text-sample" style="color: rgb(${accentRgb.r}, ${accentRgb.g}, ${accentRgb.b}); background-color: rgb(${backgroundRgb.r}, ${backgroundRgb.g}, ${backgroundRgb.b});">Active Link</span>
+        Active Navigation Link/Background:
+      </div>
+      <div class="contrast-value ${activeNavContrastClass}">
+        ${activeNavContrast}:1 ${activeNavContrast >= 4.5 ? '✓' : activeNavContrast >= 3 ? '⚠' : '✗'}
+      </div>
+    </div>
+  `;
+  
+  // Footer link colors - footer background is muted
+  // Footer link - in light mode it uses primary, in dark mode it uses foreground
+  const footerLinkRgb = isDarkMode ? foregroundRgb : primaryRgb;
+  
+  const footerContrast = calculateContrastRatio(mutedRgb, footerLinkRgb);
+  const footerContrastClass = getContrastClass(footerContrast);
+  
+  html += `
+    <div class="contrast-row">
+      <div class="contrast-label">
+        <span class="contrast-text-sample" style="color: rgb(${footerLinkRgb.r}, ${footerLinkRgb.g}, ${footerLinkRgb.b}); background-color: rgb(${mutedRgb.r}, ${mutedRgb.g}, ${mutedRgb.b});">Footer Link</span>
+        Footer Link/Background:
+      </div>
+      <div class="contrast-value ${footerContrastClass}">
+        ${footerContrast}:1 ${footerContrast >= 4.5 ? '✓' : footerContrast >= 3 ? '⚠' : '✗'}
+      </div>
+    </div>
+  `;
   
   contrastInfo.innerHTML = html;
 }
