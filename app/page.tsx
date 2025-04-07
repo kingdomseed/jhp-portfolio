@@ -2,7 +2,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { HeroCarousel } from "@/components/ui/hero-carousel"
-import { TestimonialCarousel } from "@/components/ui/testimonial-carousel"
+import { TestimonialsSection } from "@/components/sections/testimonials-section"
 import { SectionBackground } from "@/components/ui/section-background"
 
 export default function Home() {
@@ -29,13 +29,14 @@ export default function Home() {
         {/* Content */}
         <div className="container relative z-10 flex h-full flex-col items-center justify-center text-center">
           <div className="mb-4 inline-block rounded-full bg-accent/20 px-4 py-1 backdrop-blur-sm">
-            <span className="text-sm font-medium text-white">Frankfurt&apos;s Premier Portrait & Event Photographer</span>
+            <span className="text-sm font-medium text-white">Frankfurt&apos;s Storyteller for Life&apos;s Journey</span>
           </div>
           <h1 className="font-cormorant text-4xl font-semibold text-white sm:text-5xl md:text-6xl lg:text-7xl">
-            Capturing Life&apos;s Beautiful Moments
+            <span className="hidden md:inline">Capturing Your Life&apos;s Timeless Journey, One Moment at a Time</span>
+            <span className="inline md:hidden">All Your Life&apos;s Moments, Celebrated</span>
           </h1>
           <p className="mt-4 max-w-2xl text-lg text-white/90 sm:text-xl">
-            Authentic, timeless photography that tells your unique story
+            From first breaths to graduation caps, engagement rings to wedding bells—I document your authentic story at every milestone
           </p>
           
           {/* Special Offer Badge */}
@@ -61,7 +62,7 @@ export default function Home() {
                 size="lg" 
                 className="relative rounded-full px-8 text-lg shadow-lg transition-transform duration-300 hover:scale-105"
               >
-                <Link href="/bookings">Book Your Session</Link>
+                <Link href="/bookings">Start Celebrating Your Moments</Link>
               </Button>
             </div>
             
@@ -81,20 +82,20 @@ export default function Home() {
       <SectionBackground variant="primary" paddingY="xl">
         <div className="mb-16 text-center">
           <h2 className="font-cormorant text-4xl font-semibold md:text-5xl">
-            Photography Services
+            Celebrating Every Chapter of Your Story
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
-            Specializing in capturing authentic moments with a natural, timeless style
+            I document life&apos;s entire journey with warmth, authenticity, and a commitment to preserving your most precious moments
           </p>
         </div>
         
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
-          {/* Service Card 1 - Portraits */}
+          {/* Service Card 1 - Families & Babies */}
           <div className="group relative overflow-hidden rounded-2xl shadow-soft transition-all hover:shadow-hover">
             <div className="aspect-[4/5] w-full">
               <Image 
-                src="/images/optimized/portraits/portrait-1.webp" 
-                alt="Portrait Photography" 
+                src="/images/optimized/family/family1.webp" 
+                alt="Family & Baby Photography" 
                 width={400} 
                 height={500}
                 className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
@@ -105,8 +106,8 @@ export default function Home() {
               <div className="absolute top-4 right-4 bg-accent/90 text-white text-xs px-3 py-1 rounded-full">
                 From €250
               </div>
-              <h3 className="text-2xl font-semibold text-white">Portraits</h3>
-              <p className="mt-2 text-white/80">Professional portraits that capture your authentic self</p>
+              <h3 className="text-2xl font-semibold text-white">Families & Babies</h3>
+              <p className="mt-2 text-white/80">Celebrating the wonder of new life and family connections</p>
               
               {/* Additional details - revealed on hover */}
               <div className="max-h-0 overflow-hidden opacity-0 transition-all duration-300 group-hover:max-h-40 group-hover:opacity-100 group-hover:mt-4">
@@ -115,29 +116,29 @@ export default function Home() {
                     <svg className="w-4 h-4 mr-2 text-accent" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path>
                     </svg>
-                    Natural, flattering poses
+                    Newborn sessions
                   </li>
                   <li className="flex items-center">
                     <svg className="w-4 h-4 mr-2 text-accent" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path>
                     </svg>
-                    Professional retouching
+                    Family portraits
                   </li>
                   <li className="flex items-center">
                     <svg className="w-4 h-4 mr-2 text-accent" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path>
                     </svg>
-                    Quick turnaround
+                    Childhood milestones
                   </li>
                 </ul>
               </div>
               
               <div className="flex items-center justify-between">
                 <Link 
-                  href="/galleries#portraits" 
+                  href="/galleries#families" 
                   className="inline-flex items-center text-white hover:text-accent"
                 >
-                  View Gallery
+                  View Portfolio
                   <svg 
                     xmlns="http://www.w3.org/2000/svg" 
                     className="ml-2 h-4 w-4" 
@@ -153,18 +154,18 @@ export default function Home() {
                   href="/bookings" 
                   className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-accent hover:text-accent/80"
                 >
-                  Book Now
+                  Capture Your Story
                 </Link>
               </div>
             </div>
           </div>
           
-          {/* Service Card 2 - Weddings */}
+          {/* Service Card 2 - Young Adults & Graduates */}
           <div className="group relative overflow-hidden rounded-2xl shadow-soft transition-all hover:shadow-hover">
             <div className="aspect-[4/5] w-full">
               <Image 
-                src="/images/optimized/couples/couple-3.webp" 
-                alt="Wedding Photography" 
+                src="/images/optimized/portraits/senior-26.webp" 
+                alt="Graduation Photography" 
                 width={400} 
                 height={500}
                 className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
@@ -173,10 +174,10 @@ export default function Home() {
             {/* Base content - always visible */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent p-6 flex flex-col justify-end transition-all duration-300 group-hover:from-black/90">
               <div className="absolute top-4 right-4 bg-accent/90 text-white text-xs px-3 py-1 rounded-full">
-                Custom Pricing
+                From €300
               </div>
-              <h3 className="text-2xl font-semibold text-white">Weddings</h3>
-              <p className="mt-2 text-white/80">Documenting your special day with care and creativity</p>
+              <h3 className="text-2xl font-semibold text-white">Young Adults & Graduates</h3>
+              <p className="mt-2 text-white/80">Marking academic achievements and youth milestones</p>
               
               {/* Additional details - revealed on hover */}
               <div className="max-h-0 overflow-hidden opacity-0 transition-all duration-300 group-hover:max-h-40 group-hover:opacity-100 group-hover:mt-4">
@@ -185,29 +186,29 @@ export default function Home() {
                     <svg className="w-4 h-4 mr-2 text-accent" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path>
                     </svg>
-                    Full day coverage
+                    Senior portraits
                   </li>
                   <li className="flex items-center">
                     <svg className="w-4 h-4 mr-2 text-accent" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path>
                     </svg>
-                    Second photographer
+                    Graduation sessions
                   </li>
                   <li className="flex items-center">
                     <svg className="w-4 h-4 mr-2 text-accent" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path>
                     </svg>
-                    Custom wedding album
+                    Teen milestones
                   </li>
                 </ul>
               </div>
               
               <div className="flex items-center justify-between">
                 <Link 
-                  href="/galleries#weddings" 
+                  href="/galleries#graduates" 
                   className="inline-flex items-center text-white hover:text-accent"
                 >
-                  View Gallery
+                  View Portfolio
                   <svg 
                     xmlns="http://www.w3.org/2000/svg" 
                     className="ml-2 h-4 w-4" 
@@ -223,13 +224,13 @@ export default function Home() {
                   href="/bookings" 
                   className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-accent hover:text-accent/80"
                 >
-                  Book Now
+                  Capture Your Story
                 </Link>
               </div>
             </div>
           </div>
           
-          {/* Service Card 3 - Engagements */}
+          {/* Service Card 3 - Couples & Engagements */}
           <div className="group relative overflow-hidden rounded-2xl shadow-soft transition-all hover:shadow-hover">
             <div className="aspect-[4/5] w-full">
               <Image 
@@ -248,8 +249,8 @@ export default function Home() {
               <div className="absolute top-4 left-4 bg-primary text-white text-xs px-3 py-1 rounded-full">
                 Most Popular
               </div>
-              <h3 className="text-2xl font-semibold text-white">Engagements</h3>
-              <p className="mt-2 text-white/80">Celebrate your commitment with beautiful engagement photos</p>
+              <h3 className="text-2xl font-semibold text-white">Couples & Engagements</h3>
+              <p className="mt-2 text-white/80">Capturing the magic of your love story and commitment</p>
               
               {/* Additional details - revealed on hover */}
               <div className="max-h-0 overflow-hidden opacity-0 transition-all duration-300 group-hover:max-h-40 group-hover:opacity-100 group-hover:mt-4">
@@ -258,29 +259,29 @@ export default function Home() {
                     <svg className="w-4 h-4 mr-2 text-accent" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path>
                     </svg>
-                    90-minute session
+                    Proposals & engagements
                   </li>
                   <li className="flex items-center">
                     <svg className="w-4 h-4 mr-2 text-accent" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path>
                     </svg>
-                    Multiple locations
+                    Anniversary sessions
                   </li>
                   <li className="flex items-center">
                     <svg className="w-4 h-4 mr-2 text-accent" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path>
                     </svg>
-                    20 edited images
+                    Intimate couple portraits
                   </li>
                 </ul>
               </div>
               
               <div className="flex items-center justify-between">
                 <Link 
-                  href="/galleries#engagements" 
+                  href="/galleries#couples" 
                   className="inline-flex items-center text-white hover:text-accent"
                 >
-                  View Gallery
+                  View Portfolio
                   <svg 
                     xmlns="http://www.w3.org/2000/svg" 
                     className="ml-2 h-4 w-4" 
@@ -296,13 +297,13 @@ export default function Home() {
                   href="/bookings" 
                   className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-accent hover:text-accent/80"
                 >
-                  Book Now
+                  Capture Your Story
                 </Link>
               </div>
             </div>
           </div>
           
-          {/* Service Card 4 - Events */}
+          {/* Service Card 4 - Weddings & Celebrations */}
           <div className="group relative overflow-hidden rounded-2xl shadow-soft transition-all hover:shadow-hover">
             <div className="aspect-[4/5] w-full">
               <Image 
@@ -318,8 +319,8 @@ export default function Home() {
               <div className="absolute top-4 right-4 bg-accent/90 text-white text-xs px-3 py-1 rounded-full">
                 From €650
               </div>
-              <h3 className="text-2xl font-semibold text-white">Events</h3>
-              <p className="mt-2 text-white/80">Professional coverage for your special events and celebrations</p>
+              <h3 className="text-2xl font-semibold text-white">Weddings & Celebrations</h3>
+              <p className="mt-2 text-white/80">Documenting your most momentous occasions with artistry</p>
               
               {/* Additional details - revealed on hover */}
               <div className="max-h-0 overflow-hidden opacity-0 transition-all duration-300 group-hover:max-h-40 group-hover:opacity-100 group-hover:mt-4">
@@ -328,29 +329,29 @@ export default function Home() {
                     <svg className="w-4 h-4 mr-2 text-accent" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path>
                     </svg>
-                    2+ hours coverage
+                    Weddings & vow renewals
                   </li>
                   <li className="flex items-center">
                     <svg className="w-4 h-4 mr-2 text-accent" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path>
                     </svg>
-                    Candid & posed shots
+                    Special events & performances
                   </li>
                   <li className="flex items-center">
                     <svg className="w-4 h-4 mr-2 text-accent" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path>
                     </svg>
-                    Same-day previews
+                    Reunions & celebrations
                   </li>
                 </ul>
               </div>
               
               <div className="flex items-center justify-between">
                 <Link 
-                  href="/galleries#events" 
+                  href="/galleries#weddings" 
                   className="inline-flex items-center text-white hover:text-accent"
                 >
-                  View Gallery
+                  View Portfolio
                   <svg 
                     xmlns="http://www.w3.org/2000/svg" 
                     className="ml-2 h-4 w-4" 
@@ -366,7 +367,7 @@ export default function Home() {
                   href="/bookings" 
                   className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-accent hover:text-accent/80"
                 >
-                  Book Now
+                  Capture Your Story
                 </Link>
               </div>
             </div>
@@ -381,99 +382,11 @@ export default function Home() {
       </SectionBackground>
       
       {/* Testimonials Section */}
-      <SectionBackground variant="secondary" paddingY="xl">
-        <div className="mb-16 text-center">
-          <h2 className="font-cormorant text-4xl font-semibold md:text-5xl">
-            Client Testimonials
-          </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
-            What my clients are saying about their experience
-          </p>
-        </div>
-        
-        {/* Social Proof Metrics */}
-        <div className="mb-12 grid grid-cols-2 gap-6 md:grid-cols-4">
-          <div className="rounded-xl bg-background p-6 text-center shadow-soft">
-            <div className="font-cormorant text-3xl font-semibold text-primary md:text-4xl">
-              200+
-            </div>
-            <p className="mt-2 text-sm text-muted-foreground md:text-base">
-              Happy Clients
-            </p>
-          </div>
-          <div className="rounded-xl bg-background p-6 text-center shadow-soft">
-            <div className="font-cormorant text-3xl font-semibold text-primary md:text-4xl">
-              4.9
-            </div>
-            <p className="mt-2 text-sm text-muted-foreground md:text-base">
-              Average Rating
-            </p>
-          </div>
-          <div className="rounded-xl bg-background p-6 text-center shadow-soft">
-            <div className="font-cormorant text-3xl font-semibold text-primary md:text-4xl">
-              10+
-            </div>
-            <p className="mt-2 text-sm text-muted-foreground md:text-base">
-              Years Experience
-            </p>
-          </div>
-          <div className="rounded-xl bg-background p-6 text-center shadow-soft">
-            <div className="font-cormorant text-3xl font-semibold text-primary md:text-4xl">
-              50+
-            </div>
-            <p className="mt-2 text-sm text-muted-foreground md:text-base">
-              Events Per Year
-            </p>
-          </div>
-        </div>
-        
-        {/* Testimonial Carousel */}
-        <div className="relative px-4 md:px-12">
-          <TestimonialCarousel 
-            testimonials={[
-              {
-                quote: "Jason made our wedding day so special with his incredible photography. He captured every moment perfectly and made us feel completely at ease. The photos are absolutely stunning!",
-                name: "Sarah & Michael",
-                role: "Wedding Photography",
-                image: "/images/optimized/couples/couple-2.webp",
-                rating: 5
-              },
-              {
-                quote: "I was nervous about my portrait session, but Jason made me feel so comfortable. The results were beyond my expectations - he truly captured my personality in every shot.",
-                name: "Emily Johnson",
-                role: "Portrait Session",
-                image: "/images/optimized/headshots/headshot3.webp",
-                rating: 5
-              },
-              {
-                quote: "Jason photographed our corporate event and delivered exceptional results. He was professional, unobtrusive, and captured all the key moments. We'll definitely be booking him again!",
-                name: "David Williams",
-                role: "Corporate Event",
-                image: "/images/optimized/headshots/headshot7.webp",
-                rating: 5
-              },
-              {
-                quote: "Our family photos turned out amazing! Jason was great with our kids and somehow managed to get everyone looking at the camera at the same time. A true miracle worker!",
-                name: "The Andersons",
-                role: "Family Session",
-                image: "/images/optimized/family/family-2.webp",
-                rating: 5
-              },
-              {
-                quote: "The engagement photos Jason took for us are absolutely perfect. He found the most beautiful locations and made us feel so natural in front of the camera.",
-                name: "Jessica & Tom",
-                role: "Engagement Session",
-                image: "/images/optimized/couples/couple-4.webp",
-                rating: 5
-              }
-            ]}
-          />
-        </div>
-      </SectionBackground>
+      <TestimonialsSection showTestimonials={false} />
       
       {/* CTA Section */}
-      <SectionBackground variant="gradient" paddingY="lg">
-        <div className="mx-auto max-w-3xl rounded-3xl bg-background/80 dark:bg-background/10 backdrop-blur-md p-12 text-center">
+      <SectionBackground variant="primary" paddingY="lg">
+        <div className="mx-auto max-w-3xl text-center">
           <h2 className="font-cormorant text-3xl font-semibold md:text-4xl">
             Ready to Book Your Photography Session?
           </h2>
