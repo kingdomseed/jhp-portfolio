@@ -59,7 +59,7 @@ export default function BookingsPage() {
                 key="email"
                 icon="envelope" 
                 title="Email" 
-                content="info@jasonholtphotography.com" 
+                content="hello@jasonholtphotography.com" 
               />
               <ContactCard 
                 key="journey"

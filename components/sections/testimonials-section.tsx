@@ -49,12 +49,12 @@ export function TestimonialsSection({
                 <path d="M2 12h20" />
               </svg>
             </div>
-            <div className="font-cormorant text-3xl font-semibold text-primary md:text-4xl">
-              3
-            </div>
-            <p className="mt-1 text-sm text-muted-foreground md:text-base">
-              Continents Captured
-            </p>
+              <div className="font-cormorant text-3xl font-semibold text-primary md:text-4xl">
+                3
+              </div>
+              <p className="mt-1 text-sm text-muted-foreground md:text-base">
+                Continents Captured
+              </p>
           </div>
         </div>
         

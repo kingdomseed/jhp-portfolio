@@ -77,8 +77,7 @@ export default function TermsOfServicePage() {
             For questions regarding these terms, please contact Jason Holt Photography at:
           </p>
           <p>
-            Email: info@jasonholtphotography.com<br />
-            Phone: +49 123 456 7890
+            Email: hello@jasonholtphotography.com<br />
           </p>
           
           <p className="text-sm text-muted-foreground mt-8">

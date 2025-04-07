@@ -252,15 +252,8 @@ export default function ContactPage() {
                     <ContactInfoCard 
                       icon="envelope" 
                       title="Email" 
-                      content="info@jasonholtphotography.com"
-                      link="mailto:info@jasonholtphotography.com"
-                    />
-                    
-                    <ContactInfoCard 
-                      icon="phone" 
-                      title="Phone" 
-                      content="+49 123 456 7890"
-                      link="tel:+491234567890"
+                      content="hello@jasonholtphotography.com"
+                      link="mailto:hello@jasonholtphotography.com"
                     />
                     
                     <ContactInfoCard 

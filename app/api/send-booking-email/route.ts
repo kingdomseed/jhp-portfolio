@@ -155,8 +155,8 @@ function formatBookingForEmail(
 // Send email function
 async function sendEmail(emailContent: string): Promise<boolean> {
   // Get email configuration from environment variables
-  const EMAIL_TO = process.env.NOTIFICATION_EMAIL || 'info@jasonholtphotography.com';
-  const EMAIL_FROM = process.env.EMAIL_FROM || 'bookings@jasonholtphotography.com';
+  const EMAIL_TO = process.env.NOTIFICATION_EMAIL || 'hello@jasonholtphotography.com';
+  const EMAIL_FROM = process.env.EMAIL_FROM || 'hello@jasonholtphotography.com';
   
   console.log('Preparing to send email to:', EMAIL_TO);
   
