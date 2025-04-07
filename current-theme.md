@@ -43,7 +43,21 @@ The site offers the following services:
    - Link: /galleries#events
 
 ## Theme Colors
-Based on the tailwind.config.ts file, the site uses the following color scheme:
-- Primary: #3a5f56 (Deep teal)
-- Primary Light: #7ed6b9 (Light teal)
-- Accent: #0089c7 (Blue accent)
+The site uses the following earth tone color palette:
+- **Background**: #F3F2EE (Isabelline)
+- **Primary**: #414836 (Black Olive)
+- **Primary Light**: #828069 (Reseda Green)
+- **Secondary**: #C7C6B4 (Bone-2)
+- **Muted**: #DAD4C4 (Bone)
+- **Accent**: #B09163 (Lion)
+
+### Color Role Assignment
+- **Text & Headers**: Black Olive (#414836)
+- **Background**: Isabelline (#F3F2EE)
+- **Primary CTAs**: Black Olive (#414836) with white text
+- **Secondary CTAs**: Lion (#B09163) with white text
+- **Borders & Dividers**: Bone (#DAD4C4)
+- **Highlights & Accents**: Lion (#B09163)
+
+### Dark Mode
+Dark mode inverts the color roles, with Black Olive becoming the background and Isabelline becoming the text color. Primary and accent colors are adjusted for appropriate contrast.

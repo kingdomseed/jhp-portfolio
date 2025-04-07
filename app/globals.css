@@ -7,32 +7,32 @@
 @layer base {
   :root {
     /* Base colors */
-    --background: 0 0% 100%;
-    --foreground: 220 10% 21%;
+    --background: 48 17% 94%; /* Isabelline: #F3F2EEff */
+    --foreground: 83 14% 25%; /* Black Olive: #414836ff */
     
     /* Card colors */
-    --card: 0 0% 100%;
-    --card-foreground: 220 10% 21%;
+    --card: 48 17% 94%;
+    --card-foreground: 83 14% 25%;
     
     /* Popover colors */
-    --popover: 0 0% 100%;
-    --popover-foreground: 220 10% 21%;
+    --popover: 48 17% 94%;
+    --popover-foreground: 83 14% 25%;
     
-    /* Primary colors - Teal */
-    --primary: 158 24% 30%;
-    --primary-light: 158 50% 67%;
+    /* Primary colors */
+    --primary: 83 14% 25%; /* Black Olive: #414836ff */
+    --primary-light: 55 11% 46%; /* Reseda Green: #828069ff */
     --primary-foreground: 0 0% 100%;
     
     /* Secondary colors */
-    --secondary: 210 3% 48%;
-    --secondary-foreground: 0 0% 100%;
+    --secondary: 57 15% 74%; /* Bone: #C7C6B4ff */
+    --secondary-foreground: 83 14% 25%;
     
     /* Muted colors */
-    --muted: 210 20% 98%;
-    --muted-foreground: 215 5% 65%;
+    --muted: 44 23% 81%; /* Bone-2: #DAD4C4ff */
+    --muted-foreground: 83 14% 40%;
     
-    /* Accent colors - Blue */
-    --accent: 200 100% 39%;
+    /* Accent colors */
+    --accent: 36 33% 54%; /* Lion: #B09163ff */
     --accent-foreground: 0 0% 100%;
     
     /* Destructive colors */
@@ -40,9 +40,9 @@
     --destructive-foreground: 0 0% 100%;
     
     /* UI colors */
-    --border: 214 32% 91%;
-    --input: 214 32% 91%;
-    --ring: 200 100% 39%;
+    --border: 44 23% 81%;
+    --input: 44 23% 81%;
+    --ring: 83 14% 25%;
     
     /* Border radius */
     --radius: 0.5rem;
@@ -50,42 +50,42 @@
  
   .dark {
     /* Base colors */
-    --background: 220 20% 10%;
-    --foreground: 0 0% 95%;
+    --background: 83 14% 25%; /* Black Olive: #414836ff */
+    --foreground: 48 17% 94%; /* Isabelline: #F3F2EEff */
     
     /* Card colors */
-    --card: 220 20% 12%;
-    --card-foreground: 0 0% 95%;
+    --card: 83 14% 22%;
+    --card-foreground: 48 17% 94%;
     
     /* Popover colors */
-    --popover: 220 20% 12%;
-    --popover-foreground: 0 0% 95%;
+    --popover: 83 14% 22%;
+    --popover-foreground: 48 17% 94%;
     
-    /* Primary colors - Teal */
-    --primary: 158 24% 40%;
-    --primary-light: 158 50% 67%;
+    /* Primary colors */
+    --primary: 55 11% 46%; /* Reseda Green: #828069ff */
+    --primary-light: 44 23% 81%; /* Bone-2: #DAD4C4ff */
     --primary-foreground: 0 0% 100%;
     
     /* Secondary colors */
-    --secondary: 210 3% 30%;
-    --secondary-foreground: 0 0% 95%;
+    --secondary: 36 33% 54%; /* Lion: #B09163ff */
+    --secondary-foreground: 48 17% 94%;
     
     /* Muted colors */
-    --muted: 220 20% 18%;
-    --muted-foreground: 215 5% 65%;
+    --muted: 83 14% 18%;
+    --muted-foreground: 44 23% 81%;
     
-    /* Accent colors - Blue */
-    --accent: 200 100% 39%;
-    --accent-foreground: 0 0% 100%;
+    /* Accent colors */
+    --accent: 57 15% 74%; /* Bone: #C7C6B4ff */
+    --accent-foreground: 83 14% 25%;
     
     /* Destructive colors */
-    --destructive: 0 72% 45%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive: 0 62% 55%;
+    --destructive-foreground: 0 0% 100%;
     
     /* UI colors */
-    --border: 220 20% 20%;
-    --input: 220 20% 20%;
-    --ring: 200 100% 39%;
+    --border: 83 14% 30%;
+    --input: 83 14% 30%;
+    --ring: 55 11% 46%;
   }
 }
  
@@ -122,7 +122,7 @@
 }
 
 .blob-1 {
-  background-color: hsla(158, 50%, 67%, 0.3);
+  background-color: hsla(55, 11%, 46%, 0.3); /* Reseda Green */
   width: 300px;
   height: 300px;
   border-radius: 9999px;
@@ -130,7 +130,7 @@
 }
 
 .blob-2 {
-  background-color: hsla(200, 100%, 39%, 0.2);
+  background-color: hsla(36, 33%, 54%, 0.2); /* Lion */
   width: 250px;
   height: 250px;
   border-radius: 9999px;
@@ -138,7 +138,7 @@
 }
 
 .blob-3 {
-  background-color: hsla(158, 24%, 30%, 0.2);
+  background-color: hsla(83, 14%, 25%, 0.2); /* Black Olive */
   width: 200px;
   height: 200px;
   border-radius: 9999px;
