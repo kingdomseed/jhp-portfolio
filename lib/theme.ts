@@ -2,44 +2,35 @@ export type SiteConfig = typeof siteConfig
 
 export const siteConfig = {
   name: "Jason Holt Photography",
-  description: "Professional photographer specializing in portraits, events, engagements, and weddings.",
+  description: "Capturing your life's timeless journey, one moment at a time.",
   mainNav: [
     {
       title: "Home",
       href: "/",
     },
     {
-      title: "Services",
-      href: "/services",
+      title: "About",
+      href: "/about",
     },
     {
       title: "Galleries",
       href: "/galleries",
     },
     {
-      title: "Bookings",
-      href: "/bookings",
+      title: "Experience",
+      href: "/experience",
     },
     {
-      title: "About",
-      items: [
-        {
-          title: "About Jason",
-          href: "/about",
-        },
-        {
-          title: "Testimonials",
-          href: "/testimonials",
-        },
-        {
-          title: "Blog",
-          href: "/blog",
-        },
-        {
-          title: "Contact",
-          href: "/contact",
-        },
-      ],
+      title: "Journal",
+      href: "/journal",
+    },
+    {
+      title: "Contact",
+      href: "/contact",
+    },
+    {
+      title: "Bookings",
+      href: "/bookings",
     },
   ],
   links: {
@@ -49,34 +40,28 @@ export const siteConfig = {
   },
   services: [
     {
-      title: "Portraits",
-      description: "Professional portraits that capture your authentic self",
-      image: "/images/optimized/portraits/portrait-1.webp",
-      href: "/galleries#portraits",
+      title: "Families & Babies",
+      description: "Documenting precious early moments and family connections",
+      image: "/images/optimized/family/family-1.webp",
+      href: "/galleries#families",
     },
     {
-      title: "Weddings",
-      description: "Documenting your special day with care and creativity",
+      title: "Young Adults & Graduates",
+      description: "Celebrating milestones and achievements with authentic portraits",
+      image: "/images/optimized/portraits/senior-26.webp",
+      href: "/galleries#graduates",
+    },
+    {
+      title: "Couples & Engagements",
+      description: "Capturing the joy and connection of your relationship",
+      image: "/images/optimized/couples/couple-1.webp",
+      href: "/galleries#couples",
+    },
+    {
+      title: "Weddings & Celebrations",
+      description: "Telling the story of your special days and meaningful events",
       image: "/images/optimized/couples/couple-3.webp",
       href: "/galleries#weddings",
-    },
-    {
-      title: "Engagements",
-      description: "Celebrate your commitment with beautiful engagement photos",
-      image: "/images/optimized/couples/couple-1.webp",
-      href: "/galleries#engagements",
-    },
-    {
-      title: "Events",
-      description: "Professional coverage for your special events and celebrations",
-      image: "/images/optimized/events/event-1.webp",
-      href: "/galleries#events",
-    },
-    {
-      title: "Family",
-      description: "Capture precious moments with your loved ones",
-      image: "/images/optimized/family/family-1.webp",
-      href: "/galleries#family",
     },
   ],
 }

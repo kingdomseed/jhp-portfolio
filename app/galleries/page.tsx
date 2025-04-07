@@ -39,12 +39,10 @@ function shuffleArray<T>(array: T[]): T[] {
 export default function GalleriesPage() {
   // One state object for all gallery images, organized by category
   const [galleryImages, setGalleryImages] = useState<Record<string, GalleryImage[]>>({
-    portraits: [],
-    headshots: [],
-    family: [],
-    events: [],
-    engagements: [],
-    weddings: []
+    families: [], // Families & Babies
+    graduates: [], // Young Adults & Graduates
+    couples: [],   // Couples & Engagements
+    weddings: []   // Weddings & Celebrations
   });
   
   // Basic UI states
@@ -68,12 +66,10 @@ export default function GalleriesPage() {
         
         // Process metadata into categories
         const categories: Record<string, GalleryImage[]> = {
-          portraits: [],
-          headshots: [],
-          family: [],
-          events: [],
-          engagements: [],
-          weddings: []
+          families: [], // Families & Babies
+          graduates: [], // Young Adults & Graduates
+          couples: [],   // Couples & Engagements
+          weddings: []   // Weddings & Celebrations
         };
         
         // Process each image path
@@ -84,12 +80,30 @@ export default function GalleriesPage() {
           // Extract category from path using simple regex patterns
           let category: keyof typeof categories | null = null;
           
-          if (imagePath.match(/\/(optimized\/)?portraits\//i)) category = 'portraits';
-          else if (imagePath.match(/\/(optimized\/)?headshots\//i)) category = 'headshots';
-          else if (imagePath.match(/\/(optimized\/)?family\//i)) category = 'family';
-          else if (imagePath.match(/\/(optimized\/)?events\//i)) category = 'events';
-          else if (imagePath.match(/\/(optimized\/)?couples\//i)) category = 'engagements';
-          else if (imagePath.match(/\/(optimized\/)?weddings\//i)) category = 'weddings';
+          // Map old categories to new focus areas
+          if (imagePath.match(/\/(optimized\/)?family\//i)) {
+            category = 'families'; // Families & Babies
+          } 
+          else if (imagePath.match(/\/(optimized\/)?portraits\/senior/i) || 
+                  imagePath.match(/\/(optimized\/)?headshots\//i)) {
+            category = 'graduates'; // Young Adults & Graduates
+          }
+          else if (imagePath.match(/\/(optimized\/)?couples\//i) || 
+                  imagePath.match(/\/(optimized\/)?engagements\//i)) {
+            category = 'couples'; // Couples & Engagements
+          }
+          else if (imagePath.match(/\/(optimized\/)?weddings\//i) || 
+                  imagePath.match(/\/(optimized\/)?events\//i)) {
+            category = 'weddings'; // Weddings & Celebrations (includes events)
+          }
+          // If it's a portrait but not a senior portrait, put it in the most appropriate category
+          else if (imagePath.match(/\/(optimized\/)?portraits\//i)) {
+            if (imagePath.includes('family')) {
+              category = 'families';
+            } else {
+              category = 'graduates'; // Default for other portraits
+            }
+          }
           
           if (category) {
             // Extract a numeric part for date generation
@@ -187,10 +201,11 @@ export default function GalleriesPage() {
         <section className="text-center mb-16">
           <span className="text-sm uppercase tracking-wider text-muted-foreground">Portfolio</span>
           <h1 className="font-cormorant text-4xl md:text-5xl lg:text-6xl font-semibold mt-2">
-            Photo Gallery
+            Life&apos;s Journey Through My Lens
           </h1>
           <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
-            Explore my portfolio of captured moments and artistic vision.
+            From first breaths to graduation caps, engagement rings to wedding bells — 
+            browse my portfolio documenting life&apos;s beautiful journey.
           </p>
           <div className="mt-6">
             <Button asChild variant="outline" className="rounded-full">
@@ -209,12 +224,38 @@ export default function GalleriesPage() {
         {/* Gallery with Filters */}
         <section className="mb-16">
           <div className="mb-8">
-            <h2 className="font-cormorant text-3xl font-semibold text-center mb-6">Browse My Work</h2>
+            <h2 className="font-cormorant text-3xl font-semibold text-center mb-6">Browse By Life Stage</h2>
+            
+            {/* Category descriptions based on active category */}
+            <div className="text-center mb-6">
+              {activeCategory === "families" && (
+                <p className="text-muted-foreground">Newborn photography, family portraits, childhood milestones, and family gatherings that celebrate your growing journey.</p>
+              )}
+              {activeCategory === "graduates" && (
+                <p className="text-muted-foreground">Senior portraits, graduation sessions, and milestone moments capturing the transition to adulthood.</p>
+              )}
+              {activeCategory === "couples" && (
+                <p className="text-muted-foreground">Proposals, engagements, anniversaries, and intimate couple sessions that document your love story.</p>
+              )}
+              {activeCategory === "weddings" && (
+                <p className="text-muted-foreground">Weddings, vow renewals, celebrations, performances, reunions, and special occasions worth remembering.</p>
+              )}
+              {activeCategory === "all" && (
+                <p className="text-muted-foreground">A journey through all of life&apos;s meaningful moments, from first smiles to forever partnerships.</p>
+              )}
+            </div>
             
             {/* Gallery Filters Component */}
             <div>
               <GalleryFilters 
                 categories={Object.keys(galleryImages)}
+                categoryLabels={{
+                  families: "Families & Babies",
+                  graduates: "Young Adults & Graduates",
+                  couples: "Couples & Engagements",
+                  weddings: "Weddings & Celebrations",
+                  all: "All Moments"
+                }}
                 onCategoryChange={handleCategoryChange}
                 onRefresh={handleRefresh}
               />
@@ -240,6 +281,16 @@ export default function GalleriesPage() {
             />
           )}
         </section>
+        
+        {/* CTA Section */}
+        <div className="text-center mb-16">
+          <p className="text-muted-foreground max-w-2xl mx-auto mb-8">
+            Ready to create your own beautiful memories? Let&apos;s work together to document your special moments.
+          </p>
+          <Button asChild size="lg" className="rounded-full px-8">
+            <Link href="/bookings">Capture Your Story →</Link>
+          </Button>
+        </div>
       </div>
 
       {/* Lightbox Component */}

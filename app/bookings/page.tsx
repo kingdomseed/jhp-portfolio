@@ -33,12 +33,12 @@ export default function BookingsPage() {
       <div className="container py-20">
         {/* Hero Section */}
         <section className="text-center mb-16">
-          <span className="text-sm uppercase tracking-wider text-muted-foreground">Schedule</span>
+          <span className="text-sm uppercase tracking-wider text-muted-foreground">Celebrate Your Story</span>
           <h1 className="font-cormorant text-4xl md:text-5xl lg:text-6xl font-semibold mt-2">
-            Book a Session
+            Book Your Photography Session
           </h1>
           <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
-            Schedule your photography session with a simple step-by-step process.
+            From first smiles to milestone celebrations, let&apos;s document the beautiful chapters of your life&apos;s journey together.
           </p>
         </section>
 
@@ -50,8 +50,8 @@ export default function BookingsPage() {
         {/* Contact Info Section */}
         <Card className="mb-12">
           <CardHeader>
-            <h2 className="font-cormorant text-2xl font-semibold">Get in Touch</h2>
-            <p className="text-muted-foreground">Have questions? I&apos;m here to help.</p>
+            <h2 className="font-cormorant text-2xl font-semibold">Questions About Your Session?</h2>
+            <p className="text-muted-foreground">Every life stage deserves to be beautifully documented. I&apos;m here to help you plan the perfect photography experience.</p>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -62,10 +62,10 @@ export default function BookingsPage() {
                 content="info@jasonholtphotography.com" 
               />
               <ContactCard 
-                key="location"
-                icon="map-marker-alt" 
-                title="Location" 
-                content="Frankfurt am Main, Germany" 
+                key="journey"
+                icon="camera" 
+                title="Life's Journey" 
+                content="Families & Babies, Young Adults & Graduates, Couples & Engagements, Weddings & Celebrations" 
               />
               <ContactCard 
                 key="response"

@@ -113,10 +113,10 @@ export default function ContactPage() {
         <section className="text-center mb-16">
           <span className="text-sm uppercase tracking-wider text-muted-foreground">Get in Touch</span>
           <h1 className="font-cormorant text-4xl md:text-5xl lg:text-6xl font-semibold mt-2">
-            Contact Me
+            Let&apos;s Tell Your Story
           </h1>
           <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
-            Have questions or ready to book a session? I&apos;d love to hear from you.
+            Ready to document your life&apos;s journey? I&apos;d love to hear about the moments you want to celebrate and preserve.
           </p>
         </section>
 
@@ -124,7 +124,7 @@ export default function ContactPage() {
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
           {/* Contact Form */}
           <Card className="p-8">
-            <h2 className="font-cormorant text-2xl font-semibold text-primary mb-6">Send a Message</h2>
+            <h2 className="font-cormorant text-2xl font-semibold text-primary mb-6">Share Your Vision</h2>
             
             {isSuccess ? (
               <div className="bg-green-50 border border-green-200 text-green-700 rounded-lg p-4 mb-6">
@@ -134,7 +134,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <p className="font-medium">Message sent successfully!</p>
-                    <p className="text-sm">Thank you for reaching out. I&apos;ll get back to you as soon as possible.</p>
+                    <p className="text-sm">Thank you for sharing your story with me. I&apos;ll get back to you within 24-48 hours to discuss how we can capture your special moments.</p>
                   </div>
                 </div>
               </div>
@@ -320,9 +320,9 @@ export default function ContactPage() {
               ></iframe>
             </div>
             
-            <p className="text-muted-foreground mt-4">
-              Based in Frankfurt am Main, serving clients throughout Hessen and beyond.
-            </p>
+              <p className="text-muted-foreground mt-4">
+                Based in Frankfurt am Main, I document life&apos;s journeys throughout Hessen and beyond. Whether you&apos;re celebrating a new baby, graduation, engagement, or wedding, I&apos;m available to travel to your special location.
+              </p>
           </Card>
         </section>
 
@@ -330,14 +330,14 @@ export default function ContactPage() {
         <section>
           <div className="mx-auto max-w-3xl rounded-3xl bg-primary/10 p-12 text-center">
             <h2 className="font-cormorant text-3xl font-semibold md:text-4xl">
-              Ready to Book Your Photography Session?
+              Ready to Celebrate Your Moments?
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-lg text-muted-foreground">
-              Skip the contact form and go directly to my booking page to schedule your session.
+              From first smiles to graduation caps, engagement rings to wedding bells — I&apos;m here to document every chapter of your life&apos;s journey.
             </p>
             <div className="mt-8">
               <Button asChild size="lg" className="rounded-full px-8 text-lg">
-                <Link href="/bookings">Book Now</Link>
+                <Link href="/bookings">Book Your Session →</Link>
               </Button>
             </div>
           </div>

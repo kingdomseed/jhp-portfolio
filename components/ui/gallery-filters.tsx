@@ -9,13 +9,15 @@ interface GalleryFiltersProps {
   onCategoryChange: (category: string) => void
   onRefresh: () => void
   className?: string
+  categoryLabels?: Record<string, string>
 }
 
 export function GalleryFilters({
   categories,
   onCategoryChange,
   onRefresh,
-  className
+  className,
+  categoryLabels
 }: GalleryFiltersProps) {
   const [activeCategory, setActiveCategory] = useState<string>("all")
 
@@ -35,7 +37,7 @@ export function GalleryFilters({
             className="rounded-full"
             onClick={() => handleCategoryChange("all")}
           >
-            All
+            {categoryLabels && categoryLabels["all"] ? categoryLabels["all"] : "All"}
           </Button>
           
           {categories.map((category) => (
@@ -46,7 +48,9 @@ export function GalleryFilters({
               className="rounded-full"
               onClick={() => handleCategoryChange(category)}
             >
-              {category.charAt(0).toUpperCase() + category.slice(1)}
+              {categoryLabels && categoryLabels[category] 
+                ? categoryLabels[category] 
+                : category.charAt(0).toUpperCase() + category.slice(1)}
             </Button>
           ))}
         </div>
