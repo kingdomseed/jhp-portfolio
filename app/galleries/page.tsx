@@ -42,7 +42,8 @@ export default function GalleriesPage() {
     families: [], // Families & Babies
     graduates: [], // Young Adults & Graduates
     couples: [],   // Couples & Engagements
-    weddings: []   // Weddings & Celebrations
+    weddings: [],  // Weddings & Celebrations
+    professional: [] // Professional & Corporate
   });
   
   // Basic UI states
@@ -69,7 +70,8 @@ export default function GalleriesPage() {
           families: [], // Families & Babies
           graduates: [], // Young Adults & Graduates
           couples: [],   // Couples & Engagements
-          weddings: []   // Weddings & Celebrations
+          weddings: [],  // Weddings & Celebrations
+          professional: [] // Professional & Corporate
         };
         
         // Process each image path
@@ -84,9 +86,11 @@ export default function GalleriesPage() {
           if (imagePath.match(/\/(optimized\/)?family\//i)) {
             category = 'families'; // Families & Babies
           } 
-          else if (imagePath.match(/\/(optimized\/)?portraits\/senior/i) || 
-                  imagePath.match(/\/(optimized\/)?headshots\//i)) {
+          else if (imagePath.match(/\/(optimized\/)?portraits\/senior/i)) {
             category = 'graduates'; // Young Adults & Graduates
+          }
+          else if (imagePath.match(/\/(optimized\/)?headshots\//i)) {
+            category = 'professional'; // Professional & Corporate
           }
           else if (imagePath.match(/\/(optimized\/)?couples\//i) || 
                   imagePath.match(/\/(optimized\/)?engagements\//i)) {
@@ -240,6 +244,9 @@ export default function GalleriesPage() {
               {activeCategory === "weddings" && (
                 <p className="text-muted-foreground">Weddings, vow renewals, celebrations, performances, reunions, and special occasions worth remembering.</p>
               )}
+              {activeCategory === "professional" && (
+                <p className="text-muted-foreground">Business headshots, corporate teams, workplace branding, and professional profiles that enhance your career story.</p>
+              )}
               {activeCategory === "all" && (
                 <p className="text-muted-foreground">A journey through all of life&apos;s meaningful moments, from first smiles to forever partnerships.</p>
               )}
@@ -254,6 +261,7 @@ export default function GalleriesPage() {
                   graduates: "Young Adults & Graduates",
                   couples: "Couples & Engagements",
                   weddings: "Weddings & Celebrations",
+                  professional: "Professional & Corporate",
                   all: "All Moments"
                 }}
                 onCategoryChange={handleCategoryChange}

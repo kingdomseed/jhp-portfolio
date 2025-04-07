@@ -89,12 +89,13 @@ export default function Home() {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {/* First Row */}
           {/* Service Card 1 - Families & Babies */}
           <div className="group relative overflow-hidden rounded-2xl shadow-soft transition-all hover:shadow-hover">
             <div className="aspect-[4/5] w-full">
               <Image 
-                src="/images/optimized/family/family1.webp" 
+                src="/images/optimized/family/family-1.webp" 
                 alt="Family & Baby Photography" 
                 width={400} 
                 height={500}
@@ -303,6 +304,7 @@ export default function Home() {
             </div>
           </div>
           
+          {/* Second Row */}
           {/* Service Card 4 - Weddings & Celebrations */}
           <div className="group relative overflow-hidden rounded-2xl shadow-soft transition-all hover:shadow-hover">
             <div className="aspect-[4/5] w-full">
@@ -349,6 +351,76 @@ export default function Home() {
               <div className="flex items-center justify-between">
                 <Link 
                   href="/galleries#weddings" 
+                  className="inline-flex items-center text-white hover:text-accent"
+                >
+                  View Portfolio
+                  <svg 
+                    xmlns="http://www.w3.org/2000/svg" 
+                    className="ml-2 h-4 w-4" 
+                    fill="none" 
+                    viewBox="0 0 24 24" 
+                    stroke="currentColor"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </Link>
+                
+                <Link 
+                  href="/bookings" 
+                  className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-accent hover:text-accent/80"
+                >
+                  Capture Your Story
+                </Link>
+              </div>
+            </div>
+          </div>
+          
+          {/* Service Card 5 - Professional & Corporate */}
+          <div className="group relative overflow-hidden rounded-2xl shadow-soft transition-all hover:shadow-hover">
+            <div className="aspect-[4/5] w-full">
+              <Image 
+                src="/images/optimized/headshots/headshot5.webp" 
+                alt="Professional & Corporate Photography" 
+                width={400} 
+                height={500}
+                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+            </div>
+            {/* Base content - always visible */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent p-6 flex flex-col justify-end transition-all duration-300 group-hover:from-black/90">
+              <div className="absolute top-4 right-4 bg-accent/90 text-white text-xs px-3 py-1 rounded-full">
+                From €350
+              </div>
+              <h3 className="text-2xl font-semibold text-white">Professional & Corporate</h3>
+              <p className="mt-2 text-white/80">Elevating your professional image with authentic portraits</p>
+              
+              {/* Additional details - revealed on hover */}
+              <div className="max-h-0 overflow-hidden opacity-0 transition-all duration-300 group-hover:max-h-40 group-hover:opacity-100 group-hover:mt-4">
+                <ul className="text-white/80 text-sm space-y-1 mb-4">
+                  <li className="flex items-center">
+                    <svg className="w-4 h-4 mr-2 text-accent" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path>
+                    </svg>
+                    Business headshots
+                  </li>
+                  <li className="flex items-center">
+                    <svg className="w-4 h-4 mr-2 text-accent" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path>
+                    </svg>
+                    Corporate team photos
+                  </li>
+                  <li className="flex items-center">
+                    <svg className="w-4 h-4 mr-2 text-accent" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path>
+                    </svg>
+                    Professional branding
+                  </li>
+                </ul>
+              </div>
+              
+              <div className="flex items-center justify-between">
+                <Link 
+                  href="/galleries#professional" 
                   className="inline-flex items-center text-white hover:text-accent"
                 >
                   View Portfolio

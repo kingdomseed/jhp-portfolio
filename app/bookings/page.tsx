@@ -65,7 +65,7 @@ export default function BookingsPage() {
                 key="journey"
                 icon="camera" 
                 title="Life's Journey" 
-                content="Families & Babies, Young Adults & Graduates, Couples & Engagements, Weddings & Celebrations" 
+                content="Families & Babies, Young Adults & Graduates, Couples & Engagements, Weddings & Celebrations, Professional & Corporate" 
               />
               <ContactCard 
                 key="response"
