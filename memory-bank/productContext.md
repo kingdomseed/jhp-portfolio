@@ -8,7 +8,7 @@ Organized by life journey stages:
 
 1. **Families & Babies:** Parents seeking newborn photography, family portraits, childhood milestones, and family gathering documentation
 2. **Young Adults & Graduates:** Teens, college students, and parents seeking senior portraits, graduation sessions, and young adult milestones
-3. **Couples & Engagements:** Partners looking for proposal, engagement, anniversary, and intimate couple sessions
+3. **Couples & Engagements:** Partners looking for proposal, engagement, anniversary, and milestone couple sessions
 4. **Weddings & Celebrations:** Clients seeking wedding photography, vow renewals, event documentation, performances, reunions, and special occasions
 
 ## User Journey
